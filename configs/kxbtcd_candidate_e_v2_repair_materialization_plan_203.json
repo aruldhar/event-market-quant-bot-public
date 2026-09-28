@@ -1,0 +1,3614 @@
+{
+  "counts": {
+    "cross_repair_context_overlap_count": 0,
+    "original_failed_pair_accounting_expected": "748 = 203 + 545",
+    "original_failed_pairs_addressed": 203,
+    "remaining_original_failed_pairs_expected": 545,
+    "repair_operations": 110,
+    "repair_operations_by_source": {
+      "A4": 105,
+      "A5": 3,
+      "JOINT": 2
+    }
+  },
+  "evidence_role": "outcome_blind_execution_cache_repair_plan_freeze",
+  "materialization_contract": {
+    "changed_adjacencies_must_independently_reconstruct_endpoint_book": true,
+    "changed_adjacencies_must_use_required_cut_chain_exactly": true,
+    "network_requests": 0,
+    "orders_placed": 0,
+    "outcomes_accessed": false,
+    "paid_rows_mutated": false,
+    "raw_snapshots_mutated": false,
+    "remaining_545_failed_pairs_are_hard_segment_boundaries": true,
+    "repair_contexts_must_remain_disjoint": true,
+    "repairs_are_applied_to_original_snapshot_indices": true,
+    "silently_dropping_an_unresolved_pair_is_forbidden": true,
+    "strategy_pnl_calculated": false,
+    "strategy_run_in_builder_checkpoint": false,
+    "unchanged_adjacencies_must_preserve_frozen_y_a3_behavior": true
+  },
+  "repairs": [
+    {
+      "kind": "ordering",
+      "original_context_snapshot_indices": [
+        1515,
+        1516,
+        1517,
+        1518,
+        1519,
+        1520
+      ],
+      "original_failed_pair_indices_addressed": [
+        1517
+      ],
+      "quarantined_snapshot_indices": [],
+      "repair_id": "A4-1",
+      "required_cut_chain": [
+        2,
+        1,
+        1,
+        2,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        1515,
+        1516,
+        1518,
+        1517,
+        1519,
+        1520
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1013-T64099.99"
+    },
+    {
+      "kind": "ordering",
+      "original_context_snapshot_indices": [
+        2532,
+        2533,
+        2534,
+        2535,
+        2536,
+        2537
+      ],
+      "original_failed_pair_indices_addressed": [
+        2534
+      ],
+      "quarantined_snapshot_indices": [],
+      "repair_id": "A4-2",
+      "required_cut_chain": [
+        2,
+        1,
+        1,
+        2,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        2532,
+        2533,
+        2535,
+        2534,
+        2536,
+        2537
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1013-T64099.99"
+    },
+    {
+      "kind": "ordering",
+      "original_context_snapshot_indices": [
+        2547,
+        2548,
+        2549,
+        2550,
+        2551,
+        2552
+      ],
+      "original_failed_pair_indices_addressed": [
+        2549
+      ],
+      "quarantined_snapshot_indices": [],
+      "repair_id": "A4-3",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        2547,
+        2548,
+        2550,
+        2549,
+        2551,
+        2552
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1013-T64099.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        2941,
+        2942,
+        2943,
+        2944,
+        2945
+      ],
+      "original_failed_pair_indices_addressed": [
+        2942,
+        2943
+      ],
+      "quarantined_snapshot_indices": [
+        2943
+      ],
+      "repair_id": "A4-4",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        2941,
+        2942,
+        2944,
+        2945
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1013-T64099.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        3667,
+        3668,
+        3669,
+        3670,
+        3671
+      ],
+      "original_failed_pair_indices_addressed": [
+        3668,
+        3669
+      ],
+      "quarantined_snapshot_indices": [
+        3669
+      ],
+      "repair_id": "A4-5",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        3667,
+        3668,
+        3670,
+        3671
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1013-T64099.99"
+    },
+    {
+      "kind": "ordering",
+      "original_context_snapshot_indices": [
+        1360,
+        1361,
+        1362,
+        1363,
+        1364,
+        1365
+      ],
+      "original_failed_pair_indices_addressed": [
+        1362
+      ],
+      "quarantined_snapshot_indices": [],
+      "repair_id": "A4-1",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        1360,
+        1361,
+        1363,
+        1362,
+        1364,
+        1365
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1013-T64199.99"
+    },
+    {
+      "kind": "ordering",
+      "original_context_snapshot_indices": [
+        2400,
+        2401,
+        2402,
+        2403,
+        2404,
+        2405
+      ],
+      "original_failed_pair_indices_addressed": [
+        2402
+      ],
+      "quarantined_snapshot_indices": [],
+      "repair_id": "A4-2",
+      "required_cut_chain": [
+        1,
+        2,
+        1,
+        5,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        2400,
+        2401,
+        2403,
+        2402,
+        2404,
+        2405
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1013-T64199.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        3036,
+        3037,
+        3038,
+        3039,
+        3040
+      ],
+      "original_failed_pair_indices_addressed": [
+        3037,
+        3038
+      ],
+      "quarantined_snapshot_indices": [
+        3038
+      ],
+      "repair_id": "A4-3",
+      "required_cut_chain": [
+        1,
+        1,
+        2,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        3036,
+        3037,
+        3039,
+        3040
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1013-T64199.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        3456,
+        3457,
+        3458,
+        3459,
+        3460
+      ],
+      "original_failed_pair_indices_addressed": [
+        3457,
+        3458
+      ],
+      "quarantined_snapshot_indices": [
+        3458
+      ],
+      "repair_id": "A4-4",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        3456,
+        3457,
+        3459,
+        3460
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1013-T64199.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        946,
+        947,
+        948,
+        949,
+        950
+      ],
+      "original_failed_pair_indices_addressed": [
+        947,
+        948
+      ],
+      "quarantined_snapshot_indices": [
+        948
+      ],
+      "repair_id": "A4-1",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        946,
+        947,
+        949,
+        950
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1013-T64299.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        2104,
+        2105,
+        2106,
+        2107,
+        2108
+      ],
+      "original_failed_pair_indices_addressed": [
+        2105,
+        2106
+      ],
+      "quarantined_snapshot_indices": [
+        2106
+      ],
+      "repair_id": "A4-2",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        2104,
+        2105,
+        2107,
+        2108
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1013-T64299.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        3266,
+        3267,
+        3268,
+        3269,
+        3270
+      ],
+      "original_failed_pair_indices_addressed": [
+        3267,
+        3268
+      ],
+      "quarantined_snapshot_indices": [
+        3268
+      ],
+      "repair_id": "A4-3",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        3266,
+        3267,
+        3269,
+        3270
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1013-T64299.99"
+    },
+    {
+      "kind": "ordering",
+      "original_context_snapshot_indices": [
+        807,
+        808,
+        809,
+        810,
+        811,
+        812
+      ],
+      "original_failed_pair_indices_addressed": [
+        809
+      ],
+      "quarantined_snapshot_indices": [],
+      "repair_id": "A4-3",
+      "required_cut_chain": [
+        1,
+        1,
+        2,
+        3,
+        2,
+        2
+      ],
+      "required_snapshot_order_original_indices": [
+        807,
+        808,
+        810,
+        809,
+        811,
+        812
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1013-T64399.99"
+    },
+    {
+      "kind": "ordering",
+      "original_context_snapshot_indices": [
+        1608,
+        1609,
+        1610,
+        1611,
+        1612,
+        1613
+      ],
+      "original_failed_pair_indices_addressed": [
+        1610
+      ],
+      "quarantined_snapshot_indices": [],
+      "repair_id": "A4-6",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        2,
+        2,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        1608,
+        1609,
+        1611,
+        1610,
+        1612,
+        1613
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1013-T64399.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        2154,
+        2155,
+        2156,
+        2157,
+        2158
+      ],
+      "original_failed_pair_indices_addressed": [
+        2155,
+        2156
+      ],
+      "quarantined_snapshot_indices": [
+        2156
+      ],
+      "repair_id": "A4-7",
+      "required_cut_chain": [
+        1,
+        2,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        2154,
+        2155,
+        2157,
+        2158
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1013-T64399.99"
+    },
+    {
+      "kind": "joint_outer_target_ordering",
+      "original_context_snapshot_indices": [
+        617,
+        618,
+        619,
+        620,
+        621,
+        622
+      ],
+      "original_failed_pair_indices_addressed": [
+        619
+      ],
+      "quarantined_snapshot_indices": [],
+      "repair_id": "JOINT-3",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        2
+      ],
+      "required_snapshot_order_original_indices": [
+        617,
+        618,
+        620,
+        619,
+        621,
+        622
+      ],
+      "source": "JOINT",
+      "ticker": "KXBTCD-26JUL1013-T64499.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        2199,
+        2200,
+        2201,
+        2202,
+        2203
+      ],
+      "original_failed_pair_indices_addressed": [
+        2200,
+        2201
+      ],
+      "quarantined_snapshot_indices": [
+        2201
+      ],
+      "repair_id": "A4-6",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        2199,
+        2200,
+        2202,
+        2203
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1013-T64499.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008
+      ],
+      "original_failed_pair_indices_addressed": [
+        2005,
+        2006
+      ],
+      "quarantined_snapshot_indices": [
+        2006
+      ],
+      "repair_id": "A4-4",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        2004,
+        2005,
+        2007,
+        2008
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1013-T64599.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        2228,
+        2229,
+        2230,
+        2231,
+        2232
+      ],
+      "original_failed_pair_indices_addressed": [
+        2229,
+        2230
+      ],
+      "quarantined_snapshot_indices": [
+        2230
+      ],
+      "repair_id": "A4-2",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        2228,
+        2229,
+        2231,
+        2232
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1014-T63299.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        1607,
+        1608,
+        1609,
+        1610,
+        1611
+      ],
+      "original_failed_pair_indices_addressed": [
+        1608,
+        1609
+      ],
+      "quarantined_snapshot_indices": [
+        1609
+      ],
+      "repair_id": "A4-2",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        1607,
+        1608,
+        1610,
+        1611
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1014-T63399.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        3533,
+        3534,
+        3535,
+        3536,
+        3537
+      ],
+      "original_failed_pair_indices_addressed": [
+        3534,
+        3535
+      ],
+      "quarantined_snapshot_indices": [
+        3535
+      ],
+      "repair_id": "A4-2",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        3533,
+        3534,
+        3536,
+        3537
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1014-T63499.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        3038,
+        3039,
+        3040,
+        3041,
+        3042
+      ],
+      "original_failed_pair_indices_addressed": [
+        3039,
+        3040
+      ],
+      "quarantined_snapshot_indices": [
+        3040
+      ],
+      "repair_id": "A4-1",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        3038,
+        3039,
+        3041,
+        3042
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1014-T63599.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        3376,
+        3377,
+        3378,
+        3379,
+        3380
+      ],
+      "original_failed_pair_indices_addressed": [
+        3377,
+        3378
+      ],
+      "quarantined_snapshot_indices": [
+        3378
+      ],
+      "repair_id": "A4-2",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        3376,
+        3377,
+        3379,
+        3380
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1014-T63599.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        4482,
+        4483,
+        4484,
+        4485,
+        4486
+      ],
+      "original_failed_pair_indices_addressed": [
+        4483,
+        4484
+      ],
+      "quarantined_snapshot_indices": [
+        4484
+      ],
+      "repair_id": "A4-2",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        2
+      ],
+      "required_snapshot_order_original_indices": [
+        4482,
+        4483,
+        4485,
+        4486
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1014-T63699.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        4669,
+        4670,
+        4671,
+        4672,
+        4673
+      ],
+      "original_failed_pair_indices_addressed": [
+        4670,
+        4671
+      ],
+      "quarantined_snapshot_indices": [
+        4671
+      ],
+      "repair_id": "A4-3",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        4669,
+        4670,
+        4672,
+        4673
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1014-T63699.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        2729,
+        2730,
+        2731,
+        2732,
+        2733
+      ],
+      "original_failed_pair_indices_addressed": [
+        2730,
+        2731
+      ],
+      "quarantined_snapshot_indices": [
+        2731
+      ],
+      "repair_id": "A4-1",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        2729,
+        2730,
+        2732,
+        2733
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1014-T63799.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        3172,
+        3173,
+        3174,
+        3175,
+        3176
+      ],
+      "original_failed_pair_indices_addressed": [
+        3173,
+        3174
+      ],
+      "quarantined_snapshot_indices": [
+        3174
+      ],
+      "repair_id": "A4-2",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        3172,
+        3173,
+        3175,
+        3176
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1014-T63799.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        4761,
+        4762,
+        4763,
+        4764,
+        4765
+      ],
+      "original_failed_pair_indices_addressed": [
+        4762,
+        4763
+      ],
+      "quarantined_snapshot_indices": [
+        4763
+      ],
+      "repair_id": "A4-3",
+      "required_cut_chain": [
+        2,
+        1,
+        4,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        4761,
+        4762,
+        4764,
+        4765
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1014-T63799.99"
+    },
+    {
+      "kind": "ordering",
+      "original_context_snapshot_indices": [
+        1089,
+        1090,
+        1091,
+        1092,
+        1093,
+        1094
+      ],
+      "original_failed_pair_indices_addressed": [
+        1091
+      ],
+      "quarantined_snapshot_indices": [],
+      "repair_id": "A4-1",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        2,
+        2,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        1089,
+        1090,
+        1092,
+        1091,
+        1093,
+        1094
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1014-T63899.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        1176,
+        1177,
+        1178,
+        1179,
+        1180
+      ],
+      "original_failed_pair_indices_addressed": [
+        1177,
+        1178
+      ],
+      "quarantined_snapshot_indices": [
+        1178
+      ],
+      "repair_id": "A4-2",
+      "required_cut_chain": [
+        1,
+        2,
+        1,
+        2
+      ],
+      "required_snapshot_order_original_indices": [
+        1176,
+        1177,
+        1179,
+        1180
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1014-T63899.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        4302,
+        4303,
+        4304,
+        4305,
+        4306
+      ],
+      "original_failed_pair_indices_addressed": [
+        4303,
+        4304
+      ],
+      "quarantined_snapshot_indices": [
+        4304
+      ],
+      "repair_id": "A4-3",
+      "required_cut_chain": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        4302,
+        4303,
+        4305,
+        4306
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1014-T63899.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        2147,
+        2148,
+        2149,
+        2150,
+        2151
+      ],
+      "original_failed_pair_indices_addressed": [
+        2148,
+        2149
+      ],
+      "quarantined_snapshot_indices": [
+        2149
+      ],
+      "repair_id": "A4-2",
+      "required_cut_chain": [
+        2,
+        1,
+        1,
+        2
+      ],
+      "required_snapshot_order_original_indices": [
+        2147,
+        2148,
+        2150,
+        2151
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1014-T63999.99"
+    },
+    {
+      "kind": "ordering",
+      "original_context_snapshot_indices": [
+        2610,
+        2611,
+        2612,
+        2613,
+        2614,
+        2615
+      ],
+      "original_failed_pair_indices_addressed": [
+        2612
+      ],
+      "quarantined_snapshot_indices": [],
+      "repair_id": "A4-1",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        5,
+        2,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        2610,
+        2611,
+        2613,
+        2612,
+        2614,
+        2615
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1014-T63999.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        4396,
+        4397,
+        4398,
+        4399,
+        4400
+      ],
+      "original_failed_pair_indices_addressed": [
+        4397,
+        4398
+      ],
+      "quarantined_snapshot_indices": [
+        4398
+      ],
+      "repair_id": "A4-3",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        4396,
+        4397,
+        4399,
+        4400
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1014-T63999.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        1996,
+        1997,
+        1998,
+        1999,
+        2000
+      ],
+      "original_failed_pair_indices_addressed": [
+        1997,
+        1998
+      ],
+      "quarantined_snapshot_indices": [
+        1998
+      ],
+      "repair_id": "A4-1",
+      "required_cut_chain": [
+        4,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        1996,
+        1997,
+        1999,
+        2000
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1014-T64099.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        2383,
+        2384,
+        2385,
+        2386,
+        2387
+      ],
+      "original_failed_pair_indices_addressed": [
+        2384,
+        2385
+      ],
+      "quarantined_snapshot_indices": [
+        2385
+      ],
+      "repair_id": "A4-2",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        2383,
+        2384,
+        2386,
+        2387
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1014-T64099.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        3400,
+        3401,
+        3402,
+        3403,
+        3404
+      ],
+      "original_failed_pair_indices_addressed": [
+        3401,
+        3402
+      ],
+      "quarantined_snapshot_indices": [
+        3402
+      ],
+      "repair_id": "A4-3",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        3400,
+        3401,
+        3403,
+        3404
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1014-T64099.99"
+    },
+    {
+      "kind": "ordering",
+      "original_context_snapshot_indices": [
+        856,
+        857,
+        858,
+        859,
+        860,
+        861
+      ],
+      "original_failed_pair_indices_addressed": [
+        858
+      ],
+      "quarantined_snapshot_indices": [],
+      "repair_id": "A4-1",
+      "required_cut_chain": [
+        2,
+        1,
+        1,
+        3,
+        1,
+        2
+      ],
+      "required_snapshot_order_original_indices": [
+        856,
+        857,
+        859,
+        858,
+        860,
+        861
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1014-T64199.99"
+    },
+    {
+      "kind": "ordering",
+      "original_context_snapshot_indices": [
+        1238,
+        1239,
+        1240,
+        1241,
+        1242,
+        1243
+      ],
+      "original_failed_pair_indices_addressed": [
+        1240
+      ],
+      "quarantined_snapshot_indices": [],
+      "repair_id": "A4-2",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        1238,
+        1239,
+        1241,
+        1240,
+        1242,
+        1243
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1014-T64199.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        2244,
+        2245,
+        2246,
+        2247,
+        2248
+      ],
+      "original_failed_pair_indices_addressed": [
+        2245,
+        2246
+      ],
+      "quarantined_snapshot_indices": [
+        2246
+      ],
+      "repair_id": "A4-4",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        2244,
+        2245,
+        2247,
+        2248
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1014-T64199.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        3137,
+        3138,
+        3139,
+        3140,
+        3141
+      ],
+      "original_failed_pair_indices_addressed": [
+        3138,
+        3139
+      ],
+      "quarantined_snapshot_indices": [
+        3139
+      ],
+      "repair_id": "A4-5",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        3137,
+        3138,
+        3140,
+        3141
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1014-T64199.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        1177,
+        1178,
+        1179,
+        1180,
+        1181
+      ],
+      "original_failed_pair_indices_addressed": [
+        1178,
+        1179
+      ],
+      "quarantined_snapshot_indices": [
+        1179
+      ],
+      "repair_id": "A4-1",
+      "required_cut_chain": [
+        1,
+        2,
+        1,
+        2
+      ],
+      "required_snapshot_order_original_indices": [
+        1177,
+        1178,
+        1180,
+        1181
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1014-T64299.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        3617,
+        3618,
+        3619,
+        3620,
+        3621
+      ],
+      "original_failed_pair_indices_addressed": [
+        3618,
+        3619
+      ],
+      "quarantined_snapshot_indices": [
+        3619
+      ],
+      "repair_id": "A4-2",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        3617,
+        3618,
+        3620,
+        3621
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1014-T64299.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        1654,
+        1655,
+        1656,
+        1657,
+        1658
+      ],
+      "original_failed_pair_indices_addressed": [
+        1655,
+        1656
+      ],
+      "quarantined_snapshot_indices": [
+        1656
+      ],
+      "repair_id": "A4-1",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        1654,
+        1655,
+        1657,
+        1658
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1014-T64399.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        1889,
+        1890,
+        1891,
+        1892,
+        1893
+      ],
+      "original_failed_pair_indices_addressed": [
+        1890,
+        1891
+      ],
+      "quarantined_snapshot_indices": [
+        1891
+      ],
+      "repair_id": "A4-2",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        1889,
+        1890,
+        1892,
+        1893
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1014-T64399.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        2415,
+        2416,
+        2417,
+        2418,
+        2419
+      ],
+      "original_failed_pair_indices_addressed": [
+        2416,
+        2417
+      ],
+      "quarantined_snapshot_indices": [
+        2417
+      ],
+      "repair_id": "A4-3",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        2415,
+        2416,
+        2418,
+        2419
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1014-T64399.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        172,
+        173,
+        174,
+        175,
+        176
+      ],
+      "original_failed_pair_indices_addressed": [
+        173,
+        174
+      ],
+      "quarantined_snapshot_indices": [
+        174
+      ],
+      "repair_id": "A4-1",
+      "required_cut_chain": [
+        1,
+        2,
+        1,
+        2
+      ],
+      "required_snapshot_order_original_indices": [
+        172,
+        173,
+        175,
+        176
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1015-T63199.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        302,
+        303,
+        304,
+        305,
+        306
+      ],
+      "original_failed_pair_indices_addressed": [
+        303,
+        304
+      ],
+      "quarantined_snapshot_indices": [
+        304
+      ],
+      "repair_id": "A4-2",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        4
+      ],
+      "required_snapshot_order_original_indices": [
+        302,
+        303,
+        305,
+        306
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1015-T63199.99"
+    },
+    {
+      "kind": "quarantine_tied_outer_control",
+      "original_context_snapshot_indices": [
+        531,
+        532,
+        533,
+        534,
+        535
+      ],
+      "original_failed_pair_indices_addressed": [
+        532,
+        533
+      ],
+      "quarantined_snapshot_indices": [
+        533
+      ],
+      "repair_id": "A5-3",
+      "required_cut_chain": [
+        1,
+        3,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        531,
+        532,
+        534,
+        535
+      ],
+      "source": "A5",
+      "ticker": "KXBTCD-26JUL1015-T63199.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        341,
+        342,
+        343,
+        344,
+        345
+      ],
+      "original_failed_pair_indices_addressed": [
+        342,
+        343
+      ],
+      "quarantined_snapshot_indices": [
+        343
+      ],
+      "repair_id": "A4-1",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        341,
+        342,
+        344,
+        345
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1015-T63299.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        831,
+        832,
+        833,
+        834,
+        835
+      ],
+      "original_failed_pair_indices_addressed": [
+        832,
+        833
+      ],
+      "quarantined_snapshot_indices": [
+        833
+      ],
+      "repair_id": "A4-2",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        831,
+        832,
+        834,
+        835
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1015-T63299.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        896,
+        897,
+        898,
+        899,
+        900
+      ],
+      "original_failed_pair_indices_addressed": [
+        897,
+        898
+      ],
+      "quarantined_snapshot_indices": [
+        898
+      ],
+      "repair_id": "A4-1",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        896,
+        897,
+        899,
+        900
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1015-T63399.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        430,
+        431,
+        432,
+        433,
+        434
+      ],
+      "original_failed_pair_indices_addressed": [
+        431,
+        432
+      ],
+      "quarantined_snapshot_indices": [
+        432
+      ],
+      "repair_id": "A4-1",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        430,
+        431,
+        433,
+        434
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1015-T63499.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        1178,
+        1179,
+        1180,
+        1181,
+        1182
+      ],
+      "original_failed_pair_indices_addressed": [
+        1179,
+        1180
+      ],
+      "quarantined_snapshot_indices": [
+        1180
+      ],
+      "repair_id": "A4-2",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        1178,
+        1179,
+        1181,
+        1182
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1015-T63499.99"
+    },
+    {
+      "kind": "quarantine_tied_outer_control",
+      "original_context_snapshot_indices": [
+        2341,
+        2342,
+        2343,
+        2344,
+        2345
+      ],
+      "original_failed_pair_indices_addressed": [
+        2342,
+        2343
+      ],
+      "quarantined_snapshot_indices": [
+        2343
+      ],
+      "repair_id": "A5-3",
+      "required_cut_chain": [
+        1,
+        3,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        2341,
+        2342,
+        2344,
+        2345
+      ],
+      "source": "A5",
+      "ticker": "KXBTCD-26JUL1015-T63499.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        475,
+        476,
+        477,
+        478,
+        479
+      ],
+      "original_failed_pair_indices_addressed": [
+        476,
+        477
+      ],
+      "quarantined_snapshot_indices": [
+        477
+      ],
+      "repair_id": "A4-1",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        475,
+        476,
+        478,
+        479
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1015-T63599.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        3806,
+        3807,
+        3808,
+        3809,
+        3810
+      ],
+      "original_failed_pair_indices_addressed": [
+        3807,
+        3808
+      ],
+      "quarantined_snapshot_indices": [
+        3808
+      ],
+      "repair_id": "A4-2",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        3806,
+        3807,
+        3809,
+        3810
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1015-T63599.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        4413,
+        4414,
+        4415,
+        4416,
+        4417
+      ],
+      "original_failed_pair_indices_addressed": [
+        4414,
+        4415
+      ],
+      "quarantined_snapshot_indices": [
+        4415
+      ],
+      "repair_id": "A4-1",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        2
+      ],
+      "required_snapshot_order_original_indices": [
+        4413,
+        4414,
+        4416,
+        4417
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1015-T63699.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        4570,
+        4571,
+        4572,
+        4573,
+        4574
+      ],
+      "original_failed_pair_indices_addressed": [
+        4571,
+        4572
+      ],
+      "quarantined_snapshot_indices": [
+        4572
+      ],
+      "repair_id": "A4-2",
+      "required_cut_chain": [
+        1,
+        2,
+        2,
+        2
+      ],
+      "required_snapshot_order_original_indices": [
+        4570,
+        4571,
+        4573,
+        4574
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1015-T63699.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        543,
+        544,
+        545,
+        546,
+        547
+      ],
+      "original_failed_pair_indices_addressed": [
+        544,
+        545
+      ],
+      "quarantined_snapshot_indices": [
+        545
+      ],
+      "repair_id": "A4-1",
+      "required_cut_chain": [
+        1,
+        1,
+        2,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        543,
+        544,
+        546,
+        547
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1015-T63799.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        1578,
+        1579,
+        1580,
+        1581,
+        1582
+      ],
+      "original_failed_pair_indices_addressed": [
+        1579,
+        1580
+      ],
+      "quarantined_snapshot_indices": [
+        1580
+      ],
+      "repair_id": "A4-2",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        1578,
+        1579,
+        1581,
+        1582
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1015-T63799.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        3382,
+        3383,
+        3384,
+        3385,
+        3386
+      ],
+      "original_failed_pair_indices_addressed": [
+        3383,
+        3384
+      ],
+      "quarantined_snapshot_indices": [
+        3384
+      ],
+      "repair_id": "A4-3",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        3382,
+        3383,
+        3385,
+        3386
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1015-T63799.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        3232,
+        3233,
+        3234,
+        3235,
+        3236
+      ],
+      "original_failed_pair_indices_addressed": [
+        3233,
+        3234
+      ],
+      "quarantined_snapshot_indices": [
+        3234
+      ],
+      "repair_id": "A4-241",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        3232,
+        3233,
+        3235,
+        3236
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1015-T63899.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        474,
+        475,
+        476,
+        477,
+        478
+      ],
+      "original_failed_pair_indices_addressed": [
+        475,
+        476
+      ],
+      "quarantined_snapshot_indices": [
+        476
+      ],
+      "repair_id": "A4-1",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        474,
+        475,
+        477,
+        478
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1015-T63999.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        3936,
+        3937,
+        3938,
+        3939,
+        3940
+      ],
+      "original_failed_pair_indices_addressed": [
+        3937,
+        3938
+      ],
+      "quarantined_snapshot_indices": [
+        3938
+      ],
+      "repair_id": "A4-2",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        3936,
+        3937,
+        3939,
+        3940
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1015-T63999.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        464,
+        465,
+        466,
+        467,
+        468
+      ],
+      "original_failed_pair_indices_addressed": [
+        465,
+        466
+      ],
+      "quarantined_snapshot_indices": [
+        466
+      ],
+      "repair_id": "A4-1",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        464,
+        465,
+        467,
+        468
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1015-T64099.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        1387,
+        1388,
+        1389,
+        1390,
+        1391
+      ],
+      "original_failed_pair_indices_addressed": [
+        1388,
+        1389
+      ],
+      "quarantined_snapshot_indices": [
+        1389
+      ],
+      "repair_id": "A4-2",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        1387,
+        1388,
+        1390,
+        1391
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1015-T64099.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        2950,
+        2951,
+        2952,
+        2953,
+        2954
+      ],
+      "original_failed_pair_indices_addressed": [
+        2951,
+        2952
+      ],
+      "quarantined_snapshot_indices": [
+        2952
+      ],
+      "repair_id": "A4-3",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        2950,
+        2951,
+        2953,
+        2954
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1015-T64099.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        461,
+        462,
+        463,
+        464,
+        465
+      ],
+      "original_failed_pair_indices_addressed": [
+        462,
+        463
+      ],
+      "quarantined_snapshot_indices": [
+        463
+      ],
+      "repair_id": "A4-1",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        461,
+        462,
+        464,
+        465
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1015-T64199.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        1304,
+        1305,
+        1306,
+        1307,
+        1308
+      ],
+      "original_failed_pair_indices_addressed": [
+        1305,
+        1306
+      ],
+      "quarantined_snapshot_indices": [
+        1306
+      ],
+      "repair_id": "A4-2",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        1304,
+        1305,
+        1307,
+        1308
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1015-T64199.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        2560,
+        2561,
+        2562,
+        2563,
+        2564
+      ],
+      "original_failed_pair_indices_addressed": [
+        2561,
+        2562
+      ],
+      "quarantined_snapshot_indices": [
+        2562
+      ],
+      "repair_id": "A4-3",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        2560,
+        2561,
+        2563,
+        2564
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1015-T64199.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        677,
+        678,
+        679,
+        680,
+        681
+      ],
+      "original_failed_pair_indices_addressed": [
+        678,
+        679
+      ],
+      "quarantined_snapshot_indices": [
+        679
+      ],
+      "repair_id": "A4-1",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        677,
+        678,
+        680,
+        681
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1015-T64299.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        2171,
+        2172,
+        2173,
+        2174,
+        2175
+      ],
+      "original_failed_pair_indices_addressed": [
+        2172,
+        2173
+      ],
+      "quarantined_snapshot_indices": [
+        2173
+      ],
+      "repair_id": "A4-2",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        2171,
+        2172,
+        2174,
+        2175
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1015-T64299.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        1379,
+        1380,
+        1381,
+        1382,
+        1383
+      ],
+      "original_failed_pair_indices_addressed": [
+        1380,
+        1381
+      ],
+      "quarantined_snapshot_indices": [
+        1381
+      ],
+      "repair_id": "A4-2",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        1379,
+        1380,
+        1382,
+        1383
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1015-T64399.99"
+    },
+    {
+      "kind": "ordering",
+      "original_context_snapshot_indices": [
+        954,
+        955,
+        956,
+        957,
+        958,
+        959
+      ],
+      "original_failed_pair_indices_addressed": [
+        956
+      ],
+      "quarantined_snapshot_indices": [],
+      "repair_id": "A4-2",
+      "required_cut_chain": [
+        1,
+        2,
+        1,
+        2,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        954,
+        955,
+        957,
+        956,
+        958,
+        959
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1016-T63199.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        1029,
+        1030,
+        1031,
+        1032,
+        1033
+      ],
+      "original_failed_pair_indices_addressed": [
+        1030,
+        1031
+      ],
+      "quarantined_snapshot_indices": [
+        1031
+      ],
+      "repair_id": "A4-5",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        1029,
+        1030,
+        1032,
+        1033
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1016-T63199.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        1113,
+        1114,
+        1115,
+        1116,
+        1117
+      ],
+      "original_failed_pair_indices_addressed": [
+        1114,
+        1115
+      ],
+      "quarantined_snapshot_indices": [
+        1115
+      ],
+      "repair_id": "A4-6",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        1113,
+        1114,
+        1116,
+        1117
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1016-T63199.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        1554,
+        1555,
+        1556,
+        1557,
+        1558
+      ],
+      "original_failed_pair_indices_addressed": [
+        1555,
+        1556
+      ],
+      "quarantined_snapshot_indices": [
+        1556
+      ],
+      "repair_id": "A4-5",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        1554,
+        1555,
+        1557,
+        1558
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1016-T63299.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        2587,
+        2588,
+        2589,
+        2590,
+        2591
+      ],
+      "original_failed_pair_indices_addressed": [
+        2588,
+        2589
+      ],
+      "quarantined_snapshot_indices": [
+        2589
+      ],
+      "repair_id": "A4-4",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        2587,
+        2588,
+        2590,
+        2591
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1016-T63399.99"
+    },
+    {
+      "kind": "ordering",
+      "original_context_snapshot_indices": [
+        240,
+        241,
+        242,
+        243,
+        244,
+        245
+      ],
+      "original_failed_pair_indices_addressed": [
+        242
+      ],
+      "quarantined_snapshot_indices": [],
+      "repair_id": "A4-1",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        240,
+        241,
+        243,
+        242,
+        244,
+        245
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1016-T63499.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        600,
+        601,
+        602,
+        603,
+        604
+      ],
+      "original_failed_pair_indices_addressed": [
+        601,
+        602
+      ],
+      "quarantined_snapshot_indices": [
+        602
+      ],
+      "repair_id": "A4-3",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        600,
+        601,
+        603,
+        604
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1016-T63499.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        1066,
+        1067,
+        1068,
+        1069,
+        1070
+      ],
+      "original_failed_pair_indices_addressed": [
+        1067,
+        1068
+      ],
+      "quarantined_snapshot_indices": [
+        1068
+      ],
+      "repair_id": "A4-5",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        1066,
+        1067,
+        1069,
+        1070
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1016-T63499.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        1219,
+        1220,
+        1221,
+        1222,
+        1223
+      ],
+      "original_failed_pair_indices_addressed": [
+        1220,
+        1221
+      ],
+      "quarantined_snapshot_indices": [
+        1221
+      ],
+      "repair_id": "A4-6",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        1219,
+        1220,
+        1222,
+        1223
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1016-T63499.99"
+    },
+    {
+      "kind": "ordering",
+      "original_context_snapshot_indices": [
+        628,
+        629,
+        630,
+        631,
+        632,
+        633
+      ],
+      "original_failed_pair_indices_addressed": [
+        630
+      ],
+      "quarantined_snapshot_indices": [],
+      "repair_id": "A4-1",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        628,
+        629,
+        631,
+        630,
+        632,
+        633
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1016-T63599.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        844,
+        845,
+        846,
+        847,
+        848
+      ],
+      "original_failed_pair_indices_addressed": [
+        845,
+        846
+      ],
+      "quarantined_snapshot_indices": [
+        846
+      ],
+      "repair_id": "A4-2",
+      "required_cut_chain": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        844,
+        845,
+        847,
+        848
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1016-T63599.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        1657,
+        1658,
+        1659,
+        1660,
+        1661
+      ],
+      "original_failed_pair_indices_addressed": [
+        1658,
+        1659
+      ],
+      "quarantined_snapshot_indices": [
+        1659
+      ],
+      "repair_id": "A4-4",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        1657,
+        1658,
+        1660,
+        1661
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1016-T63599.99"
+    },
+    {
+      "kind": "quarantine_tied_outer_control",
+      "original_context_snapshot_indices": [
+        1889,
+        1890,
+        1891,
+        1892,
+        1893
+      ],
+      "original_failed_pair_indices_addressed": [
+        1890,
+        1891
+      ],
+      "quarantined_snapshot_indices": [
+        1891
+      ],
+      "repair_id": "A5-5",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        3
+      ],
+      "required_snapshot_order_original_indices": [
+        1889,
+        1890,
+        1892,
+        1893
+      ],
+      "source": "A5",
+      "ticker": "KXBTCD-26JUL1016-T63599.99"
+    },
+    {
+      "kind": "ordering",
+      "original_context_snapshot_indices": [
+        2056,
+        2057,
+        2058,
+        2059,
+        2060,
+        2061
+      ],
+      "original_failed_pair_indices_addressed": [
+        2058
+      ],
+      "quarantined_snapshot_indices": [],
+      "repair_id": "A4-1",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        2056,
+        2057,
+        2059,
+        2058,
+        2060,
+        2061
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1016-T63699.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        2658,
+        2659,
+        2660,
+        2661,
+        2662
+      ],
+      "original_failed_pair_indices_addressed": [
+        2659,
+        2660
+      ],
+      "quarantined_snapshot_indices": [
+        2660
+      ],
+      "repair_id": "A4-2",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        2
+      ],
+      "required_snapshot_order_original_indices": [
+        2658,
+        2659,
+        2661,
+        2662
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1016-T63699.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        3748,
+        3749,
+        3750,
+        3751,
+        3752
+      ],
+      "original_failed_pair_indices_addressed": [
+        3749,
+        3750
+      ],
+      "quarantined_snapshot_indices": [
+        3750
+      ],
+      "repair_id": "A4-5",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        3748,
+        3749,
+        3751,
+        3752
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1016-T63699.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        982,
+        983,
+        984,
+        985,
+        986
+      ],
+      "original_failed_pair_indices_addressed": [
+        983,
+        984
+      ],
+      "quarantined_snapshot_indices": [
+        984
+      ],
+      "repair_id": "A4-1",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        982,
+        983,
+        985,
+        986
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1016-T63799.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        2219,
+        2220,
+        2221,
+        2222,
+        2223
+      ],
+      "original_failed_pair_indices_addressed": [
+        2220,
+        2221
+      ],
+      "quarantined_snapshot_indices": [
+        2221
+      ],
+      "repair_id": "A4-3",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        2219,
+        2220,
+        2222,
+        2223
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1016-T63799.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        2901,
+        2902,
+        2903,
+        2904,
+        2905
+      ],
+      "original_failed_pair_indices_addressed": [
+        2902,
+        2903
+      ],
+      "quarantined_snapshot_indices": [
+        2903
+      ],
+      "repair_id": "A4-4",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        2901,
+        2902,
+        2904,
+        2905
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1016-T63799.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        940,
+        941,
+        942,
+        943,
+        944
+      ],
+      "original_failed_pair_indices_addressed": [
+        941,
+        942
+      ],
+      "quarantined_snapshot_indices": [
+        942
+      ],
+      "repair_id": "A4-1",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        940,
+        941,
+        943,
+        944
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1016-T63899.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        2157,
+        2158,
+        2159,
+        2160,
+        2161
+      ],
+      "original_failed_pair_indices_addressed": [
+        2158,
+        2159
+      ],
+      "quarantined_snapshot_indices": [
+        2159
+      ],
+      "repair_id": "A4-3",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        2157,
+        2158,
+        2160,
+        2161
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1016-T63899.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        2921,
+        2922,
+        2923,
+        2924,
+        2925
+      ],
+      "original_failed_pair_indices_addressed": [
+        2922,
+        2923
+      ],
+      "quarantined_snapshot_indices": [
+        2923
+      ],
+      "repair_id": "A4-4",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        2921,
+        2922,
+        2924,
+        2925
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1016-T63899.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        2705,
+        2706,
+        2707,
+        2708,
+        2709
+      ],
+      "original_failed_pair_indices_addressed": [
+        2706,
+        2707
+      ],
+      "quarantined_snapshot_indices": [
+        2707
+      ],
+      "repair_id": "A4-1",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        2705,
+        2706,
+        2708,
+        2709
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1016-T63999.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        4355,
+        4356,
+        4357,
+        4358,
+        4359
+      ],
+      "original_failed_pair_indices_addressed": [
+        4356,
+        4357
+      ],
+      "quarantined_snapshot_indices": [
+        4357
+      ],
+      "repair_id": "A4-4",
+      "required_cut_chain": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        4355,
+        4356,
+        4358,
+        4359
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1016-T63999.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        2132,
+        2133,
+        2134,
+        2135,
+        2136
+      ],
+      "original_failed_pair_indices_addressed": [
+        2133,
+        2134
+      ],
+      "quarantined_snapshot_indices": [
+        2134
+      ],
+      "repair_id": "A4-2",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        2132,
+        2133,
+        2135,
+        2136
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1016-T64099.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        3407,
+        3408,
+        3409,
+        3410,
+        3411
+      ],
+      "original_failed_pair_indices_addressed": [
+        3408,
+        3409
+      ],
+      "quarantined_snapshot_indices": [
+        3409
+      ],
+      "repair_id": "A4-5",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        3407,
+        3408,
+        3410,
+        3411
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1016-T64099.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        2355,
+        2356,
+        2357,
+        2358,
+        2359
+      ],
+      "original_failed_pair_indices_addressed": [
+        2356,
+        2357
+      ],
+      "quarantined_snapshot_indices": [
+        2357
+      ],
+      "repair_id": "A4-1",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        2355,
+        2356,
+        2358,
+        2359
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1016-T64199.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        3101,
+        3102,
+        3103,
+        3104,
+        3105
+      ],
+      "original_failed_pair_indices_addressed": [
+        3102,
+        3103
+      ],
+      "quarantined_snapshot_indices": [
+        3103
+      ],
+      "repair_id": "A4-4",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        3101,
+        3102,
+        3104,
+        3105
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1016-T64199.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        1859,
+        1860,
+        1861,
+        1862,
+        1863
+      ],
+      "original_failed_pair_indices_addressed": [
+        1860,
+        1861
+      ],
+      "quarantined_snapshot_indices": [
+        1861
+      ],
+      "repair_id": "A4-1",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        1859,
+        1860,
+        1862,
+        1863
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1016-T64299.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        2391,
+        2392,
+        2393,
+        2394,
+        2395
+      ],
+      "original_failed_pair_indices_addressed": [
+        2392,
+        2393
+      ],
+      "quarantined_snapshot_indices": [
+        2393
+      ],
+      "repair_id": "A4-4",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        2391,
+        2392,
+        2394,
+        2395
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1016-T64299.99"
+    },
+    {
+      "kind": "joint_outer_target_ordering",
+      "original_context_snapshot_indices": [
+        620,
+        621,
+        622,
+        623,
+        624,
+        625
+      ],
+      "original_failed_pair_indices_addressed": [
+        622
+      ],
+      "quarantined_snapshot_indices": [],
+      "repair_id": "JOINT-5",
+      "required_cut_chain": [
+        1,
+        2,
+        1,
+        2,
+        1,
+        2
+      ],
+      "required_snapshot_order_original_indices": [
+        620,
+        621,
+        623,
+        622,
+        624,
+        625
+      ],
+      "source": "JOINT",
+      "ticker": "KXBTCD-26JUL1016-T64399.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        1066,
+        1067,
+        1068,
+        1069,
+        1070
+      ],
+      "original_failed_pair_indices_addressed": [
+        1067,
+        1068
+      ],
+      "quarantined_snapshot_indices": [
+        1068
+      ],
+      "repair_id": "A4-7",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        1066,
+        1067,
+        1069,
+        1070
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1016-T64399.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        1379,
+        1380,
+        1381,
+        1382,
+        1383
+      ],
+      "original_failed_pair_indices_addressed": [
+        1380,
+        1381
+      ],
+      "quarantined_snapshot_indices": [
+        1381
+      ],
+      "repair_id": "A4-8",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        1379,
+        1380,
+        1382,
+        1383
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1016-T64399.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        393,
+        394,
+        395,
+        396,
+        397
+      ],
+      "original_failed_pair_indices_addressed": [
+        394,
+        395
+      ],
+      "quarantined_snapshot_indices": [
+        395
+      ],
+      "repair_id": "A4-4",
+      "required_cut_chain": [
+        3,
+        1,
+        1,
+        2
+      ],
+      "required_snapshot_order_original_indices": [
+        393,
+        394,
+        396,
+        397
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1016-T64499.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        488,
+        489,
+        490,
+        491,
+        492
+      ],
+      "original_failed_pair_indices_addressed": [
+        489,
+        490
+      ],
+      "quarantined_snapshot_indices": [
+        490
+      ],
+      "repair_id": "A4-5",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        488,
+        489,
+        491,
+        492
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1016-T64499.99"
+    },
+    {
+      "kind": "quarantine",
+      "original_context_snapshot_indices": [
+        538,
+        539,
+        540,
+        541,
+        542
+      ],
+      "original_failed_pair_indices_addressed": [
+        539,
+        540
+      ],
+      "quarantined_snapshot_indices": [
+        540
+      ],
+      "repair_id": "A4-6",
+      "required_cut_chain": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "required_snapshot_order_original_indices": [
+        538,
+        539,
+        541,
+        542
+      ],
+      "source": "A4",
+      "ticker": "KXBTCD-26JUL1016-T64499.99"
+    }
+  ],
+  "safety": {
+    "candidate_e_refit": false,
+    "execution_cache_built": false,
+    "orders_placed": 0,
+    "outcomes_accessed": false,
+    "source_data_changed": false,
+    "strategy_pnl_calculated": false,
+    "strategy_rerun": false,
+    "strategy_rules_changed": false
+  },
+  "schema_version": "candidate_e_repair_materialization_plan.v1",
+  "source_artifacts": {
+    "a4_snapshot_consistency_coverage": {
+      "amendment_fingerprint": "31df5185c3840092eaae09f82fd0139cf46db37dc5bfd9bd067d6dcfa758c92a",
+      "path": "C:\\Users\\aruld\\Downloads\\candidate_e_snapshot_consistency_coverage.json",
+      "sha256": "d5bf737b5735291e08755edeac690b9d5daf8f5ff7b9377305da0e48b105403e"
+    },
+    "a5_tied_outer_control_exhaustion": {
+      "path": "C:\\Users\\aruld\\Downloads\\candidate_e_a5_tied_outer_control_exhaustion.json",
+      "sha256": "916c211122d19696aca35282082cddcf8003ea055582ab7694e9b2df667396ec"
+    },
+    "joint_outer_target_ordering_exhaustion": {
+      "path": "C:\\Users\\aruld\\Downloads\\candidate_e_joint_outer_target_ordering_exhaustion.json",
+      "sha256": "f40139da4cecada0bfee71fae18ffc5e795ae4a5346495c7fb80f3e6e7fc4be3"
+    }
+  },
+  "status": "FROZEN_FOR_IMPLEMENTATION"
+}

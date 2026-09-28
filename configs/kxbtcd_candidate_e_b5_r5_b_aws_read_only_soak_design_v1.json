@@ -1,0 +1,362 @@
+{
+  "analysis_role": "design_only_no_network",
+  "checkpoint_id": "21N-Z-E-B5-R5-B-A",
+  "checkpoint_sequence": [
+    "B5-R5-B-A_design_freeze",
+    "B5-R5-B-B_runner_and_docker_implementation_offline_validation",
+    "B5-R5-B-C_aws_one_hour_shakedown_and_storage_gate",
+    "B5-R5-B-D_aws_24h_canonical_soak_and_post_soak_restart"
+  ],
+  "classification_contract": {
+    "blocked_intervals_must_be_included_in_availability_metrics": true,
+    "correct_fail_closed_source_or_clock_outage_is_not_itself_a_safety_failure": true,
+    "initial_readiness_timeout_is_measurement_failure_not_24h_evidence": true,
+    "measurement_complete_requires_full_requested_active_duration": true,
+    "poor_reliability_or_resource_evidence_may_block_next_phase_even_when_safety_passes": true,
+    "profitability_claim_authorized": false,
+    "safety_pass_requires_zero_hard_fail_conditions": true
+  },
+  "clock_and_boot_contract": {
+    "boot_id_must_remain_constant_during_continuous_soak": true,
+    "clock_evidence_older_than_seconds": 5,
+    "max_absolute_clock_offset_ms_for_ready": 250,
+    "observability_sample_interval_seconds": 60,
+    "production_chrony_adapter_required": true,
+    "production_linux_boot_adapter_required": true,
+    "readiness_evaluation_interval_max_seconds": 5,
+    "stale_clock_evidence_behavior": "BLOCK_READINESS",
+    "synthetic_clock_evidence_allowed": false,
+    "unexpected_boot_id_change": "HARD_FAIL",
+    "unknown_or_unhealthy_clock_behavior": "BLOCK_READINESS"
+  },
+  "container_runtime_contract": {
+    "accepted_shakedown_and_canonical_soak_same_image_digest": true,
+    "chrony_access": {
+      "access_method": "NARROW_HOST_CHRONYD_CONTROL_SOCKET_BIND_MOUNT",
+      "docker_socket_fallback_allowed": false,
+      "exact_host_socket_path": "DISCOVER_AND_FREEZE_IN_B5_R5_B_B_DEPLOYMENT_CONFIG",
+      "privileged_container_fallback_allowed": false,
+      "real_host_chronyd_required": true,
+      "socket_unavailable_behavior": "BLOCK_READINESS",
+      "synthetic_evidence": false,
+      "whole_host_run_directory_mount_allowed": false
+    },
+    "compose_service_id": "candidate_e_read_only_runtime",
+    "docker_image_digest_recorded_in_manifest": true,
+    "docker_socket_mounted": false,
+    "host_network": false,
+    "implementation_change_after_shakedown_behavior": "INVALIDATE_SHAKEDOWN_AND_RERUN_BEFORE_24H_ARM",
+    "kalshi_credentials": {
+      "api_key_id_delivery": "environment_only_not_persisted",
+      "env_file_allowed_only_if_git_ignored_on_host": true,
+      "private_key_allowed_in_output_artifacts": false,
+      "private_key_container_path": "/run/secrets/kalshi_private_key.pem",
+      "private_key_copied_into_image": false,
+      "private_key_delivery": "single_file_read_only_bind_mount",
+      "private_key_path_environment_value": "/run/secrets/kalshi_private_key.pem"
+    },
+    "privileged": false,
+    "restart_policy_during_validation": "no_automatic_restart",
+    "runtime_output_and_durable_state_mount_required": true,
+    "source_tree_writable_mount": false
+  },
+  "design_fingerprint": "715b55824746fe59467d7484599d1a92894e0810d5bc9be972d81577005c1ed6",
+  "duration_contract": {
+    "active_timer_clock": "local_monotonic",
+    "active_timer_continues_during_blocked_or_recovery_intervals": true,
+    "active_timer_starts_after_first_ready_read_only": true,
+    "canonical_soak_active_seconds": 86400,
+    "controlled_process_restart_occurs_after_canonical_86400_seconds": true,
+    "controlled_restart_is_outside_continuous_soak_window": true,
+    "initial_readiness_timeout_behavior": {
+      "active_timer_started": false,
+      "automatic_duration_extension": false,
+      "classification": "INITIAL_READINESS_TIMEOUT",
+      "measurement_complete": false,
+      "run_can_pass": false
+    },
+    "initial_readiness_timeout_seconds": 300,
+    "operator_intervention_during_active_window_allowed": false,
+    "shakedown_active_seconds": 3600
+  },
+  "hard_fail_conditions": [
+    "any_order_or_production_write",
+    "execution_mode_not_disabled",
+    "required_raw_persistence_failure",
+    "secret_marker_found_in_persisted_artifacts",
+    "ready_state_while_clock_gate_is_not_pass",
+    "ready_state_from_stale_source_generation",
+    "ready_state_with_unresolved_kalshi_sequence_gap",
+    "ready_state_without_exact_current_coinbase_completed_minute",
+    "source_payload_transformed_before_required_raw_flush",
+    "local_monotonic_time_regression",
+    "unexpected_linux_boot_id_change",
+    "uncaught_runner_or_container_exit_before_requested_active_duration",
+    "closed_raw_segment_hash_or_compression_validation_failure",
+    "run_manifest_identity_mismatch",
+    "artifact_manifest_hash_or_size_mismatch",
+    "canonical_24h_arm_below_frozen_minimum_free_disk_gate",
+    "docker_image_digest_changes_during_active_run",
+    "credential_or_private_key_material_found_in_durable_artifacts"
+  ],
+  "host_baseline": {
+    "account_local_availability_zone": "us-east-1c",
+    "availability_zone_id": "use1-az4",
+    "canonical_runtime_packaging": "docker_compose",
+    "instance_type": "m7i-flex.large",
+    "operating_system": "Amazon Linux 2023 x86_64",
+    "provider": "aws",
+    "region": "us-east-1",
+    "root_volume_gib": 100,
+    "same_packaging_required_for_shakedown_and_canonical_soak": true
+  },
+  "observability_contract": {
+    "latency_distributions_to_report": [
+      "count",
+      "median",
+      "p95",
+      "p99",
+      "max"
+    ],
+    "latency_threshold_predeclared": false,
+    "record_utc_and_monotonic_timestamps": true,
+    "required_metrics": [
+      "overall_readiness_state_and_reason",
+      "ready_blocked_transition_counts",
+      "ready_and_blocked_duration_seconds",
+      "coinbase_connection_generation",
+      "coinbase_message_and_heartbeat_counts",
+      "coinbase_reconnect_attempts_and_successes",
+      "coinbase_receive_interarrival",
+      "kalshi_connection_generation",
+      "kalshi_snapshot_and_delta_counts",
+      "kalshi_sequence_gap_and_recovery_counts",
+      "kalshi_reconnect_attempts_and_successes",
+      "kalshi_ping_pong_attempts_timeouts_and_rtt",
+      "event_rollover_count_and_recovery_duration",
+      "rest_request_duration",
+      "receive_to_raw_persist_duration",
+      "raw_persist_to_parse_apply_duration",
+      "receive_to_readiness_evaluation_duration",
+      "chrony_signed_and_absolute_offset_ms",
+      "chrony_leap_status",
+      "linux_boot_id",
+      "process_or_container_cpu",
+      "process_or_container_memory_rss",
+      "host_memory_available",
+      "host_load_average",
+      "filesystem_free_bytes",
+      "raw_bytes_written",
+      "compressed_bytes_written",
+      "bytes_per_hour"
+    ],
+    "sample_interval_seconds": 60,
+    "source_timestamp_arrival_age_only_when_clock_healthy": true
+  },
+  "parent_repository": {
+    "branch": "main",
+    "parent_receipt_commit": "4039b8eebd4aefa8c2af9cc5f556acd61f6b9242"
+  },
+  "post_soak_restart_validation": {
+    "automatic_container_restart_before_supervisor_reconciliation": false,
+    "final_required_state": "READY_READ_ONLY",
+    "fresh_coinbase_generation_required": true,
+    "fresh_exact_coinbase_completed_minute_required": true,
+    "fresh_full_kalshi_ladder_and_current_pong_required": true,
+    "fresh_kalshi_generation_required": true,
+    "host_reboot": false,
+    "new_container_identity_required": true,
+    "new_os_process_id_required": true,
+    "orders": 0,
+    "pending_raw_evidence_must_be_reconciled": true,
+    "prior_signal_reusable": false,
+    "production_writes": 0,
+    "real_production_clock_and_boot_evidence_required": true,
+    "required_after_measurement_complete": true,
+    "same_compose_service_definition_required": true,
+    "same_docker_image_digest_required": true,
+    "same_durable_state_volume_required": true,
+    "same_host_boot_id_required": true,
+    "same_linux_boot_id_required": true,
+    "same_output_volume_required": true,
+    "successor_initial_state": "BLOCKED",
+    "successor_must_detect_unclean_prior_session": true,
+    "supervisor_location": "host_outside_runtime_container",
+    "termination_mode": "unclean_process_kill",
+    "termination_signal": "SIGKILL"
+  },
+  "raw_storage_contract": {
+    "closed_segment_compression": "zstd_lossless",
+    "closed_segment_descriptor_required_fields": [
+      "source",
+      "segment_start_utc",
+      "segment_end_utc",
+      "record_count",
+      "uncompressed_size_bytes",
+      "uncompressed_sha256",
+      "compressed_size_bytes",
+      "compressed_sha256",
+      "compression"
+    ],
+    "closed_segment_hashes": [
+      "sha256_uncompressed",
+      "sha256_compressed"
+    ],
+    "closed_segment_lifecycle": [
+      "flush_active_uncompressed_segment",
+      "fsync_active_uncompressed_segment",
+      "close_active_uncompressed_segment",
+      "compute_uncompressed_size_and_sha256",
+      "compress_losslessly_to_temporary_zstd_path",
+      "flush_and_fsync_temporary_compressed_file",
+      "decompress_and_verify_exact_uncompressed_sha256",
+      "compute_compressed_size_and_sha256",
+      "atomically_rename_verified_compressed_file",
+      "atomically_write_closed_segment_descriptor",
+      "fsync_parent_directory",
+      "delete_uncompressed_segment_only_after_verified_descriptor_exists",
+      "fsync_parent_directory_after_delete"
+    ],
+    "crash_recovery": {
+      "closed_segment_descriptor_or_hash_mismatch": "HARD_FAIL",
+      "orphan_temporary_compressed_file_behavior": "DISCARD_AND_RECOMPRESS_FROM_INTACT_UNCOMPRESSED_SEGMENT",
+      "temporary_compressed_file_is_authoritative": false,
+      "uncompressed_missing_without_verified_compressed_descriptor": "HARD_FAIL",
+      "validated_compressed_plus_uncompressed_behavior": "REVERIFY_DESCRIPTOR_THEN_DELETE_REDUNDANT_UNCOMPRESSED_COPY"
+    },
+    "first_and_last_partial_segments_allowed": true,
+    "flush_before_transform_required": true,
+    "maximum_fsync_interval_seconds": 1,
+    "minimum_free_disk_gate": {
+      "absolute_floor_bytes": 10737418240,
+      "arm_condition": "filesystem_free_bytes >= final_required_free_bytes",
+      "empirical_inputs": {
+        "C": "shakedown_compressed_bytes_per_hour",
+        "U": "shakedown_uncompressed_bytes_per_hour"
+      },
+      "final_required_free_bytes": "max(absolute_floor_bytes, formula_bytes)",
+      "formula_bytes": "ceil(1.5 * ((24 * C) + (2 * U)) + 2147483648)",
+      "implementation_or_storage_change_after_measurement": "INVALIDATE_NUMERIC_GATE_AND_RERUN_SHAKEDOWN",
+      "measurement_point": "immediately_before_canonical_24h_arm",
+      "numeric_result_must_be_frozen_after_shakedown": true,
+      "status_before_shakedown": "FORMULA_FROZEN_NUMERIC_VALUE_UNRESOLVED"
+    },
+    "output_root": "data/runtime/kxbtcd_candidate_e_b5_r5_b",
+    "raw_before_transform_required": true,
+    "remote_backup_validation_in_scope": false,
+    "segment_boundary": "UTC_CLOCK_HOUR",
+    "segment_duration_seconds": 3600,
+    "source_specific_segments": true
+  },
+  "run_manifest_contract": {
+    "artifact_descriptor_required_fields": [
+      "logical_role",
+      "path",
+      "size_bytes",
+      "sha256"
+    ],
+    "atomic_updates_required": true,
+    "credential_presence_may_be_recorded_as_boolean_only": true,
+    "credential_values_recorded": false,
+    "manifest_self_sha256_excluded": true,
+    "required_start_identity": [
+      "run_id",
+      "run_role",
+      "design_fingerprint",
+      "git_head",
+      "docker_image_digest",
+      "host_boot_id",
+      "requested_active_duration_seconds",
+      "started_utc",
+      "started_monotonic_ns",
+      "initial_filesystem_free_bytes",
+      "execution_mode"
+    ],
+    "required_terminal_identity": [
+      "ended_utc",
+      "ended_monotonic_ns",
+      "active_duration_seconds",
+      "measurement_complete",
+      "safety_invariant_status",
+      "operational_classification",
+      "orders",
+      "production_writes",
+      "artifact_descriptors"
+    ],
+    "schema_version": "candidate_e_b5_r5_b_soak_manifest.v1",
+    "write_before_live_source_start": true
+  },
+  "safety_boundary": {
+    "candidate_e_signal_computation": false,
+    "canonical_prospective_cohort_armed": false,
+    "canonical_prospective_database_created": false,
+    "credentials_must_not_be_logged_or_committed": true,
+    "default_invocation": "zero_network",
+    "demo_orders": 0,
+    "execution_mode": "disabled",
+    "live_network_requires_explicit_flag": true,
+    "orders": 0,
+    "paper_broker": false,
+    "production_writes": 0,
+    "settlement_outcome_access": false,
+    "strategy_or_model_retuning_authorized": false,
+    "strategy_pnl_scoring": false
+  },
+  "schema_version": "kxbtcd_candidate_e_b5_r5_b_aws_read_only_soak_design.v1",
+  "shakedown_gate": {
+    "must_complete_3600_active_seconds": true,
+    "must_freeze_minimum_free_disk_gate_before_24h_arm": true,
+    "must_have_zero_hard_fail_conditions": true,
+    "must_measure_empirical_bytes_per_hour": true,
+    "must_reach_ready_read_only": true,
+    "must_validate_container_security_contract": true,
+    "must_validate_raw_segments_and_metrics": true,
+    "must_write_valid_terminal_run_manifest": true,
+    "required_before_canonical_soak": true
+  },
+  "source_contract": {
+    "coinbase": {
+      "completed_minute_definition": "last_trade_by_source_event_time_inside_exact_completed_utc_minute",
+      "heartbeat_unhealthy_after_seconds": 3,
+      "product": "BTC-USD",
+      "reconnect_requires_new_connection_generation": true,
+      "reconnect_seed": "exact_required_completed_minute_from_coinbase_rest",
+      "stale_generation_can_restore_readiness": false,
+      "transport": "websocket_matches_and_heartbeat"
+    },
+    "event_rollover": {
+      "behavior": [
+        "block_readiness",
+        "rediscover_current_open_kxbtcd_event",
+        "close_prior_kalshi_generation",
+        "open_new_kalshi_connection_generation",
+        "subscribe_full_new_event_ladder",
+        "require_fresh_snapshots_and_current_pong_before_ready"
+      ],
+      "required": true,
+      "rollover_blocked_time_counts_against_soak_availability": true,
+      "trigger": "selected_event_close_or_no_longer_current"
+    },
+    "kalshi": {
+      "authoritative_initial_state": "orderbook_snapshot",
+      "client_ping_interval_seconds": 15,
+      "current_pong_age_gate_seconds": 20,
+      "pong_timeout_seconds": 5,
+      "reconnect_requires_new_connection_generation": true,
+      "sequence_gap_behavior": "invalidate_all_books_until_full_authoritative_recovery",
+      "series": "KXBTCD",
+      "stale_generation_can_restore_readiness": false,
+      "subscription_scope": "entire_selected_event_ladder",
+      "transport": "authenticated_production_orderbook_websocket"
+    },
+    "reconnect_backoff_caps_at_seconds": 15,
+    "reconnect_backoff_seconds": [
+      1,
+      2,
+      4,
+      8,
+      15
+    ],
+    "source_unavailability_does_not_permit_stale_state_reuse": true
+  }
+}

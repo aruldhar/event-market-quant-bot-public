@@ -1,0 +1,75 @@
+{
+  "candidate_id": "kxbtcd_candidate_e_conditional_alpha_reliability.v1",
+  "checkpoint_id": "21N-J-B",
+  "materialization_result": {
+    "development_events": 2570,
+    "feature_rows": 76419,
+    "feature_rows_fingerprint": "590ab13567821839fb0d404ed4813d328fc4e68ee1a61fd39038d3f8624a42fe",
+    "independent_rematerialization_validation": "PASS",
+    "outcome_fields_present": false,
+    "preparation_fingerprint": "a5a1901d9cdd18458bd8de6371c01d0e635d81f4c02b2f9167a5b30c9e42db46",
+    "prepared_output_sha256": "268c756f82f6be2b53f5fee1f212ad0ecd1d02459547861cc5c3b3623357472f",
+    "stages": {
+      "H1_OOF": {
+        "events": 1070,
+        "rows": 31656
+      },
+      "H2": {
+        "events": 750,
+        "rows": 22354
+      },
+      "H3": {
+        "events": 750,
+        "rows": 22409
+      }
+    }
+  },
+  "next_checkpoint": {
+    "c1_c2_remain_closed": true,
+    "c3_remains_closed": true,
+    "execution_remains_prohibited": true,
+    "outcome_access_authorized_by_21N_J_B": false,
+    "protected_reserve_remains_sealed": true,
+    "purpose": "freeze and validate exact H1_OOF/H2/H3 label attachment plus rolling-origin development-evaluation orchestration before any conditional-alpha outcome scoring or gamma fit",
+    "real_gamma_fit_authorized_by_21N_J_B": false
+  },
+  "parent_21M_preparation": {
+    "feature_file_sha256": "0d52f0cffa30f73c05c820f9f1e9f297a195e9ecb9f2d6193f079767e0b4489c",
+    "preoutcome_file_sha256": "32ce45e30d2b8c9d57fe68940e4bc791fec76e061ae01b5f07f042f4a9169028",
+    "preparation_fingerprint": "2e5d71c0af8ea9204003eea44bc8494aeb7a8afd6eef0ea16effb99ca54f7e7d"
+  },
+  "parent_21N_J_A": {
+    "checkpoint_commit": "30bcaa2fb3d29cebe1cb81d0a7374e8c17fe19fe",
+    "implementation_fingerprint": "566f085ef78e8045a75a1dc3781255a2dcae30f23d04ba317ab56e87ac18f5a6",
+    "predeclaration_fingerprint": "742ff487d63e247a4a14d31d9105977b0755ef38d30ad255e85dd77a741ef4d3",
+    "receipt_commit": "be6d6c887d8eb49028a646d1aa09158c57baaf05"
+  },
+  "preparation_closeout_fingerprint": "f1b0caed9d83d8657bd916422b17dde4e239cbc41a5de880ed78a51217cdffb1",
+  "safety": {
+    "c1_c2_accessed": false,
+    "c3_accessed": false,
+    "demo_execution": false,
+    "gamma_fit_performed": false,
+    "lambda_selected": false,
+    "network_accessed": false,
+    "order_cancellation": false,
+    "orders_submitted": false,
+    "outcomes_attached": false,
+    "paper_execution": false,
+    "portfolio_transfers": false,
+    "probability_gate_scored": false,
+    "protected_reserve_accessed": false,
+    "real_money_execution": false,
+    "strategy_pnl_calculated": false
+  },
+  "schema_version": "kxbtcd_candidate_e_conditional_alpha_reliability_v1_preparation_closeout.v1",
+  "scientific_interpretation": {
+    "candidate_e_probabilities_recomputed": false,
+    "performance_evidence": false,
+    "profitability_evidence": false,
+    "purpose": "freeze the deterministic outcome-blind four-feature conditional-alpha development state projection before any settlement labels or gamma fitting",
+    "r_5m_recomputed": false,
+    "state_universe_changed": false
+  },
+  "status": "OUTCOME_BLIND_PREPARATION_ACCEPTED"
+}

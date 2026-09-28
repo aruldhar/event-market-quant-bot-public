@@ -1,0 +1,189 @@
+{
+  "analysis_role": "design_only_runtime_architecture_freeze",
+  "architecture_fingerprint": "3061000e53226bcb9f87f61469b42790bc3c2db176f064df95d32d62594891e7",
+  "architecture_id": "candidate_e_production_shaped_runtime.v1",
+  "checkpoint_id": "21N-Z-C",
+  "clock_contract": {
+    "host_clock_service": "chrony",
+    "linux_boot_id_recorded": true,
+    "local_monotonic_clock_required": true,
+    "max_absolute_clock_offset_ms_for_new_signal": 250,
+    "unknown_or_unhealthy_clock": "NO_NEW_SIGNAL",
+    "utc_wall_clock_required": true
+  },
+  "coinbase_live_reference": {
+    "authentication_required": false,
+    "carry_forward": false,
+    "completed_minute_close_definition": "price_of_last_coinbase_match_by_source_event_time_inside_exact_completed_utc_minute",
+    "future_interpolation": false,
+    "gap_recovery": "fetch_missing_coinbase_trades_from_rest_and_rebuild_exact_minute_before_marking_state_available",
+    "heartbeat_expected_seconds": 1,
+    "heartbeat_unhealthy_after_seconds": 3,
+    "minute_interval": "[utc_minute_start, utc_minute_start_plus_60_seconds)",
+    "minute_with_zero_trades": "MISSING_REQUIRED_STATE_NO_SIGNAL",
+    "nearest_neighbor": false,
+    "primary_channels": [
+      "matches",
+      "heartbeat"
+    ],
+    "product_id": "BTC-USD",
+    "routine_per_minute_candle_polling": false,
+    "source_substitution": false,
+    "startup_or_reconnect_seed": "exact_60_second_coinbase_rest_candle_for_required_completed_minute_only",
+    "stream_gap_detection": [
+      "coinbase_sequence_continuity",
+      "heartbeat_last_trade_id_reconciliation"
+    ],
+    "websocket_endpoint": "wss://ws-feed.exchange.coinbase.com"
+  },
+  "dashboard": {
+    "access_target": "private_vpn_or_ssh_tunnel",
+    "dashboard_failure_affects_runtime": false,
+    "execution_adapter_import_allowed": false,
+    "process_isolation": true,
+    "public_unauthenticated_exposure_allowed": false,
+    "read_only_data_access": true,
+    "required_panels": [
+      "coinbase_completed_minute_state",
+      "current_kxbtcd_event_and_ttc",
+      "candidate_e_probability_and_selected_side",
+      "executable_price_fee_net_edge_and_depth",
+      "kalshi_and_coinbase_health",
+      "sequence_gap_and_resync_state",
+      "clock_health",
+      "pipeline_latency",
+      "recent_signals",
+      "strategy_state",
+      "future_actual_orders_fills_fees_positions_and_pnl"
+    ],
+    "target_framework": "streamlit",
+    "target_refresh_seconds": 1,
+    "trading_credentials_available_to_dashboard": false
+  },
+  "deployment": {
+    "coinbase_us_spot_documented_region": "aws_us_east_1",
+    "credentials_storage": "ignored_env_or_secure_secret_store_only",
+    "final_region": "UNRESOLVED_UNTIL_OUTCOME_BLIND_CONNECTIVITY_BENCHMARK",
+    "first_region_to_benchmark": "aws_us_east_1",
+    "host_class": "linux_cloud_vm",
+    "initial_volume_target_gb": 100,
+    "kalshi_region_assumed": false,
+    "local_persistent_disk_required": true,
+    "minimum_free_disk_gate": "TO_BE_FROZEN_FROM_EMPIRICAL_BYTES_PER_HOUR_BEFORE_ARM",
+    "process_packaging": "docker_compose",
+    "python_runtime_family": "3.11",
+    "remote_backup_in_decision_path": false,
+    "remote_closed_segment_backup": true
+  },
+  "frozen_scientific_bindings": {
+    "candidate_id": "kxbtcd_btc_distance_offset_logistic.v1",
+    "champion_final_fingerprint": "b45478594c088c09086d55d14e70aa7a22a62dc546cf0f2d9a1e3bb2f296b8dc",
+    "duration_hours": 168,
+    "primary_net_edge_threshold_dollars": "0.02",
+    "prospective_week_path": "configs/kxbtcd_candidate_e_prospective_week_predeclaration.json",
+    "prospective_week_sha256": "60f24fd8424aff93a65006a87e31ef150417f3f393bf0a5de19f65ceeb4f2869",
+    "strategy_or_model_retuning_authorized": false,
+    "strategy_reference_quantity_contracts": "1"
+  },
+  "future_execution_boundary": {
+    "ambiguous_write_response": "DO_NOT_BLIND_RETRY_RECONCILE_BY_IDENTITY_FIRST",
+    "current_required_mode": "disabled",
+    "execution_mode_frozen_at_process_start": true,
+    "execution_modes": [
+      "disabled",
+      "demo",
+      "production"
+    ],
+    "execution_worker_is_separate_process": true,
+    "future_micro_production_target_is_authorized_now": false,
+    "future_micro_production_target_quantity_contracts": "0.01",
+    "future_scale_changes_model": false,
+    "future_scale_requires_depth_slippage_fee_and_risk_revalidation": true,
+    "implemented_in_checkpoint_21n_z_c": false,
+    "only_execution_worker_may_own_write_capability": true,
+    "order_intent_minimum_fields": [
+      "intent_id",
+      "candidate_fingerprint",
+      "strategy_fingerprint",
+      "event_ticker",
+      "market_ticker",
+      "action",
+      "side",
+      "quantity",
+      "limit_price",
+      "time_in_force",
+      "decision_record_id",
+      "risk_snapshot_id",
+      "expires_at"
+    ],
+    "strategy_runtime_may_call_kalshi_write_endpoint_directly": false,
+    "transport": "durable_local_order_intent_outbox"
+  },
+  "kalshi_live_reference": {
+    "authoritative_initial_state": "orderbook_snapshot",
+    "sequence_gap_behavior": "invalidate_all_books_fail_closed_until_full_authoritative_snapshot_recovery",
+    "subscription_scope": "entire_selected_kxbtcd_event_ladder",
+    "transport": "authenticated_production_orderbook_websocket",
+    "websocket_protocol_ping_interval_seconds": 15,
+    "websocket_protocol_pong_timeout_seconds": 5
+  },
+  "parent_repository": {
+    "branch": "main",
+    "parent_checkpoint_commit": "499a5627a5fecdb79a0a31537a9c43c1a06e7ce6",
+    "parent_receipt_commit": "8fa301efba2e53eab3b01e93c782a87132e14bd3"
+  },
+  "runtime_and_restart": {
+    "closed_segment_compression": "zstd_lossless",
+    "closed_segment_hashes": [
+      "sha256_uncompressed",
+      "sha256_compressed"
+    ],
+    "execution_critical_state_synchronous": "FULL",
+    "future_execution_requires_forced_raw_fsync_barrier": true,
+    "future_execution_restart_additional_gate": "kalshi_account_open_order_and_position_reconciliation_complete",
+    "operational_state_store": "sqlite_wal",
+    "prospective_downtime_replacement": false,
+    "prospective_mid_window_restart_or_extension": false,
+    "raw_append_flush_before_transform": true,
+    "raw_before_transform_required": true,
+    "raw_fsync_interval_max_seconds": 1,
+    "raw_journal_format": "source_specific_append_only_jsonl_hourly_segments",
+    "restart_signal_gate_requires": [
+      "clock_healthy",
+      "exact_current_completed_coinbase_minute_available",
+      "coinbase_continuity_proven",
+      "kalshi_full_ladder_exact",
+      "durable_strategy_state_reconciled"
+    ],
+    "services": [
+      "market_strategy_runtime",
+      "read_only_dashboard",
+      "future_execution_worker_disabled_in_this_checkpoint"
+    ]
+  },
+  "safety": {
+    "demo_orders_authorized": false,
+    "order_submission_code_added": false,
+    "orders_placed": 0,
+    "paper_broker_authorized": false,
+    "production_writes": 0,
+    "read_only_checkpoint": true,
+    "real_money_orders_authorized": false,
+    "risk_policy_modified": false
+  },
+  "schema_version": "kxbtcd_candidate_e_production_runtime_architecture.v1",
+  "unresolved_before_168h_arm": [
+    "final_cloud_region_from_connectivity_benchmark",
+    "empirical_storage_bytes_per_hour_and_free_disk_gate",
+    "implementation_validation_of_coinbase_gap_recovery",
+    "long_running_restart_recovery_validation",
+    "dashboard_runtime_validation"
+  ],
+  "unresolved_before_demo_or_production": [
+    "exact_execution_api_contract",
+    "duplicate_order_and_ambiguous_response_reconciliation_contract",
+    "demo_qualification_duration_and_pass_gate",
+    "micro_production_capital_and_loss_limits",
+    "risk_policy_authorization_amendment"
+  ]
+}

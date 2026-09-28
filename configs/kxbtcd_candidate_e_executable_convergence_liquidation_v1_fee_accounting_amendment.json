@@ -1,0 +1,116 @@
+{
+  "schema_version": "kxbtcd_candidate_e_executable_convergence_liquidation_v1_fee_accounting_amendment.v1",
+  "checkpoint_id": "21N-Q1",
+  "strategy_id": "kxbtcd_candidate_e_executable_convergence_liquidation_v1",
+  "amendment_id": "kxbtcd_candidate_e_executable_convergence_liquidation_v1_fee_accounting_amendment",
+  "parent_21n_q": {
+    "checkpoint_commit": "b281be1f32e59578cf0464e2d82178b19d394d2d",
+    "receipt_commit": "09caa0a00be69112ecef83bb1e4e91751d5dc081",
+    "base_predeclaration_fingerprint": "61ede2de623d2ffca6b303895a860fa78de40ea36f0da7fe6b57835ac98d52f6"
+  },
+  "reason": {
+    "classification": "outcome_blind_methodology_correction",
+    "description": "Correct the fixed-point fee and cash-ledger arithmetic before implementation. The base predeclaration incorrectly described each synthetic fill trade fee as rounded directly to 0.0001 dollars and cash changes as aligned to 0.01 dollars. Kalshi fee-rounding documentation specifies a six-decimal trade-fee component plus target-balance alignment and a per-order rounding accumulator.",
+    "strategy_logic_changed": false,
+    "candidate_e_changed": false,
+    "entry_rule_changed": false,
+    "liquidation_rule_changed": false,
+    "threshold_menu_changed": false,
+    "latency_menu_changed": false,
+    "outcomes_accessed_before_amendment": false,
+    "strategy_pnl_calculated_before_amendment": false
+  },
+  "historical_applicability": {
+    "evidence_date_utc": "2026-07-10",
+    "fractional_and_fixed_point_api_rollout_precedes_evidence_date": true,
+    "direct_member_centi_cent_balance_alignment_effective_before_evidence_date": true,
+    "fee_schedule_effective_date": "2026-07-07",
+    "series_ticker": "KXBTCD",
+    "general_taker_multiplier": "1"
+  },
+  "accounting_regime": {
+    "primary_counterfactual_member_type": "direct_member",
+    "interpretation": "The research baseline models direct exchange/API execution. This is an architecture assumption for the counterfactual simulator, not a claim about any historical user's clearing arrangement. A future non-direct/FCM execution path requires a separately versioned accounting regime.",
+    "target_balance_precision_dollars": "0.0001",
+    "price_precision_max_decimals": 4,
+    "quantity_precision_max_decimals": 2,
+    "minimum_contract_quantity": "0.01",
+    "intermediate_money_precision_max_decimals": 6,
+    "numeric_type": "Decimal_exact_fixed_point"
+  },
+  "trade_fee_policy": {
+    "taker_model_fee_formula": "0.07*C*P*(1-P)",
+    "per_synthetic_fill_trade_fee": "ceil_to_0.000001(model_fee)",
+    "signal_fee_for_one_contract_single_price_level": "apply_the_same_direct_member_fill_accounting; because C=1.00 and P is on the 0.0001 price grid, the effective single-fill cash fee equals the amount needed to align revenue-minus-trade-fee to the 0.0001 direct-member grid",
+    "base_predeclaration_signal_fee_text_is_superseded_where_inconsistent": true
+  },
+  "fill_cash_rounding_policy": {
+    "signed_revenue_buy": "-P*C",
+    "signed_revenue_sell": "+P*C",
+    "step_1_trade_fee": "ceil_to_0.000001(0.07*C*P*(1-P))",
+    "step_2_aligned_change": "floor_to_precision(signed_revenue-trade_fee,0.0001)",
+    "step_3_rounding_fee": "(signed_revenue-trade_fee)-aligned_change",
+    "step_4_accumulator": "accumulator_before+rounding_fee",
+    "step_5_rebate": "largest_nonnegative_multiple_of_0.0001_not_exceeding_accumulator_after_addition and_not_exceeding_trade_fee+rounding_fee",
+    "step_6_accumulator_after": "accumulator_after_addition-rebate",
+    "net_fee": "trade_fee+rounding_fee-rebate",
+    "net_fee_must_be_nonnegative": true,
+    "posted_aligned_balance_change_before_rebate": "aligned_change",
+    "net_counterfactual_cash_change_including_rebate": "aligned_change+rebate",
+    "accumulator_scope": "one_counterfactual_IOC_order_across_all_of_its_synthetic_fills",
+    "accumulator_resets_between_orders": true
+  },
+  "synthetic_fill_partition": {
+    "rule": "one_synthetic_fill_per_consumed_price_level",
+    "reason": "Predexon reconstructs aggregate resting quantity by price level but not individual resting-order partitions",
+    "uncertainty_must_be_reported": true,
+    "may_not_be_tuned_after_results": true
+  },
+  "settlement_policy": {
+    "simple_binary_yes_no_settlement_fee": "0",
+    "one_dollar_binary_payout_times_0.01_contract_granularity_is_cent_aligned": true,
+    "nonbinary_or_subcent_scalar_settlement_not_in_scope": true
+  },
+  "supersession": {
+    "base_fields_superseded": [
+      "fee_and_cash_rounding.trade_fee_rounding",
+      "fee_and_cash_rounding.cash_rounding",
+      "fee_and_cash_rounding.rounding_accumulator"
+    ],
+    "base_fields_preserved": [
+      "fee_and_cash_rounding.historical_schedule_effective_date",
+      "fee_and_cash_rounding.series_ticker",
+      "fee_and_cash_rounding.taker_multiplier",
+      "fee_and_cash_rounding.taker_trade_fee_formula",
+      "fee_and_cash_rounding.synthetic_fill_partition",
+      "fee_and_cash_rounding.fill_partition_uncertainty",
+      "fee_and_cash_rounding.numeric_type"
+    ],
+    "all_non_fee_strategy_rules_remain_frozen_under_base_predeclaration": true
+  },
+  "official_source_facts": {
+    "fee_schedule": "https://kalshi.com/docs/kalshi-fee-schedule.pdf",
+    "fee_rounding": "https://docs.kalshi.com/getting_started/fee_rounding",
+    "fixed_point_representation": "https://docs.kalshi.com/getting_started/fixed_point_migration",
+    "api_changelog": "https://docs.kalshi.com/changelog",
+    "notes": [
+      "July 7 2026 fee schedule: general immediately-matched fee formula uses M*0.07*C*P*(1-P).",
+      "Fee rounding: trade fee component is rounded up to 0.000001 dollars.",
+      "Fee rounding: direct-member balances are aligned to 0.0001 dollars.",
+      "API changelog: direct-member 0.0001 balance alignment was effective May 28 2026.",
+      "API changelog: fractional trading was unconditional for active markets by April 17 2026."
+    ]
+  },
+  "safety": {
+    "read_only": true,
+    "outcomes_accessed": false,
+    "strategy_pnl_calculated": false,
+    "orders_submitted": false,
+    "paper_broker": false,
+    "demo_execution": false,
+    "real_money_execution": false,
+    "new_predexon_purchase_authorized": false,
+    "protected_evidence_access_authorized": false
+  },
+  "amendment_fingerprint": "5f44a9ee001c7854416da46a4db19cb1d53b8b25edd7f7247fd72a032eab64d1"
+}

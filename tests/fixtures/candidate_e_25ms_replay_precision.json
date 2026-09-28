@@ -1,0 +1,4472 @@
+{
+  "paid_rows": [
+    {
+      "delta_fp": "1.00",
+      "price_dollars": "0.2000",
+      "sequence": 848617,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699569951
+    },
+    {
+      "delta_fp": "-25.00",
+      "price_dollars": "0.7400",
+      "sequence": 848633,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699570076
+    },
+    {
+      "delta_fp": "25.00",
+      "price_dollars": "0.7900",
+      "sequence": 848634,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699570076
+    },
+    {
+      "delta_fp": "-12.00",
+      "price_dollars": "0.1900",
+      "sequence": 848636,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699570092
+    },
+    {
+      "delta_fp": "12.00",
+      "price_dollars": "0.1900",
+      "sequence": 848637,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699570175
+    },
+    {
+      "delta_fp": "-25.00",
+      "price_dollars": "0.7900",
+      "sequence": 848640,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699570211
+    },
+    {
+      "delta_fp": "25.00",
+      "price_dollars": "0.7400",
+      "sequence": 848641,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699570211
+    },
+    {
+      "delta_fp": "-25.00",
+      "price_dollars": "0.7900",
+      "sequence": 848660,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699570417
+    },
+    {
+      "delta_fp": "25.00",
+      "price_dollars": "0.7900",
+      "sequence": 848661,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699570442
+    },
+    {
+      "delta_fp": "42.00",
+      "price_dollars": "0.1800",
+      "sequence": 848662,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699570443
+    },
+    {
+      "delta_fp": "-25.00",
+      "price_dollars": "0.2000",
+      "sequence": 848686,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699570587
+    },
+    {
+      "delta_fp": "-25.00",
+      "price_dollars": "0.7900",
+      "sequence": 848688,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699570588
+    },
+    {
+      "delta_fp": "25.00",
+      "price_dollars": "0.2000",
+      "sequence": 848691,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699570601
+    },
+    {
+      "delta_fp": "25.00",
+      "price_dollars": "0.7900",
+      "sequence": 848692,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699570601
+    },
+    {
+      "delta_fp": "1.00",
+      "price_dollars": "0.1900",
+      "sequence": 848698,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699570631
+    },
+    {
+      "delta_fp": "-1.00",
+      "price_dollars": "0.1900",
+      "sequence": 848703,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699570643
+    },
+    {
+      "delta_fp": "-1.00",
+      "price_dollars": "0.1900",
+      "sequence": 848704,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699570643
+    },
+    {
+      "delta_fp": "3.00",
+      "price_dollars": "0.1900",
+      "sequence": 848710,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699570666
+    },
+    {
+      "delta_fp": "1.00",
+      "price_dollars": "0.7900",
+      "sequence": 848717,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699570709
+    },
+    {
+      "delta_fp": "-1.00",
+      "price_dollars": "0.7900",
+      "sequence": 848721,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699570744
+    },
+    {
+      "delta_fp": "-1.00",
+      "price_dollars": "0.7900",
+      "sequence": 848722,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699570744
+    },
+    {
+      "delta_fp": "-1.00",
+      "price_dollars": "0.1900",
+      "sequence": 848723,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699570747
+    },
+    {
+      "delta_fp": "2.00",
+      "price_dollars": "0.7900",
+      "sequence": 848728,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699570786
+    },
+    {
+      "delta_fp": "-25.00",
+      "price_dollars": "0.7900",
+      "sequence": 848761,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699570997
+    },
+    {
+      "delta_fp": "25.00",
+      "price_dollars": "0.7900",
+      "sequence": 848764,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571022
+    },
+    {
+      "delta_fp": "1.00",
+      "price_dollars": "0.7900",
+      "sequence": 848768,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571065
+    },
+    {
+      "delta_fp": "-1.00",
+      "price_dollars": "0.7900",
+      "sequence": 848769,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571073
+    },
+    {
+      "delta_fp": "-1.00",
+      "price_dollars": "0.7900",
+      "sequence": 848770,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571076
+    },
+    {
+      "delta_fp": "-1.00",
+      "price_dollars": "0.7900",
+      "sequence": 848771,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571076
+    },
+    {
+      "delta_fp": "-12.00",
+      "price_dollars": "0.1900",
+      "sequence": 848772,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571082
+    },
+    {
+      "delta_fp": "4.00",
+      "price_dollars": "0.7900",
+      "sequence": 848773,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571107
+    },
+    {
+      "delta_fp": "-1.00",
+      "price_dollars": "0.7900",
+      "sequence": 848774,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571131
+    },
+    {
+      "delta_fp": "-1.00",
+      "price_dollars": "0.1900",
+      "sequence": 848775,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571162
+    },
+    {
+      "delta_fp": "3.00",
+      "price_dollars": "0.1900",
+      "sequence": 848777,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571178
+    },
+    {
+      "delta_fp": "12.00",
+      "price_dollars": "0.1900",
+      "sequence": 848779,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571184
+    },
+    {
+      "delta_fp": "-1.00",
+      "price_dollars": "0.1900",
+      "sequence": 848780,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571197
+    },
+    {
+      "delta_fp": "-3.00",
+      "price_dollars": "0.1900",
+      "sequence": 848781,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571198
+    },
+    {
+      "delta_fp": "4.00",
+      "price_dollars": "0.1900",
+      "sequence": 848785,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571222
+    },
+    {
+      "delta_fp": "-2.00",
+      "price_dollars": "0.7900",
+      "sequence": 848812,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571321
+    },
+    {
+      "delta_fp": "-1.00",
+      "price_dollars": "0.1900",
+      "sequence": 848823,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571428
+    },
+    {
+      "delta_fp": "-2.00",
+      "price_dollars": "0.1900",
+      "sequence": 848824,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571518
+    },
+    {
+      "delta_fp": "-1400.00",
+      "price_dollars": "0.7500",
+      "sequence": 848841,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571639
+    },
+    {
+      "delta_fp": "-700.00",
+      "price_dollars": "0.7600",
+      "sequence": 848842,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571640
+    },
+    {
+      "delta_fp": "-1400.00",
+      "price_dollars": "0.2000",
+      "sequence": 848843,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571640
+    },
+    {
+      "delta_fp": "-700.00",
+      "price_dollars": "0.2000",
+      "sequence": 848844,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571641
+    },
+    {
+      "delta_fp": "-50.00",
+      "price_dollars": "0.7700",
+      "sequence": 848845,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571647
+    },
+    {
+      "delta_fp": "-250.00",
+      "price_dollars": "0.2000",
+      "sequence": 848847,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571652
+    },
+    {
+      "delta_fp": "-25.00",
+      "price_dollars": "0.7900",
+      "sequence": 848848,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571654
+    },
+    {
+      "delta_fp": "25.00",
+      "price_dollars": "0.7300",
+      "sequence": 848849,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571654
+    },
+    {
+      "delta_fp": "50.00",
+      "price_dollars": "0.7500",
+      "sequence": 848850,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571658
+    },
+    {
+      "delta_fp": "-22.56",
+      "price_dollars": "0.7900",
+      "sequence": 848851,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571669
+    },
+    {
+      "delta_fp": "-12.00",
+      "price_dollars": "0.7500",
+      "sequence": 848852,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571694
+    },
+    {
+      "delta_fp": "700.00",
+      "price_dollars": "0.2000",
+      "sequence": 848860,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571699
+    },
+    {
+      "delta_fp": "1400.00",
+      "price_dollars": "0.2000",
+      "sequence": 848862,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571699
+    },
+    {
+      "delta_fp": "700.00",
+      "price_dollars": "0.7600",
+      "sequence": 848863,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571700
+    },
+    {
+      "delta_fp": "1400.00",
+      "price_dollars": "0.7500",
+      "sequence": 848864,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571700
+    },
+    {
+      "delta_fp": "-500.00",
+      "price_dollars": "0.7500",
+      "sequence": 848866,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571714
+    },
+    {
+      "delta_fp": "500.00",
+      "price_dollars": "0.7400",
+      "sequence": 848867,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571719
+    },
+    {
+      "delta_fp": "-500.00",
+      "price_dollars": "0.1600",
+      "sequence": 848868,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571740
+    },
+    {
+      "delta_fp": "-800.00",
+      "price_dollars": "0.1400",
+      "sequence": 848869,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571740
+    },
+    {
+      "delta_fp": "-10000.00",
+      "price_dollars": "0.0200",
+      "sequence": 848870,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571740
+    },
+    {
+      "delta_fp": "-500.00",
+      "price_dollars": "0.1600",
+      "sequence": 848871,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571741
+    },
+    {
+      "delta_fp": "-100.00",
+      "price_dollars": "0.1700",
+      "sequence": 848872,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571743
+    },
+    {
+      "delta_fp": "-1250.00",
+      "price_dollars": "0.1400",
+      "sequence": 848873,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571743
+    },
+    {
+      "delta_fp": "-10000.00",
+      "price_dollars": "0.7600",
+      "sequence": 848874,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571743
+    },
+    {
+      "delta_fp": "-100.00",
+      "price_dollars": "0.1800",
+      "sequence": 848875,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571744
+    },
+    {
+      "delta_fp": "-500.00",
+      "price_dollars": "0.7700",
+      "sequence": 848876,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571750
+    },
+    {
+      "delta_fp": "-1250.00",
+      "price_dollars": "0.7500",
+      "sequence": 848877,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571750
+    },
+    {
+      "delta_fp": "-800.00",
+      "price_dollars": "0.7500",
+      "sequence": 848878,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571750
+    },
+    {
+      "delta_fp": "-500.00",
+      "price_dollars": "0.7700",
+      "sequence": 848879,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571750
+    },
+    {
+      "delta_fp": "100.00",
+      "price_dollars": "0.1900",
+      "sequence": 848880,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571753
+    },
+    {
+      "delta_fp": "100.00",
+      "price_dollars": "0.1900",
+      "sequence": 848881,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571753
+    },
+    {
+      "delta_fp": "-5.00",
+      "price_dollars": "0.7700",
+      "sequence": 848882,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571754
+    },
+    {
+      "delta_fp": "1.00",
+      "price_dollars": "0.1900",
+      "sequence": 848883,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571755
+    },
+    {
+      "delta_fp": "-500.00",
+      "price_dollars": "0.7400",
+      "sequence": 848884,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571768
+    },
+    {
+      "delta_fp": "500.00",
+      "price_dollars": "0.7300",
+      "sequence": 848885,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571768
+    },
+    {
+      "delta_fp": "-40.00",
+      "price_dollars": "0.7600",
+      "sequence": 848886,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571769
+    },
+    {
+      "delta_fp": "51.00",
+      "price_dollars": "0.7500",
+      "sequence": 848887,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571769
+    },
+    {
+      "delta_fp": "-1400.00",
+      "price_dollars": "0.7500",
+      "sequence": 848888,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571771
+    },
+    {
+      "delta_fp": "-700.00",
+      "price_dollars": "0.7600",
+      "sequence": 848889,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571772
+    },
+    {
+      "delta_fp": "-40.00",
+      "price_dollars": "0.7400",
+      "sequence": 848890,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571776
+    },
+    {
+      "delta_fp": "-351.00",
+      "price_dollars": "0.7700",
+      "sequence": 848891,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571776
+    },
+    {
+      "delta_fp": "-1.00",
+      "price_dollars": "0.1900",
+      "sequence": 848892,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571777
+    },
+    {
+      "delta_fp": "50.00",
+      "price_dollars": "0.7300",
+      "sequence": 848893,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571777
+    },
+    {
+      "delta_fp": "375.00",
+      "price_dollars": "0.7600",
+      "sequence": 848894,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571777
+    },
+    {
+      "delta_fp": "-1.00",
+      "price_dollars": "0.1900",
+      "sequence": 848896,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571777
+    },
+    {
+      "delta_fp": "-500.00",
+      "price_dollars": "0.7400",
+      "sequence": 848899,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571778
+    },
+    {
+      "delta_fp": "500.00",
+      "price_dollars": "0.7300",
+      "sequence": 848901,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571779
+    },
+    {
+      "delta_fp": "-500.00",
+      "price_dollars": "0.2000",
+      "sequence": 848903,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571781
+    },
+    {
+      "delta_fp": "-2.00",
+      "price_dollars": "0.7900",
+      "sequence": 848904,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571781
+    },
+    {
+      "delta_fp": "-250.00",
+      "price_dollars": "0.7400",
+      "sequence": 848905,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571782
+    },
+    {
+      "delta_fp": "-1000.00",
+      "price_dollars": "0.1900",
+      "sequence": 848906,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571782
+    },
+    {
+      "delta_fp": "250.00",
+      "price_dollars": "0.7300",
+      "sequence": 848907,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571783
+    },
+    {
+      "delta_fp": "1000.00",
+      "price_dollars": "0.2000",
+      "sequence": 848908,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571783
+    },
+    {
+      "delta_fp": "250.00",
+      "price_dollars": "0.1900",
+      "sequence": 848909,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571785
+    },
+    {
+      "delta_fp": "-250.00",
+      "price_dollars": "0.7300",
+      "sequence": 848910,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571787
+    },
+    {
+      "delta_fp": "-1000.00",
+      "price_dollars": "0.7800",
+      "sequence": 848911,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571790
+    },
+    {
+      "delta_fp": "1000.00",
+      "price_dollars": "0.7700",
+      "sequence": 848912,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571790
+    },
+    {
+      "delta_fp": "800.00",
+      "price_dollars": "0.1500",
+      "sequence": 848913,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571791
+    },
+    {
+      "delta_fp": "-1.00",
+      "price_dollars": "0.7300",
+      "sequence": 848914,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571791
+    },
+    {
+      "delta_fp": "1.00",
+      "price_dollars": "0.7200",
+      "sequence": 848915,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571791
+    },
+    {
+      "delta_fp": "500.00",
+      "price_dollars": "0.1700",
+      "sequence": 848916,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571791
+    },
+    {
+      "delta_fp": "10000.00",
+      "price_dollars": "0.1600",
+      "sequence": 848917,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571791
+    },
+    {
+      "delta_fp": "-1000.00",
+      "price_dollars": "0.1800",
+      "sequence": 848918,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571791
+    },
+    {
+      "delta_fp": "1000.00",
+      "price_dollars": "0.1900",
+      "sequence": 848919,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571791
+    },
+    {
+      "delta_fp": "-2.00",
+      "price_dollars": "0.7900",
+      "sequence": 848920,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571792
+    },
+    {
+      "delta_fp": "1250.00",
+      "price_dollars": "0.1500",
+      "sequence": 848924,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571793
+    },
+    {
+      "delta_fp": "10000.00",
+      "price_dollars": "0.7500",
+      "sequence": 848925,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571793
+    },
+    {
+      "delta_fp": "500.00",
+      "price_dollars": "0.7600",
+      "sequence": 848926,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571793
+    },
+    {
+      "delta_fp": "500.00",
+      "price_dollars": "0.1700",
+      "sequence": 848927,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571793
+    },
+    {
+      "delta_fp": "500.00",
+      "price_dollars": "0.7600",
+      "sequence": 848928,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571793
+    },
+    {
+      "delta_fp": "800.00",
+      "price_dollars": "0.7400",
+      "sequence": 848929,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571794
+    },
+    {
+      "delta_fp": "-1000.00",
+      "price_dollars": "0.7200",
+      "sequence": 848930,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571797
+    },
+    {
+      "delta_fp": "1000.00",
+      "price_dollars": "0.7100",
+      "sequence": 848931,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571798
+    },
+    {
+      "delta_fp": "12.00",
+      "price_dollars": "0.7400",
+      "sequence": 848932,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571798
+    },
+    {
+      "delta_fp": "-500.00",
+      "price_dollars": "0.7300",
+      "sequence": 848933,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571798
+    },
+    {
+      "delta_fp": "1250.00",
+      "price_dollars": "0.7400",
+      "sequence": 848934,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571800
+    },
+    {
+      "delta_fp": "-1000.00",
+      "price_dollars": "0.7700",
+      "sequence": 848935,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571802
+    },
+    {
+      "delta_fp": "2.00",
+      "price_dollars": "0.1900",
+      "sequence": 848938,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571803
+    },
+    {
+      "delta_fp": "-1.00",
+      "price_dollars": "0.2000",
+      "sequence": 848939,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571805
+    },
+    {
+      "delta_fp": "-1235.00",
+      "price_dollars": "0.1900",
+      "sequence": 848941,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571818
+    },
+    {
+      "delta_fp": "1235.00",
+      "price_dollars": "0.2000",
+      "sequence": 848942,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571818
+    },
+    {
+      "delta_fp": "-1.00",
+      "price_dollars": "0.7200",
+      "sequence": 848943,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571824
+    },
+    {
+      "delta_fp": "1.00",
+      "price_dollars": "0.7300",
+      "sequence": 848944,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571824
+    },
+    {
+      "delta_fp": "-51.00",
+      "price_dollars": "0.7500",
+      "sequence": 848945,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571827
+    },
+    {
+      "delta_fp": "103.00",
+      "price_dollars": "0.7400",
+      "sequence": 848946,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571827
+    },
+    {
+      "delta_fp": "-100.00",
+      "price_dollars": "0.1900",
+      "sequence": 848947,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571830
+    },
+    {
+      "delta_fp": "-100.00",
+      "price_dollars": "0.7900",
+      "sequence": 848949,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571831
+    },
+    {
+      "delta_fp": "-1250.00",
+      "price_dollars": "0.7400",
+      "sequence": 848950,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571831
+    },
+    {
+      "delta_fp": "-100.00",
+      "price_dollars": "0.1800",
+      "sequence": 848951,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571831
+    },
+    {
+      "delta_fp": "-100.00",
+      "price_dollars": "0.7900",
+      "sequence": 848952,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571831
+    },
+    {
+      "delta_fp": "-10000.00",
+      "price_dollars": "0.7500",
+      "sequence": 848953,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571831
+    },
+    {
+      "delta_fp": "-103.00",
+      "price_dollars": "0.7400",
+      "sequence": 848954,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571833
+    },
+    {
+      "delta_fp": "50.00",
+      "price_dollars": "0.7500",
+      "sequence": 848955,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571833
+    },
+    {
+      "delta_fp": "250.00",
+      "price_dollars": "0.7300",
+      "sequence": 848956,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571833
+    },
+    {
+      "delta_fp": "500.00",
+      "price_dollars": "0.7300",
+      "sequence": 848957,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571834
+    },
+    {
+      "delta_fp": "100.00",
+      "price_dollars": "0.2000",
+      "sequence": 848958,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571841
+    },
+    {
+      "delta_fp": "100.00",
+      "price_dollars": "0.2000",
+      "sequence": 848959,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571841
+    },
+    {
+      "delta_fp": "100.00",
+      "price_dollars": "0.7800",
+      "sequence": 848960,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571841
+    },
+    {
+      "delta_fp": "100.00",
+      "price_dollars": "0.7600",
+      "sequence": 848961,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571841
+    },
+    {
+      "delta_fp": "1000.00",
+      "price_dollars": "0.7700",
+      "sequence": 848962,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571850
+    },
+    {
+      "delta_fp": "1250.00",
+      "price_dollars": "0.7300",
+      "sequence": 848963,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571851
+    },
+    {
+      "delta_fp": "10000.00",
+      "price_dollars": "0.7400",
+      "sequence": 848964,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571851
+    },
+    {
+      "delta_fp": "-1250.00",
+      "price_dollars": "0.7300",
+      "sequence": 848969,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571860
+    },
+    {
+      "delta_fp": "1250.00",
+      "price_dollars": "0.7400",
+      "sequence": 848976,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571865
+    },
+    {
+      "delta_fp": "-1250.00",
+      "price_dollars": "0.7400",
+      "sequence": 848977,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571871
+    },
+    {
+      "delta_fp": "1250.00",
+      "price_dollars": "0.7300",
+      "sequence": 848980,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571876
+    },
+    {
+      "delta_fp": "-2.00",
+      "price_dollars": "0.1900",
+      "sequence": 848981,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571883
+    },
+    {
+      "delta_fp": "-7.00",
+      "price_dollars": "0.1700",
+      "sequence": 848982,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571884
+    },
+    {
+      "delta_fp": "-1.00",
+      "price_dollars": "0.7900",
+      "sequence": 848983,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571884
+    },
+    {
+      "delta_fp": "-50.00",
+      "price_dollars": "0.7600",
+      "sequence": 848984,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571887
+    },
+    {
+      "delta_fp": "-20.00",
+      "price_dollars": "0.7300",
+      "sequence": 848985,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571887
+    },
+    {
+      "delta_fp": "700.00",
+      "price_dollars": "0.7500",
+      "sequence": 848986,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571888
+    },
+    {
+      "delta_fp": "-160.27",
+      "price_dollars": "0.7900",
+      "sequence": 848987,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571888
+    },
+    {
+      "delta_fp": "-25.00",
+      "price_dollars": "0.7900",
+      "sequence": 848988,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571888
+    },
+    {
+      "delta_fp": "1400.00",
+      "price_dollars": "0.7400",
+      "sequence": 848989,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571889
+    },
+    {
+      "delta_fp": "50.00",
+      "price_dollars": "0.7400",
+      "sequence": 848990,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571892
+    },
+    {
+      "delta_fp": "-1.00",
+      "price_dollars": "0.7300",
+      "sequence": 848991,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571892
+    },
+    {
+      "delta_fp": "1.00",
+      "price_dollars": "0.7200",
+      "sequence": 848992,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571892
+    },
+    {
+      "delta_fp": "250.00",
+      "price_dollars": "0.2000",
+      "sequence": 848993,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571894
+    },
+    {
+      "delta_fp": "-1.00",
+      "price_dollars": "0.2000",
+      "sequence": 848994,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571894
+    },
+    {
+      "delta_fp": "1.00",
+      "price_dollars": "0.2100",
+      "sequence": 848995,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571894
+    },
+    {
+      "delta_fp": "-50.00",
+      "price_dollars": "0.1900",
+      "sequence": 848996,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571894
+    },
+    {
+      "delta_fp": "-25.00",
+      "price_dollars": "0.7300",
+      "sequence": 848997,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571895
+    },
+    {
+      "delta_fp": "25.00",
+      "price_dollars": "0.7800",
+      "sequence": 848998,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571895
+    },
+    {
+      "delta_fp": "-500.00",
+      "price_dollars": "0.2000",
+      "sequence": 848999,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571895
+    },
+    {
+      "delta_fp": "-78.00",
+      "price_dollars": "0.2000",
+      "sequence": 849004,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571900
+    },
+    {
+      "delta_fp": "91.00",
+      "price_dollars": "0.2100",
+      "sequence": 849005,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571900
+    },
+    {
+      "delta_fp": "500.00",
+      "price_dollars": "0.2100",
+      "sequence": 849006,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571900
+    },
+    {
+      "delta_fp": "50.00",
+      "price_dollars": "0.2100",
+      "sequence": 849007,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571903
+    },
+    {
+      "delta_fp": "20.00",
+      "price_dollars": "0.7200",
+      "sequence": 849008,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571905
+    },
+    {
+      "delta_fp": "-25.00",
+      "price_dollars": "0.2000",
+      "sequence": 849009,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571905
+    },
+    {
+      "delta_fp": "25.00",
+      "price_dollars": "0.2100",
+      "sequence": 849010,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571905
+    },
+    {
+      "delta_fp": "-500.00",
+      "price_dollars": "0.7300",
+      "sequence": 849013,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571907
+    },
+    {
+      "delta_fp": "500.00",
+      "price_dollars": "0.7200",
+      "sequence": 849014,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571908
+    },
+    {
+      "delta_fp": "-20000.00",
+      "price_dollars": "0.7500",
+      "sequence": 849015,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571912
+    },
+    {
+      "delta_fp": "20000.00",
+      "price_dollars": "0.7400",
+      "sequence": 849016,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571912
+    },
+    {
+      "delta_fp": "4.00",
+      "price_dollars": "0.7600",
+      "sequence": 849018,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571914
+    },
+    {
+      "delta_fp": "1.00",
+      "price_dollars": "0.2000",
+      "sequence": 849020,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571924
+    },
+    {
+      "delta_fp": "-1400.00",
+      "price_dollars": "0.2000",
+      "sequence": 849023,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571930
+    },
+    {
+      "delta_fp": "-700.00",
+      "price_dollars": "0.2000",
+      "sequence": 849025,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571933
+    },
+    {
+      "delta_fp": "-700.00",
+      "price_dollars": "0.7500",
+      "sequence": 849027,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571934
+    },
+    {
+      "delta_fp": "-1400.00",
+      "price_dollars": "0.7400",
+      "sequence": 849028,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571934
+    },
+    {
+      "delta_fp": "-25.00",
+      "price_dollars": "0.2000",
+      "sequence": 849033,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571944
+    },
+    {
+      "delta_fp": "25.00",
+      "price_dollars": "0.2100",
+      "sequence": 849034,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571944
+    },
+    {
+      "delta_fp": "-20000.00",
+      "price_dollars": "0.2000",
+      "sequence": 849035,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571944
+    },
+    {
+      "delta_fp": "20000.00",
+      "price_dollars": "0.2100",
+      "sequence": 849036,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571944
+    },
+    {
+      "delta_fp": "-50.00",
+      "price_dollars": "0.7500",
+      "sequence": 849037,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571945
+    },
+    {
+      "delta_fp": "96.00",
+      "price_dollars": "0.7400",
+      "sequence": 849038,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571945
+    },
+    {
+      "delta_fp": "-4.00",
+      "price_dollars": "0.7600",
+      "sequence": 849039,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571945
+    },
+    {
+      "delta_fp": "-1250.00",
+      "price_dollars": "0.7300",
+      "sequence": 849040,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571962
+    },
+    {
+      "delta_fp": "25.00",
+      "price_dollars": "0.7700",
+      "sequence": 849041,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571963
+    },
+    {
+      "delta_fp": "10.00",
+      "price_dollars": "0.7200",
+      "sequence": 849042,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571967
+    },
+    {
+      "delta_fp": "-10.00",
+      "price_dollars": "0.7600",
+      "sequence": 849043,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571968
+    },
+    {
+      "delta_fp": "1250.00",
+      "price_dollars": "0.7400",
+      "sequence": 849044,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571968
+    },
+    {
+      "delta_fp": "-25.00",
+      "price_dollars": "0.7700",
+      "sequence": 849050,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571982
+    },
+    {
+      "delta_fp": "-25.00",
+      "price_dollars": "0.7800",
+      "sequence": 849051,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571983
+    },
+    {
+      "delta_fp": "25.00",
+      "price_dollars": "0.7300",
+      "sequence": 849052,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571983
+    },
+    {
+      "delta_fp": "-500.00",
+      "price_dollars": "0.1700",
+      "sequence": 849055,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571987
+    },
+    {
+      "delta_fp": "-500.00",
+      "price_dollars": "0.1700",
+      "sequence": 849056,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571987
+    },
+    {
+      "delta_fp": "-1250.00",
+      "price_dollars": "0.7400",
+      "sequence": 849057,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571987
+    },
+    {
+      "delta_fp": "-4500.00",
+      "price_dollars": "0.7400",
+      "sequence": 849058,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571988
+    },
+    {
+      "delta_fp": "-4500.00",
+      "price_dollars": "0.1600",
+      "sequence": 849059,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571989
+    },
+    {
+      "delta_fp": "1250.00",
+      "price_dollars": "0.7300",
+      "sequence": 849061,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571993
+    },
+    {
+      "delta_fp": "-20.00",
+      "price_dollars": "0.2000",
+      "sequence": 849064,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571995
+    },
+    {
+      "delta_fp": "500.00",
+      "price_dollars": "0.1800",
+      "sequence": 849065,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571995
+    },
+    {
+      "delta_fp": "-10000.00",
+      "price_dollars": "0.1600",
+      "sequence": 849066,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571995
+    },
+    {
+      "delta_fp": "10000.00",
+      "price_dollars": "0.0200",
+      "sequence": 849067,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572001
+    },
+    {
+      "delta_fp": "20.00",
+      "price_dollars": "0.2100",
+      "sequence": 849072,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572013
+    },
+    {
+      "delta_fp": "25.00",
+      "price_dollars": "0.7700",
+      "sequence": 849074,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572018
+    },
+    {
+      "delta_fp": "-25.00",
+      "price_dollars": "0.7700",
+      "sequence": 849076,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572034
+    },
+    {
+      "delta_fp": "10.00",
+      "price_dollars": "0.2000",
+      "sequence": 849082,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572044
+    },
+    {
+      "delta_fp": "-10.00",
+      "price_dollars": "0.1600",
+      "sequence": 849083,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572044
+    },
+    {
+      "delta_fp": "25.00",
+      "price_dollars": "0.7700",
+      "sequence": 849084,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572054
+    },
+    {
+      "delta_fp": "-96.00",
+      "price_dollars": "0.7400",
+      "sequence": 849092,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572076
+    },
+    {
+      "delta_fp": "65.00",
+      "price_dollars": "0.7500",
+      "sequence": 849093,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572076
+    },
+    {
+      "delta_fp": "-5.00",
+      "price_dollars": "0.7700",
+      "sequence": 849095,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572097
+    },
+    {
+      "delta_fp": "5.00",
+      "price_dollars": "0.7600",
+      "sequence": 849096,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572098
+    },
+    {
+      "delta_fp": "-25.00",
+      "price_dollars": "0.7700",
+      "sequence": 849099,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572110
+    },
+    {
+      "delta_fp": "25.00",
+      "price_dollars": "0.7700",
+      "sequence": 849100,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572111
+    },
+    {
+      "delta_fp": "500.00",
+      "price_dollars": "0.1800",
+      "sequence": 849101,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572116
+    },
+    {
+      "delta_fp": "-500.00",
+      "price_dollars": "0.7600",
+      "sequence": 849102,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572116
+    },
+    {
+      "delta_fp": "-12.00",
+      "price_dollars": "0.1900",
+      "sequence": 849104,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572131
+    },
+    {
+      "delta_fp": "-12.00",
+      "price_dollars": "0.7400",
+      "sequence": 849105,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572133
+    },
+    {
+      "delta_fp": "500.00",
+      "price_dollars": "0.7600",
+      "sequence": 849106,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572138
+    },
+    {
+      "delta_fp": "-25.00",
+      "price_dollars": "0.7400",
+      "sequence": 849107,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572144
+    },
+    {
+      "delta_fp": "25.00",
+      "price_dollars": "0.7800",
+      "sequence": 849108,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572144
+    },
+    {
+      "delta_fp": "-65.00",
+      "price_dollars": "0.7500",
+      "sequence": 849117,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572178
+    },
+    {
+      "delta_fp": "109.00",
+      "price_dollars": "0.7400",
+      "sequence": 849118,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572178
+    },
+    {
+      "delta_fp": "-25.00",
+      "price_dollars": "0.7800",
+      "sequence": 849120,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572186
+    },
+    {
+      "delta_fp": "25.00",
+      "price_dollars": "0.7300",
+      "sequence": 849121,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572186
+    },
+    {
+      "delta_fp": "12.00",
+      "price_dollars": "0.2000",
+      "sequence": 849134,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572225
+    },
+    {
+      "delta_fp": "-250.00",
+      "price_dollars": "0.7300",
+      "sequence": 849139,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572266
+    },
+    {
+      "delta_fp": "250.00",
+      "price_dollars": "0.2100",
+      "sequence": 849140,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572267
+    },
+    {
+      "delta_fp": "250.00",
+      "price_dollars": "0.7400",
+      "sequence": 849141,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572267
+    },
+    {
+      "delta_fp": "-500.00",
+      "price_dollars": "0.7200",
+      "sequence": 849143,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572268
+    },
+    {
+      "delta_fp": "-1000.00",
+      "price_dollars": "0.7100",
+      "sequence": 849144,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572268
+    },
+    {
+      "delta_fp": "500.00",
+      "price_dollars": "0.2100",
+      "sequence": 849145,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572269
+    },
+    {
+      "delta_fp": "500.00",
+      "price_dollars": "0.7300",
+      "sequence": 849146,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572269
+    },
+    {
+      "delta_fp": "1000.00",
+      "price_dollars": "0.7200",
+      "sequence": 849147,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572270
+    },
+    {
+      "delta_fp": "-1000.00",
+      "price_dollars": "0.2000",
+      "sequence": 849148,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572275
+    },
+    {
+      "delta_fp": "1000.00",
+      "price_dollars": "0.1900",
+      "sequence": 849149,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572275
+    },
+    {
+      "delta_fp": "-500.00",
+      "price_dollars": "0.2100",
+      "sequence": 849150,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572277
+    },
+    {
+      "delta_fp": "-109.00",
+      "price_dollars": "0.7400",
+      "sequence": 849152,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572279
+    },
+    {
+      "delta_fp": "43.00",
+      "price_dollars": "0.7500",
+      "sequence": 849153,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572279
+    },
+    {
+      "delta_fp": "12.00",
+      "price_dollars": "0.7300",
+      "sequence": 849163,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572302
+    },
+    {
+      "delta_fp": "700.00",
+      "price_dollars": "0.2100",
+      "sequence": 849164,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572308
+    },
+    {
+      "delta_fp": "700.00",
+      "price_dollars": "0.7500",
+      "sequence": 849165,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572309
+    },
+    {
+      "delta_fp": "1400.00",
+      "price_dollars": "0.2100",
+      "sequence": 849167,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572309
+    },
+    {
+      "delta_fp": "1400.00",
+      "price_dollars": "0.7400",
+      "sequence": 849169,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572310
+    },
+    {
+      "delta_fp": "-25.00",
+      "price_dollars": "0.7300",
+      "sequence": 849171,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572310
+    },
+    {
+      "delta_fp": "25.00",
+      "price_dollars": "0.7800",
+      "sequence": 849172,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572310
+    },
+    {
+      "delta_fp": "500.00",
+      "price_dollars": "0.2000",
+      "sequence": 849192,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572325
+    },
+    {
+      "delta_fp": "-43.00",
+      "price_dollars": "0.7500",
+      "sequence": 849213,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572370
+    },
+    {
+      "delta_fp": "106.00",
+      "price_dollars": "0.7400",
+      "sequence": 849214,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572370
+    },
+    {
+      "delta_fp": "-106.00",
+      "price_dollars": "0.7400",
+      "sequence": 849225,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572411
+    },
+    {
+      "delta_fp": "41.00",
+      "price_dollars": "0.7500",
+      "sequence": 849226,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572411
+    },
+    {
+      "delta_fp": "-25.00",
+      "price_dollars": "0.7800",
+      "sequence": 849233,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572429
+    },
+    {
+      "delta_fp": "25.00",
+      "price_dollars": "0.7300",
+      "sequence": 849234,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572429
+    },
+    {
+      "delta_fp": "-250.00",
+      "price_dollars": "0.7400",
+      "sequence": 849237,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572434
+    },
+    {
+      "delta_fp": "250.00",
+      "price_dollars": "0.7300",
+      "sequence": 849238,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572435
+    },
+    {
+      "delta_fp": "-500.00",
+      "price_dollars": "0.2000",
+      "sequence": 849239,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572441
+    },
+    {
+      "delta_fp": "-1000.00",
+      "price_dollars": "0.7200",
+      "sequence": 849240,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572441
+    },
+    {
+      "delta_fp": "500.00",
+      "price_dollars": "0.2100",
+      "sequence": 849241,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572442
+    },
+    {
+      "delta_fp": "1000.00",
+      "price_dollars": "0.7100",
+      "sequence": 849242,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572442
+    },
+    {
+      "delta_fp": "-50.00",
+      "price_dollars": "0.7300",
+      "sequence": 849253,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572488
+    },
+    {
+      "delta_fp": "48.00",
+      "price_dollars": "0.7400",
+      "sequence": 849254,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572488
+    },
+    {
+      "delta_fp": "-375.00",
+      "price_dollars": "0.7600",
+      "sequence": 849255,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572488
+    },
+    {
+      "delta_fp": "323.00",
+      "price_dollars": "0.7700",
+      "sequence": 849256,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572489
+    },
+    {
+      "delta_fp": "-25.00",
+      "price_dollars": "0.7300",
+      "sequence": 849272,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572525
+    },
+    {
+      "delta_fp": "25.00",
+      "price_dollars": "0.7800",
+      "sequence": 849273,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572525
+    },
+    {
+      "delta_fp": "-250.00",
+      "price_dollars": "0.7300",
+      "sequence": 849276,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572530
+    },
+    {
+      "delta_fp": "-500.00",
+      "price_dollars": "0.2100",
+      "sequence": 849278,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572530
+    },
+    {
+      "delta_fp": "-1000.00",
+      "price_dollars": "0.7100",
+      "sequence": 849281,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572531
+    },
+    {
+      "delta_fp": "-25.00",
+      "price_dollars": "0.7800",
+      "sequence": 849284,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572531
+    },
+    {
+      "delta_fp": "25.00",
+      "price_dollars": "0.7300",
+      "sequence": 849285,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572531
+    },
+    {
+      "delta_fp": "250.00",
+      "price_dollars": "0.7400",
+      "sequence": 849288,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572532
+    },
+    {
+      "delta_fp": "500.00",
+      "price_dollars": "0.2000",
+      "sequence": 849289,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572532
+    },
+    {
+      "delta_fp": "1000.00",
+      "price_dollars": "0.7200",
+      "sequence": 849290,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572533
+    },
+    {
+      "delta_fp": "-500.00",
+      "price_dollars": "0.1800",
+      "sequence": 849292,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572539
+    },
+    {
+      "delta_fp": "-10000.00",
+      "price_dollars": "0.7400",
+      "sequence": 849294,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572549
+    },
+    {
+      "delta_fp": "-100.00",
+      "price_dollars": "0.2000",
+      "sequence": 849295,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572549
+    },
+    {
+      "delta_fp": "-1250.00",
+      "price_dollars": "0.7300",
+      "sequence": 849296,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572549
+    },
+    {
+      "delta_fp": "-500.00",
+      "price_dollars": "0.1800",
+      "sequence": 849297,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572549
+    },
+    {
+      "delta_fp": "-100.00",
+      "price_dollars": "0.2000",
+      "sequence": 849298,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572549
+    },
+    {
+      "delta_fp": "-25.00",
+      "price_dollars": "0.7700",
+      "sequence": 849300,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572551
+    },
+    {
+      "delta_fp": "25.00",
+      "price_dollars": "0.7800",
+      "sequence": 849301,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572551
+    },
+    {
+      "delta_fp": "100.00",
+      "price_dollars": "0.1800",
+      "sequence": 849305,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572559
+    },
+    {
+      "delta_fp": "100.00",
+      "price_dollars": "0.1900",
+      "sequence": 849306,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572559
+    },
+    {
+      "delta_fp": "1250.00",
+      "price_dollars": "0.7400",
+      "sequence": 849307,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572569
+    },
+    {
+      "delta_fp": "500.00",
+      "price_dollars": "0.1700",
+      "sequence": 849308,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572569
+    },
+    {
+      "delta_fp": "500.00",
+      "price_dollars": "0.1700",
+      "sequence": 849309,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572569
+    },
+    {
+      "delta_fp": "10000.00",
+      "price_dollars": "0.7500",
+      "sequence": 849310,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572569
+    },
+    {
+      "delta_fp": "-1400.00",
+      "price_dollars": "0.2100",
+      "sequence": 849311,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572596
+    },
+    {
+      "delta_fp": "-700.00",
+      "price_dollars": "0.2100",
+      "sequence": 849312,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572597
+    },
+    {
+      "delta_fp": "-700.00",
+      "price_dollars": "0.7500",
+      "sequence": 849313,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572600
+    },
+    {
+      "delta_fp": "700.00",
+      "price_dollars": "0.7600",
+      "sequence": 849314,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572600
+    },
+    {
+      "delta_fp": "-1400.00",
+      "price_dollars": "0.7400",
+      "sequence": 849315,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572601
+    },
+    {
+      "delta_fp": "1400.00",
+      "price_dollars": "0.7500",
+      "sequence": 849316,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572601
+    },
+    {
+      "delta_fp": "-250.00",
+      "price_dollars": "0.2100",
+      "sequence": 849317,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572604
+    },
+    {
+      "delta_fp": "250.00",
+      "price_dollars": "0.2000",
+      "sequence": 849318,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572605
+    },
+    {
+      "delta_fp": "-500.00",
+      "price_dollars": "0.7300",
+      "sequence": 849319,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572606
+    },
+    {
+      "delta_fp": "-12.00",
+      "price_dollars": "0.7300",
+      "sequence": 849320,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572608
+    },
+    {
+      "delta_fp": "-1000.00",
+      "price_dollars": "0.1900",
+      "sequence": 849321,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572608
+    },
+    {
+      "delta_fp": "-25.00",
+      "price_dollars": "0.7300",
+      "sequence": 849325,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572616
+    },
+    {
+      "delta_fp": "25.00",
+      "price_dollars": "0.7800",
+      "sequence": 849326,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572616
+    },
+    {
+      "delta_fp": "-500.00",
+      "price_dollars": "0.2100",
+      "sequence": 849334,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572631
+    },
+    {
+      "delta_fp": "500.00",
+      "price_dollars": "0.2000",
+      "sequence": 849335,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572636
+    },
+    {
+      "delta_fp": "-25.00",
+      "price_dollars": "0.7300",
+      "sequence": 849336,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572637
+    },
+    {
+      "delta_fp": "25.00",
+      "price_dollars": "0.7800",
+      "sequence": 849337,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572637
+    },
+    {
+      "delta_fp": "-1000.00",
+      "price_dollars": "0.7200",
+      "sequence": 849338,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572637
+    },
+    {
+      "delta_fp": "-1235.00",
+      "price_dollars": "0.2000",
+      "sequence": 849339,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572637
+    },
+    {
+      "delta_fp": "-20.00",
+      "price_dollars": "0.7200",
+      "sequence": 849343,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572646
+    },
+    {
+      "delta_fp": "-1.00",
+      "price_dollars": "0.7200",
+      "sequence": 849354,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572658
+    },
+    {
+      "delta_fp": "1.00",
+      "price_dollars": "0.7300",
+      "sequence": 849355,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572658
+    },
+    {
+      "delta_fp": "20.00",
+      "price_dollars": "0.7300",
+      "sequence": 849357,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572666
+    },
+    {
+      "delta_fp": "-1.00",
+      "price_dollars": "0.7300",
+      "sequence": 849358,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572666
+    },
+    {
+      "delta_fp": "1.00",
+      "price_dollars": "0.7200",
+      "sequence": 849359,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572666
+    },
+    {
+      "delta_fp": "-25.00",
+      "price_dollars": "0.7800",
+      "sequence": 849365,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572673
+    },
+    {
+      "delta_fp": "25.00",
+      "price_dollars": "0.7300",
+      "sequence": 849366,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572673
+    },
+    {
+      "delta_fp": "500.00",
+      "price_dollars": "0.7400",
+      "sequence": 849373,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572677
+    },
+    {
+      "delta_fp": "1000.00",
+      "price_dollars": "0.7200",
+      "sequence": 849405,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572700
+    },
+    {
+      "delta_fp": "-25.00",
+      "price_dollars": "0.7800",
+      "sequence": 849406,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572703
+    },
+    {
+      "delta_fp": "25.00",
+      "price_dollars": "0.7300",
+      "sequence": 849407,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572703
+    },
+    {
+      "delta_fp": "-250.00",
+      "price_dollars": "0.2000",
+      "sequence": 849409,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572703
+    },
+    {
+      "delta_fp": "-500.00",
+      "price_dollars": "0.7400",
+      "sequence": 849410,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572704
+    },
+    {
+      "delta_fp": "700.00",
+      "price_dollars": "0.2100",
+      "sequence": 849452,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572746
+    },
+    {
+      "delta_fp": "1400.00",
+      "price_dollars": "0.2100",
+      "sequence": 849453,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572746
+    },
+    {
+      "delta_fp": "250.00",
+      "price_dollars": "0.2100",
+      "sequence": 849472,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572774
+    },
+    {
+      "delta_fp": "-25.00",
+      "price_dollars": "0.7300",
+      "sequence": 849495,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572807
+    },
+    {
+      "delta_fp": "25.00",
+      "price_dollars": "0.7800",
+      "sequence": 849496,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572807
+    },
+    {
+      "delta_fp": "12.00",
+      "price_dollars": "0.7400",
+      "sequence": 849497,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572814
+    },
+    {
+      "delta_fp": "-1.00",
+      "price_dollars": "0.7200",
+      "sequence": 849500,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572820
+    },
+    {
+      "delta_fp": "1.00",
+      "price_dollars": "0.7300",
+      "sequence": 849501,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572820
+    },
+    {
+      "delta_fp": "500.00",
+      "price_dollars": "0.7300",
+      "sequence": 849507,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572831
+    },
+    {
+      "delta_fp": "4.00",
+      "price_dollars": "0.7800",
+      "sequence": 849519,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572888
+    },
+    {
+      "delta_fp": "6.00",
+      "price_dollars": "0.1800",
+      "sequence": 849520,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572889
+    },
+    {
+      "delta_fp": "1000.00",
+      "price_dollars": "0.1900",
+      "sequence": 849540,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572933
+    },
+    {
+      "delta_fp": "1.00",
+      "price_dollars": "0.2000",
+      "sequence": 849573,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572964
+    },
+    {
+      "delta_fp": "-1.00",
+      "price_dollars": "0.2000",
+      "sequence": 849584,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572987
+    },
+    {
+      "delta_fp": "-1.00",
+      "price_dollars": "0.2000",
+      "sequence": 849585,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699572988
+    },
+    {
+      "delta_fp": "5.00",
+      "price_dollars": "0.7700",
+      "sequence": 849594,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573003
+    },
+    {
+      "delta_fp": "4500.00",
+      "price_dollars": "0.1600",
+      "sequence": 849595,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573007
+    },
+    {
+      "delta_fp": "-10000.00",
+      "price_dollars": "0.0200",
+      "sequence": 849598,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573014
+    },
+    {
+      "delta_fp": "4500.00",
+      "price_dollars": "0.7300",
+      "sequence": 849604,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573018
+    },
+    {
+      "delta_fp": "10000.00",
+      "price_dollars": "0.1600",
+      "sequence": 849605,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573019
+    },
+    {
+      "delta_fp": "10.00",
+      "price_dollars": "0.7600",
+      "sequence": 849612,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573045
+    },
+    {
+      "delta_fp": "10.00",
+      "price_dollars": "0.1600",
+      "sequence": 849613,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573046
+    },
+    {
+      "delta_fp": "-10.00",
+      "price_dollars": "0.2000",
+      "sequence": 849614,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573046
+    },
+    {
+      "delta_fp": "-10.00",
+      "price_dollars": "0.7200",
+      "sequence": 849615,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573047
+    },
+    {
+      "delta_fp": "2.00",
+      "price_dollars": "0.2000",
+      "sequence": 849618,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573057
+    },
+    {
+      "delta_fp": "-20.00",
+      "price_dollars": "0.7300",
+      "sequence": 849623,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573077
+    },
+    {
+      "delta_fp": "-500.00",
+      "price_dollars": "0.2000",
+      "sequence": 849624,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573082
+    },
+    {
+      "delta_fp": "500.00",
+      "price_dollars": "0.2100",
+      "sequence": 849625,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573088
+    },
+    {
+      "delta_fp": "20.00",
+      "price_dollars": "0.7200",
+      "sequence": 849626,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573094
+    },
+    {
+      "delta_fp": "-12.00",
+      "price_dollars": "0.2000",
+      "sequence": 849630,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573124
+    },
+    {
+      "delta_fp": "12.00",
+      "price_dollars": "0.2000",
+      "sequence": 849646,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573246
+    },
+    {
+      "delta_fp": "-10000.00",
+      "price_dollars": "0.7500",
+      "sequence": 849654,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573360
+    },
+    {
+      "delta_fp": "10000.00",
+      "price_dollars": "0.7400",
+      "sequence": 849656,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573370
+    },
+    {
+      "delta_fp": "-500.00",
+      "price_dollars": "0.2000",
+      "sequence": 849657,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573374
+    },
+    {
+      "delta_fp": "500.00",
+      "price_dollars": "0.2100",
+      "sequence": 849658,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573375
+    },
+    {
+      "delta_fp": "-100.00",
+      "price_dollars": "0.1900",
+      "sequence": 849662,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573396
+    },
+    {
+      "delta_fp": "-100.00",
+      "price_dollars": "0.1800",
+      "sequence": 849663,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573406
+    },
+    {
+      "delta_fp": "-1250.00",
+      "price_dollars": "0.7400",
+      "sequence": 849664,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573406
+    },
+    {
+      "delta_fp": "1235.00",
+      "price_dollars": "0.2000",
+      "sequence": 849667,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573415
+    },
+    {
+      "delta_fp": "100.00",
+      "price_dollars": "0.2000",
+      "sequence": 849668,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573416
+    },
+    {
+      "delta_fp": "1250.00",
+      "price_dollars": "0.7300",
+      "sequence": 849669,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573416
+    },
+    {
+      "delta_fp": "100.00",
+      "price_dollars": "0.2000",
+      "sequence": 849670,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573416
+    },
+    {
+      "delta_fp": "-25.00",
+      "price_dollars": "0.7800",
+      "sequence": 849673,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573509
+    },
+    {
+      "delta_fp": "25.00",
+      "price_dollars": "0.7300",
+      "sequence": 849674,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573509
+    },
+    {
+      "delta_fp": "-1250.00",
+      "price_dollars": "0.7300",
+      "sequence": 849675,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573521
+    },
+    {
+      "delta_fp": "1250.00",
+      "price_dollars": "0.7400",
+      "sequence": 849676,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573531
+    },
+    {
+      "delta_fp": "-100.00",
+      "price_dollars": "0.2000",
+      "sequence": 849680,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573571
+    },
+    {
+      "delta_fp": "-10000.00",
+      "price_dollars": "0.7400",
+      "sequence": 849681,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573571
+    },
+    {
+      "delta_fp": "-100.00",
+      "price_dollars": "0.2000",
+      "sequence": 849682,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573571
+    },
+    {
+      "delta_fp": "100.00",
+      "price_dollars": "0.1800",
+      "sequence": 849687,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573581
+    },
+    {
+      "delta_fp": "100.00",
+      "price_dollars": "0.1900",
+      "sequence": 849688,
+      "side": "yes",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573582
+    },
+    {
+      "delta_fp": "10000.00",
+      "price_dollars": "0.7500",
+      "sequence": 849695,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573591
+    },
+    {
+      "delta_fp": "-1.00",
+      "price_dollars": "0.7300",
+      "sequence": 849699,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573619
+    },
+    {
+      "delta_fp": "1.00",
+      "price_dollars": "0.7200",
+      "sequence": 849700,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573619
+    },
+    {
+      "delta_fp": "-25.00",
+      "price_dollars": "0.7300",
+      "sequence": 849701,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573633
+    },
+    {
+      "delta_fp": "25.00",
+      "price_dollars": "0.7800",
+      "sequence": 849702,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573633
+    },
+    {
+      "delta_fp": "-25.00",
+      "price_dollars": "0.7800",
+      "sequence": 849703,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573671
+    },
+    {
+      "delta_fp": "-250.00",
+      "price_dollars": "0.7400",
+      "sequence": 849704,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573704
+    },
+    {
+      "delta_fp": "250.00",
+      "price_dollars": "0.7300",
+      "sequence": 849705,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573705
+    },
+    {
+      "delta_fp": "-1.00",
+      "price_dollars": "0.7200",
+      "sequence": 849715,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573819
+    },
+    {
+      "delta_fp": "1.00",
+      "price_dollars": "0.7300",
+      "sequence": 849716,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573819
+    },
+    {
+      "delta_fp": "-25.00",
+      "price_dollars": "0.7300",
+      "sequence": 849737,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573872
+    },
+    {
+      "delta_fp": "25.00",
+      "price_dollars": "0.7800",
+      "sequence": 849738,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573872
+    },
+    {
+      "delta_fp": "-25.00",
+      "price_dollars": "0.7800",
+      "sequence": 849739,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573878
+    },
+    {
+      "delta_fp": "25.00",
+      "price_dollars": "0.7300",
+      "sequence": 849740,
+      "side": "no",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699573878
+    }
+  ],
+  "snapshots": [
+    {
+      "sequence": 33698,
+      "source": "websocket",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571797,
+      "yes_asks": [
+        {
+          "price": "21",
+          "size": "386.27"
+        },
+        {
+          "price": "22",
+          "size": "351.0"
+        },
+        {
+          "price": "23",
+          "size": "1355.0"
+        },
+        {
+          "price": "24",
+          "size": "1677.0899999999965"
+        },
+        {
+          "price": "25",
+          "size": "30351.0"
+        },
+        {
+          "price": "26",
+          "size": "6085.0"
+        },
+        {
+          "price": "27",
+          "size": "1395.0"
+        },
+        {
+          "price": "28",
+          "size": "253.0"
+        },
+        {
+          "price": "29",
+          "size": "251.0"
+        },
+        {
+          "price": "30",
+          "size": "250.0"
+        },
+        {
+          "price": "31",
+          "size": "250.0"
+        },
+        {
+          "price": "32",
+          "size": "250.0"
+        },
+        {
+          "price": "33",
+          "size": "300.0"
+        },
+        {
+          "price": "34",
+          "size": "250.0"
+        },
+        {
+          "price": "35",
+          "size": "250.0"
+        },
+        {
+          "price": "36",
+          "size": "250.0"
+        },
+        {
+          "price": "37",
+          "size": "250.0"
+        },
+        {
+          "price": "38",
+          "size": "250.0"
+        },
+        {
+          "price": "39",
+          "size": "250.0"
+        },
+        {
+          "price": "40",
+          "size": "250.0"
+        },
+        {
+          "price": "41",
+          "size": "250.0"
+        },
+        {
+          "price": "42",
+          "size": "250.0"
+        },
+        {
+          "price": "43",
+          "size": "250.0"
+        },
+        {
+          "price": "44",
+          "size": "250.0"
+        },
+        {
+          "price": "45",
+          "size": "250.0"
+        },
+        {
+          "price": "46",
+          "size": "250.0"
+        },
+        {
+          "price": "47",
+          "size": "250.0"
+        },
+        {
+          "price": "48",
+          "size": "250.0"
+        },
+        {
+          "price": "49",
+          "size": "250.0"
+        },
+        {
+          "price": "50",
+          "size": "250.0"
+        },
+        {
+          "price": "51",
+          "size": "250.0"
+        },
+        {
+          "price": "52",
+          "size": "250.0"
+        },
+        {
+          "price": "53",
+          "size": "250.0"
+        },
+        {
+          "price": "54",
+          "size": "250.0"
+        },
+        {
+          "price": "55",
+          "size": "250.0"
+        },
+        {
+          "price": "56",
+          "size": "250.0"
+        },
+        {
+          "price": "57",
+          "size": "250.0"
+        },
+        {
+          "price": "58",
+          "size": "260.0"
+        },
+        {
+          "price": "59",
+          "size": "254.73"
+        },
+        {
+          "price": "60",
+          "size": "296.53"
+        },
+        {
+          "price": "61",
+          "size": "250.0"
+        },
+        {
+          "price": "62",
+          "size": "250.0"
+        },
+        {
+          "price": "63",
+          "size": "256.0"
+        },
+        {
+          "price": "64",
+          "size": "250.0"
+        },
+        {
+          "price": "65",
+          "size": "10.0"
+        },
+        {
+          "price": "70",
+          "size": "10.0"
+        },
+        {
+          "price": "71",
+          "size": "741.0"
+        },
+        {
+          "price": "72",
+          "size": "737.0"
+        },
+        {
+          "price": "73",
+          "size": "780.0"
+        },
+        {
+          "price": "74",
+          "size": "776.0"
+        },
+        {
+          "price": "75",
+          "size": "453.69"
+        },
+        {
+          "price": "76",
+          "size": "858.0"
+        },
+        {
+          "price": "77",
+          "size": "8000.0"
+        },
+        {
+          "price": "78",
+          "size": "1356.4700000000003"
+        },
+        {
+          "price": "86",
+          "size": "93.52"
+        },
+        {
+          "price": "91",
+          "size": "55116.0"
+        },
+        {
+          "price": "92",
+          "size": "1596.99"
+        },
+        {
+          "price": "94",
+          "size": "80000.0"
+        },
+        {
+          "price": "97",
+          "size": "165349.0"
+        },
+        {
+          "price": "98",
+          "size": "146.0"
+        },
+        {
+          "price": "99",
+          "size": "496773.63"
+        }
+      ],
+      "yes_bids": [
+        {
+          "price": "20",
+          "size": "24757.0"
+        },
+        {
+          "price": "19",
+          "size": "4247.0"
+        },
+        {
+          "price": "18",
+          "size": "403.0"
+        },
+        {
+          "price": "17",
+          "size": "1305.0"
+        },
+        {
+          "price": "16",
+          "size": "14760.0"
+        },
+        {
+          "price": "15",
+          "size": "2300.0"
+        },
+        {
+          "price": "14",
+          "size": "250.0"
+        },
+        {
+          "price": "13",
+          "size": "250.0"
+        },
+        {
+          "price": "12",
+          "size": "250.0"
+        },
+        {
+          "price": "11",
+          "size": "250.0"
+        },
+        {
+          "price": "10",
+          "size": "250.0"
+        },
+        {
+          "price": "9",
+          "size": "250.0"
+        },
+        {
+          "price": "8",
+          "size": "250.0"
+        },
+        {
+          "price": "7",
+          "size": "250.0"
+        },
+        {
+          "price": "6",
+          "size": "80250.0"
+        },
+        {
+          "price": "5",
+          "size": "250.0"
+        },
+        {
+          "price": "4",
+          "size": "250.0"
+        },
+        {
+          "price": "3",
+          "size": "1067.0"
+        },
+        {
+          "price": "2",
+          "size": "461.0"
+        },
+        {
+          "price": "1",
+          "size": "118040.0"
+        }
+      ]
+    },
+    {
+      "sequence": 33761,
+      "source": "websocket",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571887,
+      "yes_asks": [
+        {
+          "price": "21",
+          "size": "185.26999999999998"
+        },
+        {
+          "price": "22",
+          "size": "451.0"
+        },
+        {
+          "price": "23",
+          "size": "1355.0"
+        },
+        {
+          "price": "24",
+          "size": "1727.0899999999965"
+        },
+        {
+          "price": "25",
+          "size": "20350.0"
+        },
+        {
+          "price": "26",
+          "size": "16097.0"
+        },
+        {
+          "price": "27",
+          "size": "2896.0"
+        },
+        {
+          "price": "28",
+          "size": "252.0"
+        },
+        {
+          "price": "29",
+          "size": "1251.0"
+        },
+        {
+          "price": "30",
+          "size": "250.0"
+        },
+        {
+          "price": "31",
+          "size": "250.0"
+        },
+        {
+          "price": "32",
+          "size": "250.0"
+        },
+        {
+          "price": "33",
+          "size": "300.0"
+        },
+        {
+          "price": "34",
+          "size": "250.0"
+        },
+        {
+          "price": "35",
+          "size": "250.0"
+        },
+        {
+          "price": "36",
+          "size": "250.0"
+        },
+        {
+          "price": "37",
+          "size": "250.0"
+        },
+        {
+          "price": "38",
+          "size": "250.0"
+        },
+        {
+          "price": "39",
+          "size": "250.0"
+        },
+        {
+          "price": "40",
+          "size": "250.0"
+        },
+        {
+          "price": "41",
+          "size": "250.0"
+        },
+        {
+          "price": "42",
+          "size": "250.0"
+        },
+        {
+          "price": "43",
+          "size": "250.0"
+        },
+        {
+          "price": "44",
+          "size": "250.0"
+        },
+        {
+          "price": "45",
+          "size": "250.0"
+        },
+        {
+          "price": "46",
+          "size": "250.0"
+        },
+        {
+          "price": "47",
+          "size": "250.0"
+        },
+        {
+          "price": "48",
+          "size": "250.0"
+        },
+        {
+          "price": "49",
+          "size": "250.0"
+        },
+        {
+          "price": "50",
+          "size": "250.0"
+        },
+        {
+          "price": "51",
+          "size": "250.0"
+        },
+        {
+          "price": "52",
+          "size": "250.0"
+        },
+        {
+          "price": "53",
+          "size": "250.0"
+        },
+        {
+          "price": "54",
+          "size": "250.0"
+        },
+        {
+          "price": "55",
+          "size": "250.0"
+        },
+        {
+          "price": "56",
+          "size": "250.0"
+        },
+        {
+          "price": "57",
+          "size": "250.0"
+        },
+        {
+          "price": "58",
+          "size": "260.0"
+        },
+        {
+          "price": "59",
+          "size": "254.73"
+        },
+        {
+          "price": "60",
+          "size": "296.53"
+        },
+        {
+          "price": "61",
+          "size": "250.0"
+        },
+        {
+          "price": "62",
+          "size": "250.0"
+        },
+        {
+          "price": "63",
+          "size": "256.0"
+        },
+        {
+          "price": "64",
+          "size": "250.0"
+        },
+        {
+          "price": "65",
+          "size": "10.0"
+        },
+        {
+          "price": "70",
+          "size": "10.0"
+        },
+        {
+          "price": "71",
+          "size": "741.0"
+        },
+        {
+          "price": "72",
+          "size": "737.0"
+        },
+        {
+          "price": "73",
+          "size": "780.0"
+        },
+        {
+          "price": "74",
+          "size": "776.0"
+        },
+        {
+          "price": "75",
+          "size": "453.69"
+        },
+        {
+          "price": "76",
+          "size": "858.0"
+        },
+        {
+          "price": "77",
+          "size": "8000.0"
+        },
+        {
+          "price": "78",
+          "size": "1356.4700000000003"
+        },
+        {
+          "price": "86",
+          "size": "93.52"
+        },
+        {
+          "price": "91",
+          "size": "55116.0"
+        },
+        {
+          "price": "92",
+          "size": "1596.99"
+        },
+        {
+          "price": "94",
+          "size": "80000.0"
+        },
+        {
+          "price": "97",
+          "size": "165349.0"
+        },
+        {
+          "price": "98",
+          "size": "146.0"
+        },
+        {
+          "price": "99",
+          "size": "496773.63"
+        }
+      ],
+      "yes_bids": [
+        {
+          "price": "20",
+          "size": "26191.0"
+        },
+        {
+          "price": "19",
+          "size": "2912.0"
+        },
+        {
+          "price": "18",
+          "size": "303.0"
+        },
+        {
+          "price": "17",
+          "size": "1298.0"
+        },
+        {
+          "price": "16",
+          "size": "14760.0"
+        },
+        {
+          "price": "15",
+          "size": "2300.0"
+        },
+        {
+          "price": "14",
+          "size": "250.0"
+        },
+        {
+          "price": "13",
+          "size": "250.0"
+        },
+        {
+          "price": "12",
+          "size": "250.0"
+        },
+        {
+          "price": "11",
+          "size": "250.0"
+        },
+        {
+          "price": "10",
+          "size": "250.0"
+        },
+        {
+          "price": "9",
+          "size": "250.0"
+        },
+        {
+          "price": "8",
+          "size": "250.0"
+        },
+        {
+          "price": "7",
+          "size": "250.0"
+        },
+        {
+          "price": "6",
+          "size": "80250.0"
+        },
+        {
+          "price": "5",
+          "size": "250.0"
+        },
+        {
+          "price": "4",
+          "size": "250.0"
+        },
+        {
+          "price": "3",
+          "size": "1067.0"
+        },
+        {
+          "price": "2",
+          "size": "461.0"
+        },
+        {
+          "price": "1",
+          "size": "118040.0"
+        }
+      ]
+    },
+    {
+      "sequence": 33792,
+      "source": "websocket",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571912,
+      "yes_asks": [
+        {
+          "price": "22",
+          "size": "476.0"
+        },
+        {
+          "price": "23",
+          "size": "1355.0"
+        },
+        {
+          "price": "24",
+          "size": "1727.0899999999965"
+        },
+        {
+          "price": "25",
+          "size": "1050.0"
+        },
+        {
+          "price": "26",
+          "size": "17547.0"
+        },
+        {
+          "price": "27",
+          "size": "2350.0"
+        },
+        {
+          "price": "28",
+          "size": "773.0"
+        },
+        {
+          "price": "29",
+          "size": "1251.0"
+        },
+        {
+          "price": "30",
+          "size": "250.0"
+        },
+        {
+          "price": "31",
+          "size": "250.0"
+        },
+        {
+          "price": "32",
+          "size": "250.0"
+        },
+        {
+          "price": "33",
+          "size": "300.0"
+        },
+        {
+          "price": "34",
+          "size": "250.0"
+        },
+        {
+          "price": "35",
+          "size": "250.0"
+        },
+        {
+          "price": "36",
+          "size": "250.0"
+        },
+        {
+          "price": "37",
+          "size": "250.0"
+        },
+        {
+          "price": "38",
+          "size": "250.0"
+        },
+        {
+          "price": "39",
+          "size": "250.0"
+        },
+        {
+          "price": "40",
+          "size": "250.0"
+        },
+        {
+          "price": "41",
+          "size": "250.0"
+        },
+        {
+          "price": "42",
+          "size": "250.0"
+        },
+        {
+          "price": "43",
+          "size": "250.0"
+        },
+        {
+          "price": "44",
+          "size": "250.0"
+        },
+        {
+          "price": "45",
+          "size": "250.0"
+        },
+        {
+          "price": "46",
+          "size": "250.0"
+        },
+        {
+          "price": "47",
+          "size": "250.0"
+        },
+        {
+          "price": "48",
+          "size": "250.0"
+        },
+        {
+          "price": "49",
+          "size": "250.0"
+        },
+        {
+          "price": "50",
+          "size": "250.0"
+        },
+        {
+          "price": "51",
+          "size": "250.0"
+        },
+        {
+          "price": "52",
+          "size": "250.0"
+        },
+        {
+          "price": "53",
+          "size": "250.0"
+        },
+        {
+          "price": "54",
+          "size": "250.0"
+        },
+        {
+          "price": "55",
+          "size": "250.0"
+        },
+        {
+          "price": "56",
+          "size": "250.0"
+        },
+        {
+          "price": "57",
+          "size": "250.0"
+        },
+        {
+          "price": "58",
+          "size": "260.0"
+        },
+        {
+          "price": "59",
+          "size": "254.73"
+        },
+        {
+          "price": "60",
+          "size": "296.53"
+        },
+        {
+          "price": "61",
+          "size": "250.0"
+        },
+        {
+          "price": "62",
+          "size": "250.0"
+        },
+        {
+          "price": "63",
+          "size": "256.0"
+        },
+        {
+          "price": "64",
+          "size": "250.0"
+        },
+        {
+          "price": "65",
+          "size": "10.0"
+        },
+        {
+          "price": "70",
+          "size": "10.0"
+        },
+        {
+          "price": "71",
+          "size": "741.0"
+        },
+        {
+          "price": "72",
+          "size": "737.0"
+        },
+        {
+          "price": "73",
+          "size": "780.0"
+        },
+        {
+          "price": "74",
+          "size": "776.0"
+        },
+        {
+          "price": "75",
+          "size": "453.69"
+        },
+        {
+          "price": "76",
+          "size": "858.0"
+        },
+        {
+          "price": "77",
+          "size": "8000.0"
+        },
+        {
+          "price": "78",
+          "size": "1356.4700000000003"
+        },
+        {
+          "price": "86",
+          "size": "93.52"
+        },
+        {
+          "price": "91",
+          "size": "55116.0"
+        },
+        {
+          "price": "92",
+          "size": "1596.99"
+        },
+        {
+          "price": "94",
+          "size": "80000.0"
+        },
+        {
+          "price": "97",
+          "size": "165349.0"
+        },
+        {
+          "price": "98",
+          "size": "146.0"
+        },
+        {
+          "price": "99",
+          "size": "496773.63"
+        }
+      ],
+      "yes_bids": [
+        {
+          "price": "21",
+          "size": "667.0"
+        },
+        {
+          "price": "20",
+          "size": "25837.0"
+        },
+        {
+          "price": "19",
+          "size": "2862.0"
+        },
+        {
+          "price": "18",
+          "size": "303.0"
+        },
+        {
+          "price": "17",
+          "size": "1298.0"
+        },
+        {
+          "price": "16",
+          "size": "14760.0"
+        },
+        {
+          "price": "15",
+          "size": "2300.0"
+        },
+        {
+          "price": "14",
+          "size": "250.0"
+        },
+        {
+          "price": "13",
+          "size": "250.0"
+        },
+        {
+          "price": "12",
+          "size": "250.0"
+        },
+        {
+          "price": "11",
+          "size": "250.0"
+        },
+        {
+          "price": "10",
+          "size": "250.0"
+        },
+        {
+          "price": "9",
+          "size": "250.0"
+        },
+        {
+          "price": "8",
+          "size": "250.0"
+        },
+        {
+          "price": "7",
+          "size": "250.0"
+        },
+        {
+          "price": "6",
+          "size": "80250.0"
+        },
+        {
+          "price": "5",
+          "size": "250.0"
+        },
+        {
+          "price": "4",
+          "size": "250.0"
+        },
+        {
+          "price": "3",
+          "size": "1067.0"
+        },
+        {
+          "price": "2",
+          "size": "461.0"
+        },
+        {
+          "price": "1",
+          "size": "118040.0"
+        }
+      ]
+    },
+    {
+      "sequence": 33833,
+      "source": "websocket",
+      "ticker": "KXBTCD-26JUL1013-T64099.99",
+      "timestamp": 1783699571962,
+      "yes_asks": [
+        {
+          "price": "22",
+          "size": "476.0"
+        },
+        {
+          "price": "23",
+          "size": "1355.0"
+        },
+        {
+          "price": "24",
+          "size": "1727.0899999999965"
+        },
+        {
+          "price": "25",
+          "size": "300.0"
+        },
+        {
+          "price": "26",
+          "size": "36243.0"
+        },
+        {
+          "price": "27",
+          "size": "1100.0"
+        },
+        {
+          "price": "28",
+          "size": "773.0"
+        },
+        {
+          "price": "29",
+          "size": "1251.0"
+        },
+        {
+          "price": "30",
+          "size": "250.0"
+        },
+        {
+          "price": "31",
+          "size": "250.0"
+        },
+        {
+          "price": "32",
+          "size": "250.0"
+        },
+        {
+          "price": "33",
+          "size": "300.0"
+        },
+        {
+          "price": "34",
+          "size": "250.0"
+        },
+        {
+          "price": "35",
+          "size": "250.0"
+        },
+        {
+          "price": "36",
+          "size": "250.0"
+        },
+        {
+          "price": "37",
+          "size": "250.0"
+        },
+        {
+          "price": "38",
+          "size": "250.0"
+        },
+        {
+          "price": "39",
+          "size": "250.0"
+        },
+        {
+          "price": "40",
+          "size": "250.0"
+        },
+        {
+          "price": "41",
+          "size": "250.0"
+        },
+        {
+          "price": "42",
+          "size": "250.0"
+        },
+        {
+          "price": "43",
+          "size": "250.0"
+        },
+        {
+          "price": "44",
+          "size": "250.0"
+        },
+        {
+          "price": "45",
+          "size": "250.0"
+        },
+        {
+          "price": "46",
+          "size": "250.0"
+        },
+        {
+          "price": "47",
+          "size": "250.0"
+        },
+        {
+          "price": "48",
+          "size": "250.0"
+        },
+        {
+          "price": "49",
+          "size": "250.0"
+        },
+        {
+          "price": "50",
+          "size": "250.0"
+        },
+        {
+          "price": "51",
+          "size": "250.0"
+        },
+        {
+          "price": "52",
+          "size": "250.0"
+        },
+        {
+          "price": "53",
+          "size": "250.0"
+        },
+        {
+          "price": "54",
+          "size": "250.0"
+        },
+        {
+          "price": "55",
+          "size": "250.0"
+        },
+        {
+          "price": "56",
+          "size": "250.0"
+        },
+        {
+          "price": "57",
+          "size": "250.0"
+        },
+        {
+          "price": "58",
+          "size": "260.0"
+        },
+        {
+          "price": "59",
+          "size": "254.73"
+        },
+        {
+          "price": "60",
+          "size": "296.53"
+        },
+        {
+          "price": "61",
+          "size": "250.0"
+        },
+        {
+          "price": "62",
+          "size": "250.0"
+        },
+        {
+          "price": "63",
+          "size": "256.0"
+        },
+        {
+          "price": "64",
+          "size": "250.0"
+        },
+        {
+          "price": "65",
+          "size": "10.0"
+        },
+        {
+          "price": "70",
+          "size": "10.0"
+        },
+        {
+          "price": "71",
+          "size": "741.0"
+        },
+        {
+          "price": "72",
+          "size": "737.0"
+        },
+        {
+          "price": "73",
+          "size": "780.0"
+        },
+        {
+          "price": "74",
+          "size": "776.0"
+        },
+        {
+          "price": "75",
+          "size": "453.69"
+        },
+        {
+          "price": "76",
+          "size": "858.0"
+        },
+        {
+          "price": "77",
+          "size": "8000.0"
+        },
+        {
+          "price": "78",
+          "size": "1356.4700000000003"
+        },
+        {
+          "price": "86",
+          "size": "93.52"
+        },
+        {
+          "price": "91",
+          "size": "55116.0"
+        },
+        {
+          "price": "92",
+          "size": "1596.99"
+        },
+        {
+          "price": "94",
+          "size": "80000.0"
+        },
+        {
+          "price": "97",
+          "size": "165349.0"
+        },
+        {
+          "price": "98",
+          "size": "146.0"
+        },
+        {
+          "price": "99",
+          "size": "496773.63"
+        }
+      ],
+      "yes_bids": [
+        {
+          "price": "21",
+          "size": "20692.0"
+        },
+        {
+          "price": "20",
+          "size": "3713.0"
+        },
+        {
+          "price": "19",
+          "size": "2862.0"
+        },
+        {
+          "price": "18",
+          "size": "303.0"
+        },
+        {
+          "price": "17",
+          "size": "1298.0"
+        },
+        {
+          "price": "16",
+          "size": "14760.0"
+        },
+        {
+          "price": "15",
+          "size": "2300.0"
+        },
+        {
+          "price": "14",
+          "size": "250.0"
+        },
+        {
+          "price": "13",
+          "size": "250.0"
+        },
+        {
+          "price": "12",
+          "size": "250.0"
+        },
+        {
+          "price": "11",
+          "size": "250.0"
+        },
+        {
+          "price": "10",
+          "size": "250.0"
+        },
+        {
+          "price": "9",
+          "size": "250.0"
+        },
+        {
+          "price": "8",
+          "size": "250.0"
+        },
+        {
+          "price": "7",
+          "size": "250.0"
+        },
+        {
+          "price": "6",
+          "size": "80250.0"
+        },
+        {
+          "price": "5",
+          "size": "250.0"
+        },
+        {
+          "price": "4",
+          "size": "250.0"
+        },
+        {
+          "price": "3",
+          "size": "1067.0"
+        },
+        {
+          "price": "2",
+          "size": "461.0"
+        },
+        {
+          "price": "1",
+          "size": "118040.0"
+        }
+      ]
+    }
+  ],
+  "source_diagnostic_sha256": "47caf2f93c736538db9a896a469f6a25fcdb247d2e67e89cf538675e4c8eeac5",
+  "ticker": "KXBTCD-26JUL1013-T64099.99"
+}

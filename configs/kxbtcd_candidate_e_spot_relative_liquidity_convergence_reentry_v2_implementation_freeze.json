@@ -1,0 +1,46 @@
+{
+  "candidate_e_beta_distance": "0.014939489324405949",
+  "candidate_e_champion_final_fingerprint": "b45478594c088c09086d55d14e70aa7a22a62dc546cf0f2d9a1e3bb2f296b8dc",
+  "checkpoint_id": "21N-Y-A",
+  "evidence_and_safety": {
+    "candidate_e_refit": false,
+    "demo_execution": false,
+    "fresh_24_event_outcomes_accessed": false,
+    "fresh_24_event_source_materialization_run": false,
+    "july10_v2_outcomes_accessed": false,
+    "july10_v2_paths_run_before_freeze": false,
+    "network_requests": 0,
+    "orders_placed": 0,
+    "paper_broker": false,
+    "predexon_paid_purchases": 0,
+    "protected_reserve_accessed": false,
+    "real_july10_nonstructural_candidate_e_scoring_before_freeze": false,
+    "real_money_execution": false,
+    "strategy_pnl_calculated": false
+  },
+  "implementation_contract": {
+    "decision_clock": "btc_minute_boundaries_plus_current_window_best_level_or_availability_changes",
+    "deep_book_only_change_creates_entry_decision": false,
+    "dynamic_ticker_union_precomputed_from_causal_btc_minutes": true,
+    "dynamic_universe": "causal_atm_plus_minus_5_strike_ranks",
+    "entry_and_liquidation_primitives_reused_from_21n_r": true,
+    "full_623_ticker_source_set_still_validated_before_path_run": true,
+    "liquidity_defines_window_membership": false,
+    "maximum_markets_per_window": 11,
+    "outside_window_book_change_alone_creates_entry_decision": false,
+    "path_runner_included_but_not_executed": true,
+    "path_runner_requires_this_freeze": true
+  },
+  "implementation_files": {
+    "materialize_kxbtcd_candidate_e_spot_relative_liquidity_convergence_reentry_v2_paths.py": "477d62e4f15d44b25bd9d5c7b252a1c5db9cd4bf791f82d9e40d50ba2106ec62",
+    "src/kxbtcd_candidate_e_spot_relative_liquidity_convergence_reentry_v2_simulator.py": "8b9bc124b195e3d4b4cff7688bc251bba71ca118a6498440b78fb11249ebd0c3"
+  },
+  "implementation_fingerprint": "b8f66b2f392df2c8711e7d6e25e64c54921b16f8f7866c243a6375aaec778949",
+  "inherited_21n_r_implementation_fingerprint": "6877bf440c88e72e3dd103b55a64f935bc937eeff84ae4cf7af7a6f60d86b4bf",
+  "july10_source_binding_fingerprint": "8cf8ead70da5f56def1a0d67619b2cda75316e6345383e8ebdcf79f9c4cf62b7",
+  "next_action": "run_exact_frozen_july10_v2_outcome_blind_development_path_only",
+  "next_checkpoint": "21N-Y-B",
+  "predeclaration_fingerprint": "3e44c6ce3b9e420db3cf0dd52c2b64030ae99901c491d9cf0bc15617930ef8ae",
+  "schema_version": "kxbtcd_candidate_e_spot_relative_liquidity_convergence_reentry_v2_implementation_freeze.v1",
+  "strategy_id": "kxbtcd_candidate_e_spot_relative_liquidity_convergence_reentry_v2"
+}

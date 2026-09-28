@@ -1,0 +1,54 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Editors / operating systems
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Secrets and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+credentials/
+
+# Runtime output and market data
+logs/*
+!logs/.gitkeep
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+data/derived/
+data/manifests/*
+!data/manifests/.gitkeep
+reports/*
+!reports/.gitkeep
+
+# Models and large artifacts
+*.joblib
+*.pkl
+*.parquet
+*.feather
+*.sqlite
+*.db
+data/analysis/
+data/prospective_smoke/
+CHECKSUMS.sha256
+
+# local staging leftovers
+_*.tgz

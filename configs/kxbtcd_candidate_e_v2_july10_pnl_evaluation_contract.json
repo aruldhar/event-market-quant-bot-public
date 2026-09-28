@@ -1,0 +1,623 @@
+{
+  "baseline_repository": {
+    "branch": "main",
+    "parent_checkpoint_commit": "a47b3b2b0bb70e90cc1a03f77fdf859929341ba2",
+    "parent_closeout_commit": "1629ba729670e357f63d56c5b4b209dcd6f4a4f6"
+  },
+  "censored_path_accounting": {
+    "do_not_tighten_after_viewing_outcomes": true,
+    "frozen_mechanics_used": {
+      "fee_formula_upper_bound_component": "p*(1-p) <= 0.25",
+      "fee_rate": "0.07",
+      "max_filled_entries_per_scenario": 2,
+      "max_filled_iocs_per_scenario": 4,
+      "max_net_fee_per_filled_ioc_dollars": "0.0175",
+      "planned_quantity_per_entry": "1",
+      "price_domain_dollars": [
+        "0",
+        "1"
+      ]
+    },
+    "lower_bound_derivation": "-2 contracts maximum gross loss - 4 * 0.0175 maximum per-fill fee",
+    "method": "rigorous_universal_structural_interval",
+    "pnl_lower_bound_dollars": "-2.0700",
+    "pnl_upper_bound_dollars": "2",
+    "point_pnl_forbidden": true,
+    "rationale": "Censorship can alter entry selection, rearm, or liquidation, so observed partial trace cash is not treated as the true frozen-policy continuation.",
+    "upper_bound_derivation": "+2 contracts maximum gross gain; nonnegative fees cannot increase the upper bound"
+  },
+  "checkpoint_id": "21N-Y-C-PNL-FREEZE",
+  "exact_path_accounting": {
+    "entry_cash_source": "entry.ioc.net_cash_change_total",
+    "exit_full_cash_source": "liquidation.exit_ioc.net_cash_change_total",
+    "exit_missed_settlement_fallback_rule": "entry net cash plus terminal cash for settlement_fallback_quantity on signal.side",
+    "no_filled_trade_pnl_dollars": "0",
+    "recognized_liquidation_statuses": [
+      "EXIT_FULL",
+      "EXIT_MISSED_SETTLEMENT_FALLBACK"
+    ],
+    "rounding_and_trade_fees_already_embedded_in_ioc_net_cash_change_total": true,
+    "unrecognized_status_fails_closed": true
+  },
+  "frozen_evidence": {
+    "censored_policy_path_count": 33,
+    "competitive_censorship_refinement_relative_path": "data/analysis/predexon_credit_efficiency/candidate_e_repair_203_competitive_censorship_refinement.json",
+    "competitive_censorship_refinement_sha256": "e4722f37bc001e40b84654d230dccf914f13bf98430aef833fd9efb1e6767439",
+    "event_count": 4,
+    "events": [
+      "KXBTCD-26JUL1013",
+      "KXBTCD-26JUL1014",
+      "KXBTCD-26JUL1015",
+      "KXBTCD-26JUL1016"
+    ],
+    "exact_policy_path_count": 27,
+    "policy_setting_count": 15,
+    "repaired_outcome_blind_path_relative_path": "data/analysis/predexon_credit_efficiency/july10_candidate_e_v2_outcome_blind_paths_repair_203.json",
+    "repaired_outcome_blind_path_sha256": "cd49f0c72548c7715f1025a828b7af1321c02139af926e970e7816945bd69daa",
+    "scenario_count": 60
+  },
+  "future_outcome_access_gate": {
+    "allowed_only_after_this_contract_is_committed_and_pushed": true,
+    "censored_scenarios_do_not_receive_point_pnl": true,
+    "future_implementation_must_be_committed_and_local_bytes_match_head": true,
+    "minimum_outcome_access": "request settlement only for market tickers needed by settlement fallbacks in EXACT scenarios",
+    "no_policy_ranking_or_selection_from_july10_outcomes": true,
+    "raw_market_responses_preserved_before_transformation": true
+  },
+  "interpretation": {
+    "advancement_gate": false,
+    "july10_role": "development_mechanics_evidence_only",
+    "outcome_driven_policy_selection_forbidden": true,
+    "retuning_after_outcomes_forbidden": true,
+    "scenario_rows_are_not_independent_bankroll_bets": true,
+    "unit_of_policy_comparison": "threshold_latency_setting_across_four_july10_events"
+  },
+  "policy_setting_reporting": {
+    "classification": {
+      "INCONCLUSIVE": "otherwise",
+      "ROBUST_NEGATIVE": "event-equal mean upper bound < 0",
+      "ROBUST_POSITIVE": "event-equal mean lower bound > 0"
+    },
+    "event_weighting": "equal",
+    "exact_coverage_display": "n/4",
+    "report_fields": [
+      "threshold_dollars",
+      "latency_ms",
+      "exact_coverage_n_of_4",
+      "event_level_point_or_interval_pnl",
+      "four_event_pnl_sum_interval",
+      "four_event_event_equal_mean_pnl_interval",
+      "robustness_classification"
+    ],
+    "retain_all_four_events": true,
+    "setting_interval": "sum four event lower endpoints and upper endpoints separately; divide by 4 for event-equal mean"
+  },
+  "safety": {
+    "network_requests_by_installer": 0,
+    "orders_placed": 0,
+    "outcomes_accessed_during_freeze": false,
+    "production_execution_authorized": false,
+    "strategy_pnl_calculated_during_freeze": false,
+    "strategy_rerun_during_freeze": false
+  },
+  "scenario_classification": [
+    {
+      "event_ticker": "KXBTCD-26JUL1013",
+      "explicit_liquidation_censored": true,
+      "latency_ms": 0,
+      "path_observation_class": "CENSORED",
+      "selection_or_rearm_censored": true,
+      "threshold_dollars": "0"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1014",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 0,
+      "path_observation_class": "EXACT",
+      "selection_or_rearm_censored": false,
+      "threshold_dollars": "0"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1015",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 0,
+      "path_observation_class": "EXACT",
+      "selection_or_rearm_censored": false,
+      "threshold_dollars": "0"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1016",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 0,
+      "path_observation_class": "EXACT",
+      "selection_or_rearm_censored": false,
+      "threshold_dollars": "0"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1013",
+      "explicit_liquidation_censored": true,
+      "latency_ms": 500,
+      "path_observation_class": "CENSORED",
+      "selection_or_rearm_censored": true,
+      "threshold_dollars": "0"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1014",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 500,
+      "path_observation_class": "EXACT",
+      "selection_or_rearm_censored": false,
+      "threshold_dollars": "0"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1015",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 500,
+      "path_observation_class": "EXACT",
+      "selection_or_rearm_censored": false,
+      "threshold_dollars": "0"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1016",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 500,
+      "path_observation_class": "EXACT",
+      "selection_or_rearm_censored": false,
+      "threshold_dollars": "0"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1013",
+      "explicit_liquidation_censored": true,
+      "latency_ms": 1000,
+      "path_observation_class": "CENSORED",
+      "selection_or_rearm_censored": true,
+      "threshold_dollars": "0"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1014",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 1000,
+      "path_observation_class": "EXACT",
+      "selection_or_rearm_censored": false,
+      "threshold_dollars": "0"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1015",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 1000,
+      "path_observation_class": "EXACT",
+      "selection_or_rearm_censored": false,
+      "threshold_dollars": "0"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1016",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 1000,
+      "path_observation_class": "EXACT",
+      "selection_or_rearm_censored": false,
+      "threshold_dollars": "0"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1013",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 0,
+      "path_observation_class": "CENSORED",
+      "selection_or_rearm_censored": true,
+      "threshold_dollars": "0.01"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1014",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 0,
+      "path_observation_class": "EXACT",
+      "selection_or_rearm_censored": false,
+      "threshold_dollars": "0.01"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1015",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 0,
+      "path_observation_class": "EXACT",
+      "selection_or_rearm_censored": false,
+      "threshold_dollars": "0.01"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1016",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 0,
+      "path_observation_class": "EXACT",
+      "selection_or_rearm_censored": false,
+      "threshold_dollars": "0.01"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1013",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 500,
+      "path_observation_class": "CENSORED",
+      "selection_or_rearm_censored": true,
+      "threshold_dollars": "0.01"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1014",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 500,
+      "path_observation_class": "EXACT",
+      "selection_or_rearm_censored": false,
+      "threshold_dollars": "0.01"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1015",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 500,
+      "path_observation_class": "EXACT",
+      "selection_or_rearm_censored": false,
+      "threshold_dollars": "0.01"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1016",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 500,
+      "path_observation_class": "EXACT",
+      "selection_or_rearm_censored": false,
+      "threshold_dollars": "0.01"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1013",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 1000,
+      "path_observation_class": "CENSORED",
+      "selection_or_rearm_censored": true,
+      "threshold_dollars": "0.01"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1014",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 1000,
+      "path_observation_class": "EXACT",
+      "selection_or_rearm_censored": false,
+      "threshold_dollars": "0.01"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1015",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 1000,
+      "path_observation_class": "EXACT",
+      "selection_or_rearm_censored": false,
+      "threshold_dollars": "0.01"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1016",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 1000,
+      "path_observation_class": "EXACT",
+      "selection_or_rearm_censored": false,
+      "threshold_dollars": "0.01"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1013",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 0,
+      "path_observation_class": "CENSORED",
+      "selection_or_rearm_censored": true,
+      "threshold_dollars": "0.02"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1014",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 0,
+      "path_observation_class": "EXACT",
+      "selection_or_rearm_censored": false,
+      "threshold_dollars": "0.02"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1015",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 0,
+      "path_observation_class": "CENSORED",
+      "selection_or_rearm_censored": true,
+      "threshold_dollars": "0.02"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1016",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 0,
+      "path_observation_class": "EXACT",
+      "selection_or_rearm_censored": false,
+      "threshold_dollars": "0.02"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1013",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 500,
+      "path_observation_class": "CENSORED",
+      "selection_or_rearm_censored": true,
+      "threshold_dollars": "0.02"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1014",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 500,
+      "path_observation_class": "EXACT",
+      "selection_or_rearm_censored": false,
+      "threshold_dollars": "0.02"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1015",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 500,
+      "path_observation_class": "CENSORED",
+      "selection_or_rearm_censored": true,
+      "threshold_dollars": "0.02"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1016",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 500,
+      "path_observation_class": "EXACT",
+      "selection_or_rearm_censored": false,
+      "threshold_dollars": "0.02"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1013",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 1000,
+      "path_observation_class": "CENSORED",
+      "selection_or_rearm_censored": true,
+      "threshold_dollars": "0.02"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1014",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 1000,
+      "path_observation_class": "EXACT",
+      "selection_or_rearm_censored": false,
+      "threshold_dollars": "0.02"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1015",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 1000,
+      "path_observation_class": "CENSORED",
+      "selection_or_rearm_censored": true,
+      "threshold_dollars": "0.02"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1016",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 1000,
+      "path_observation_class": "EXACT",
+      "selection_or_rearm_censored": false,
+      "threshold_dollars": "0.02"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1013",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 0,
+      "path_observation_class": "CENSORED",
+      "selection_or_rearm_censored": true,
+      "threshold_dollars": "0.03"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1014",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 0,
+      "path_observation_class": "EXACT",
+      "selection_or_rearm_censored": false,
+      "threshold_dollars": "0.03"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1015",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 0,
+      "path_observation_class": "CENSORED",
+      "selection_or_rearm_censored": true,
+      "threshold_dollars": "0.03"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1016",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 0,
+      "path_observation_class": "CENSORED",
+      "selection_or_rearm_censored": true,
+      "threshold_dollars": "0.03"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1013",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 500,
+      "path_observation_class": "CENSORED",
+      "selection_or_rearm_censored": true,
+      "threshold_dollars": "0.03"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1014",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 500,
+      "path_observation_class": "EXACT",
+      "selection_or_rearm_censored": false,
+      "threshold_dollars": "0.03"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1015",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 500,
+      "path_observation_class": "CENSORED",
+      "selection_or_rearm_censored": true,
+      "threshold_dollars": "0.03"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1016",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 500,
+      "path_observation_class": "CENSORED",
+      "selection_or_rearm_censored": true,
+      "threshold_dollars": "0.03"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1013",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 1000,
+      "path_observation_class": "CENSORED",
+      "selection_or_rearm_censored": true,
+      "threshold_dollars": "0.03"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1014",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 1000,
+      "path_observation_class": "EXACT",
+      "selection_or_rearm_censored": false,
+      "threshold_dollars": "0.03"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1015",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 1000,
+      "path_observation_class": "CENSORED",
+      "selection_or_rearm_censored": true,
+      "threshold_dollars": "0.03"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1016",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 1000,
+      "path_observation_class": "CENSORED",
+      "selection_or_rearm_censored": true,
+      "threshold_dollars": "0.03"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1013",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 0,
+      "path_observation_class": "CENSORED",
+      "selection_or_rearm_censored": true,
+      "threshold_dollars": "0.05"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1014",
+      "explicit_liquidation_censored": true,
+      "latency_ms": 0,
+      "path_observation_class": "CENSORED",
+      "selection_or_rearm_censored": false,
+      "threshold_dollars": "0.05"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1015",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 0,
+      "path_observation_class": "CENSORED",
+      "selection_or_rearm_censored": true,
+      "threshold_dollars": "0.05"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1016",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 0,
+      "path_observation_class": "CENSORED",
+      "selection_or_rearm_censored": true,
+      "threshold_dollars": "0.05"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1013",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 500,
+      "path_observation_class": "CENSORED",
+      "selection_or_rearm_censored": true,
+      "threshold_dollars": "0.05"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1014",
+      "explicit_liquidation_censored": true,
+      "latency_ms": 500,
+      "path_observation_class": "CENSORED",
+      "selection_or_rearm_censored": false,
+      "threshold_dollars": "0.05"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1015",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 500,
+      "path_observation_class": "CENSORED",
+      "selection_or_rearm_censored": true,
+      "threshold_dollars": "0.05"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1016",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 500,
+      "path_observation_class": "CENSORED",
+      "selection_or_rearm_censored": true,
+      "threshold_dollars": "0.05"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1013",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 1000,
+      "path_observation_class": "CENSORED",
+      "selection_or_rearm_censored": true,
+      "threshold_dollars": "0.05"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1014",
+      "explicit_liquidation_censored": true,
+      "latency_ms": 1000,
+      "path_observation_class": "CENSORED",
+      "selection_or_rearm_censored": false,
+      "threshold_dollars": "0.05"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1015",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 1000,
+      "path_observation_class": "CENSORED",
+      "selection_or_rearm_censored": true,
+      "threshold_dollars": "0.05"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1016",
+      "explicit_liquidation_censored": false,
+      "latency_ms": 1000,
+      "path_observation_class": "CENSORED",
+      "selection_or_rearm_censored": true,
+      "threshold_dollars": "0.05"
+    }
+  ],
+  "schema_version": "kxbtcd_candidate_e_v2_july10_pnl_evaluation_contract.v1",
+  "settlement_contract": {
+    "authoritative_source": "Kalshi finalized market record",
+    "consistency": {
+      "result_no_requires_settlement_value_dollars": "0",
+      "result_yes_requires_settlement_value_dollars": "1"
+    },
+    "fail_closed_on": [
+      "non-finalized market",
+      "missing settlement_ts",
+      "market_type other than binary",
+      "result other than yes/no",
+      "settlement_value_dollars outside {0,1}",
+      "result/settlement-value inconsistency",
+      "provisional or otherwise unclear settlement state",
+      "ticker mismatch"
+    ],
+    "no_contract_terminal_cash_per_contract": "1 - settlement_value_dollars",
+    "official_documentation_references": [
+      "https://docs.kalshi.com/getting_started/market_settlement",
+      "https://docs.kalshi.com/getting_started/market_lifecycle",
+      "https://docs.kalshi.com/api-reference/historical/get-historical-market"
+    ],
+    "preferred_public_endpoint_for_july10_historical_markets": "GET /trade-api/v2/historical/markets/{ticker}",
+    "required_final_state": "finalized",
+    "required_market_type": "binary",
+    "required_result_values": [
+      "yes",
+      "no"
+    ],
+    "required_settlement_value_dollars": [
+      "0",
+      "1"
+    ],
+    "simple_binary_settlement_fee_dollars": "0",
+    "yes_contract_terminal_cash_per_contract": "settlement_value_dollars"
+  },
+  "strategy_id": "kxbtcd_candidate_e_spot_relative_liquidity_convergence_reentry_v2"
+}

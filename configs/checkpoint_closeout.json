@@ -1,0 +1,57 @@
+{
+  "schema": "checkpoint_closeout_config.v1",
+  "repository": {
+    "name": "event-market-quant-bot",
+    "remote": "origin",
+    "branch": "main",
+    "expected_remote_repository": "aruldhar/event-market-quant-bot"
+  },
+  "validators": [
+    {
+      "name": "source registry",
+      "script": "validate_source_registry.py",
+      "required": true
+    }
+  ],
+  "tests": {
+    "args": [
+      "-m",
+      "pytest",
+      "-q"
+    ]
+  },
+  "blocked_paths": [
+    ".env",
+    ".env.*",
+    "*.pem",
+    "*.key",
+    "*.p12",
+    "*.pfx",
+    "secrets/**",
+    "credentials/**",
+    "data/raw/**",
+    "data/processed/**",
+    "data/manifests/**",
+    "logs/**",
+    "reports/**",
+    "*.joblib",
+    "*.pkl",
+    "*.parquet",
+    "*.feather",
+    "*.sqlite",
+    "*.db"
+  ],
+  "allowed_blocked_path_exceptions": [
+    ".env.example",
+    "logs/.gitkeep",
+    "reports/.gitkeep",
+    "data/raw/.gitkeep",
+    "data/processed/.gitkeep",
+    "data/manifests/.gitkeep"
+  ],
+  "receipt": {
+    "path": "docs/LAST_CHECKPOINT_CLOSEOUT.json",
+    "schema": "checkpoint_closeout_receipt.v1",
+    "commit_message_prefix": "Record checkpoint closeout"
+  }
+}

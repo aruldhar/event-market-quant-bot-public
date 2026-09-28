@@ -1,0 +1,81 @@
+{
+  "amendment_fingerprint": "2cbd8836045ae811eb4c52d48834953a54b1be3afac094be4cf349b8cac2abce",
+  "amendment_rule": {
+    "accepted_action": "replace_with_exact_nearest_0.01_decimal",
+    "accepted_if": "abs(raw_quantity-nearest_0.01)<=1e-9",
+    "application_boundary": "after_verified_replay_reconstruction_before_v2_decision_and_execution_use",
+    "maximum_absolute_transport_residue": "0.000000001",
+    "negative_or_nonfinite_action": "fail_closed",
+    "quantity_quantum": "0.01",
+    "rejected_action": "fail_closed",
+    "rejected_if": "abs(raw_quantity-nearest_0.01)>1e-9",
+    "rounding": "nearest_0.01_half_up_only_after_residue_gate"
+  },
+  "checkpoint_id": "21N-Y-A1",
+  "classification": "NUMERIC_TRANSPORT_REPRESENTATION_REPAIR",
+  "diagnostic_evidence": {
+    "interpretation": "all observed snapshot off-grid quantities are tiny floating-point serialization residue around an exact 0.01-contract grid",
+    "paid_delta_field_type": "string",
+    "paid_delta_off_grid_count": 0,
+    "paid_delta_rows_checked": 5644964,
+    "snapshot_levels_checked": 13695870,
+    "snapshot_materially_off_cent_count": 0,
+    "snapshot_off_grid_count": 763392,
+    "snapshot_off_grid_within_1e_9_of_cent_count": 763392
+  },
+  "explicit_non_changes": {
+    "atm_plus_minus_5_universe_modified": false,
+    "candidate_e_modified": false,
+    "fees_modified": false,
+    "ioc_quantity_grid_weakened": false,
+    "latencies_modified": false,
+    "liquidation_policy_modified": false,
+    "paid_tick_parquet_modified": false,
+    "parent_y_a_files_modified": false,
+    "parent_y_a_implementation_fingerprint_modified": false,
+    "raw_snapshot_files_modified": false,
+    "reentry_policy_modified": false,
+    "replay_reconciliation_modified": false,
+    "replay_segment_boundaries_modified": false,
+    "replay_summary_hash_modified": false,
+    "thresholds_modified": false
+  },
+  "frozen_amendment_files": {
+    "materialize_kxbtcd_candidate_e_spot_relative_liquidity_convergence_reentry_v2_paths_amended.py": "27754f0206764d4b7a9820af775bfa0db6bc1fc78191436c962184f7931991ae",
+    "src/kxbtcd_candidate_e_v2_execution_quantity_transport_amendment.py": "a4d5cdbd383a3cbd969020bd746588e8e26ce06fae734f2345d5f478b8b8b353"
+  },
+  "next_action": "rerun_exact_outcome_blind_v2_path_using_amended_runner_after_y_a1_closeout",
+  "next_checkpoint": "21N-Y-B",
+  "observed_failure": {
+    "candidate_e_nonstructural_scoring_started": true,
+    "checkpoint_attempt": "21N-Y-B",
+    "completed_path_artifact_created": false,
+    "exception_message_example": "level.quantity=250.00000000000068 is not aligned to 0.01",
+    "exception_type": "ExecutableConvergenceSimulatorError",
+    "failure_stage": "entry_ioc_simulation",
+    "orders_placed": 0,
+    "settlement_outcomes_accessed": false,
+    "strategy_pnl_calculated": false
+  },
+  "parent_y_a": {
+    "checkpoint_commit": "2bc13f180caa6652ba00e664fb2d61cc1f76d748",
+    "implementation_fingerprint": "b8f66b2f392df2c8711e7d6e25e64c54921b16f8f7866c243a6375aaec778949",
+    "predeclaration_fingerprint": "3e44c6ce3b9e420db3cf0dd52c2b64030ae99901c491d9cf0bc15617930ef8ae",
+    "receipt_commit": "ac89efab8eeb9565d86fce188001868ec982a4ca"
+  },
+  "safety": {
+    "candidate_e_refit": false,
+    "demo_execution": false,
+    "network_requests": 0,
+    "orders_placed": 0,
+    "outcomes_accessed": false,
+    "paper_broker": false,
+    "predexon_paid_purchases": 0,
+    "protected_reserve_accessed": false,
+    "real_money_execution": false,
+    "strategy_pnl_calculated": false
+  },
+  "schema_version": "kxbtcd_candidate_e_v2_execution_quantity_transport_amendment.v1",
+  "source_binding_fingerprint": "8cf8ead70da5f56def1a0d67619b2cda75316e6345383e8ebdcf79f9c4cf62b7",
+  "strategy_id": "kxbtcd_candidate_e_spot_relative_liquidity_convergence_reentry_v2"
+}

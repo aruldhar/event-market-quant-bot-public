@@ -1,0 +1,258 @@
+services:
+  soak_volume_init:
+    image: busybox:1.36
+    user: "0:0"
+    restart: "no"
+    command: ["sh", "-c", "install -d -o 10001 -g 10001 -m 0750 /var/lib/kxbtcd-soak && chown -R 10001:10001 /var/lib/kxbtcd-soak"]
+    volumes:
+      - type: volume
+        source: soak_raw
+        target: /var/lib/kxbtcd-soak
+  candidate_e_read_only_runtime:
+    build:
+      context: ..
+      dockerfile: deploy/kxbtcd-candidate-e-soak.Dockerfile
+    read_only: true
+    restart: "no"
+    privileged: false
+    user: "10001:10001"
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    depends_on:
+      soak_volume_init:
+        condition: service_completed_successfully
+    environment:
+      PYTHONDONTWRITEBYTECODE: "1"
+      KALSHI_PRIVATE_KEY_PATH: /run/secrets/kalshi_private_key.pem
+    env_file:
+      - ../.env
+    volumes:
+      - type: bind
+        source: /var/lib/kxbtcd-clock
+        target: /run/kxbtcd-host
+        read_only: true
+      - type: volume
+        source: soak_raw
+        target: /var/lib/kxbtcd-soak
+      - type: bind
+        source: /etc/kxbtcd-secrets/kalshi_private_key.pem
+        target: /run/secrets/kalshi_private_key.pem
+        read_only: true
+    command: ["--help"]
+  shadow_dashboard_volume_init:
+    image: busybox:1.36
+    user: "0:0"
+    read_only: true
+    restart: "no"
+    privileged: false
+    network_mode: none
+    cap_drop:
+      - ALL
+    cap_add:
+      - CHOWN
+    security_opt:
+      - no-new-privileges:true
+    command: ["sh", "-c", "p=/var/lib/kxbtcd-shadow-dashboard; if [ ! -d \"$$p\" ]; then install -d -o 10001 -g 10001 -m 0750 \"$$p\"; fi; test \"$$(stat -c '%u:%g:%a' \"$$p\")\" = '10001:10001:750'"]
+    volumes:
+      - type: volume
+        source: shadow_dashboard
+        target: /var/lib/kxbtcd-shadow-dashboard
+  shadow_dashboard_read_model_volume_init:
+    image: busybox:1.36
+    user: "0:0"
+    read_only: true
+    restart: "no"
+    privileged: false
+    network_mode: none
+    cap_drop:
+      - ALL
+    cap_add:
+      - CHOWN
+    security_opt:
+      - no-new-privileges:true
+    command: ["sh", "-c", "p=/var/lib/kxbtcd-dashboard-read-model; if [ ! -d \"$$p\" ]; then install -d -o 10001 -g 10001 -m 0755 \"$$p\"; fi; test \"$$(stat -c '%u:%g:%a' \"$$p\")\" = '10001:10001:755'"]
+    volumes:
+      - type: volume
+        source: shadow_dashboard_read_model
+        target: /var/lib/kxbtcd-dashboard-read-model
+  candidate_e_live_shadow_dashboard:
+    image: deploy-candidate_e_read_only_runtime
+    read_only: true
+    restart: "no"
+    privileged: false
+    user: "10001:10001"
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    network_mode: none
+    depends_on:
+      shadow_dashboard_volume_init:
+        condition: service_completed_successfully
+      shadow_dashboard_read_model_volume_init:
+        condition: service_completed_successfully
+    volumes:
+      - type: volume
+        source: soak_raw
+        target: /var/lib/kxbtcd-soak
+        read_only: true
+      - type: volume
+        source: shadow_dashboard
+        target: /var/lib/kxbtcd-shadow-dashboard
+      - type: volume
+        source: shadow_dashboard_read_model
+        target: /var/lib/kxbtcd-dashboard-read-model
+    entrypoint: ["python", "-m", "src.kxbtcd_candidate_e_live_shadow_runner_cli"]
+    command: ["--help"]
+  candidate_e_live_shadow_settlement_closeout:
+    image: deploy-candidate_e_read_only_runtime
+    read_only: true
+    restart: "no"
+    privileged: false
+    user: "10001:10001"
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    depends_on:
+      soak_volume_init:
+        condition: service_completed_successfully
+      shadow_dashboard_volume_init:
+        condition: service_completed_successfully
+    volumes:
+      - type: volume
+        source: soak_raw
+        target: /var/lib/kxbtcd-soak
+      - type: volume
+        source: shadow_dashboard
+        target: /var/lib/kxbtcd-shadow-dashboard
+    entrypoint: ["python", "-m", "src.kxbtcd_candidate_e_live_shadow_settlement_closeout_cli"]
+    command: ["--help"]
+  offsite_archive_receipts_volume_init:
+    image: busybox:1.36
+    user: "0:0"
+    read_only: true
+    restart: "no"
+    privileged: false
+    network_mode: none
+    cap_drop:
+      - ALL
+    cap_add:
+      - CHOWN
+    security_opt:
+      - no-new-privileges:true
+    command: ["sh", "-c", "p=/var/lib/kxbtcd-offsite-archive-receipts; if [ ! -d \"$$p\" ]; then install -d -o 10001 -g 10001 -m 0750 \"$$p\"; fi; test \"$$(stat -c '%u:%g:%a' \"$$p\")\" = '10001:10001:750'"]
+    volumes:
+      - type: volume
+        source: offsite_archive_receipts
+        target: /var/lib/kxbtcd-offsite-archive-receipts
+  candidate_e_offsite_archive:
+    image: deploy-candidate_e_read_only_runtime
+    read_only: true
+    restart: "no"
+    privileged: false
+    user: "10001:10001"
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    depends_on:
+      soak_volume_init:
+        condition: service_completed_successfully
+      shadow_dashboard_volume_init:
+        condition: service_completed_successfully
+      offsite_archive_receipts_volume_init:
+        condition: service_completed_successfully
+    volumes:
+      - type: volume
+        source: soak_raw
+        target: /var/lib/kxbtcd-soak
+        read_only: true
+      - type: volume
+        source: shadow_dashboard
+        target: /var/lib/kxbtcd-shadow-dashboard
+        read_only: true
+      - type: volume
+        source: offsite_archive_receipts
+        target: /var/lib/kxbtcd-offsite-archive-receipts
+    entrypoint: ["python", "-m", "src.kxbtcd_candidate_e_soak_offsite_archive_cli"]
+    command: ["--help"]
+  candidate_e_verified_local_prune:
+    image: deploy-candidate_e_read_only_runtime
+    read_only: true
+    restart: "no"
+    privileged: false
+    user: "10001:10001"
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    depends_on:
+      soak_volume_init:
+        condition: service_completed_successfully
+      offsite_archive_receipts_volume_init:
+        condition: service_completed_successfully
+    volumes:
+      - type: volume
+        source: soak_raw
+        target: /var/lib/kxbtcd-soak
+      - type: volume
+        source: offsite_archive_receipts
+        target: /var/lib/kxbtcd-offsite-archive-receipts
+        read_only: true
+    entrypoint: ["python", "-m", "src.kxbtcd_candidate_e_verified_local_prune_cli"]
+    command: ["--help"]
+  candidate_e_grafana:
+    build:
+      context: ..
+      dockerfile: deploy/kxbtcd-candidate-e-grafana.Dockerfile
+    image: deploy-candidate_e_grafana:13.2.1
+    read_only: true
+    restart: "no"
+    privileged: false
+    user: "472:0"
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    depends_on:
+      shadow_dashboard_read_model_volume_init:
+        condition: service_completed_successfully
+    environment:
+      GF_AUTH_ANONYMOUS_ENABLED: "false"
+      GF_USERS_ALLOW_SIGN_UP: "false"
+      GF_SECURITY_ADMIN_USER: "admin"
+      GF_SECURITY_ADMIN_PASSWORD__FILE: /run/secrets/grafana_admin_password
+      GF_PATHS_DATA: /var/lib/grafana-data
+      GF_PATHS_LOGS: /var/log/grafana
+      GF_PATHS_PLUGINS: /var/lib/grafana/plugins
+      GF_PATHS_PROVISIONING: /etc/grafana/provisioning
+    ports:
+      - "127.0.0.1:3000:3000"
+    networks:
+      - dashboard_internal
+    volumes:
+      - type: volume
+        source: shadow_dashboard_read_model
+        target: /var/lib/kxbtcd-dashboard-data
+        read_only: true
+      - type: bind
+        source: /etc/kxbtcd-secrets/grafana_admin_password
+        target: /run/secrets/grafana_admin_password
+        read_only: true
+    tmpfs:
+      - /var/lib/grafana-data:uid=472,gid=0,mode=0700
+      - /var/log/grafana:uid=472,gid=0,mode=0700
+      - /tmp:uid=472,gid=0,mode=0700
+
+volumes:
+  soak_raw:
+  shadow_dashboard:
+  shadow_dashboard_read_model:
+  offsite_archive_receipts:
+
+networks:
+  dashboard_internal:
+    internal: true

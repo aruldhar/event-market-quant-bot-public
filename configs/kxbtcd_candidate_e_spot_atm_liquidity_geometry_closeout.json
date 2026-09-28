@@ -1,0 +1,125 @@
+{
+  "analysis_id": "kxbtcd_candidate_e_spot_atm_liquidity_geometry.v1",
+  "checkpoint_id": "21N-W",
+  "classification": "EXPLORATORY_SUPPORT_SPOT_ATM_RELATIVE_LIQUIDITY_STRUCTURE",
+  "design": {
+    "atm_definition": "minimum_absolute_strike_minus_causal_btc_spot_ties_lower_strike_then_ticker",
+    "btc_state": "immediately_preceding_fully_completed_coinbase_1m_bucket",
+    "cross_section_count": 216,
+    "cross_section_schedule": "exact_T_minus_55_through_T_minus_2_inclusive_one_minute_grid",
+    "independent_event_count": 4,
+    "market_universe_ticker_count": 623,
+    "minute_cross_sections_per_event": 54,
+    "two_sided_definition": "verified_yes_bid_and_yes_ask_with_bid_strictly_less_than_ask"
+  },
+  "evidence_role": "four_event_july10_exploratory_market_universe_geometry_only",
+  "interpretation": {
+    "fixed_event_quantile_execution_universe_supported": false,
+    "generalization_established": false,
+    "independent_event_count": 4,
+    "nonstructural_candidate_e_use_validated": false,
+    "profitability_established": false,
+    "reason": "Among the 177 minute cross-sections with any valid two-sided market, the nearest valid two-sided contract was within one strike rank of causal ATM in 132, within two in 161, within three in 174, and within five in all 177.",
+    "spot_atm_relative_liquidity_structure_supported_exploratorily": true,
+    "v2_rank_envelope_selected": false
+  },
+  "observed_result": {
+    "active_instance_within_rank_counts": {
+      "1": 199,
+      "10": 755,
+      "2": 358,
+      "3": 516,
+      "5": 735
+    },
+    "active_ticker_minute_instance_count": 755,
+    "atm_ticker_two_sided_cross_sections": 62,
+    "cross_sections_with_any_valid_two_sided": 177,
+    "cross_sections_without_valid_two_sided": 39,
+    "max_nearest_abs_rank_from_atm": 4,
+    "median_active_instance_abs_btc_distance_bps": "44.80983821395667",
+    "median_active_instance_abs_rank_from_atm": "3",
+    "median_active_instance_abs_strike_minus_spot": "286.25",
+    "median_nearest_abs_rank_from_atm": "1",
+    "nearest_two_sided_within_rank_counts": {
+      "0": 62,
+      "1": 132,
+      "10": 177,
+      "2": 161,
+      "3": 174,
+      "5": 177
+    },
+    "per_event": {
+      "KXBTCD-26JUL1013": {
+        "any_valid_two_sided": 40,
+        "atm_ticker_two_sided": 10,
+        "cross_sections": 54,
+        "nearest_le_1": 31,
+        "nearest_le_2": 40,
+        "nearest_le_3": 40,
+        "nearest_le_5": 40
+      },
+      "KXBTCD-26JUL1014": {
+        "any_valid_two_sided": 46,
+        "atm_ticker_two_sided": 20,
+        "cross_sections": 54,
+        "nearest_le_1": 32,
+        "nearest_le_2": 41,
+        "nearest_le_3": 46,
+        "nearest_le_5": 46
+      },
+      "KXBTCD-26JUL1015": {
+        "any_valid_two_sided": 50,
+        "atm_ticker_two_sided": 21,
+        "cross_sections": 54,
+        "nearest_le_1": 39,
+        "nearest_le_2": 50,
+        "nearest_le_3": 50,
+        "nearest_le_5": 50
+      },
+      "KXBTCD-26JUL1016": {
+        "any_valid_two_sided": 41,
+        "atm_ticker_two_sided": 11,
+        "cross_sections": 54,
+        "nearest_le_1": 30,
+        "nearest_le_2": 30,
+        "nearest_le_3": 38,
+        "nearest_le_5": 41
+      }
+    }
+  },
+  "parent_21n_v": {
+    "checkpoint_commit": "095ef5d80cda7d94521217f96e34eec7de98e1d3",
+    "continuous_v1_status": "CLOSED_NON_EVALUABLE",
+    "result_closeout_fingerprint": "c55bf6ca462cb4c5d0676a11cac9f37541fe001ce0770d7b08f9fe0721eede35"
+  },
+  "research_consequence": {
+    "continuous_v1_remains_closed": true,
+    "modify_continuous_v1_authorized": false,
+    "next_checkpoint": "21N-X",
+    "next_task": "Predeclare a new liquidity-first spot-relative tradable-universe strategy version and a fresh-evidence validation plan before any Candidate-E scoring on nonstructural strikes.",
+    "open_v1_settlement_outcomes_authorized": false
+  },
+  "result_closeout_fingerprint": "04fb52fc5f1b6aa34d7c31d6e174f1519336278fb2e2f09282afc263723d26e5",
+  "safety": {
+    "candidate_e_refit": false,
+    "candidate_e_scored": false,
+    "demo_execution": false,
+    "network_requests": 0,
+    "nonstructural_probability_inference": false,
+    "orders_placed": 0,
+    "outcomes_accessed": false,
+    "paper_broker": false,
+    "predexon_paid_purchases": 0,
+    "protected_reserve_accessed": false,
+    "real_money_execution": false,
+    "settlement_pnl_calculated": false
+  },
+  "schema_version": "kxbtcd_candidate_e_spot_atm_liquidity_geometry_closeout.v1",
+  "source_bindings": {
+    "continuous_coinbase_sha256": "ecc83bc5a95c65d05063e06df6d5c9aab04895577c3ef5d8ad1cc99ab62f7d1d",
+    "continuous_source_binding_fingerprint": "8cf8ead70da5f56def1a0d67619b2cda75316e6345383e8ebdcf79f9c4cf62b7",
+    "geometry_artifact_relative_path": "data/analysis/predexon_credit_efficiency/july10_candidate_e_spot_atm_liquidity_geometry.json",
+    "geometry_artifact_sha256": "b2448067c525aaaa6e2f076bed321fb9e55621fcb1319f9a2c282d24d1e31393",
+    "paid_predexon_tick_shard_sha256": "43e9c5d99fb4001b866ae3e60021c8c10123dc1fb6248df96084446face68509"
+  }
+}

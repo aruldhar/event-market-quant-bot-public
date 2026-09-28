@@ -1,0 +1,1284 @@
+{
+  "candidate_id": "kxbtcd_market_spread_interaction_logistic.v1",
+  "dataset_fingerprint": "d78a9956b7ba48ec2fda2998396defcd0b5a62d5f13ea01dab1b68a67c66379a",
+  "execution_enabled": false,
+  "exposure_policy": {
+    "fresh_second_terminal_attempt_allowed": false,
+    "future_untouched_test_claim_on_these_events_allowed": false,
+    "permanently_expose_full_64_event_set_before_first_terminal_request": true,
+    "post_exposure_redesign_allowed": false,
+    "resume_only_after_interruption": true
+  },
+  "final_model_fingerprint": "13013c606586f68689be20fda143314d968d918ef8e26fca2fee75987768724f",
+  "frozen_preoutcome_run_id": "collect_kxbtcd_preoutcome_dataset_20260814T202930946581Z_7e58170d",
+  "full_development_freeze_fingerprint": "d0c996311554b86f3ae234dcdce803b2bfb2c3460403a1518199c4a4c1bd8fa3",
+  "implementation_sha256s": {
+    "collect_kxbtcd_candidate_c_locked_test.py": "fcd6f1fffd739f123ed3f84809adeaf2a7e49c569d6051b850efa0b626098607",
+    "src/kxbtcd_candidate_c_terminal_evaluation.py": "48be3f8f4dfbae1dbafaee7e6123170c44647ab3874d110143fec2d142b249e0"
+  },
+  "inference": {
+    "candidate_c": "configs/kxbtcd_candidate_c_final_model.json",
+    "candidate_inputs": [
+      "q_market",
+      "spread"
+    ],
+    "feature_change_allowed": false,
+    "fit_allowed": false,
+    "optimizer_change_allowed": false,
+    "preprocessing_change_allowed": false,
+    "raw_midpoint_probability": "q_market",
+    "recalibration_allowed": false,
+    "retune_allowed": false
+  },
+  "locked_test_event_count": 64,
+  "locked_test_feature_density_used_for_design": false,
+  "locked_test_market_request_count": 304,
+  "locked_test_outcomes_opened_at_freeze": 0,
+  "locked_test_row_count": 1014,
+  "metrics": {
+    "event_weighting_rule": "compute the arithmetic mean row loss within each locked-test event, then arithmetic mean across the 64 events",
+    "models_scored_on_identical_rows": true,
+    "primary": "event_weighted_log_loss",
+    "secondary": "event_weighted_brier"
+  },
+  "orders_placed": 0,
+  "outcome_source": {
+    "accepted_results": [
+      "yes",
+      "no"
+    ],
+    "authentication_required": false,
+    "endpoint_template": "/historical/markets/{market_ticker}",
+    "raw_first_persistence_required": true,
+    "required_market_status": "finalized"
+  },
+  "partition": "locked_test",
+  "primary_gate": {
+    "rule": "candidate_c_event_weighted_log_loss_strictly_less_than_raw_midpoint_event_weighted_log_loss",
+    "secondary_metric_can_override": false,
+    "tie": "fail"
+  },
+  "procedure_derivation_outcomes_used": false,
+  "request_plan": [
+    {
+      "event_ticker": "KXBTCD-26APR2722",
+      "market_ticker": "KXBTCD-26APR2722-T70499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26APR2722",
+      "market_ticker": "KXBTCD-26APR2722-T74199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26APR2722",
+      "market_ticker": "KXBTCD-26APR2722-T77999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26APR2722",
+      "market_ticker": "KXBTCD-26APR2722-T85399.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26APR2808",
+      "market_ticker": "KXBTCD-26APR2808-T69999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26APR2808",
+      "market_ticker": "KXBTCD-26APR2808-T73699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26APR2808",
+      "market_ticker": "KXBTCD-26APR2808-T77499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26APR2808",
+      "market_ticker": "KXBTCD-26APR2808-T84899.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26APR2908",
+      "market_ticker": "KXBTCD-26APR2908-T76499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG0202",
+      "market_ticker": "KXBTCD-26AUG0202-T55499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG0202",
+      "market_ticker": "KXBTCD-26AUG0202-T59199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG0202",
+      "market_ticker": "KXBTCD-26AUG0202-T62999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG0202",
+      "market_ticker": "KXBTCD-26AUG0202-T66699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG0207",
+      "market_ticker": "KXBTCD-26AUG0207-T55499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG0207",
+      "market_ticker": "KXBTCD-26AUG0207-T59199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG0207",
+      "market_ticker": "KXBTCD-26AUG0207-T62999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG0207",
+      "market_ticker": "KXBTCD-26AUG0207-T66699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG0207",
+      "market_ticker": "KXBTCD-26AUG0207-T70399.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG0221",
+      "market_ticker": "KXBTCD-26AUG0221-T55499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG0221",
+      "market_ticker": "KXBTCD-26AUG0221-T59199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG0221",
+      "market_ticker": "KXBTCD-26AUG0221-T62999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG0221",
+      "market_ticker": "KXBTCD-26AUG0221-T66699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG0221",
+      "market_ticker": "KXBTCD-26AUG0221-T70399.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG0222",
+      "market_ticker": "KXBTCD-26AUG0222-T55499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG0222",
+      "market_ticker": "KXBTCD-26AUG0222-T59199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG0222",
+      "market_ticker": "KXBTCD-26AUG0222-T62999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG0222",
+      "market_ticker": "KXBTCD-26AUG0222-T66699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG0222",
+      "market_ticker": "KXBTCD-26AUG0222-T70399.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG0307",
+      "market_ticker": "KXBTCD-26AUG0307-T55499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG0307",
+      "market_ticker": "KXBTCD-26AUG0307-T59199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG0307",
+      "market_ticker": "KXBTCD-26AUG0307-T62999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG0307",
+      "market_ticker": "KXBTCD-26AUG0307-T66699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG0307",
+      "market_ticker": "KXBTCD-26AUG0307-T70399.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG0416",
+      "market_ticker": "KXBTCD-26AUG0416-T54499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG0416",
+      "market_ticker": "KXBTCD-26AUG0416-T58199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG0416",
+      "market_ticker": "KXBTCD-26AUG0416-T61999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG0416",
+      "market_ticker": "KXBTCD-26AUG0416-T65699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG0416",
+      "market_ticker": "KXBTCD-26AUG0416-T69399.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG1202",
+      "market_ticker": "KXBTCD-26AUG1202-T56499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG1202",
+      "market_ticker": "KXBTCD-26AUG1202-T60199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG1202",
+      "market_ticker": "KXBTCD-26AUG1202-T63999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG1202",
+      "market_ticker": "KXBTCD-26AUG1202-T71399.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG1207",
+      "market_ticker": "KXBTCD-26AUG1207-T56499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG1207",
+      "market_ticker": "KXBTCD-26AUG1207-T60199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG1207",
+      "market_ticker": "KXBTCD-26AUG1207-T63999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG1213",
+      "market_ticker": "KXBTCD-26AUG1213-T56499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG1213",
+      "market_ticker": "KXBTCD-26AUG1213-T60199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG1213",
+      "market_ticker": "KXBTCD-26AUG1213-T63999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG1213",
+      "market_ticker": "KXBTCD-26AUG1213-T67699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG1213",
+      "market_ticker": "KXBTCD-26AUG1213-T71399.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG1223",
+      "market_ticker": "KXBTCD-26AUG1223-T56499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG1223",
+      "market_ticker": "KXBTCD-26AUG1223-T60199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26AUG1223",
+      "market_ticker": "KXBTCD-26AUG1223-T63999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL0222",
+      "market_ticker": "KXBTCD-26JUL0222-T50999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL0222",
+      "market_ticker": "KXBTCD-26JUL0222-T54699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL0222",
+      "market_ticker": "KXBTCD-26JUL0222-T58499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL0222",
+      "market_ticker": "KXBTCD-26JUL0222-T62199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL0222",
+      "market_ticker": "KXBTCD-26JUL0222-T65899.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL0503",
+      "market_ticker": "KXBTCD-26JUL0503-T54999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL0503",
+      "market_ticker": "KXBTCD-26JUL0503-T58699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL0503",
+      "market_ticker": "KXBTCD-26JUL0503-T62499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL0503",
+      "market_ticker": "KXBTCD-26JUL0503-T66199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL0503",
+      "market_ticker": "KXBTCD-26JUL0503-T69899.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL0622",
+      "market_ticker": "KXBTCD-26JUL0622-T54999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL0622",
+      "market_ticker": "KXBTCD-26JUL0622-T58699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL0622",
+      "market_ticker": "KXBTCD-26JUL0622-T62499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL0622",
+      "market_ticker": "KXBTCD-26JUL0622-T66199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL0622",
+      "market_ticker": "KXBTCD-26JUL0622-T69899.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL0815",
+      "market_ticker": "KXBTCD-26JUL0815-T55499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL0815",
+      "market_ticker": "KXBTCD-26JUL0815-T59199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL0815",
+      "market_ticker": "KXBTCD-26JUL0815-T62999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL0815",
+      "market_ticker": "KXBTCD-26JUL0815-T66699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL0815",
+      "market_ticker": "KXBTCD-26JUL0815-T70399.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1002",
+      "market_ticker": "KXBTCD-26JUL1002-T54999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1002",
+      "market_ticker": "KXBTCD-26JUL1002-T58699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1002",
+      "market_ticker": "KXBTCD-26JUL1002-T62499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1002",
+      "market_ticker": "KXBTCD-26JUL1002-T66199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1002",
+      "market_ticker": "KXBTCD-26JUL1002-T69899.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1122",
+      "market_ticker": "KXBTCD-26JUL1122-T56499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1122",
+      "market_ticker": "KXBTCD-26JUL1122-T60199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1122",
+      "market_ticker": "KXBTCD-26JUL1122-T63999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1122",
+      "market_ticker": "KXBTCD-26JUL1122-T67699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1122",
+      "market_ticker": "KXBTCD-26JUL1122-T71399.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1606",
+      "market_ticker": "KXBTCD-26JUL1606-T56999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1606",
+      "market_ticker": "KXBTCD-26JUL1606-T60699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1606",
+      "market_ticker": "KXBTCD-26JUL1606-T64499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1606",
+      "market_ticker": "KXBTCD-26JUL1606-T68199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1606",
+      "market_ticker": "KXBTCD-26JUL1606-T71899.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1611",
+      "market_ticker": "KXBTCD-26JUL1611-T56999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1611",
+      "market_ticker": "KXBTCD-26JUL1611-T60699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1611",
+      "market_ticker": "KXBTCD-26JUL1611-T64499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1611",
+      "market_ticker": "KXBTCD-26JUL1611-T68199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1611",
+      "market_ticker": "KXBTCD-26JUL1611-T71899.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1806",
+      "market_ticker": "KXBTCD-26JUL1806-T54999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1806",
+      "market_ticker": "KXBTCD-26JUL1806-T58699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1806",
+      "market_ticker": "KXBTCD-26JUL1806-T62499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1806",
+      "market_ticker": "KXBTCD-26JUL1806-T66199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1806",
+      "market_ticker": "KXBTCD-26JUL1806-T69899.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1916",
+      "market_ticker": "KXBTCD-26JUL1916-T55999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1916",
+      "market_ticker": "KXBTCD-26JUL1916-T59699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1916",
+      "market_ticker": "KXBTCD-26JUL1916-T63499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1916",
+      "market_ticker": "KXBTCD-26JUL1916-T67199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL1916",
+      "market_ticker": "KXBTCD-26JUL1916-T70899.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL2216",
+      "market_ticker": "KXBTCD-26JUL2216-T58499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL2216",
+      "market_ticker": "KXBTCD-26JUL2216-T62199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL2216",
+      "market_ticker": "KXBTCD-26JUL2216-T65999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL2216",
+      "market_ticker": "KXBTCD-26JUL2216-T69699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL2216",
+      "market_ticker": "KXBTCD-26JUL2216-T73399.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL2223",
+      "market_ticker": "KXBTCD-26JUL2223-T58499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL2223",
+      "market_ticker": "KXBTCD-26JUL2223-T62199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL2223",
+      "market_ticker": "KXBTCD-26JUL2223-T65999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL2223",
+      "market_ticker": "KXBTCD-26JUL2223-T69699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL2223",
+      "market_ticker": "KXBTCD-26JUL2223-T73399.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL2406",
+      "market_ticker": "KXBTCD-26JUL2406-T57999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL2406",
+      "market_ticker": "KXBTCD-26JUL2406-T61699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL2406",
+      "market_ticker": "KXBTCD-26JUL2406-T65499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL2406",
+      "market_ticker": "KXBTCD-26JUL2406-T69199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL2406",
+      "market_ticker": "KXBTCD-26JUL2406-T72899.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL2500",
+      "market_ticker": "KXBTCD-26JUL2500-T57999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL2500",
+      "market_ticker": "KXBTCD-26JUL2500-T65499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL2500",
+      "market_ticker": "KXBTCD-26JUL2500-T69199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL2500",
+      "market_ticker": "KXBTCD-26JUL2500-T72899.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL2622",
+      "market_ticker": "KXBTCD-26JUL2622-T55999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL2622",
+      "market_ticker": "KXBTCD-26JUL2622-T59699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL2622",
+      "market_ticker": "KXBTCD-26JUL2622-T63499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL2622",
+      "market_ticker": "KXBTCD-26JUL2622-T67199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL2622",
+      "market_ticker": "KXBTCD-26JUL2622-T70899.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL2906",
+      "market_ticker": "KXBTCD-26JUL2906-T55499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL2906",
+      "market_ticker": "KXBTCD-26JUL2906-T59199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL2906",
+      "market_ticker": "KXBTCD-26JUL2906-T62999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL2906",
+      "market_ticker": "KXBTCD-26JUL2906-T66699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUL2906",
+      "market_ticker": "KXBTCD-26JUL2906-T70399.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN0302",
+      "market_ticker": "KXBTCD-26JUN0302-T61999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN0302",
+      "market_ticker": "KXBTCD-26JUN0302-T65699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN0302",
+      "market_ticker": "KXBTCD-26JUN0302-T69499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN0302",
+      "market_ticker": "KXBTCD-26JUN0302-T73199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN0302",
+      "market_ticker": "KXBTCD-26JUN0302-T76899.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN0312",
+      "market_ticker": "KXBTCD-26JUN0312-T61999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN0312",
+      "market_ticker": "KXBTCD-26JUN0312-T65699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN0312",
+      "market_ticker": "KXBTCD-26JUN0312-T69499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN0312",
+      "market_ticker": "KXBTCD-26JUN0312-T73199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN0312",
+      "market_ticker": "KXBTCD-26JUN0312-T76899.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN0313",
+      "market_ticker": "KXBTCD-26JUN0313-T61999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN0313",
+      "market_ticker": "KXBTCD-26JUN0313-T65699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN0313",
+      "market_ticker": "KXBTCD-26JUN0313-T69499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN0313",
+      "market_ticker": "KXBTCD-26JUN0313-T73199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN0313",
+      "market_ticker": "KXBTCD-26JUN0313-T76899.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN0413",
+      "market_ticker": "KXBTCD-26JUN0413-T58999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN0413",
+      "market_ticker": "KXBTCD-26JUN0413-T62699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN0413",
+      "market_ticker": "KXBTCD-26JUN0413-T66499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN0413",
+      "market_ticker": "KXBTCD-26JUN0413-T70199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN0413",
+      "market_ticker": "KXBTCD-26JUN0413-T73899.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN1001",
+      "market_ticker": "KXBTCD-26JUN1001-T54999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN1001",
+      "market_ticker": "KXBTCD-26JUN1001-T58699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN1001",
+      "market_ticker": "KXBTCD-26JUN1001-T62499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN1001",
+      "market_ticker": "KXBTCD-26JUN1001-T66199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN1001",
+      "market_ticker": "KXBTCD-26JUN1001-T69899.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN1015",
+      "market_ticker": "KXBTCD-26JUN1015-T54999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN1015",
+      "market_ticker": "KXBTCD-26JUN1015-T58699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN1015",
+      "market_ticker": "KXBTCD-26JUN1015-T62499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN1015",
+      "market_ticker": "KXBTCD-26JUN1015-T66199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN1015",
+      "market_ticker": "KXBTCD-26JUN1015-T69899.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN1123",
+      "market_ticker": "KXBTCD-26JUN1123-T53499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN1123",
+      "market_ticker": "KXBTCD-26JUN1123-T57199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN1123",
+      "market_ticker": "KXBTCD-26JUN1123-T60999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN1123",
+      "market_ticker": "KXBTCD-26JUN1123-T64699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN1123",
+      "market_ticker": "KXBTCD-26JUN1123-T68399.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN1310",
+      "market_ticker": "KXBTCD-26JUN1310-T55499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN1310",
+      "market_ticker": "KXBTCD-26JUN1310-T59199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN1310",
+      "market_ticker": "KXBTCD-26JUN1310-T62999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN1310",
+      "market_ticker": "KXBTCD-26JUN1310-T70399.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN1422",
+      "market_ticker": "KXBTCD-26JUN1422-T55999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN1422",
+      "market_ticker": "KXBTCD-26JUN1422-T59699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN1422",
+      "market_ticker": "KXBTCD-26JUN1422-T63499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN1422",
+      "market_ticker": "KXBTCD-26JUN1422-T67199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN1422",
+      "market_ticker": "KXBTCD-26JUN1422-T70899.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN1608",
+      "market_ticker": "KXBTCD-26JUN1608-T57999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN1608",
+      "market_ticker": "KXBTCD-26JUN1608-T61699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN1608",
+      "market_ticker": "KXBTCD-26JUN1608-T65499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN1608",
+      "market_ticker": "KXBTCD-26JUN1608-T69199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN1608",
+      "market_ticker": "KXBTCD-26JUN1608-T72899.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN1712",
+      "market_ticker": "KXBTCD-26JUN1712-T58999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN1712",
+      "market_ticker": "KXBTCD-26JUN1712-T62699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN1712",
+      "market_ticker": "KXBTCD-26JUN1712-T66499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN1712",
+      "market_ticker": "KXBTCD-26JUN1712-T70199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN1712",
+      "market_ticker": "KXBTCD-26JUN1712-T73899.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN1920",
+      "market_ticker": "KXBTCD-26JUN1920-T56499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN1920",
+      "market_ticker": "KXBTCD-26JUN1920-T60199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN1920",
+      "market_ticker": "KXBTCD-26JUN1920-T63999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN1920",
+      "market_ticker": "KXBTCD-26JUN1920-T67699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN1920",
+      "market_ticker": "KXBTCD-26JUN1920-T71399.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN2218",
+      "market_ticker": "KXBTCD-26JUN2218-T55999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN2218",
+      "market_ticker": "KXBTCD-26JUN2218-T59699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN2218",
+      "market_ticker": "KXBTCD-26JUN2218-T63499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN2218",
+      "market_ticker": "KXBTCD-26JUN2218-T67199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN2218",
+      "market_ticker": "KXBTCD-26JUN2218-T70899.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN2223",
+      "market_ticker": "KXBTCD-26JUN2223-T55999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN2223",
+      "market_ticker": "KXBTCD-26JUN2223-T59699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN2223",
+      "market_ticker": "KXBTCD-26JUN2223-T63499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN2223",
+      "market_ticker": "KXBTCD-26JUN2223-T67199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN2223",
+      "market_ticker": "KXBTCD-26JUN2223-T70899.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN2709",
+      "market_ticker": "KXBTCD-26JUN2709-T52499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN2709",
+      "market_ticker": "KXBTCD-26JUN2709-T56199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN2709",
+      "market_ticker": "KXBTCD-26JUN2709-T59999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN2709",
+      "market_ticker": "KXBTCD-26JUN2709-T63699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN2709",
+      "market_ticker": "KXBTCD-26JUN2709-T67399.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN2720",
+      "market_ticker": "KXBTCD-26JUN2720-T52499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN2720",
+      "market_ticker": "KXBTCD-26JUN2720-T56199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN2720",
+      "market_ticker": "KXBTCD-26JUN2720-T59999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN2720",
+      "market_ticker": "KXBTCD-26JUN2720-T63699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN2720",
+      "market_ticker": "KXBTCD-26JUN2720-T67399.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN2908",
+      "market_ticker": "KXBTCD-26JUN2908-T52499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN2908",
+      "market_ticker": "KXBTCD-26JUN2908-T56199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN2908",
+      "market_ticker": "KXBTCD-26JUN2908-T59999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN2908",
+      "market_ticker": "KXBTCD-26JUN2908-T63699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN2908",
+      "market_ticker": "KXBTCD-26JUN2908-T67399.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN2921",
+      "market_ticker": "KXBTCD-26JUN2921-T52499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN2921",
+      "market_ticker": "KXBTCD-26JUN2921-T56199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN2921",
+      "market_ticker": "KXBTCD-26JUN2921-T59999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN2921",
+      "market_ticker": "KXBTCD-26JUN2921-T63699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26JUN2921",
+      "market_ticker": "KXBTCD-26JUN2921-T67399.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY0101",
+      "market_ticker": "KXBTCD-26MAY0101-T68499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY0101",
+      "market_ticker": "KXBTCD-26MAY0101-T72199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY0101",
+      "market_ticker": "KXBTCD-26MAY0101-T75999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY0101",
+      "market_ticker": "KXBTCD-26MAY0101-T79699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY0101",
+      "market_ticker": "KXBTCD-26MAY0101-T83399.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY0420",
+      "market_ticker": "KXBTCD-26MAY0420-T70499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY0420",
+      "market_ticker": "KXBTCD-26MAY0420-T74199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY0420",
+      "market_ticker": "KXBTCD-26MAY0420-T77999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY0420",
+      "market_ticker": "KXBTCD-26MAY0420-T81699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY0420",
+      "market_ticker": "KXBTCD-26MAY0420-T85399.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY0523",
+      "market_ticker": "KXBTCD-26MAY0523-T71999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY0523",
+      "market_ticker": "KXBTCD-26MAY0523-T75699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY0523",
+      "market_ticker": "KXBTCD-26MAY0523-T79499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY0523",
+      "market_ticker": "KXBTCD-26MAY0523-T83199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY0523",
+      "market_ticker": "KXBTCD-26MAY0523-T86899.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY0910",
+      "market_ticker": "KXBTCD-26MAY0910-T71999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY0910",
+      "market_ticker": "KXBTCD-26MAY0910-T75699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY0910",
+      "market_ticker": "KXBTCD-26MAY0910-T79499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY0910",
+      "market_ticker": "KXBTCD-26MAY0910-T83199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY0910",
+      "market_ticker": "KXBTCD-26MAY0910-T86899.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY1001",
+      "market_ticker": "KXBTCD-26MAY1001-T72499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY1001",
+      "market_ticker": "KXBTCD-26MAY1001-T76199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY1001",
+      "market_ticker": "KXBTCD-26MAY1001-T79999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY1001",
+      "market_ticker": "KXBTCD-26MAY1001-T83699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY1001",
+      "market_ticker": "KXBTCD-26MAY1001-T87399.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY1218",
+      "market_ticker": "KXBTCD-26MAY1218-T72999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY1218",
+      "market_ticker": "KXBTCD-26MAY1218-T76699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY1218",
+      "market_ticker": "KXBTCD-26MAY1218-T80499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY1218",
+      "market_ticker": "KXBTCD-26MAY1218-T84199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY1218",
+      "market_ticker": "KXBTCD-26MAY1218-T87899.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY1605",
+      "market_ticker": "KXBTCD-26MAY1605-T72999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY1605",
+      "market_ticker": "KXBTCD-26MAY1605-T80499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY1605",
+      "market_ticker": "KXBTCD-26MAY1605-T84199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY1605",
+      "market_ticker": "KXBTCD-26MAY1605-T87899.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY1705",
+      "market_ticker": "KXBTCD-26MAY1705-T70499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY1705",
+      "market_ticker": "KXBTCD-26MAY1705-T74199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY1705",
+      "market_ticker": "KXBTCD-26MAY1705-T77999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY1705",
+      "market_ticker": "KXBTCD-26MAY1705-T81699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY1705",
+      "market_ticker": "KXBTCD-26MAY1705-T85399.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY1710",
+      "market_ticker": "KXBTCD-26MAY1710-T70499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY1710",
+      "market_ticker": "KXBTCD-26MAY1710-T74199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY1710",
+      "market_ticker": "KXBTCD-26MAY1710-T77999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY1710",
+      "market_ticker": "KXBTCD-26MAY1710-T81699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY1710",
+      "market_ticker": "KXBTCD-26MAY1710-T85399.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY1900",
+      "market_ticker": "KXBTCD-26MAY1900-T70499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY1900",
+      "market_ticker": "KXBTCD-26MAY1900-T74199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY1900",
+      "market_ticker": "KXBTCD-26MAY1900-T77999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY1900",
+      "market_ticker": "KXBTCD-26MAY1900-T81699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY1900",
+      "market_ticker": "KXBTCD-26MAY1900-T85399.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY1902",
+      "market_ticker": "KXBTCD-26MAY1902-T68999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY1902",
+      "market_ticker": "KXBTCD-26MAY1902-T72699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY1902",
+      "market_ticker": "KXBTCD-26MAY1902-T76499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY1902",
+      "market_ticker": "KXBTCD-26MAY1902-T80199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY1902",
+      "market_ticker": "KXBTCD-26MAY1902-T83899.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY2015",
+      "market_ticker": "KXBTCD-26MAY2015-T68999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY2015",
+      "market_ticker": "KXBTCD-26MAY2015-T72699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY2015",
+      "market_ticker": "KXBTCD-26MAY2015-T76499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY2015",
+      "market_ticker": "KXBTCD-26MAY2015-T80199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY2015",
+      "market_ticker": "KXBTCD-26MAY2015-T83899.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY2208",
+      "market_ticker": "KXBTCD-26MAY2208-T69999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY2208",
+      "market_ticker": "KXBTCD-26MAY2208-T73699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY2208",
+      "market_ticker": "KXBTCD-26MAY2208-T77499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY2208",
+      "market_ticker": "KXBTCD-26MAY2208-T81199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY2208",
+      "market_ticker": "KXBTCD-26MAY2208-T84899.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY2607",
+      "market_ticker": "KXBTCD-26MAY2607-T69499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY2607",
+      "market_ticker": "KXBTCD-26MAY2607-T73199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY2607",
+      "market_ticker": "KXBTCD-26MAY2607-T76999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY2607",
+      "market_ticker": "KXBTCD-26MAY2607-T80699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY2607",
+      "market_ticker": "KXBTCD-26MAY2607-T84399.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY2723",
+      "market_ticker": "KXBTCD-26MAY2723-T68999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY2723",
+      "market_ticker": "KXBTCD-26MAY2723-T72699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY2723",
+      "market_ticker": "KXBTCD-26MAY2723-T76499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY2723",
+      "market_ticker": "KXBTCD-26MAY2723-T80199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY2723",
+      "market_ticker": "KXBTCD-26MAY2723-T83899.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY3022",
+      "market_ticker": "KXBTCD-26MAY3022-T65999.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY3022",
+      "market_ticker": "KXBTCD-26MAY3022-T69699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY3022",
+      "market_ticker": "KXBTCD-26MAY3022-T73499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY3022",
+      "market_ticker": "KXBTCD-26MAY3022-T77199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY3022",
+      "market_ticker": "KXBTCD-26MAY3022-T80899.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY3110",
+      "market_ticker": "KXBTCD-26MAY3110-T65499.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY3110",
+      "market_ticker": "KXBTCD-26MAY3110-T69199.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY3110",
+      "market_ticker": "KXBTCD-26MAY3110-T76699.99"
+    },
+    {
+      "event_ticker": "KXBTCD-26MAY3110",
+      "market_ticker": "KXBTCD-26MAY3110-T80399.99"
+    }
+  ],
+  "schema_version": "kxbtcd_candidate_c_terminal_evaluation_freeze.v1",
+  "source_baseline_commit": "9c82518285c9684636469cafd50fea8cca1ac4aa",
+  "split_fingerprint": "28801122054bbc82b06b7c038a265377685ef017f9861fb435aa40fdaa07f503",
+  "terminal_evaluation_fingerprint": "bb37e9d5f9e5eb856e971fc9cb3464d567d3d088e8eead71ff171b0a171e8daa"
+}

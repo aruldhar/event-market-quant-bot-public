@@ -1,0 +1,1515 @@
+{
+  "schema": "source_registry.v1",
+  "registry_id": "event_market_quant_bot.sources",
+  "reviewed_at_utc": "2026-08-31T18:45:00Z",
+  "sources": [
+    {
+      "source_id": "kalshi.public_rest.markets.v1",
+      "name": "Kalshi public market-list REST endpoint",
+      "owner": "Kalshi",
+      "roles": [
+        "execution_market_metadata",
+        "market_discovery"
+      ],
+      "market_scope": [
+        "KXBTC15M"
+      ],
+      "transport": "https_rest",
+      "endpoint_identity": {
+        "method": "GET",
+        "base_url": "https://external-api.kalshi.com/trade-api/v2",
+        "path_template": "/markets"
+      },
+      "official_urls": [
+        "https://docs.kalshi.com/api-reference/market/get-markets",
+        "https://docs.kalshi.com/getting_started/quick_start_market_data"
+      ],
+      "authentication": {
+        "mode": "none",
+        "validation_state": "validated",
+        "conflict_status": "no_current_conflict",
+        "notes": "Kalshi's market-data quick start explicitly documents public unauthenticated access, and the project's live scanner has successfully used this endpoint without credentials."
+      },
+      "expected_timestamp_fields": [
+        {
+          "json_path": "$.markets[*].created_time",
+          "meaning": "Market creation timestamp reported by Kalshi.",
+          "required": false,
+          "validation_state": "documented"
+        },
+        {
+          "json_path": "$.markets[*].updated_time",
+          "meaning": "Market metadata update timestamp reported by Kalshi; it is not assumed to represent order-book freshness.",
+          "required": false,
+          "validation_state": "documented"
+        },
+        {
+          "json_path": "$.markets[*].open_time",
+          "meaning": "Scheduled market opening time reported by Kalshi.",
+          "required": false,
+          "validation_state": "documented"
+        },
+        {
+          "json_path": "$.markets[*].close_time",
+          "meaning": "Scheduled market closing time reported by Kalshi.",
+          "required": false,
+          "validation_state": "documented"
+        },
+        {
+          "json_path": "$.markets[*].settlement_ts",
+          "meaning": "Settlement timestamp when present on a settled market; it is not an order-book source timestamp.",
+          "required": false,
+          "validation_state": "documented"
+        }
+      ],
+      "settlement_role": "none",
+      "settlement_validation_state": "validated",
+      "collection_state": "active",
+      "validation_state": "validated",
+      "quality_policy_id": "read_only_source_quality.v1",
+      "raw_source_name": "kalshi_public_rest",
+      "evidence": [
+        {
+          "url": "https://docs.kalshi.com/api-reference/market/get-markets",
+          "claim": "Official endpoint identity, response container, filters, and documented market timestamp fields.",
+          "reviewed_at_utc": "2026-08-04T04:00:00Z"
+        },
+        {
+          "url": "https://docs.kalshi.com/getting_started/quick_start_market_data",
+          "claim": "Official statement that the market-data endpoints in the guide are available without authentication.",
+          "reviewed_at_utc": "2026-08-04T04:00:00Z"
+        }
+      ],
+      "notes": "This endpoint is an execution-market metadata source. It is not the numerical settlement-index source."
+    },
+    {
+      "source_id": "kalshi.public_rest.market.v1",
+      "name": "Kalshi public single-market REST endpoint",
+      "owner": "Kalshi",
+      "roles": [
+        "execution_market_metadata",
+        "contract_rules_container"
+      ],
+      "market_scope": [
+        "KXBTC15M"
+      ],
+      "transport": "https_rest",
+      "endpoint_identity": {
+        "method": "GET",
+        "base_url": "https://external-api.kalshi.com/trade-api/v2",
+        "path_template": "/markets/{ticker}"
+      },
+      "official_urls": [
+        "https://docs.kalshi.com/api-reference/market/get-market",
+        "https://docs.kalshi.com/getting_started/quick_start_market_data",
+        "https://external-api.kalshi.com/trade-api/v2/markets/KXBTC15M-26AUG040000-00"
+      ],
+      "authentication": {
+        "mode": "none",
+        "validation_state": "validated",
+        "conflict_status": "no_current_conflict",
+        "notes": "The official request examples omit authentication headers, and the endpoint is part of Kalshi's public market-data surface."
+      },
+      "expected_timestamp_fields": [
+        {
+          "json_path": "$.market.created_time",
+          "meaning": "Market creation timestamp reported by Kalshi.",
+          "required": false,
+          "validation_state": "documented"
+        },
+        {
+          "json_path": "$.market.updated_time",
+          "meaning": "Market metadata update timestamp reported by Kalshi; it is not assumed to represent order-book or settlement-index freshness.",
+          "required": false,
+          "validation_state": "documented"
+        },
+        {
+          "json_path": "$.market.open_time",
+          "meaning": "Scheduled market opening time. For the observed KXBTC15M contract, rules_primary used this boundary for the earlier comparison window.",
+          "required": false,
+          "validation_state": "validated"
+        },
+        {
+          "json_path": "$.market.close_time",
+          "meaning": "Scheduled market closing time. For the observed KXBTC15M contract, rules_primary used this boundary for the later comparison window.",
+          "required": false,
+          "validation_state": "validated"
+        },
+        {
+          "json_path": "$.market.expected_expiration_time",
+          "meaning": "Expected lifecycle expiration timestamp reported by Kalshi; it must not be assumed to equal the 15-minute close boundary.",
+          "required": false,
+          "validation_state": "observed"
+        },
+        {
+          "json_path": "$.market.expiration_time",
+          "meaning": "Lifecycle expiration timestamp reported by Kalshi. The live KXBTC15M response placed it seven days after close_time, so it is not the contract comparison boundary.",
+          "required": false,
+          "validation_state": "validated"
+        },
+        {
+          "json_path": "$.market.latest_expiration_time",
+          "meaning": "Latest lifecycle expiration timestamp reported by Kalshi; exact economic use remains unassigned.",
+          "required": false,
+          "validation_state": "observed"
+        },
+        {
+          "json_path": "$.market.occurrence_datetime",
+          "meaning": "Occurrence timestamp reported by Kalshi; exact KXBTC15M settlement semantics remain unassigned.",
+          "required": false,
+          "validation_state": "observed"
+        },
+        {
+          "json_path": "$.market.settlement_ts",
+          "meaning": "Settlement timestamp when populated after settlement; it was absent on the observed active market.",
+          "required": false,
+          "validation_state": "documented"
+        }
+      ],
+      "settlement_role": "contract_rule_authority",
+      "settlement_validation_state": "documented",
+      "collection_state": "active",
+      "validation_state": "validated",
+      "quality_policy_id": "read_only_source_quality.v1",
+      "raw_source_name": "kalshi_public_rest",
+      "evidence": [
+        {
+          "url": "https://docs.kalshi.com/api-reference/market/get-market",
+          "claim": "Official endpoint response includes rules_primary, rules_secondary, close and expiration fields, result, and settlement fields.",
+          "reviewed_at_utc": "2026-08-04T04:00:00Z"
+        },
+        {
+          "url": "https://docs.kalshi.com/getting_started/quick_start_market_data",
+          "claim": "Official public market-data guide establishes unauthenticated access for the covered market-data endpoints.",
+          "reviewed_at_utc": "2026-08-04T04:00:00Z"
+        },
+        {
+          "url": "https://external-api.kalshi.com/trade-api/v2/markets/KXBTC15M-26AUG040000-00",
+          "claim": "Live public single-market response was raw-archived on 2026-08-04 UTC and exposed representative KXBTC15M rules and lifecycle fields.",
+          "reviewed_at_utc": "2026-08-04T04:00:00Z"
+        }
+      ],
+      "notes": "The endpoint carries the official contract-rule text. Live evidence for KXBTC15M-26AUG040000-00 confirmed that close_time, not expiration_time, matches the 15-minute comparison boundary; expiration_time was seven days later. The current client still validates only the market container shape, so field-level settlement parsing remains a future gated change."
+    },
+    {
+      "source_id": "kalshi.public_rest.orderbook.v1",
+      "name": "Kalshi public single-market order-book REST endpoint",
+      "owner": "Kalshi",
+      "roles": [
+        "execution_orderbook"
+      ],
+      "market_scope": [
+        "KXBTC15M"
+      ],
+      "transport": "https_rest",
+      "endpoint_identity": {
+        "method": "GET",
+        "base_url": "https://external-api.kalshi.com/trade-api/v2",
+        "path_template": "/markets/{ticker}/orderbook"
+      },
+      "official_urls": [
+        "https://docs.kalshi.com/api-reference/market/get-market-orderbook",
+        "https://docs.kalshi.com/getting_started/orderbook_responses",
+        "https://docs.kalshi.com/getting_started/quick_start_market_data"
+      ],
+      "authentication": {
+        "mode": "none",
+        "validation_state": "validated",
+        "conflict_status": "resolved_generated_example_inconsistency",
+        "notes": "Two official narrative guides explicitly state that this endpoint requires no authentication. The API-reference page's generated examples include authorization headers and a 401 response shape, but the project's repeated live calls succeed without headers. The project therefore treats the endpoint as public while retaining the generated-example inconsistency as a documentation risk to recheck."
+      },
+      "expected_timestamp_fields": [],
+      "settlement_role": "none",
+      "settlement_validation_state": "validated",
+      "collection_state": "active",
+      "validation_state": "validated",
+      "quality_policy_id": "read_only_source_quality.v1",
+      "raw_source_name": "kalshi_public_rest",
+      "evidence": [
+        {
+          "url": "https://docs.kalshi.com/getting_started/orderbook_responses",
+          "claim": "Official narrative documentation explicitly says that no authentication is required and defines orderbook_fp, yes_dollars, no_dollars, price_dollars, and count_fp.",
+          "reviewed_at_utc": "2026-08-04T04:00:00Z"
+        },
+        {
+          "url": "https://docs.kalshi.com/getting_started/quick_start_market_data",
+          "claim": "Official market-data quick start describes order-book access as unauthenticated public market data.",
+          "reviewed_at_utc": "2026-08-04T04:00:00Z"
+        },
+        {
+          "url": "https://docs.kalshi.com/api-reference/market/get-market-orderbook",
+          "claim": "Official API-reference endpoint identity and response shape; generated examples currently include authorization headers, which conflicts with the narrative guides.",
+          "reviewed_at_utc": "2026-08-04T04:00:00Z"
+        }
+      ],
+      "notes": "The response does not document a source-generated observation timestamp. Freshness for a polled snapshot can therefore use local receive time only, and no trading threshold has yet been approved."
+    },
+    {
+      "source_id": "kalshi.kxbtc15m.market_rules.v1",
+      "name": "Kalshi KXBTC15M written market rules",
+      "owner": "Kalshi",
+      "roles": [
+        "settlement_contract_rules"
+      ],
+      "market_scope": [
+        "KXBTC15M"
+      ],
+      "transport": "https_web",
+      "endpoint_identity": {
+        "method": "DOCUMENT",
+        "base_url": "https://kalshi.com",
+        "path_template": "/markets/kxbtc15m/{market_slug}/{ticker}"
+      },
+      "official_urls": [
+        "https://kalshi.com/markets/kxbtc15m/bitcoin-price-up-down/kxbtc15m-26aug040000",
+        "https://external-api.kalshi.com/trade-api/v2/markets/KXBTC15M-26AUG040000-00",
+        "https://kalshi.com/markets/kxbtc15m/bitcoin-price-up-down/kxbtc15m-26jul161930",
+        "https://kalshi.com/markets/kxbtc15m/bitcoin-price-up-down/kxbtc15m-26jul081830"
+      ],
+      "authentication": {
+        "mode": "none",
+        "validation_state": "observed",
+        "conflict_status": "no_current_conflict",
+        "notes": "The reviewed market pages were publicly viewable without account authentication."
+      },
+      "expected_timestamp_fields": [],
+      "settlement_role": "contract_rule_authority",
+      "settlement_validation_state": "unresolved",
+      "collection_state": "documented_not_collected",
+      "validation_state": "validated",
+      "quality_policy_id": "read_only_source_quality.v1",
+      "raw_source_name": null,
+      "evidence": [
+        {
+          "url": "https://external-api.kalshi.com/trade-api/v2/markets/KXBTC15M-26AUG040000-00",
+          "claim": "The live rules_primary text states that the 60-second BRTI average before the close resolves Yes when it is at least the 60-second BRTI average before the open, establishing the comparison operator, two windows, and exact-tie outcome.",
+          "reviewed_at_utc": "2026-08-04T04:00:00Z"
+        },
+        {
+          "url": "https://kalshi.com/markets/kxbtc15m/bitcoin-price-up-down/kxbtc15m-26aug040000",
+          "claim": "Official KXBTC15M market surface corresponding to the live contract whose public API response was archived and inspected.",
+          "reviewed_at_utc": "2026-08-04T04:00:00Z"
+        },
+        {
+          "url": "https://kalshi.com/markets/kxbtc15m/bitcoin-price-up-down/kxbtc15m-26jul161930",
+          "claim": "Official KXBTC15M rules identify CF Benchmarks' corresponding Real Time Index and a 60-observation final-minute average.",
+          "reviewed_at_utc": "2026-08-04T04:00:00Z"
+        }
+      ],
+      "notes": "The live official rule text confirms the two 60-second BRTI windows, the 'at least' comparison, and therefore Yes on an exact tie. rules_secondary states that the official final value is rounded to the nearest two decimal places. Complete executable replication remains unresolved because the rounding order for both operands, corrections, missing observations, provider interruption, and fallback behavior are not yet officially confirmed."
+    },
+    {
+      "source_id": "kalshi.cfbenchmarks_value.websocket.v1",
+      "name": "Kalshi CF Benchmarks value WebSocket channel",
+      "owner": "Kalshi",
+      "roles": [
+        "settlement_index_delivery",
+        "quarter_hour_final_minute_average"
+      ],
+      "market_scope": [
+        "KXBTC15M"
+      ],
+      "transport": "wss",
+      "endpoint_identity": {
+        "method": "SUBSCRIBE",
+        "base_url": "wss://external-api-ws.kalshi.com/trade-api/ws/v2",
+        "path_template": "channel=cfbenchmarks_value;index_ids={index_ids}"
+      },
+      "official_urls": [
+        "https://docs.kalshi.com/websockets/cfbenchmarks-value",
+        "https://docs.kalshi.com/getting_started/quick_start_websockets",
+        "https://docs.kalshi.com/websockets/websocket-connection"
+      ],
+      "authentication": {
+        "mode": "kalshi_signed",
+        "validation_state": "documented",
+        "conflict_status": "no_current_conflict",
+        "notes": "Kalshi documents that every WebSocket connection requires signed API-key headers during the handshake. No collector or credential use is authorized in the current phase."
+      },
+      "expected_timestamp_fields": [
+        {
+          "json_path": "$.msg.received_at",
+          "meaning": "Millisecond receive timestamp carried by the Kalshi message; its clock semantics have not been operationally validated by this project.",
+          "required": false,
+          "validation_state": "documented"
+        },
+        {
+          "json_path": "$.msg.data::<decoded-json>.time",
+          "meaning": "Upstream CF Benchmarks source timestamp inside the JSON-encoded raw data frame.",
+          "required": false,
+          "validation_state": "documented"
+        },
+        {
+          "json_path": "$.msg.avg_60s_data.window_start_ts_ms",
+          "meaning": "Start of the per-tick trailing 60-second window.",
+          "required": false,
+          "validation_state": "documented"
+        },
+        {
+          "json_path": "$.msg.avg_60s_data.window_end_ts_exclusive",
+          "meaning": "Exclusive end of the per-tick trailing 60-second window.",
+          "required": false,
+          "validation_state": "documented"
+        },
+        {
+          "json_path": "$.msg.last_60s_windowed_average_15min.window_start_ts_ms",
+          "meaning": "Start boundary metadata for the quarter-hour final-minute accumulation window.",
+          "required": false,
+          "validation_state": "documented"
+        },
+        {
+          "json_path": "$.msg.last_60s_windowed_average_15min.window_end_ts_exclusive",
+          "meaning": "End-boundary metadata for the quarter-hour final-minute accumulation window; official prose separately states that the close tick is included.",
+          "required": false,
+          "validation_state": "documented"
+        }
+      ],
+      "settlement_role": "none",
+      "settlement_validation_state": "documented",
+      "collection_state": "documented_not_collected",
+      "validation_state": "documented",
+      "quality_policy_id": "read_only_source_quality.v1",
+      "raw_source_name": null,
+      "evidence": [
+        {
+          "url": "https://docs.kalshi.com/websockets/cfbenchmarks-value",
+          "claim": "Official channel documentation specifies BRTI index selection, roughly one-second updates, raw upstream frames, trailing averages, and the quarter-hour final-minute window with start excluded and close tick included.",
+          "reviewed_at_utc": "2026-08-04T04:00:00Z"
+        },
+        {
+          "url": "https://docs.kalshi.com/getting_started/quick_start_websockets",
+          "claim": "Official WebSocket quick start documents the production WSS endpoint and signed-handshake requirement.",
+          "reviewed_at_utc": "2026-08-04T04:00:00Z"
+        }
+      ],
+      "notes": "This source is documented for future settlement-index research but is not collected. It transports upstream CF Benchmarks values and exposes a quarter-hour final-minute average; it does not replace CF Benchmarks as the numerical index authority. Adding a collector requires a later authorization decision, secure local credentials, raw preservation, sequence/reconnect rules, and explicit user approval."
+    },
+    {
+      "source_id": "cfbenchmarks.brti.v1",
+      "name": "CF Benchmarks Bitcoin Real Time Index",
+      "owner": "CF Benchmarks",
+      "roles": [
+        "settlement_numerical_index"
+      ],
+      "market_scope": [
+        "KXBTC15M"
+      ],
+      "transport": "https_rest",
+      "endpoint_identity": {
+        "method": "GET",
+        "base_url": "https://external-api.kalshi.com/trade-api/v2",
+        "path_template": "/cfbenchmarks/values?id=BRTI"
+      },
+      "official_urls": [
+        "https://docs.kalshi.com/cfbenchmarks/rest-passthrough",
+        "https://www.cfbenchmarks.com/data/indices/BRTI"
+      ],
+      "authentication": {
+        "mode": "kalshi_signed_entitlement",
+        "validation_state": "documented",
+        "conflict_status": "no_current_conflict",
+        "notes": "Kalshi documents that its CF Benchmarks REST passthrough requires signed Kalshi authentication and an account entitlement. The project has neither requested nor tested that access."
+      },
+      "expected_timestamp_fields": [
+        {
+          "json_path": "$.data.serverTime",
+          "meaning": "Server time shown in Kalshi's documented CF Benchmarks passthrough envelope example; payload-specific index timestamps still require field-level validation before use.",
+          "required": false,
+          "validation_state": "documented"
+        }
+      ],
+      "settlement_role": "numerical_index_authority",
+      "settlement_validation_state": "documented",
+      "collection_state": "documented_not_collected",
+      "validation_state": "documented",
+      "quality_policy_id": "read_only_source_quality.v1",
+      "raw_source_name": null,
+      "evidence": [
+        {
+          "url": "https://docs.kalshi.com/cfbenchmarks/rest-passthrough",
+          "claim": "Official Kalshi documentation maps id=BRTI to CF Benchmarks and requires signed, entitled access for the passthrough.",
+          "reviewed_at_utc": "2026-08-04T04:00:00Z"
+        },
+        {
+          "url": "https://www.cfbenchmarks.com/data/indices/BRTI",
+          "claim": "Official provider page identifies BRTI as the Bitcoin Real Time Index.",
+          "reviewed_at_utc": "2026-08-04T04:00:00Z"
+        }
+      ],
+      "notes": "This is the documented numerical settlement reference but is not collected in the current read-only public phase. No credentials or entitlement are authorized."
+    },
+    {
+      "source_id": "gemini.prediction_markets.public_rest.events.v1",
+      "name": "Gemini Predictions public event-discovery REST endpoint",
+      "owner": "Gemini",
+      "roles": [
+        "execution_market_metadata",
+        "market_discovery",
+        "opportunity_census"
+      ],
+      "market_scope": [
+        "all_public_prediction_markets"
+      ],
+      "transport": "https_rest",
+      "endpoint_identity": {
+        "method": "GET",
+        "base_url": "https://api.gemini.com",
+        "path_template": "/v1/prediction-markets/events"
+      },
+      "official_urls": [
+        "https://developer.gemini.com/rest-api/prediction-markets/events/list-events",
+        "https://developer.gemini.com/prediction-markets/prediction-markets"
+      ],
+      "authentication": {
+        "mode": "none",
+        "validation_state": "documented",
+        "conflict_status": "no_current_conflict",
+        "notes": "Gemini's official Prediction Markets quick start states that the public REST event-discovery request requires no API key. The project has not yet performed its first archived live census request."
+      },
+      "expected_timestamp_fields": [],
+      "settlement_role": "none",
+      "settlement_validation_state": "validated",
+      "collection_state": "proposed",
+      "validation_state": "documented",
+      "quality_policy_id": "read_only_source_quality.v1",
+      "raw_source_name": "gemini_predictions_public_rest",
+      "evidence": [
+        {
+          "url": "https://developer.gemini.com/rest-api/prediction-markets/events/list-events",
+          "claim": "Official documentation identifies GET https://api.gemini.com/v1/prediction-markets/events as the paginated prediction-event discovery endpoint.",
+          "reviewed_at_utc": "2026-08-09T03:32:00Z"
+        },
+        {
+          "url": "https://developer.gemini.com/prediction-markets/prediction-markets",
+          "claim": "Official Prediction Markets quick start explicitly describes the event-discovery REST request as public and requiring no API key.",
+          "reviewed_at_utc": "2026-08-09T03:32:00Z"
+        }
+      ],
+      "notes": "Registered only for neutral read-only opportunity-census discovery. It is not a selected execution venue, predictive source, or settlement authority. Source-generated observation-time semantics remain unassigned until archived live responses are inspected."
+    },
+    {
+      "source_id": "polymarket_us.public_rest.markets.v1",
+      "name": "Polymarket US public market-discovery REST endpoint",
+      "owner": "Polymarket US",
+      "roles": [
+        "execution_market_metadata",
+        "market_discovery",
+        "opportunity_census"
+      ],
+      "market_scope": [
+        "all_public_prediction_markets"
+      ],
+      "transport": "https_rest",
+      "endpoint_identity": {
+        "method": "GET",
+        "base_url": "https://gateway.polymarket.us",
+        "path_template": "/v1/markets"
+      },
+      "official_urls": [
+        "https://docs.polymarket.us/api-reference/introduction",
+        "https://docs.polymarket.us/api-reference/market/overview"
+      ],
+      "authentication": {
+        "mode": "none",
+        "validation_state": "documented",
+        "conflict_status": "no_current_conflict",
+        "notes": "Polymarket US documentation separates the public gateway from authenticated trading and states that public market data does not require an API key. The project has not yet performed its first archived live census request."
+      },
+      "expected_timestamp_fields": [],
+      "settlement_role": "none",
+      "settlement_validation_state": "validated",
+      "collection_state": "proposed",
+      "validation_state": "documented",
+      "quality_policy_id": "read_only_source_quality.v1",
+      "raw_source_name": "polymarket_us_public_rest",
+      "evidence": [
+        {
+          "url": "https://docs.polymarket.us/api-reference/introduction",
+          "claim": "Official documentation identifies https://gateway.polymarket.us as the public market-data API and states that it requires no API key.",
+          "reviewed_at_utc": "2026-08-09T03:32:00Z"
+        },
+        {
+          "url": "https://docs.polymarket.us/api-reference/market/overview",
+          "claim": "Official Markets API documentation identifies GET /v1/markets as the filtered market-list endpoint.",
+          "reviewed_at_utc": "2026-08-09T03:32:00Z"
+        }
+      ],
+      "notes": "Registered only for neutral read-only opportunity-census discovery. The separate authenticated trading/streaming surfaces remain outside current authorization. No venue preference or settlement authority is implied."
+    },
+    {
+      "source_id": "crypto_com.predictions.public_rest.events.v1",
+      "name": "Crypto.com Predictions public event-discovery REST endpoint",
+      "owner": "Crypto.com",
+      "roles": [
+        "execution_market_metadata",
+        "market_discovery",
+        "opportunity_census"
+      ],
+      "market_scope": [
+        "all_public_prediction_markets"
+      ],
+      "transport": "https_rest",
+      "endpoint_identity": {
+        "method": "GET",
+        "base_url": "https://data-api.crypto.com",
+        "path_template": "/api/v1/predictions/events"
+      },
+      "official_urls": [
+        "https://data-api.crypto.com/docs"
+      ],
+      "authentication": {
+        "mode": "none",
+        "validation_state": "documented",
+        "conflict_status": "no_current_conflict",
+        "notes": "Crypto.com's official Predictions API documentation states that endpoints are publicly accessible without authentication; an API key is optional. Anonymous access is rate-limited and subject to the documented data-use terms."
+      },
+      "expected_timestamp_fields": [],
+      "settlement_role": "none",
+      "settlement_validation_state": "validated",
+      "collection_state": "proposed",
+      "validation_state": "documented",
+      "quality_policy_id": "read_only_source_quality.v1",
+      "raw_source_name": "crypto_com_predictions_public_rest",
+      "evidence": [
+        {
+          "url": "https://data-api.crypto.com/docs",
+          "claim": "Official Predictions API documentation identifies GET /api/v1/predictions/events, states that authentication is optional, documents anonymous rate limits, and states personal non-commercial keyless-use terms with separate licensing for commercial use.",
+          "reviewed_at_utc": "2026-08-09T03:32:00Z"
+        }
+      ],
+      "notes": "Registered only for neutral read-only opportunity-census discovery under the documented anonymous-access terms. Source probability fields must not be relabeled as executable quotes, and this source has no settlement-authority role."
+    },
+    {
+      "source_id": "kalshi.public_rest.events.v1",
+      "name": "Kalshi public event-discovery REST endpoint",
+      "owner": "Kalshi",
+      "roles": [
+        "execution_event_metadata",
+        "event_discovery",
+        "opportunity_census",
+        "sports_historical_validation"
+      ],
+      "market_scope": [
+        "all_public_non_multivariate_events"
+      ],
+      "transport": "https_rest",
+      "endpoint_identity": {
+        "method": "GET",
+        "base_url": "https://external-api.kalshi.com/trade-api/v2",
+        "path_template": "/events"
+      },
+      "official_urls": [
+        "https://docs.kalshi.com/api-reference/events/get-events",
+        "https://docs.kalshi.com/getting_started/terms"
+      ],
+      "authentication": {
+        "mode": "none",
+        "validation_state": "validated",
+        "conflict_status": "no_current_conflict",
+        "notes": "Kalshi documents GET /events as public event discovery. Checkpoint-08 raw-first validation also used it without credentials to select a currently active Sports market with positive 24-hour volume."
+      },
+      "expected_timestamp_fields": [
+        {
+          "json_path": "$.events[*].strike_date",
+          "meaning": "Event strike/occurrence date reported by Kalshi when present; it is not assumed to be a market close timestamp.",
+          "required": false,
+          "validation_state": "documented"
+        },
+        {
+          "json_path": "$.events[*].last_updated_ts",
+          "meaning": "Event metadata last-updated timestamp reported by Kalshi when present.",
+          "required": false,
+          "validation_state": "documented"
+        }
+      ],
+      "settlement_role": "none",
+      "settlement_validation_state": "validated",
+      "collection_state": "active",
+      "validation_state": "validated",
+      "quality_policy_id": "read_only_source_quality.v1",
+      "raw_source_name": "kalshi_public_rest",
+      "evidence": [
+        {
+          "url": "https://docs.kalshi.com/api-reference/events/get-events",
+          "claim": "Official documentation identifies GET /events, its 200-event maximum page size, cursor pagination, open-status filter, and exclusion of multivariate events.",
+          "reviewed_at_utc": "2026-08-09T03:55:00Z"
+        },
+        {
+          "url": "https://docs.kalshi.com/getting_started/terms",
+          "claim": "Official glossary defines Event as the basic interaction unit and Market as a low-level single binary market.",
+          "reviewed_at_utc": "2026-08-09T03:55:00Z"
+        }
+      ],
+      "notes": "Active read-only event discovery for the opportunity census and Checkpoint-08 Sports historical routing validation. It remains metadata only and does not authorize trading."
+    },
+    {
+      "source_id": "polymarket_us.public_rest.events.v1",
+      "name": "Polymarket US public event-discovery REST endpoint",
+      "owner": "Polymarket US",
+      "roles": [
+        "execution_event_metadata",
+        "event_discovery",
+        "opportunity_census"
+      ],
+      "market_scope": [
+        "all_public_prediction_events"
+      ],
+      "transport": "https_rest",
+      "endpoint_identity": {
+        "method": "GET",
+        "base_url": "https://gateway.polymarket.us",
+        "path_template": "/v1/events"
+      },
+      "official_urls": [
+        "https://docs.polymarket.us/api-reference/events/get-events",
+        "https://docs.polymarket.us/api-reference/market/overview"
+      ],
+      "authentication": {
+        "mode": "none",
+        "validation_state": "documented",
+        "conflict_status": "no_current_conflict",
+        "notes": "Polymarket US documents GET /v1/events on the public gateway with filtering and pagination. The project has not yet archived a live /v1/events census response."
+      },
+      "expected_timestamp_fields": [
+        {
+          "json_path": "$.events[*].eventDate",
+          "meaning": "Source event date when present.",
+          "required": false,
+          "validation_state": "documented"
+        },
+        {
+          "json_path": "$.events[*].startTime",
+          "meaning": "Source event start time when present.",
+          "required": false,
+          "validation_state": "documented"
+        },
+        {
+          "json_path": "$.events[*].updatedAt",
+          "meaning": "Source event metadata update timestamp when present.",
+          "required": false,
+          "validation_state": "documented"
+        }
+      ],
+      "settlement_role": "none",
+      "settlement_validation_state": "validated",
+      "collection_state": "proposed",
+      "validation_state": "documented",
+      "quality_policy_id": "read_only_source_quality.v1",
+      "raw_source_name": "polymarket_us_public_rest",
+      "evidence": [
+        {
+          "url": "https://docs.polymarket.us/api-reference/events/get-events",
+          "claim": "Official documentation identifies GET /v1/events as the filtered paginated event-list endpoint and exposes event-level volume, liquidity, open interest, category, series, timing, and nested markets.",
+          "reviewed_at_utc": "2026-08-09T03:55:00Z"
+        },
+        {
+          "url": "https://docs.polymarket.us/api-reference/market/overview",
+          "claim": "Official market documentation distinguishes individual tradable markets from higher-level event discovery.",
+          "reviewed_at_utc": "2026-08-09T03:55:00Z"
+        }
+      ],
+      "notes": "Registered for the event-first neutral census. The existing /v1/markets source remains documented for later contract-level market-quality snapshots; neither source is an execution authorization."
+    },
+    {
+      "source_id": "kalshi.public_rest.historical_cutoff.v1",
+      "name": "Kalshi public historical cutoff REST endpoint",
+      "owner": "Kalshi",
+      "roles": [
+        "historical_routing_control",
+        "sports_historical_validation"
+      ],
+      "market_scope": [
+        "all_public_sports_markets"
+      ],
+      "transport": "https_rest",
+      "endpoint_identity": {
+        "method": "GET",
+        "base_url": "https://external-api.kalshi.com/trade-api/v2",
+        "path_template": "/historical/cutoff"
+      },
+      "official_urls": [
+        "https://docs.kalshi.com/api-reference/historical/get-historical-cutoff-timestamps",
+        "https://docs.kalshi.com/getting_started/historical_data"
+      ],
+      "authentication": {
+        "mode": "none",
+        "validation_state": "validated",
+        "conflict_status": "no_current_conflict",
+        "notes": "Checkpoint-08 raw-first validation successfully called the public cutoff endpoint without credentials."
+      },
+      "expected_timestamp_fields": [
+        {
+          "json_path": "$.market_settled_ts",
+          "meaning": "Routing cutoff for markets and their candlesticks.",
+          "required": true,
+          "validation_state": "validated"
+        },
+        {
+          "json_path": "$.trades_created_ts",
+          "meaning": "Routing cutoff for public trade history.",
+          "required": true,
+          "validation_state": "validated"
+        },
+        {
+          "json_path": "$.orders_updated_ts",
+          "meaning": "Routing cutoff for historical orders; recorded but unused by the Sports collector.",
+          "required": true,
+          "validation_state": "validated"
+        },
+        {
+          "json_path": "$.market_positions_last_updated_ts",
+          "meaning": "Optional historical market-position cutoff observed in the current response shape; unused by this checkpoint.",
+          "required": false,
+          "validation_state": "validated"
+        }
+      ],
+      "settlement_role": "none",
+      "settlement_validation_state": "validated",
+      "collection_state": "active",
+      "validation_state": "validated",
+      "quality_policy_id": "read_only_source_quality.v1",
+      "raw_source_name": "kalshi_public_rest",
+      "evidence": [
+        {
+          "url": "https://docs.kalshi.com/api-reference/historical/get-historical-cutoff-timestamps",
+          "claim": "Official endpoint documentation reviewed for Checkpoint 08; the project's raw-first public validation run on 2026-08-09 UTC observed the endpoint without authentication.",
+          "reviewed_at_utc": "2026-08-09T05:18:48Z"
+        },
+        {
+          "url": "https://docs.kalshi.com/getting_started/historical_data",
+          "claim": "Official endpoint documentation reviewed for Checkpoint 08; the project's raw-first public validation run on 2026-08-09 UTC observed the endpoint without authentication.",
+          "reviewed_at_utc": "2026-08-09T05:18:48Z"
+        }
+      ],
+      "notes": "The 2026-08-09 validation captured market_settled_ts=2026-06-09T00:00:00Z. Cutoffs are routing controls, not fixed constants; collectors must fetch the current cutoff at run time."
+    },
+    {
+      "source_id": "kalshi.public_rest.historical_markets.v1",
+      "name": "Kalshi public historical market-list REST endpoint",
+      "owner": "Kalshi",
+      "roles": [
+        "historical_market_metadata",
+        "sports_historical_discovery"
+      ],
+      "market_scope": [
+        "all_public_sports_markets"
+      ],
+      "transport": "https_rest",
+      "endpoint_identity": {
+        "method": "GET",
+        "base_url": "https://external-api.kalshi.com/trade-api/v2",
+        "path_template": "/historical/markets"
+      },
+      "official_urls": [
+        "https://docs.kalshi.com/api-reference/historical/get-historical-markets",
+        "https://docs.kalshi.com/getting_started/historical_data"
+      ],
+      "authentication": {
+        "mode": "none",
+        "validation_state": "validated",
+        "conflict_status": "no_current_conflict",
+        "notes": "Checkpoint-08 raw-first validation discovered archived Sports markets through this endpoint without credentials."
+      },
+      "expected_timestamp_fields": [
+        {
+          "json_path": "$.markets[*].open_time",
+          "meaning": "Market open time.",
+          "required": true,
+          "validation_state": "validated"
+        },
+        {
+          "json_path": "$.markets[*].close_time",
+          "meaning": "Market close time.",
+          "required": true,
+          "validation_state": "validated"
+        },
+        {
+          "json_path": "$.markets[*].settlement_ts",
+          "meaning": "Market settlement timestamp used to verify historical-tier routing.",
+          "required": true,
+          "validation_state": "validated"
+        },
+        {
+          "json_path": "$.markets[*].created_time",
+          "meaning": "Market creation time.",
+          "required": false,
+          "validation_state": "validated"
+        },
+        {
+          "json_path": "$.markets[*].updated_time",
+          "meaning": "Market metadata update time.",
+          "required": false,
+          "validation_state": "validated"
+        }
+      ],
+      "settlement_role": "none",
+      "settlement_validation_state": "validated",
+      "collection_state": "active",
+      "validation_state": "validated",
+      "quality_policy_id": "read_only_source_quality.v1",
+      "raw_source_name": "kalshi_public_rest",
+      "evidence": [
+        {
+          "url": "https://docs.kalshi.com/api-reference/historical/get-historical-markets",
+          "claim": "Official endpoint documentation reviewed for Checkpoint 08; the project's raw-first public validation run on 2026-08-09 UTC observed the endpoint without authentication.",
+          "reviewed_at_utc": "2026-08-09T05:18:48Z"
+        },
+        {
+          "url": "https://docs.kalshi.com/getting_started/historical_data",
+          "claim": "Official endpoint documentation reviewed for Checkpoint 08; the project's raw-first public validation run on 2026-08-09 UTC observed the endpoint without authentication.",
+          "reviewed_at_utc": "2026-08-09T05:18:48Z"
+        }
+      ],
+      "notes": "Validated for archived market discovery only. Sports classification is confirmed through event metadata rather than inferred from ticker text."
+    },
+    {
+      "source_id": "kalshi.public_rest.historical_market.v1",
+      "name": "Kalshi public historical single-market REST endpoint",
+      "owner": "Kalshi",
+      "roles": [
+        "historical_market_metadata",
+        "sports_historical_collection"
+      ],
+      "market_scope": [
+        "all_public_sports_markets"
+      ],
+      "transport": "https_rest",
+      "endpoint_identity": {
+        "method": "GET",
+        "base_url": "https://external-api.kalshi.com/trade-api/v2",
+        "path_template": "/historical/markets/{ticker}"
+      },
+      "official_urls": [
+        "https://docs.kalshi.com/api-reference/historical/get-historical-market",
+        "https://docs.kalshi.com/getting_started/historical_data"
+      ],
+      "authentication": {
+        "mode": "none",
+        "validation_state": "validated",
+        "conflict_status": "no_current_conflict",
+        "notes": "Checkpoint-08 raw-first validation fetched KXITFMATCH-26JUN08LEGBRA-LEG from this endpoint without credentials."
+      },
+      "expected_timestamp_fields": [
+        {
+          "json_path": "$.market.open_time",
+          "meaning": "Market open time.",
+          "required": true,
+          "validation_state": "validated"
+        },
+        {
+          "json_path": "$.market.close_time",
+          "meaning": "Market close time.",
+          "required": true,
+          "validation_state": "validated"
+        },
+        {
+          "json_path": "$.market.settlement_ts",
+          "meaning": "Market settlement timestamp used to verify historical-tier routing.",
+          "required": true,
+          "validation_state": "validated"
+        },
+        {
+          "json_path": "$.market.created_time",
+          "meaning": "Market creation time.",
+          "required": false,
+          "validation_state": "validated"
+        },
+        {
+          "json_path": "$.market.updated_time",
+          "meaning": "Market metadata update time.",
+          "required": false,
+          "validation_state": "validated"
+        }
+      ],
+      "settlement_role": "none",
+      "settlement_validation_state": "validated",
+      "collection_state": "active",
+      "validation_state": "validated",
+      "quality_policy_id": "read_only_source_quality.v1",
+      "raw_source_name": "kalshi_public_rest",
+      "evidence": [
+        {
+          "url": "https://docs.kalshi.com/api-reference/historical/get-historical-market",
+          "claim": "Official endpoint documentation reviewed for Checkpoint 08; the project's raw-first public validation run on 2026-08-09 UTC observed the endpoint without authentication.",
+          "reviewed_at_utc": "2026-08-09T05:18:48Z"
+        },
+        {
+          "url": "https://docs.kalshi.com/getting_started/historical_data",
+          "claim": "Official endpoint documentation reviewed for Checkpoint 08; the project's raw-first public validation run on 2026-08-09 UTC observed the endpoint without authentication.",
+          "reviewed_at_utc": "2026-08-09T05:18:48Z"
+        }
+      ],
+      "notes": "The raw market object may contain final result fields. Checkpoint-08 staleness logic must not inspect those fields; derived outcomes are kept in a separate outcome table."
+    },
+    {
+      "source_id": "kalshi.public_rest.event.v1",
+      "name": "Kalshi public single-event REST endpoint",
+      "owner": "Kalshi",
+      "roles": [
+        "execution_event_metadata",
+        "historical_event_identity",
+        "sports_historical_collection"
+      ],
+      "market_scope": [
+        "all_public_sports_markets"
+      ],
+      "transport": "https_rest",
+      "endpoint_identity": {
+        "method": "GET",
+        "base_url": "https://external-api.kalshi.com/trade-api/v2",
+        "path_template": "/events/{event_ticker}"
+      },
+      "official_urls": [
+        "https://docs.kalshi.com/api-reference/events/get-event"
+      ],
+      "authentication": {
+        "mode": "none",
+        "validation_state": "validated",
+        "conflict_status": "no_current_conflict",
+        "notes": "Checkpoint-08 raw-first validation used the single-event endpoint without credentials to verify category=Sports and series identity for an archived market."
+      },
+      "expected_timestamp_fields": [
+        {
+          "json_path": "$.event.strike_date",
+          "meaning": "Event strike or occurrence date when present.",
+          "required": false,
+          "validation_state": "validated"
+        },
+        {
+          "json_path": "$.event.last_updated_ts",
+          "meaning": "Event metadata update timestamp when present.",
+          "required": false,
+          "validation_state": "validated"
+        }
+      ],
+      "settlement_role": "none",
+      "settlement_validation_state": "validated",
+      "collection_state": "active",
+      "validation_state": "validated",
+      "quality_policy_id": "read_only_source_quality.v1",
+      "raw_source_name": "kalshi_public_rest",
+      "evidence": [
+        {
+          "url": "https://docs.kalshi.com/api-reference/events/get-event",
+          "claim": "Official endpoint documentation reviewed for Checkpoint 08; the project's raw-first public validation run on 2026-08-09 UTC observed the endpoint without authentication.",
+          "reviewed_at_utc": "2026-08-09T05:18:48Z"
+        }
+      ],
+      "notes": "Events remain on the normal event surface even when associated markets have moved behind the historical market cutoff."
+    },
+    {
+      "source_id": "kalshi.public_rest.historical_market_candlesticks.v1",
+      "name": "Kalshi public historical market-candlesticks REST endpoint",
+      "owner": "Kalshi",
+      "roles": [
+        "historical_quote_candlesticks",
+        "sports_historical_collection"
+      ],
+      "market_scope": [
+        "all_public_sports_markets"
+      ],
+      "transport": "https_rest",
+      "endpoint_identity": {
+        "method": "GET",
+        "base_url": "https://external-api.kalshi.com/trade-api/v2",
+        "path_template": "/historical/markets/{ticker}/candlesticks"
+      },
+      "official_urls": [
+        "https://docs.kalshi.com/api-reference/historical/get-historical-market-candlesticks",
+        "https://docs.kalshi.com/getting_started/historical_data"
+      ],
+      "authentication": {
+        "mode": "none",
+        "validation_state": "validated",
+        "conflict_status": "no_current_conflict",
+        "notes": "Checkpoint-08 raw-first validation retrieved non-empty one-minute historical candles without credentials."
+      },
+      "expected_timestamp_fields": [
+        {
+          "json_path": "$.candlesticks[*].end_period_ts",
+          "meaning": "Unix timestamp marking the candlestick period end.",
+          "required": true,
+          "validation_state": "validated"
+        }
+      ],
+      "settlement_role": "none",
+      "settlement_validation_state": "validated",
+      "collection_state": "active",
+      "validation_state": "validated",
+      "quality_policy_id": "read_only_source_quality.v1",
+      "raw_source_name": "kalshi_public_rest",
+      "evidence": [
+        {
+          "url": "https://docs.kalshi.com/api-reference/historical/get-historical-market-candlesticks",
+          "claim": "Official endpoint documentation reviewed for Checkpoint 08; the project's raw-first public validation run on 2026-08-09 UTC observed the endpoint without authentication.",
+          "reviewed_at_utc": "2026-08-09T05:18:48Z"
+        },
+        {
+          "url": "https://docs.kalshi.com/getting_started/historical_data",
+          "claim": "Official endpoint documentation reviewed for Checkpoint 08; the project's raw-first public validation run on 2026-08-09 UTC observed the endpoint without authentication.",
+          "reviewed_at_utc": "2026-08-09T05:18:48Z"
+        }
+      ],
+      "notes": "The observed historical field family uses yes_bid/yes_ask/price close fields named 'close', not the live endpoint's 'close_dollars'. The collector must normalize explicitly while preserving exact raw lineage."
+    },
+    {
+      "source_id": "kalshi.public_rest.historical_trades.v1",
+      "name": "Kalshi public historical trades REST endpoint",
+      "owner": "Kalshi",
+      "roles": [
+        "historical_trade_prints",
+        "sports_historical_collection"
+      ],
+      "market_scope": [
+        "all_public_sports_markets"
+      ],
+      "transport": "https_rest",
+      "endpoint_identity": {
+        "method": "GET",
+        "base_url": "https://external-api.kalshi.com/trade-api/v2",
+        "path_template": "/historical/trades"
+      },
+      "official_urls": [
+        "https://docs.kalshi.com/api-reference/historical/get-historical-trades",
+        "https://docs.kalshi.com/getting_started/historical_data"
+      ],
+      "authentication": {
+        "mode": "none",
+        "validation_state": "validated",
+        "conflict_status": "no_current_conflict",
+        "notes": "Checkpoint-08 raw-first validation retrieved historical public trades without credentials."
+      },
+      "expected_timestamp_fields": [
+        {
+          "json_path": "$.trades[*].created_time",
+          "meaning": "Trade creation/fill timestamp reported by Kalshi.",
+          "required": true,
+          "validation_state": "validated"
+        }
+      ],
+      "settlement_role": "none",
+      "settlement_validation_state": "validated",
+      "collection_state": "active",
+      "validation_state": "validated",
+      "quality_policy_id": "read_only_source_quality.v1",
+      "raw_source_name": "kalshi_public_rest",
+      "evidence": [
+        {
+          "url": "https://docs.kalshi.com/api-reference/historical/get-historical-trades",
+          "claim": "Official endpoint documentation reviewed for Checkpoint 08; the project's raw-first public validation run on 2026-08-09 UTC observed the endpoint without authentication.",
+          "reviewed_at_utc": "2026-08-09T05:18:48Z"
+        },
+        {
+          "url": "https://docs.kalshi.com/getting_started/historical_data",
+          "claim": "Official endpoint documentation reviewed for Checkpoint 08; the project's raw-first public validation run on 2026-08-09 UTC observed the endpoint without authentication.",
+          "reviewed_at_utc": "2026-08-09T05:18:48Z"
+        }
+      ],
+      "notes": "The official historical-trades endpoint and Historical Data guide support this route. The cutoff reference currently contains inconsistent prose referring to historical fills; the project preserves that documentation inconsistency rather than silently treating it as resolved."
+    },
+    {
+      "source_id": "kalshi.public_rest.market_candlesticks.v1",
+      "name": "Kalshi public live single-market candlesticks REST endpoint",
+      "owner": "Kalshi",
+      "roles": [
+        "live_quote_candlesticks",
+        "sports_historical_collection"
+      ],
+      "market_scope": [
+        "all_public_sports_markets"
+      ],
+      "transport": "https_rest",
+      "endpoint_identity": {
+        "method": "GET",
+        "base_url": "https://external-api.kalshi.com/trade-api/v2",
+        "path_template": "/series/{series_ticker}/markets/{ticker}/candlesticks"
+      },
+      "official_urls": [
+        "https://docs.kalshi.com/api-reference/market/get-market-candlesticks",
+        "https://docs.kalshi.com/getting_started/historical_data"
+      ],
+      "authentication": {
+        "mode": "none",
+        "validation_state": "validated",
+        "conflict_status": "no_current_conflict",
+        "notes": "Checkpoint-08 raw-first validation retrieved non-empty live one-minute Sports candles without credentials."
+      },
+      "expected_timestamp_fields": [
+        {
+          "json_path": "$.candlesticks[*].end_period_ts",
+          "meaning": "Unix timestamp marking the candlestick period end.",
+          "required": true,
+          "validation_state": "validated"
+        }
+      ],
+      "settlement_role": "none",
+      "settlement_validation_state": "validated",
+      "collection_state": "active",
+      "validation_state": "validated",
+      "quality_policy_id": "read_only_source_quality.v1",
+      "raw_source_name": "kalshi_public_rest",
+      "evidence": [
+        {
+          "url": "https://docs.kalshi.com/api-reference/market/get-market-candlesticks",
+          "claim": "Official endpoint documentation reviewed for Checkpoint 08; the project's raw-first public validation run on 2026-08-09 UTC observed the endpoint without authentication.",
+          "reviewed_at_utc": "2026-08-09T05:18:48Z"
+        },
+        {
+          "url": "https://docs.kalshi.com/getting_started/historical_data",
+          "claim": "Official endpoint documentation reviewed for Checkpoint 08; the project's raw-first public validation run on 2026-08-09 UTC observed the endpoint without authentication.",
+          "reviewed_at_utc": "2026-08-09T05:18:48Z"
+        }
+      ],
+      "notes": "The live field family uses close_dollars. For Checkpoint 08, include_latest_before_start must remain false so synthetic continuity candles cannot satisfy a real-candle anchor."
+    },
+    {
+      "source_id": "coinbase.exchange.public_rest.product_book.btc_usd.v1",
+      "name": "Coinbase Exchange BTC-USD level-1 public product book",
+      "owner": "Coinbase",
+      "roles": [
+        "independent_btc_live_primary",
+        "source_quality_verification"
+      ],
+      "market_scope": [
+        "KXBTCD",
+        "BTC-USD"
+      ],
+      "transport": "https_rest",
+      "endpoint_identity": {
+        "method": "GET",
+        "base_url": "https://api.exchange.coinbase.com",
+        "path_template": "/products/BTC-USD/book?level=1"
+      },
+      "official_urls": [
+        "https://docs.cdp.coinbase.com/api-reference/exchange-api/rest-api/products/get-product-book"
+      ],
+      "authentication": {
+        "mode": "none",
+        "validation_state": "validated",
+        "conflict_status": "no_current_conflict",
+        "notes": "Coinbase Exchange documents the product-book endpoint and the project collected it publicly in Checkpoints 19B/19C."
+      },
+      "expected_timestamp_fields": [
+        {
+          "json_path": "$.time",
+          "meaning": "Coinbase Exchange book timestamp used for source-event freshness.",
+          "required": true,
+          "validation_state": "validated"
+        }
+      ],
+      "settlement_role": "none",
+      "settlement_validation_state": "validated",
+      "collection_state": "active",
+      "validation_state": "validated",
+      "quality_policy_id": "read_only_source_quality.v1",
+      "raw_source_name": "coinbase_exchange_rest",
+      "evidence": [
+        {
+          "url": "https://docs.cdp.coinbase.com/api-reference/exchange-api/rest-api/products/get-product-book",
+          "claim": "Official Exchange API documentation identifies GET /products/{product_id}/book, default level-1 best bid/ask behavior, and the response time field.",
+          "reviewed_at_utc": "2026-08-17T06:35:00Z"
+        }
+      ],
+      "notes": "Frozen in Checkpoint 19D-B as the live independent-BTC primary. Candidate-E formula remains separately unfrozen."
+    },
+    {
+      "source_id": "coinbase.exchange.public_rest.product_candles.btc_usd.1m.v1",
+      "name": "Coinbase Exchange BTC-USD one-minute historical candles",
+      "owner": "Coinbase",
+      "roles": [
+        "independent_btc_historical_primary",
+        "causal_historical_reconstruction"
+      ],
+      "market_scope": [
+        "KXBTCD",
+        "BTC-USD"
+      ],
+      "transport": "https_rest",
+      "endpoint_identity": {
+        "method": "GET",
+        "base_url": "https://api.exchange.coinbase.com",
+        "path_template": "/products/BTC-USD/candles?granularity=60"
+      },
+      "official_urls": [
+        "https://docs.cdp.coinbase.com/api-reference/exchange-api/rest-api/products/get-product-candles"
+      ],
+      "authentication": {
+        "mode": "none",
+        "validation_state": "validated",
+        "conflict_status": "no_current_conflict",
+        "notes": "Official Exchange documentation and the completed 19D-A raw-first audit validate this public historical source."
+      },
+      "expected_timestamp_fields": [
+        {
+          "json_path": "$[*][0]",
+          "meaning": "Unix start time of the one-minute candle bucket.",
+          "required": true,
+          "validation_state": "validated"
+        }
+      ],
+      "settlement_role": "none",
+      "settlement_validation_state": "validated",
+      "collection_state": "active",
+      "validation_state": "validated",
+      "quality_policy_id": "read_only_source_quality.v1",
+      "raw_source_name": "coinbase_exchange_rest",
+      "evidence": [
+        {
+          "url": "https://docs.cdp.coinbase.com/api-reference/exchange-api/rest-api/products/get-product-candles",
+          "claim": "Official documentation supports 60-second candles, at most 300 candles per request, omitted no-tick intervals, and close as the bucket's last trade.",
+          "reviewed_at_utc": "2026-08-17T06:35:00Z"
+        }
+      ],
+      "notes": "Frozen as the historical primary reconstruction primitive. The endpoint does not expose exact candle publication time and is not claimed to be a historical BBO archive."
+    },
+    {
+      "source_id": "kraken.spot.public_rest.pretrade.btc_usd.v1",
+      "name": "Kraken Spot BTC/USD public PreTrade book",
+      "owner": "Kraken",
+      "roles": [
+        "independent_btc_live_verifier",
+        "source_quality_verification"
+      ],
+      "market_scope": [
+        "KXBTCD",
+        "BTC/USD"
+      ],
+      "transport": "https_rest",
+      "endpoint_identity": {
+        "method": "GET",
+        "base_url": "https://api.kraken.com",
+        "path_template": "/0/public/PreTrade?symbol=BTC/USD"
+      },
+      "official_urls": [
+        "https://docs.kraken.com/api/docs/rest-api/get-pre-trade"
+      ],
+      "authentication": {
+        "mode": "none",
+        "validation_state": "validated",
+        "conflict_status": "no_current_conflict",
+        "notes": "Kraken documents PreTrade as public and the project collected it raw-first in Checkpoints 19B/19C."
+      },
+      "expected_timestamp_fields": [
+        {
+          "json_path": "$.result.bids[*].publication_ts",
+          "meaning": "Publication time of each bid level; the best-bid age contributes to conservative whole-BBO freshness.",
+          "required": true,
+          "validation_state": "validated"
+        },
+        {
+          "json_path": "$.result.asks[*].publication_ts",
+          "meaning": "Publication time of each ask level; the best-ask age contributes to conservative whole-BBO freshness.",
+          "required": true,
+          "validation_state": "validated"
+        }
+      ],
+      "settlement_role": "none",
+      "settlement_validation_state": "validated",
+      "collection_state": "active",
+      "validation_state": "validated",
+      "quality_policy_id": "read_only_source_quality.v1",
+      "raw_source_name": "kraken_spot_rest",
+      "evidence": [
+        {
+          "url": "https://docs.kraken.com/api/docs/rest-api/get-pre-trade",
+          "claim": "Official documentation defines public BTC/USD pre-trade bids/asks and per-level publication_ts timestamps.",
+          "reviewed_at_utc": "2026-08-17T06:35:00Z"
+        }
+      ],
+      "notes": "Frozen as the live verifier, never a learned or averaged feature source in 19D-B. Whole-BBO freshness uses the older best-side publication timestamp."
+    },
+    {
+      "source_id": "kraken.spot.public_rest.posttrade.btc_usd.v1",
+      "name": "Kraken Spot BTC/USD public PostTrade history",
+      "owner": "Kraken",
+      "roles": [
+        "independent_btc_historical_verifier",
+        "causal_historical_reconstruction"
+      ],
+      "market_scope": [
+        "KXBTCD",
+        "BTC/USD"
+      ],
+      "transport": "https_rest",
+      "endpoint_identity": {
+        "method": "GET",
+        "base_url": "https://api.kraken.com",
+        "path_template": "/0/public/PostTrade?symbol=BTC/USD"
+      },
+      "official_urls": [
+        "https://docs.kraken.com/api/docs/rest-api/get-post-trade"
+      ],
+      "authentication": {
+        "mode": "none",
+        "validation_state": "validated",
+        "conflict_status": "no_current_conflict",
+        "notes": "Kraken documents PostTrade as public and the completed 19D-A audit validated exact-minute raw-first reconstruction."
+      },
+      "expected_timestamp_fields": [
+        {
+          "json_path": "$.result.trades[*].trade_ts",
+          "meaning": "Engine match timestamp for each historical trade.",
+          "required": false,
+          "validation_state": "validated"
+        },
+        {
+          "json_path": "$.result.trades[*].publication_ts",
+          "meaning": "Market-data publication timestamp used to prevent historical backward leakage.",
+          "required": false,
+          "validation_state": "validated"
+        }
+      ],
+      "settlement_role": "none",
+      "settlement_validation_state": "validated",
+      "collection_state": "active",
+      "validation_state": "validated",
+      "quality_policy_id": "read_only_source_quality.v1",
+      "raw_source_name": "kraken_spot_rest",
+      "evidence": [
+        {
+          "url": "https://docs.kraken.com/api/docs/rest-api/get-post-trade",
+          "claim": "Official documentation defines from_ts/to_ts/count, trade_ts, publication_ts, and last_ts pagination semantics.",
+          "reviewed_at_utc": "2026-08-17T06:35:00Z"
+        }
+      ],
+      "notes": "Frozen as the historical verifier. Exact missing minutes remain unavailable; no carry-forward or interpolation."
+    },
+    {
+      "source_id": "predexon.kalshi.historical_orderbook_ticks.v1",
+      "name": "Predexon Kalshi historical order-book tick archive",
+      "owner": "Predexon",
+      "roles": [
+        "historical_execution_microstructure",
+        "historical_orderbook_delta_replay"
+      ],
+      "market_scope": [
+        "KXBTCD"
+      ],
+      "transport": "https_rest",
+      "endpoint_identity": {
+        "method": "GET",
+        "base_url": "https://api.predexon.com",
+        "path_template": "/v2/data/ticks"
+      },
+      "official_urls": [
+        "https://docs.predexon.com/authentication",
+        "https://docs.predexon.com/data-signals/ticks/data-credits",
+        "https://docs.predexon.com/start-here/quant-guide"
+      ],
+      "authentication": {
+        "mode": "api_key_header",
+        "validation_state": "validated",
+        "conflict_status": "no_current_conflict",
+        "notes": "Predexon documents x-api-key header authentication. The project loads PREDEXON_API_KEY only from the ignored local .env and never logs or commits the key."
+      },
+      "expected_timestamp_fields": [],
+      "settlement_role": "none",
+      "settlement_validation_state": "validated",
+      "collection_state": "active",
+      "validation_state": "validated",
+      "quality_policy_id": "read_only_source_quality.v1",
+      "raw_source_name": "predexon_ticks",
+      "evidence": [
+        {
+          "url": "https://docs.predexon.com/authentication",
+          "claim": "Predexon documents API-key authentication through the x-api-key request header.",
+          "reviewed_at_utc": "2026-08-31T18:45:00Z"
+        },
+        {
+          "url": "https://docs.predexon.com/data-signals/ticks/data-credits",
+          "claim": "Predexon documents Kalshi tick history from 2026-03-05 through T-1, identifies Kalshi ticks as a full orderbook-delta firehose, and documents market_id filtering plus local filtering of neighboring markets in returned Parquet files.",
+          "reviewed_at_utc": "2026-08-31T18:45:00Z"
+        },
+        {
+          "url": "https://docs.predexon.com/start-here/quant-guide",
+          "claim": "Predexon documents orderbook tick history as bulk Parquet for book replay, queue-position, and fill-probability research.",
+          "reviewed_at_utc": "2026-08-31T18:45:00Z"
+        }
+      ],
+      "notes": "Checkpoint 21N-O locally validated exact delta semantics and segment-safe book reconstruction for KXBTCD-26JUL1016-T63899.99. The source is accepted only under fail-closed segmentation: snapshot-sequence resets or unreconciled full-book transitions terminate a replay segment and book state is never carried across the boundary. Paid Kalshi tick coverage begins 2026-03-05, so this source cannot retroactively validate the project's 2025 H1/H2/H3 exact states."
+    }
+  ],
+  "quality_policies": [
+    {
+      "policy_id": "read_only_source_quality.v1",
+      "name": "Fail-closed source quality for research decision use",
+      "scope_source_ids": [
+        "kalshi.public_rest.markets.v1",
+        "kalshi.public_rest.market.v1",
+        "kalshi.public_rest.orderbook.v1",
+        "kalshi.kxbtc15m.market_rules.v1",
+        "kalshi.cfbenchmarks_value.websocket.v1",
+        "cfbenchmarks.brti.v1",
+        "gemini.prediction_markets.public_rest.events.v1",
+        "polymarket_us.public_rest.markets.v1",
+        "crypto_com.predictions.public_rest.events.v1",
+        "kalshi.public_rest.events.v1",
+        "polymarket_us.public_rest.events.v1",
+        "kalshi.public_rest.historical_cutoff.v1",
+        "kalshi.public_rest.historical_markets.v1",
+        "kalshi.public_rest.historical_market.v1",
+        "kalshi.public_rest.event.v1",
+        "kalshi.public_rest.historical_market_candlesticks.v1",
+        "kalshi.public_rest.historical_trades.v1",
+        "kalshi.public_rest.market_candlesticks.v1",
+        "coinbase.exchange.public_rest.product_book.btc_usd.v1",
+        "coinbase.exchange.public_rest.product_candles.btc_usd.1m.v1",
+        "kraken.spot.public_rest.pretrade.btc_usd.v1",
+        "kraken.spot.public_rest.posttrade.btc_usd.v1",
+        "predexon.kalshi.historical_orderbook_ticks.v1"
+      ],
+      "decision_use_default": "blocked",
+      "conditions": [
+        {
+          "state": "stale_data",
+          "trigger": "A source observation is older than an approved source-specific maximum age, or no approved threshold exists for the intended decision use.",
+          "collection_action": "continue_archive_only",
+          "decision_action": "block",
+          "enforcement_state": "defined_not_implemented",
+          "resolution_requirement": "Approve and test a source-specific age threshold using source time when authoritative and local monotonic receive age otherwise."
+        },
+        {
+          "state": "clock_error",
+          "trigger": "Required UTC timestamps are missing or unparsable, monotonic elapsed time is negative, local clock health is unknown, or cross-source clock uncertainty exceeds an approved bound.",
+          "collection_action": "stop_collection",
+          "decision_action": "block",
+          "enforcement_state": "defined_not_implemented",
+          "resolution_requirement": "Restore validated UTC and monotonic clock health and record the uncertainty bound before resuming decision use."
+        },
+        {
+          "state": "incomplete_response",
+          "trigger": "A required response container, field, page, level, or settlement input is missing, truncated, or internally inconsistent.",
+          "collection_action": "stop_collection",
+          "decision_action": "block",
+          "enforcement_state": "partially_implemented",
+          "resolution_requirement": "Obtain a complete response that passes endpoint and artifact validation; do not impute missing authoritative fields."
+        },
+        {
+          "state": "schema_drift",
+          "trigger": "A documented field changes name, type, units, container, or interpretation without an accepted registry and parser update.",
+          "collection_action": "stop_collection",
+          "decision_action": "block",
+          "enforcement_state": "partially_implemented",
+          "resolution_requirement": "Preserve the raw payload, update official evidence and tests, and accept a versioned parser or registry change before reuse."
+        },
+        {
+          "state": "source_unavailable",
+          "trigger": "The source cannot be reached, returns an unusable status, required raw persistence fails, or required access is not authorized or entitled.",
+          "collection_action": "stop_collection",
+          "decision_action": "block",
+          "enforcement_state": "implemented",
+          "resolution_requirement": "Restore the same approved source and validate continuity; no silent substitute or fallback source is permitted."
+        },
+        {
+          "state": "settlement_authority_unresolved",
+          "trigger": "The contract rule authority, numerical index, calculation window, comparison rule, tie treatment, corrections, or fallback procedure is not officially confirmed for the market.",
+          "collection_action": "continue_archive_only",
+          "decision_action": "block",
+          "enforcement_state": "defined_not_implemented",
+          "resolution_requirement": "Record sufficient official evidence for every settlement component and add field-level validation before settlement-aware modeling."
+        }
+      ],
+      "notes": "The current collectors may archive public data for engineering research. Every listed condition blocks model, paper-trading, demo, or production decision use. Documented authenticated sources remain inactive until a later authorization and implementation checkpoint."
+    }
+  ]
+}

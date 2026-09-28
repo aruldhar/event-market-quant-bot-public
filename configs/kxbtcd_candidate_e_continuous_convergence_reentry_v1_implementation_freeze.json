@@ -1,0 +1,32 @@
+{
+  "btc_source_contract": {
+    "required_event_count": 4,
+    "required_minutes_per_event": 54,
+    "required_row_count": 216,
+    "source_id": "coinbase.exchange.public_rest.product_candles.btc_usd.1m.v1"
+  },
+  "candidate_e_refit": false,
+  "checkpoint_id": "21N-U-A",
+  "continuous_btc_materialization_run_before_freeze": false,
+  "continuous_real_july10_paths_run_before_freeze": false,
+  "continuous_strategy_predeclaration_fingerprint": "4c81dd092009cb7d6f32f4d9a8c66254b5bbcdee652c46379536993390994dda",
+  "implementation_files": {
+    "collect_kxbtcd_candidate_e_continuous_btc_materialization.py": "681c32df3372fa9a79626f71aae1cb8f36916bc81bfbf5c321f2da8b08f96772",
+    "materialize_kxbtcd_candidate_e_continuous_convergence_reentry_v1_paths.py": "4fc8e0a6c63f1949fa588318c4634a46643c140b9a009e5ac9e61c1b4e5c92ee",
+    "src/kxbtcd_candidate_e_continuous_btc_materialization.py": "1327594395f446bb084230d3ec71545e30267c1926d7071fe5529649ed2b4979",
+    "src/kxbtcd_candidate_e_continuous_convergence_reentry_v1_simulator.py": "03c51b3df85b1985ec7aacf8c56ea0f4d8d23822cb9bcbc4af39fe6e07ded04d"
+  },
+  "implementation_fingerprint": "cf93bbdd7704ae46954feba8ce73e15a734f117a1791837d87a130e50a15764f",
+  "orders_placed": 0,
+  "parent_checkpoint": {
+    "checkpoint_commit": "303d063ffb95656689d225e3fcf9fec9608263d7",
+    "checkpoint_id": "21N-T",
+    "receipt_commit": "a5e446a79d92d22e7598276d736ce84a20c3578b"
+  },
+  "schema_version": "kxbtcd_candidate_e_continuous_convergence_reentry_v1_implementation_freeze.v1",
+  "settlement_dependent_pnl_calculated": false,
+  "settlement_outcomes_accessed": false,
+  "simulator_21n_r_implementation_fingerprint": "6877bf440c88e72e3dd103b55a64f935bc937eeff84ae4cf7af7a6f60d86b4bf",
+  "source_binding_required_before_path_run": true,
+  "strategy_id": "kxbtcd_candidate_e_continuous_convergence_reentry_v1"
+}

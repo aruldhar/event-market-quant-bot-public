@@ -1,0 +1,125 @@
+{
+  "checkpoint_id": "21N-V",
+  "classification": "NON_EVALUABLE_STRUCTURAL_UNIVERSE_LIQUIDITY_MISMATCH",
+  "entry_gate_diagnostic": {
+    "depth_qualified_side_state_count": 0,
+    "evaluable_market_state_count": 0,
+    "evaluable_side_state_count": 0,
+    "interpretation": "Candidate E never reached probability/edge evaluation on the frozen five-structural-role universe; fees, latency, liquidation, re-entry, and settlement economics were therefore not tested.",
+    "market_evaluation_count": 17550,
+    "nonnegative_edge_side_state_count": 0,
+    "status_counts": {
+      "EVALUABLE": 0,
+      "INVALID_TWO_SIDED_BOOK": 13436,
+      "KALSHI_SOURCE_UNAVAILABLE": 4114
+    }
+  },
+  "frozen_bindings": {
+    "implementation_fingerprint": "cf93bbdd7704ae46954feba8ce73e15a734f117a1791837d87a130e50a15764f",
+    "path_artifact_relative_path": "data/analysis/predexon_credit_efficiency/july10_candidate_e_continuous_convergence_reentry_v1_outcome_blind_paths.json",
+    "path_artifact_sha256": "b46281f5b7877c26b2b310e874f0f04aa7679ba02e9876800c6e2af1b1f195bf",
+    "source_binding_fingerprint": "8cf8ead70da5f56def1a0d67619b2cda75316e6345383e8ebdcf79f9c4cf62b7"
+  },
+  "frozen_policy_result": {
+    "decision_clock_count_by_event": {
+      "KXBTCD-26JUL1013": 706,
+      "KXBTCD-26JUL1014": 1122,
+      "KXBTCD-26JUL1015": 1077,
+      "KXBTCD-26JUL1016": 605
+    },
+    "entry_attempt_count": 0,
+    "filled_trade_count": 0,
+    "fully_closed_round_trip_count": 0,
+    "independent_event_count": 4,
+    "policy_scenario_count": 60,
+    "settlement_dependent_pnl_calculated": false,
+    "settlement_outcomes_opened": false,
+    "terminal_state_counts": {
+      "NO_FILLED_ENTRY": 60
+    }
+  },
+  "full_ladder_exploratory_diagnostic": {
+    "event_market_count": {
+      "KXBTCD-26JUL1013": 78,
+      "KXBTCD-26JUL1014": 188,
+      "KXBTCD-26JUL1015": 188,
+      "KXBTCD-26JUL1016": 169
+    },
+    "frozen_structural_ticker_count": 20,
+    "frozen_structural_ticker_count_with_any_valid_two_sided_state": 0,
+    "reconstructed_state_status_counts": {
+      "CROSSED_OR_LOCKED": 47879,
+      "MISSING_BOTH": 1,
+      "MISSING_YES_ASK": 142138,
+      "MISSING_YES_BID": 193404,
+      "VALID_TWO_SIDED": 1060685
+    },
+    "scope": "outcome_blind_full_623_ticker_july10_replay",
+    "structural_any_two_sided_by_event": {
+      "KXBTCD-26JUL1013": 0,
+      "KXBTCD-26JUL1014": 0,
+      "KXBTCD-26JUL1015": 0,
+      "KXBTCD-26JUL1016": 0
+    },
+    "structural_reconstructed_state_status_counts": {
+      "MISSING_YES_ASK": 3465,
+      "MISSING_YES_BID": 7397
+    },
+    "ticker_count": 623,
+    "ticker_count_with_any_valid_two_sided_state": 45,
+    "ticker_count_with_any_valid_two_sided_state_by_event": {
+      "KXBTCD-26JUL1013": 7,
+      "KXBTCD-26JUL1014": 14,
+      "KXBTCD-26JUL1015": 12,
+      "KXBTCD-26JUL1016": 12
+    }
+  },
+  "parent_checkpoint": {
+    "checkpoint_commit": "f0fe339021f17fd4bbc7d4fa699b13cb31c6c334",
+    "checkpoint_id": "21N-U-B"
+  },
+  "rank_geometry_exploratory_diagnostic": {
+    "absolute_rank_displacement_counts": {
+      "le_0": 0,
+      "le_1": 0,
+      "le_10": 17,
+      "le_2": 1,
+      "le_3": 2,
+      "le_5": 5
+    },
+    "interpretation": "A small fixed-rank neighborhood around the five structural roles is not supported by the observed July 10 liquidity geometry.",
+    "max_absolute_rank_displacement": 18,
+    "nearest_frozen_role_counts": {
+      "q10": 7,
+      "q30": 0,
+      "q50": 20,
+      "q70": 18,
+      "q90": 0
+    },
+    "two_sided_ticker_count": 45
+  },
+  "research_consequence": {
+    "continuous_v1_result_status": "CLOSED_NON_EVALUABLE",
+    "modify_v1_market_universe_authorized": false,
+    "next_checkpoint": "21N-W",
+    "next_question": "Determine whether the moving two-sided liquidity band is causally organized around BTC spot/ATM, before predeclaring a new liquidity-first tradable-universe strategy version.",
+    "open_settlement_outcomes_for_v1_authorized": false,
+    "threshold_tuning_authorized": false
+  },
+  "result_closeout_fingerprint": "c55bf6ca462cb4c5d0676a11cac9f37541fe001ce0770d7b08f9fe0721eede35",
+  "safety": {
+    "candidate_e_refit": false,
+    "demo_execution": false,
+    "network_requests": 0,
+    "nonstructural_candidate_e_scoring_performed": false,
+    "orders_placed": 0,
+    "outcomes_accessed": false,
+    "paper_broker": false,
+    "predexon_paid_purchases": 0,
+    "protected_reserve_accessed": false,
+    "real_money_execution": false,
+    "settlement_dependent_pnl_calculated": false
+  },
+  "schema_version": "kxbtcd_candidate_e_continuous_july10_outcome_blind_result_closeout.v1",
+  "strategy_id": "kxbtcd_candidate_e_continuous_convergence_reentry_v1"
+}

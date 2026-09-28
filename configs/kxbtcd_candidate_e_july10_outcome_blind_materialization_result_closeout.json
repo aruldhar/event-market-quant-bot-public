@@ -1,0 +1,78 @@
+{
+  "checkpoint_id": "21N-S-B",
+  "decision_book_failure_audit": {
+    "crossed_book_count": 0,
+    "overall": {
+      "CROSSED_TWO_SIDED_BOOK": 0,
+      "EMPTY_BOTH_SIDES": 0,
+      "MISSING_YES_ASK": 33,
+      "MISSING_YES_BID": 40,
+      "SOURCE_UNAVAILABLE_DECISION_TIMESTAMP": 47,
+      "VALID_TWO_SIDED_BOOK": 0
+    },
+    "source_unavailable_gap_stats": {
+      "count": 47,
+      "lte_10_seconds": 4,
+      "lte_1_second": 0,
+      "lte_60_seconds": 8,
+      "max_seconds": "1254.460",
+      "median_seconds": "199.314",
+      "min_seconds": "4.250"
+    },
+    "valid_two_sided_book_count": 0
+  },
+  "interpretation": {
+    "advancement_gate": "NONE_N_EQ_4_AND_ZERO_EVALUABLE_EXECUTION_STATES",
+    "candidate_e_economic_result": "NOT_EVALUATED",
+    "evaluation_status": "NON_EVALUABLE_NO_VALID_TWO_SIDED_DECISION_STATE",
+    "reason": "No frozen role-anchor state reached Candidate-E signal generation; therefore settlement labels cannot evaluate executable strategy economics.",
+    "replay_normalization_failure_found": false,
+    "settlement_outcomes_needed_for_this_sample": false,
+    "strategy_economic_result": "NOT_EVALUATED",
+    "threshold_or_strategy_tuning_authorized": false,
+    "zero_execution_scenarios_means_zero_edge": false
+  },
+  "materialization": {
+    "decision_state_count": 120,
+    "decision_status_counts": {
+      "INVALID_TWO_SIDED_BOOK": 73,
+      "SOURCE_UNAVAILABLE_DECISION_TIMESTAMP": 47
+    },
+    "deterministic_rerun_match": true,
+    "deterministic_rerun_sha256": "624dab514bfffbe1969b87bfa8d7a7bf63dfb14177666cc5d08029c056287f9a",
+    "execution_scenario_count": 0,
+    "relative_path": "data/analysis/predexon_credit_efficiency/july10_candidate_e_executable_convergence_liquidation_v1_outcome_blind_paths.json",
+    "sha256": "624dab514bfffbe1969b87bfa8d7a7bf63dfb14177666cc5d08029c056287f9a",
+    "signal_candidate_count": 0,
+    "structural_market_count": 20,
+    "threshold_selection_count": 20
+  },
+  "next_phase": {
+    "authenticated_read_only_kalshi_websocket_permitted": true,
+    "candidate_e_refit_permitted": false,
+    "id": "21N-T",
+    "july10_outcomes_should_remain_closed": true,
+    "name": "Prospective Read-Only Execution-Data Adequacy and Collection Design",
+    "orders_demo_and_paper_execution_permitted": false,
+    "purpose": "collect fresh synchronized full-ladder Kalshi books and BTC reference states at exact frozen anchors before any new economic evaluation"
+  },
+  "parent_21n_s_a": {
+    "binding_implementation_fingerprint": "3a20d5ae9deec2e3563362bbafb9d9ac35f1965e126d07840caa0a4de28ef008",
+    "checkpoint_commit": "e7c2e679aa5cafa2e44912ee95ac96ed0c16b1a6",
+    "receipt_commit": "a0aa0a9b263a3178cba56908b9edc543f12099d0"
+  },
+  "result_closeout_fingerprint": "318496359414b8d3bcb4a258be99478a17d43724a0883e75ba5ee1a9c2fcd936",
+  "safety": {
+    "candidate_e_refit": false,
+    "july10_outcomes_accessed": false,
+    "network_requests_during_materialization": 0,
+    "new_predexon_purchases": 0,
+    "orders_submitted": 0,
+    "protected_reserve_accessed": false,
+    "strategy_pnl_calculated": false,
+    "strategy_rules_changed": false,
+    "thresholds_changed": false
+  },
+  "schema_version": "kxbtcd_candidate_e_july10_outcome_blind_materialization_result_closeout.v1",
+  "strategy_id": "kxbtcd_candidate_e_executable_convergence_liquidation_v1"
+}

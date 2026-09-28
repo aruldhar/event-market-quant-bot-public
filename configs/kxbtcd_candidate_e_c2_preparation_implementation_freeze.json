@@ -1,0 +1,72 @@
+{
+  "C2_materialization_contract": {
+    "C3_materialization_authorized": false,
+    "absolute_max_end_index_exclusive": 4931,
+    "eligible_event_target": 500,
+    "events_per_subblock": 100,
+    "max_candidate_identities_across_C2_C3": 1225,
+    "minimum_strict_untouched_tail_after_all_confirmation": 4500,
+    "no_arbitrary_start_index": true,
+    "strict_tail_start_index": 3706,
+    "subblocks": [
+      "B0",
+      "B1",
+      "B2",
+      "B3",
+      "B4"
+    ]
+  },
+  "C2_materialization_performed_at_freeze": false,
+  "C2_outcomes_opened_at_freeze": 0,
+  "C3_materialized_or_opened_at_freeze": false,
+  "Champion_R1_fit_performed_at_freeze": false,
+  "R1_fit_contract": {
+    "C2_outcomes_used": 0,
+    "C2_rows_used": 0,
+    "event_count": 3500,
+    "feature_selection": false,
+    "fit_stages": [
+      "H1",
+      "H2",
+      "H3",
+      "C1"
+    ],
+    "hyperparameter_search": false,
+    "row_count": 95964,
+    "specification": "kxbtcd_btc_distance_offset_logistic.v1"
+  },
+  "candidate_id": "kxbtcd_btc_distance_offset_logistic.v1",
+  "checkpoint_id": "21E-A",
+  "execution_enabled": false,
+  "family_id": "kxbtcd_independent_btc_offset_successor.v1",
+  "implementation_freeze_fingerprint": "c2be562e2476995dd4adb712a035ac69eca8ca6b4b7fa93c53106758286dc327",
+  "implementation_sha256s": {
+    "collect_kxbtcd_candidate_e_c2_materialization_chunk.py": "a6f2b04c33a98414ec8a7f5abd310ff4ba1ca08032840769a76f0d331de88362",
+    "collect_kxbtcd_candidate_e_coinbase_primary_materialization_chunk.py": "b3f0ca3a0549fb46064cf319c5d11b6d99b55314da6e4e44072f4f81855db3b7",
+    "collect_kxbtcd_candidate_e_historical_materialization_chunk.py": "c9e6f8cd1a4c5769cfd8d6fa74f5f2b6b32c6dbbc37ac106e54aafb5108749b5",
+    "freeze_kxbtcd_candidate_e_c2_preoutcome.py": "f1c243229812ca561ce0b2a29544c80a9e9d1f2fb15a0bd97db32779b67155a7",
+    "prepare_kxbtcd_candidate_e_c2.py": "2ce733b69e3f594b94add71afa636ae9f2bc1b8b463d026676a121bdc6f02cbc",
+    "src/kxbtcd_candidate_e_c1_evaluation.py": "9b62ffcd683566fe7311ffab73c8a597699197b867fc88598e4fd3aaabbbfc08",
+    "src/kxbtcd_candidate_e_c1_preparation.py": "10743a09a1986eef61d071fb9d97c12698898c5e08604518f952c2964708ad9c",
+    "src/kxbtcd_candidate_e_c2_preparation.py": "a0ff26c32fb78b8e3ae7118d8354d2ff2078cfe1d72a4dce72b7ad28ef2d34cf",
+    "src/kxbtcd_candidate_e_coinbase_primary_materialization.py": "4704041068a97e02d5d7ca43aa54fc1017ad9e188c14866aba5fa3a4b7a136ae",
+    "src/kxbtcd_candidate_e_h1_evaluation.py": "a59e862fd2b452b120e406d0116a0e486f319e49bd736aac26c7877a24109d1b",
+    "src/kxbtcd_candidate_e_h3_preparation.py": "8adf8d43411db7f6403a8e95248b9da79fea02e3de4736044abfb70189f955de",
+    "src/kxbtcd_candidate_e_h3_result_closeout.py": "72f061625a9bd06cfa57427ba7c617d02fbfb88e67f34b2d27400809ddd16e31",
+    "src/kxbtcd_candidate_e_historical_materialization.py": "a03ff1c6e973d4f4b4306135c175daa5e6b9857e830faac70df314d3c8760a92"
+  },
+  "network_requests_at_freeze": 0,
+  "orders_placed": 0,
+  "parent_21a_protocol_fingerprint": "88d1880c026fe8cecf67cbbb8839a6d4acfb463b0871f4ef60db329f50a6ef00",
+  "parent_C1_scope": {
+    "event_count": 500,
+    "row_count": 14887,
+    "strict_untouched_tail_remaining": 5725
+  },
+  "parent_c1_result_closeout_fingerprint": "3a66e7d980334474d4d836f80bc2aca56932baab1040fa393dee9764a3ee737e",
+  "parent_c1_result_fingerprint": "5cd56b6c4711e5a6846e6ea90bb6e004358844585f56fbe663a9d0a0ec17cd19",
+  "parent_champion_r0_fingerprint": "ffde1747dbd60a05f6cffb6e970ae47088edeb77c0a67d16a225b2e38b90a0fa",
+  "parent_h3_result_fingerprint": "436ea27539ed1bd2b30f96cc892bc5fc4b87cecd37035da8a45ca2583e59af54",
+  "schema_version": "kxbtcd_candidate_e_c2_preparation_implementation_freeze.v1",
+  "source_baseline_commit": "8c32e6f28f0bf625487c46be3f6306f409d8cfd4"
+}

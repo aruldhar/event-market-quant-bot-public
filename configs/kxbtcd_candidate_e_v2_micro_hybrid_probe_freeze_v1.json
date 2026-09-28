@@ -1,0 +1,57 @@
+{
+  "analysis_role": "offline_only_micro_probe_policy_freeze",
+  "strategy_id": "kxbtcd_candidate_e_v2_live_micro_hybrid_exit_v1",
+  "parent_strategy": "kxbtcd_candidate_e_spot_relative_liquidity_convergence_reentry_v2",
+  "authorization": {
+    "current_mode": "read_only",
+    "network_order_submission_code": false,
+    "orders_placed": 0,
+    "production_writes": 0,
+    "active_read_only_soak_must_not_be_modified": true
+  },
+  "frozen_policy": {
+    "model_and_universe": "Candidate E frozen model; exact Coinbase completed-minute state; causal Kalshi ATM plus/minus five; primary net edge threshold $0.02",
+    "probe_quantity_contracts": "0.01",
+    "quantity_precondition": "verify target market accepts the exact fractional quantity and increment before any real-money authorization",
+    "entry": {
+      "time_in_force": "IOC",
+      "maximum_attempts_while_flat": 5,
+      "one_filled_entry_per_event": true,
+      "no_reentry_in_first_micro_probe": true
+    },
+    "exit": {
+      "resting_protection": "one reduce-only GTC exit while long",
+      "backend_monitoring": "continuously evaluate each fresh valid full remaining bid ladder",
+      "dynamic_trigger": "confirmed realized net proceeds plus hypothetical full remaining-ladder net proceeds meets or exceeds retained original total net-proceeds target",
+      "handoff": "cancel resting GTC; await authoritative final order/fill/position reconciliation; recompute remaining full ladder; submit one reduce-only FOK for all remaining quantity only after the resting order is inactive",
+      "fok_failure": "submit no additional competing exit; restore recalculated reduce-only GTC after authoritative reconciliation",
+      "single_exit_writer": true
+    },
+    "fail_closed": [
+      "stale_or_gapped_book",
+      "unhealthy_clock",
+      "incomplete_or_ambiguous_order_fill_position_state",
+      "duplicate_or_unreconciled_client_order_id",
+      "invalid_or_insufficient_full_ladder_depth"
+    ]
+  },
+  "scenario_evaluation": {
+    "mode": "separate_offline_reader",
+    "input": "closed immutable raw source segments only",
+    "must_not_share": ["websocket", "credential", "order_state", "event_loop"],
+    "output": "separate analysis directory",
+    "purpose": "shadow compare frozen and alternative policies without delaying the live decision path",
+    "counterfactual_limit": "archived books cannot prove queue priority or larger-size fill capacity"
+  },
+  "post_soak_roadmap": [
+    "accept successful 24-hour read-only soak and controlled restart evidence",
+    "offline-test deterministic hybrid state machine and archived-segment scenario evaluator",
+    "freeze exact cash-loss cap, order/fill cap, market scope, duration, price/quantity increment, fee schedule, kill switch, and audit contract",
+    "obtain direct user approval for one exact production micro-probe run",
+    "run the capped probe and evaluate it without automatic scale-up"
+  ],
+  "demo_policy": "optional isolated API-mechanics exercise; it is not a mandatory week-long predecessor to the capped production micro-probe",
+  "profitability_claim": false,
+  "automatic_scale_up": false,
+  "schema_version": "kxbtcd_candidate_e_v2_micro_hybrid_probe_freeze.v1"
+}

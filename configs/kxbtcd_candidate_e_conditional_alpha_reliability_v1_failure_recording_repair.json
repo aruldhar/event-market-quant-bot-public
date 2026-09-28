@@ -1,0 +1,58 @@
+{
+  "authorized_change": {
+    "C1_C2_C3_or_reserve_authorization_changed": false,
+    "continue_to_later_lambdas_after_required_fit_failure": false,
+    "curvature_threshold_modified": false,
+    "fallback_or_skip_failed_fit_added": false,
+    "feature_or_scaling_modified": false,
+    "gradient_tolerance_modified": false,
+    "lambda_grid_modified": false,
+    "optimizer_core_modified": false,
+    "probability_or_economic_gate_modified": false,
+    "purpose": "persist the already-valid frozen optimizer-contract failure deterministically"
+  },
+  "candidate_id": "kxbtcd_candidate_e_conditional_alpha_reliability.v1",
+  "checkpoint_id": "21N-L",
+  "first_real_attempt": {
+    "conditional_alpha_pnl_calculated": false,
+    "exception_message": "BFGS positive-curvature requirement y^T s > 1e-12 failed",
+    "exception_type": "ConditionalAlphaV1Error",
+    "failure_fold": 2,
+    "failure_lambda": 0.001,
+    "fit_stages": [
+      "H1_OOF",
+      "H2"
+    ],
+    "full_development_fit_performed": false,
+    "lambda_selected": false,
+    "partial_artifacts_persisted": false,
+    "probability_gate_scored": false,
+    "score_stage": "H3"
+  },
+  "parent_21N_K": {
+    "checkpoint_commit": "c4aba0c8d425e0f8a1953d39ecccc88f7967e79e",
+    "implementation_fingerprint": "02530cdd8ba58b45cde85c0ba40f681355ce5b14c4a3ad53ee5f1072fff156a8",
+    "receipt_commit": "36a1c730dd6605d597f773c5dd1e541fa9da7865"
+  },
+  "post_closeout_action": {
+    "conditional_alpha_v1_advancement_allowed_after_failure": false,
+    "expected_failure_status": "FAIL_OPTIMIZER_CONTRACT",
+    "independent_reproduction_required": true,
+    "rerun_same_H_development_evaluator_once": true
+  },
+  "repair_fingerprint": "276fdf07803d083a67d94e6c5b923fcbf06392c4db4fb33cd1d9c1f3a954a865",
+  "repaired_orchestration_sha256s": {
+    "evaluate_kxbtcd_candidate_e_conditional_alpha_reliability_v1_development.py": "c0dbe3052000f15328ca7c346520d3f38e27b56b4114ad01eae79d7a527a6f8c",
+    "src/kxbtcd_candidate_e_conditional_alpha_reliability_v1_development.py": "21e2d67e95e1f3576671ecd69d851ec359c734428471643a1e2dd5208f17c37b",
+    "validate_kxbtcd_candidate_e_conditional_alpha_reliability_v1_development_result.py": "f0f5f723f30b405b789b26dc50c0d48fe4293a0bb39d75b6709952e15f72c050"
+  },
+  "safety": {
+    "C1_C2_accessed_in_repair": false,
+    "C3_accessed_in_repair": false,
+    "execution_enabled_in_repair": false,
+    "network_accessed_in_repair": false,
+    "protected_reserve_accessed_in_repair": false
+  },
+  "schema_version": "kxbtcd_candidate_e_conditional_alpha_reliability_v1_failure_recording_repair.v1",
+  "status": "POST_OUTCOME_RECORDING_REPAIR_NOT_YET_RERUN"
+}

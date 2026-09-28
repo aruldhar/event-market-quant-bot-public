@@ -1,0 +1,91 @@
+{
+  "H2_identity": {
+    "blocks": {
+      "B0": 150,
+      "B1": 150,
+      "B2": 150,
+      "B3": 150,
+      "B4": 150
+    },
+    "event_count": 750,
+    "event_identity_fingerprint": "b7ecf9bb6f004cca8cccf3339a3e1ed783fa385eb5720eeea5fc28863e39a76e",
+    "market_count": 3750,
+    "market_identity_fingerprint": "7500247cea4964ebccf8a4cc767efaf701a65df14cc4f778ed29d97fd24b9935",
+    "row_count": 22354
+  },
+  "H2_outcomes_opened_at_freeze": 0,
+  "H3_hard_deny_identity": {
+    "event_count": 750,
+    "event_identity_fingerprint": "c60d70b23be6e2c50d602fbaf7f1422c8bec0a7e9b29e686bbbb092500995b46",
+    "market_count": 3750,
+    "market_identity_fingerprint": "51f3bf71a504302002de2f4588ed71a8f02481ebb94cba431b397da41fbd299c",
+    "row_count": 22409
+  },
+  "H3_outcomes_opened_at_freeze": 0,
+  "candidate_id": "kxbtcd_btc_distance_offset_logistic.v1",
+  "checkpoint_id": "20D",
+  "cohort_map_fingerprint": "09ebc6553255e76e5cff2d134c1f5bbc239dc753b9080e2c052d418e49c69efa",
+  "evaluation_contract": {
+    "benchmark": "raw_kalshi_midpoint_q_market",
+    "block_reporting": "frozen H2 chronological B0-B4, exactly 150 events each",
+    "candidate_probability": "sigmoid(logit_clip_0.001(q_market) + frozen_beta_distance*d_BTC)",
+    "candidate_selection_on_H2_allowed": false,
+    "event_weighting": "equal_total_weight_per_event",
+    "feature_change_on_H2_allowed": false,
+    "gate": {
+      "all_conditions_required": true,
+      "conditions": [
+        "pooled raw-minus-candidate event-equal log-loss delta > 0",
+        "pooled raw-minus-candidate event-equal Brier delta >= 0",
+        "candidate strictly beats raw log loss in at least 4 of 5 H2 blocks",
+        "candidate strictly beats raw log loss in latest H2 block B4",
+        "median event-level raw-minus-candidate log-loss delta > 0",
+        "frozen full-H1 model is finite/converged and beta_distance > 0",
+        "all H2 blocks contain all five structural roles and all six TTC targets",
+        "no source-policy, timing, lineage, evidence, outcome-firewall, or execution violation"
+      ],
+      "ties": "fail_primary"
+    },
+    "hyperparameter_search_on_H2_allowed": false,
+    "model_parameters_fitted_on_H2": false,
+    "primary_metric": "pooled_event_equal_log_loss",
+    "secondary_metric": "pooled_event_equal_brier",
+    "within_event_weighting": "equal_weight_per_scored_row"
+  },
+  "execution_enabled": false,
+  "exposure_policy": {
+    "H3_event_and_market_identities_hard_denied": true,
+    "H3_outcomes_opened_at_freeze": 0,
+    "fresh_second_H2_attempt_allowed": false,
+    "future_untouched_claim_on_H2_allowed": false,
+    "permanently_expose_full_H2_before_first_request": true,
+    "resume_only_after_interruption": true
+  },
+  "family_id": "kxbtcd_independent_btc_offset_successor.v1",
+  "final_h1_model_fingerprint": "d193275147b8e8a83a52b03928a2f4746b2daee890c472517952488be751a31a",
+  "h1_result_fingerprint": "3fef1404d55c70893715bbe318fe664658309b7497bf03add57b1783ea01b906",
+  "h2_implementation_fingerprint": "0710fb65abdd5e2bf3e8d1947227d0450f41d295ba99a16c0b5f7be3623a608e",
+  "h2_validation_fingerprint": "57f14a37106e376cf124130396a4e51e1b9aaf22d1064eeedeecacf34225d5e9",
+  "implementation_sha256s": {
+    "collect_kxbtcd_candidate_e_h2.py": "5ab723cc4e262faebdc1e06237d68d96d6fdfe1e124284d61f31a183ccf434c2",
+    "src/kxbtcd_candidate_e_h2_evaluation.py": "0e42ce5a2248534d48f8df6616e6820aa08992a78431e8b95c76230111c893fd"
+  },
+  "model_fit_performed_at_freeze": false,
+  "network_requests_at_freeze": 0,
+  "orders_placed": 0,
+  "outcome_source": {
+    "accepted_results": [
+      "yes",
+      "no"
+    ],
+    "authentication_required": false,
+    "endpoint_template": "/historical/markets/{market_ticker}",
+    "raw_first_persistence_required": true,
+    "required_market_status": "finalized"
+  },
+  "procedure_derivation_used_H2_outcomes": false,
+  "procedure_derivation_used_H3_outcomes": false,
+  "row_universe_fingerprint": "e12375eeec4d81554f8008ea10e8c8e49be44ff40d8405c974de4ab8f69b2aa5",
+  "schema_version": "kxbtcd_candidate_e_h2_implementation_freeze.v1",
+  "source_baseline_commit": "2e3bf78544a0a4194eef8e6546b00113a340bf5e"
+}

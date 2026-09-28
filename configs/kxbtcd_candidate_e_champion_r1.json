@@ -1,0 +1,73 @@
+{
+  "C2_outcomes_opened": false,
+  "C3_materialized_or_opened": false,
+  "candidate_id": "kxbtcd_btc_distance_offset_logistic.v1",
+  "champion_r1_fingerprint": "863711cab07ed18784045d657e8ec20e8eb3dfea8d1c74dbcf2076f0399224ee",
+  "checkpoint_id": "21E-B",
+  "execution_enabled": false,
+  "family_id": "kxbtcd_independent_btc_offset_successor.v1",
+  "feature_selection_performed": false,
+  "fit_contract": {
+    "event_weighting": "equal_total_weight_per_event",
+    "feature_standardization": "none",
+    "hyperparameter_grid": [],
+    "hyperparameter_search": false,
+    "initialization": "all_free_coefficients_zero_raw_market_nesting",
+    "objective": "event_equal_binary_log_loss",
+    "optimizer": {
+      "algorithm": "deterministic_damped_Newton",
+      "armijo_constant": "1e-4",
+      "gradient_l2_tolerance": "1e-8",
+      "max_iterations": 100,
+      "minimum_step_scale": "2^-40",
+      "non_convergence": "fail_closed",
+      "singular_hessian": "fail_closed"
+    },
+    "regularization": "none",
+    "within_event_weighting": "equal_weight_per_scored_row"
+  },
+  "fit_result": {
+    "converged": true,
+    "fit_objective": "0.053921466611488181",
+    "iterations": 10
+  },
+  "fit_scope": {
+    "C2_outcomes_used": 0,
+    "C2_rows_used": 0,
+    "all_outcomes_previously_exposed": true,
+    "event_count": 3500,
+    "row_count": 95964,
+    "stages": [
+      "H1",
+      "H2",
+      "H3",
+      "C1"
+    ]
+  },
+  "hyperparameter_search_performed": false,
+  "implementation_freeze_fingerprint": "c2be562e2476995dd4adb712a035ac69eca8ca6b4b7fa93c53106758286dc327",
+  "lineage": {
+    "c1_outcomes_path": "data/derived/kxbtcd_candidate_e_c1_evaluation/2026/08/18/collect_kxbtcd_candidate_e_c1_20260818T032929566587Z_5a689483_candidate_e_c1_outcomes.csv",
+    "c1_outcomes_sha256": "badefb7087de6b07a5c968b78564858e7e9c060652836aba7f366de0788a259b",
+    "c1_result_closeout_path": "configs/kxbtcd_candidate_e_c1_result_closeout.json",
+    "c1_result_closeout_sha256": "f354b4c4bba733ff9b9c82177dd377717a329af53e0c878895d76a7e16862bb0",
+    "implementation_freeze_path": "configs/kxbtcd_candidate_e_c2_preparation_implementation_freeze.json",
+    "implementation_freeze_sha256": "5eda15ac7de03a2c4694dc250d06bb0b51a4320104ed406fcd81269639d63e77"
+  },
+  "model": {
+    "beta_distance": "0.014529004270980883",
+    "beta_momentum": null,
+    "feature": "btc_strike_log_distance_bps.v1",
+    "formula": "logit(p)=market_logit_offset + beta_distance*d_BTC",
+    "free_parameter_count": 1,
+    "market_logit_offset_clip": "0.001"
+  },
+  "orders_placed": 0,
+  "parent_21a_protocol_fingerprint": "88d1880c026fe8cecf67cbbb8839a6d4acfb463b0871f4ef60db329f50a6ef00",
+  "parent_c1_result_closeout_fingerprint": "3a66e7d980334474d4d836f80bc2aca56932baab1040fa393dee9764a3ee737e",
+  "parent_c1_result_fingerprint": "5cd56b6c4711e5a6846e6ea90bb6e004358844585f56fbe663a9d0a0ec17cd19",
+  "parent_champion_r0_fingerprint": "ffde1747dbd60a05f6cffb6e970ae47088edeb77c0a67d16a225b2e38b90a0fa",
+  "parent_h3_result_fingerprint": "436ea27539ed1bd2b30f96cc892bc5fc4b87cecd37035da8a45ca2583e59af54",
+  "schema_version": "kxbtcd_candidate_e_champion_r1.v1",
+  "specification_changed_after_C1": false
+}

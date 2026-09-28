@@ -1,0 +1,85 @@
+{
+  "candidate_id": "kxbtcd_candidate_e_conditional_alpha_reliability.v2",
+  "checkpoint_id": "21N-M-B",
+  "hessian_contract": {
+    "d2p_deta2": "dp_deta*(1-2*alpha)",
+    "dimension": "5x5",
+    "dp_deta": "(pE-q)*alpha*(1-alpha)",
+    "exact": true,
+    "l2_diagonal": "lambda on all five diagonal terms including intercept",
+    "row_scalar": "d2loss_dp2*(dp_deta^2) + dloss_dp*d2p_deta2"
+  },
+  "implementation_fingerprint": "459d88306ac1d120efebbd8c3c675b4b7b72a6137b915074c2c9abccc8c595fd",
+  "implementation_scope": {
+    "damped_newton_armijo": true,
+    "deterministic_dense_cholesky": true,
+    "exact_analytic_hessian": true,
+    "no_diagonal_loading": true,
+    "no_fallback_optimizer": true,
+    "no_hessian_jitter": true,
+    "no_pseudoinverse": true,
+    "real_data_fit_cli_present": false,
+    "real_economic_gate_cli_present": false,
+    "real_lambda_selection_cli_present": false,
+    "real_probability_gate_cli_present": false,
+    "reuses_frozen_v1_feature_scaling_objective_primitives": true
+  },
+  "implementation_sha256s": {
+    "src/kxbtcd_candidate_e_conditional_alpha_reliability_v2.py": "3de5b7ccfc635ca0bb5a9343439751f76b5b45a2a8994f897b2157a7d55d9536"
+  },
+  "next_checkpoint": {
+    "purpose": "after canonical implementation closeout, separately freeze v2 H-development evaluation wiring before any real v2 fit or score",
+    "real_fit_authorized_by_21N_M_B": false
+  },
+  "optimizer_contract": {
+    "algorithm": "deterministic_full_batch_exact_hessian_damped_newton",
+    "armijo_c1": 0.0001,
+    "cholesky_failure": "fail_closed",
+    "descent_requirement": "gradient^T * delta > 0",
+    "diagonal_loading": false,
+    "fallback_optimizer": null,
+    "gradient_l2_tolerance": 1e-08,
+    "hessian_jitter": false,
+    "initial_gamma": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "initial_step": 1.0,
+    "line_search_failure": "fail_closed",
+    "linear_solver": "deterministic dense Cholesky",
+    "linear_system": "H * delta = gradient",
+    "max_iterations": 100,
+    "minimum_step": 9.094947017729282e-13,
+    "non_convergence": "fail_closed",
+    "non_descent_direction": "fail_closed",
+    "nonfinite_state": "fail_closed",
+    "parameter_dimension": 5,
+    "positive_definite_requirement": "Cholesky must succeed without jitter or loading",
+    "pseudoinverse": false,
+    "rejected_step_multiplier": 0.5,
+    "update": "gamma_new = gamma - step * delta",
+    "warm_starts": false
+  },
+  "parent_v1_status": "PERMANENT_FAIL_OPTIMIZER_CONTRACT",
+  "predeclaration_fingerprint": "6fdc0421ea2f416b48bb41498cd3c48db6e581ff5364eae5cfa3916a4fa149f8",
+  "safety": {
+    "C1_C2_accessed": false,
+    "C3_accessed": false,
+    "demo_execution": false,
+    "economic_gate_scored": false,
+    "lambda_selected": false,
+    "network_accessed": false,
+    "orders_submitted": false,
+    "paper_execution": false,
+    "probability_gate_scored": false,
+    "protected_reserve_accessed": false,
+    "real_money_execution": false,
+    "real_v2_fit_performed": false
+  },
+  "schema_version": "kxbtcd_candidate_e_conditional_alpha_reliability_v2_implementation_freeze.v1",
+  "scientific_contract_change": "optimizer_only",
+  "status": "IMPLEMENTATION_FREEZE_READY_FOR_CANONICAL_VALIDATION"
+}

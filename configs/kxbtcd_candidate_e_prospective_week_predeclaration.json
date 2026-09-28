@@ -1,0 +1,146 @@
+{
+  "analysis_role": "fresh_prospective_strategy_validation_predeclaration",
+  "checkpoint_id": "21N-Z-A",
+  "e2_result_closeout": {
+    "hybrid_policy_zero_relation_counts": {
+      "CROSSES_OR_TOUCHES_ZERO": 15
+    },
+    "independent_entry_count": 93,
+    "independent_entry_hold_pnl_sign_counts": {
+      "NEGATIVE": 33,
+      "POSITIVE": 60
+    },
+    "interpretation": {
+      "cannot_select_or_rank_prospective_policy": true,
+      "does_not_override_official_inconclusive_result": true,
+      "post_outcome_exploratory_only": true
+    },
+    "liquidation_only_case": {
+      "event": "KXBTCD-26JUL1014",
+      "latencies_ms": [
+        0,
+        500,
+        1000
+      ],
+      "point_pnl_each": "-0.7921",
+      "threshold": "0.05"
+    },
+    "liquidation_only_terminalized_count": 3,
+    "observed_trace_sign_counts": {
+      "NEGATIVE": 3,
+      "POSITIVE": 24,
+      "ZERO": 6
+    },
+    "official_result": {
+      "CENSORED": 33,
+      "EXACT": 27,
+      "INCONCLUSIVE_POLICY_SETTINGS": 15
+    },
+    "official_result_immutable": true,
+    "selection_rearm_incomplete_count": 30,
+    "sensitivity_report_relative_path": "data/analysis/predexon_credit_efficiency/july10_candidate_e_v2_settlement_sensitivity.json",
+    "sensitivity_report_sha256": "aff1847d70b9dc945c5575295a3f3d3e0b2ecc54011d37fa30c57aa3e88bdf22",
+    "settled_in_the_money_count": 60,
+    "settled_out_of_the_money_count": 33,
+    "settlement_manifest_relative_path": "data/analysis/predexon_credit_efficiency/july10_candidate_e_v2_sensitivity_settlements.json",
+    "settlement_manifest_sha256": "fd830587b393b90f787674bad9a0ecf9a83aac54b4c2410110a97b40533fab46"
+  },
+  "future_execution_research": {
+    "full_production_book_must_be_recorded_for_later_capacity_analysis": true,
+    "micro_production_probe_concept_preserved": true,
+    "minimum_probe_quantity_to_be_reverified_from_current_official_kalshi_docs_before_execution": true,
+    "probe_quantity_is_not_strategy_reference_quantity": true,
+    "production_order_code_deferred": true
+  },
+  "model": {
+    "beta_distance": "0.014939489324405949",
+    "candidate_id": "kxbtcd_btc_distance_offset_logistic.v1",
+    "champion_final_fingerprint": "b45478594c088c09086d55d14e70aa7a22a62dc546cf0f2d9a1e3bb2f296b8dc",
+    "refit_during_prospective_window": false
+  },
+  "parent_repository": {
+    "branch": "main",
+    "parent_checkpoint_commit": "d0ce0a24a6e69bcdb8f0810ce3de08bfd8c3e9d3",
+    "parent_receipt_commit": "e21b91d9154f12778e3b51b9eefaba9dbecd7a82"
+  },
+  "prospective_primary_policy": {
+    "diagnostic_thresholds_cannot_replace_primary_during_window": true,
+    "diagnostic_thresholds_dollars": [
+      "0",
+      "0.01",
+      "0.03",
+      "0.05"
+    ],
+    "dynamic_atm_rank_radius": 5,
+    "entry_window_ttc_minutes": {
+      "end_inclusive": 2,
+      "start_inclusive": 55
+    },
+    "exit_rule": {
+      "executable_side": "sell_into_same_side_bids",
+      "hold_to_settlement_if_no_trigger_before_close": true,
+      "mechanics": "existing_v2_convergence_liquidation_rule",
+      "trigger": "first_fully_executable_immediate_sale_whose_net_cash_is_at_least_entry_time_side_fair_probability_times_open_quantity"
+    },
+    "max_filled_entries_per_event": 2,
+    "max_reentries_per_event": 1,
+    "max_window_markets": 11,
+    "minimum_best_level_depth_contracts": "1",
+    "net_edge_definition": "side_fair_probability_minus_best_purchase_price_minus_frozen_entry_fee",
+    "primary_net_edge_threshold_dollars": "0.02",
+    "rearm_after_full_first_exit": {
+      "any_of": [
+        "REFERENCE_LEFT_SPOT_WINDOW",
+        "REFERENCE_DEPTH_BELOW_ONE_CONTRACT",
+        "REFERENCE_EDGE_BELOW_PRIMARY_THRESHOLD"
+      ],
+      "full_first_exit_required": true
+    },
+    "second_entry_same_timestamp_as_rearm_forbidden": true,
+    "signal_selection": "highest_net_edge_then_market_ticker_then_side_order_yes_before_no",
+    "strategy_reference_quantity_contracts": "1",
+    "threshold_selection_basis": "mechanical_midpoint_of_preexisting_frozen_grid_not_july10_pnl"
+  },
+  "prospective_window": {
+    "arm_time": "set_once_by_future_collector_launch_and_frozen_in_run_manifest",
+    "cohort_rule": "all_kxbtcd_events_whose_entry_window_intersects_the_first_168_consecutive_hours_after_explicit_arm_time",
+    "do_not_replace_events_lost_to_collector_failure": true,
+    "duration_hours": 168,
+    "mid_window_extension_or_restart_forbidden": true
+  },
+  "safety": {
+    "demo_orders_authorized": false,
+    "order_submission_code_added": false,
+    "orders_placed": 0,
+    "paper_broker_authorized": false,
+    "policy_retuning_during_window": false,
+    "read_only_checkpoint": true,
+    "real_money_orders_authorized": false
+  },
+  "schema_version": "kxbtcd_candidate_e_prospective_week_predeclaration.v1",
+  "source_contract": {
+    "btc_current_state": "exact_close_of_last_fully_completed_utc_coinbase_one_minute_candle_at_decision_time",
+    "kalshi_sequence_gap": "fail_closed_until_authoritative_resync",
+    "kalshi_source": "production_read_only_market_data",
+    "kraken_role": "optional_diagnostic_only",
+    "local_monotonic_timestamp_required": true,
+    "no_carry_forward": true,
+    "no_future_interpolation": true,
+    "no_nearest_neighbor_substitution": true,
+    "no_source_substitution": true,
+    "preserve_raw_before_transform": true,
+    "required_btc_source": "Coinbase",
+    "source_timestamp_required": true,
+    "stale_or_incomplete_required_feed": "no_new_signal_and_mark_interval_invalid"
+  },
+  "timing_contract": {
+    "artificial_latency_grid_used_for_primary": false,
+    "future_real_order_latency_may_only_be_added_after_separate_execution_authorization": true,
+    "local_monotonic_clock_required": true,
+    "production_order_latency_available_in_this_checkpoint": false,
+    "record_feed_receive_to_model_ready": true,
+    "record_model_ready_to_signal": true,
+    "record_signal_emission_timestamp": true,
+    "subsecond_cross_source_wall_clock_claim_requires_clock_health_gate": true
+  }
+}

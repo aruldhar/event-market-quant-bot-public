@@ -1,0 +1,104 @@
+{
+  "bound_existing_source_sha256s": {
+    "src/kxbtcd_candidate_e_conditional_alpha_reliability_v1.py": "6b5a0009b8d22a24f38571c9ccf1c0ec8423f378",
+    "src/kxbtcd_candidate_e_conditional_alpha_reliability_v1_development.py": "1a86f1ec51af0c4ea5bfc30934cebbcb4531e713",
+    "src/kxbtcd_candidate_e_conditional_alpha_reliability_v2.py": "3de5b7ccfc635ca0bb5a9343439751f76b5b45a2a8994f897b2157a7d55d9536"
+  },
+  "candidate_id": "kxbtcd_candidate_e_conditional_alpha_reliability.v2",
+  "checkpoint_id": "21N-M-C",
+  "evidence_bindings": {
+    "development_events": 2570,
+    "development_rows": 76419,
+    "feature_rows_fingerprint": "590ab13567821839fb0d404ed4813d328fc4e68ee1a61fd39038d3f8624a42fe",
+    "label_source_sha256s": {
+      "H1_OOF": "867a77cbbf034a574983cb6fb301a77614674d3254297f8e15db377d5c34df16",
+      "H2": "4aa6efe3c3bdc231fc8289f11fe01e1ad5a65910ae0ea92d2586447fd6b7d3d6",
+      "H3": "091affc5ac088aa61db43a5df18f15178bceeea2ee26bd266b61fd059fd08380"
+    },
+    "preparation_closeout_fingerprint": "f1b0caed9d83d8657bd916422b17dde4e239cbc41a5de880ed78a51217cdffb1",
+    "preparation_fingerprint": "a5a1901d9cdd18458bd8de6371c01d0e635d81f4c02b2f9167a5b30c9e42db46",
+    "prepared_feature_sha256": "268c756f82f6be2b53f5fee1f212ad0ecd1d02459547861cc5c3b3623357472f",
+    "score_events": 1500
+  },
+  "implementation_fingerprint": "bca7dfb15c86c6af33eb208ae3bac65e953b19ab2ac09ac30ee2e56e723a641a",
+  "implementation_scope": {
+    "economic_gate_scored_in_21N_M_C": false,
+    "lambda_selected_in_21N_M_C": false,
+    "probability_gate_scored_in_21N_M_C": false,
+    "real_data_cli_present_but_closeout_locked": true,
+    "real_fit_performed_in_21N_M_C": false,
+    "reuses_frozen_v1_evidence_binding_helpers": true,
+    "reuses_frozen_v1_fee_and_entry_policy": true,
+    "reuses_frozen_v1_probability_gate": true,
+    "uses_v2_newton_fitter_only": true
+  },
+  "implementation_sha256s": {
+    "evaluate_kxbtcd_candidate_e_conditional_alpha_reliability_v2_development.py": "4180d9b391f8c3c2fcda92da6479e79b641216994cea20d6378e09b53fc474ad",
+    "src/kxbtcd_candidate_e_conditional_alpha_reliability_v2_development.py": "9371d8bab58f6e328b3f82671eb19aaa7f6e252f07ed5f963c6a849bc3684d53",
+    "validate_kxbtcd_candidate_e_conditional_alpha_reliability_v2_development_result.py": "1c2b3de6b1cf467c2d9a73faa24a5bd24426b6dfc82b238e82ef3b4d715a673e"
+  },
+  "inherited_development_contract": {
+    "economic_blocks": "five_contiguous_300_event_blocks",
+    "economic_gate_only_if_probability_passes": true,
+    "economic_score_predictions": "selected_lambda_rolling_origin_H2_plus_H3_only",
+    "entry_policy": "frozen_21N_I_one_contract_first_qualifying_anchor",
+    "exact_tie_rule": "larger_lambda",
+    "folds": [
+      {
+        "fit": [
+          "H1_OOF"
+        ],
+        "fold": 1,
+        "score": "H2"
+      },
+      {
+        "fit": [
+          "H1_OOF",
+          "H2"
+        ],
+        "fold": 2,
+        "score": "H3"
+      }
+    ],
+    "full_development_fit_only_if_probability_and_economic_gates_pass": true,
+    "lambda_grid": [
+      0.001,
+      0.01,
+      0.1,
+      1.0,
+      10.0
+    ],
+    "probability_gate_first": true,
+    "selection_metric": "pooled_H2_H3_event_equal_log_loss",
+    "stress_dollars": [
+      "0.00",
+      "0.01",
+      "0.02",
+      "0.03"
+    ]
+  },
+  "parent_predeclaration_fingerprint": "6fdc0421ea2f416b48bb41498cd3c48db6e581ff5364eae5cfa3916a4fa149f8",
+  "parent_v1_status": "PERMANENT_FAIL_OPTIMIZER_CONTRACT",
+  "parent_v2_implementation_fingerprint": "459d88306ac1d120efebbd8c3c675b4b7b72a6137b915074c2c9abccc8c595fd",
+  "post_closeout_authorization": {
+    "C1_C2_allowed": false,
+    "C3_allowed": false,
+    "execution_allowed": false,
+    "one_formal_H_development_run_allowed": true,
+    "only_after_valid_21N_M_C_closeout_receipt": true,
+    "protected_reserve_allowed": false
+  },
+  "safety": {
+    "C1_C2_accessed": false,
+    "C3_accessed": false,
+    "demo_execution": false,
+    "network_accessed": false,
+    "orders_submitted": false,
+    "paper_execution": false,
+    "protected_reserve_accessed": false,
+    "real_money_execution": false
+  },
+  "schema_version": "kxbtcd_candidate_e_conditional_alpha_reliability_v2_development_implementation_freeze.v1",
+  "scientific_contract_change": "none_from_21N_M_A_except_already_frozen_optimizer_successor",
+  "status": "EVALUATOR_IMPLEMENTATION_FREEZE_READY_FOR_CANONICAL_VALIDATION"
+}

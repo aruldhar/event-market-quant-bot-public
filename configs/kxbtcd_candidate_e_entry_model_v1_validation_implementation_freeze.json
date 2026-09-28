@@ -1,0 +1,73 @@
+{
+  "c3_opened_for_model2": false,
+  "candidate_e_offset_policy": {
+    "brier_probability": "stable_sigmoid(finite_logit)",
+    "clipping": false,
+    "historical_probability_endpoints_preserved": true,
+    "log_loss_scored_from_finite_logit": true,
+    "source": "finite_validation_offset_sidecar"
+  },
+  "candidate_probability_endpoint_rows": 6,
+  "checkpoint_id": "21M",
+  "dependency_sha256s": {
+    "src/kxbtcd_candidate_e_entry_model_v1.py": "ce54846f85f3d338bc0f3aadd64d8cc8b9828c0c2ac2b5454f97771ec1a89ee1",
+    "src/kxbtcd_candidate_e_entry_model_v1_validation_preparation.py": "b5bfd289cd417649b861e9cda28de98f611a613454b32bbb8c17a7774a8b242b"
+  },
+  "development_freeze_fingerprint": "a3efd1d52255467dd374d32992880344428dccae01de1a97363b43e318595a9e",
+  "execution_enabled": false,
+  "feature_rows_fingerprint": "d5d70331d1ccf6ce823a9820bfefc9267db6f84b13bd0040133dfe759ffae228",
+  "gate": {
+    "all_conditions_required": true,
+    "blocks": [
+      "V0",
+      "V1",
+      "V2",
+      "V3",
+      "V4"
+    ],
+    "brier_tie": "PASS",
+    "conditions": [
+      "pooled_Model2_log_loss < pooled_CandidateE_log_loss",
+      "pooled_Model2_brier <= pooled_CandidateE_brier",
+      "Model2_log_loss_wins >= 4_of_5_blocks",
+      "Model2_wins_newest_block",
+      "median_event_CandidateE_minus_Model2_log_loss > 0"
+    ],
+    "events_per_block": 200,
+    "primary_metric": "event_equal_binary_log_loss",
+    "primary_tie": "FAIL",
+    "secondary_metric": "event_equal_brier"
+  },
+  "implementation_sha256s": {
+    "evaluate_kxbtcd_candidate_e_entry_model_v1_validation.py": "71e3a58045b950958e6c407c3f88d1c25120b2772b5163ce44601d7480eaca43",
+    "freeze_kxbtcd_candidate_e_entry_model_v1_validation_implementation.py": "dd6b27ae2f387b14cc8d84584310a8d125fad5e740450f0089d3cc191358cfd2",
+    "src/kxbtcd_candidate_e_entry_model_v1_validation.py": "ee551329504d0cc001c363f6c269ac2c34cf04587b1c28d5b626e28a8a791e80",
+    "validate_kxbtcd_candidate_e_entry_model_v1_validation.py": "a93fe893d99c02b8dac52dbba12e115c7532d893dbf2d5c3b8e06635ea4002b8",
+    "validate_kxbtcd_candidate_e_entry_model_v1_validation_implementation_freeze.py": "7c44087f475178b3132c458081ce185b876f16fba250ef31ccff5ac77bcccb28"
+  },
+  "model_id": "kxbtcd_candidate_e_entry_residual_logistic.v1",
+  "outcome_sources": {
+    "C1": {
+      "market_count": 2491,
+      "outcomes_sha256": "badefb7087de6b07a5c968b78564858e7e9c060652836aba7f366de0788a259b",
+      "result_closeout_fingerprint": "3a66e7d980334474d4d836f80bc2aca56932baab1040fa393dee9764a3ee737e"
+    },
+    "C2": {
+      "market_count": 2441,
+      "outcomes_sha256": "6a898266ce961b3d812ac1e6c5b430a01e9449bb41d06a42e61e69d2fccf38e6",
+      "result_closeout_fingerprint": "5660e4d04856f534543f0fdd53a1b687b07666ffd52d59e8e80fcefe6ddc87cf"
+    }
+  },
+  "outcomes_read_during_implementation_freeze": false,
+  "parent_commit": "0094829553489130915ce65cfee24a48f382597b",
+  "protected_reserve_accessed": false,
+  "schema_version": "kxbtcd_candidate_e_entry_model_v1_validation_implementation_freeze.v1",
+  "scientific_changes_after_development_freeze": false,
+  "selected_lambda": 0.01,
+  "strategy_v1_pnl_calculated": false,
+  "validation_event_map_fingerprint": "682c3007e2c360d10aada786e83050516990c36c1de87d6988b70c49c38f4199",
+  "validation_implementation_fingerprint": "8bc89ebbd97f19245e802217733a89f369bfdae465a9f90c581c90c4dc9f1ec7",
+  "validation_offset_rows_fingerprint": "7fdc2127c081894be97a96c4c930c06634a96f19cf13d4fd18c5b95458c978c1",
+  "validation_preparation_fingerprint": "25c42d62f3f74814c9665b71628e866aa428fd55fd67d8a1ad65cd337a8caa22",
+  "validation_scores_calculated": false
+}

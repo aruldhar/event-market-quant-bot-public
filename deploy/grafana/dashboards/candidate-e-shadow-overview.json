@@ -1,0 +1,109 @@
+{
+  "annotations": {"list": []},
+  "editable": false,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 1,
+  "id": null,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {"type": "frser-sqlite-datasource", "uid": "candidate-e-shadow"},
+      "fieldConfig": {"defaults": {"decimals": 2, "unit": "currencyUSD"}, "overrides": []},
+      "gridPos": {"h": 5, "w": 6, "x": 0, "y": 0},
+      "id": 1,
+      "options": {"colorMode": "value", "graphMode": "none", "justifyMode": "auto", "orientation": "auto", "reduceOptions": {"calcs": ["lastNotNull"], "fields": "", "values": false}, "textMode": "auto", "wideLayout": true},
+      "targets": [{"datasource": {"type": "frser-sqlite-datasource", "uid": "candidate-e-shadow"}, "queryText": "SELECT COALESCE(SUM(simulated_net_pnl), 0) AS value FROM trades WHERE scenario_id = 'edge_002' AND simulated_flat = 1 AND (run_id = ${run_id:sqlstring} OR ${run_id:sqlstring} = '__all__' OR (${run_id:sqlstring} = '__current__' AND run_id = (SELECT value FROM dashboard_metadata WHERE key='input_run_id')))", "rawQueryText": "SELECT COALESCE(SUM(simulated_net_pnl), 0) AS value FROM trades WHERE scenario_id = 'edge_002' AND simulated_flat = 1 AND (run_id = ${run_id:sqlstring} OR ${run_id:sqlstring} = '__all__' OR (${run_id:sqlstring} = '__current__' AND run_id = (SELECT value FROM dashboard_metadata WHERE key='input_run_id')))", "refId": "A", "timeColumns": ["time", "ts"], "queryType": "table"}],
+      "title": "PRIMARY $0.02 — Simulated Net P&L",
+      "type": "stat"
+    },
+    {
+      "datasource": {"type": "frser-sqlite-datasource", "uid": "candidate-e-shadow"},
+      "fieldConfig": {"defaults": {}, "overrides": []},
+      "gridPos": {"h": 5, "w": 6, "x": 6, "y": 0},
+      "id": 2,
+      "options": {"colorMode": "value", "graphMode": "none", "justifyMode": "auto", "orientation": "auto", "reduceOptions": {"calcs": ["lastNotNull"], "fields": "", "values": false}, "textMode": "auto", "wideLayout": true},
+      "targets": [{"datasource": {"type": "frser-sqlite-datasource", "uid": "candidate-e-shadow"}, "queryText": "SELECT COUNT(*) AS value FROM trades WHERE scenario_id = 'edge_002' AND simulated_flat = 1 AND (run_id = ${run_id:sqlstring} OR ${run_id:sqlstring} = '__all__' OR (${run_id:sqlstring} = '__current__' AND run_id = (SELECT value FROM dashboard_metadata WHERE key='input_run_id')))", "rawQueryText": "SELECT COUNT(*) AS value FROM trades WHERE scenario_id = 'edge_002' AND simulated_flat = 1 AND (run_id = ${run_id:sqlstring} OR ${run_id:sqlstring} = '__all__' OR (${run_id:sqlstring} = '__current__' AND run_id = (SELECT value FROM dashboard_metadata WHERE key='input_run_id')))", "refId": "A", "timeColumns": ["time", "ts"], "queryType": "table"}],
+      "title": "PRIMARY — Closed Trades",
+      "type": "stat"
+    },
+    {
+      "datasource": {"type": "frser-sqlite-datasource", "uid": "candidate-e-shadow"},
+      "fieldConfig": {"defaults": {}, "overrides": []},
+      "gridPos": {"h": 5, "w": 6, "x": 12, "y": 0},
+      "id": 3,
+      "options": {"colorMode": "value", "graphMode": "none", "justifyMode": "auto", "orientation": "auto", "reduceOptions": {"calcs": ["lastNotNull"], "fields": "", "values": false}, "textMode": "auto", "wideLayout": true},
+      "targets": [{"datasource": {"type": "frser-sqlite-datasource", "uid": "candidate-e-shadow"}, "queryText": "SELECT COUNT(*) AS value FROM trades WHERE scenario_id = 'edge_002' AND simulated_flat = 0 AND (run_id = ${run_id:sqlstring} OR ${run_id:sqlstring} = '__all__' OR (${run_id:sqlstring} = '__current__' AND run_id = (SELECT value FROM dashboard_metadata WHERE key='input_run_id')))", "rawQueryText": "SELECT COUNT(*) AS value FROM trades WHERE scenario_id = 'edge_002' AND simulated_flat = 0 AND (run_id = ${run_id:sqlstring} OR ${run_id:sqlstring} = '__all__' OR (${run_id:sqlstring} = '__current__' AND run_id = (SELECT value FROM dashboard_metadata WHERE key='input_run_id')))", "refId": "A", "timeColumns": ["time", "ts"], "queryType": "table"}],
+      "title": "PRIMARY — Open Positions",
+      "type": "stat"
+    },
+    {
+      "datasource": {"type": "frser-sqlite-datasource", "uid": "candidate-e-shadow"},
+      "fieldConfig": {"defaults": {}, "overrides": []},
+      "gridPos": {"h": 5, "w": 6, "x": 18, "y": 0},
+      "id": 4,
+      "options": {"colorMode": "value", "graphMode": "none", "justifyMode": "auto", "orientation": "auto", "reduceOptions": {"calcs": ["lastNotNull"], "fields": "", "values": false}, "textMode": "auto", "wideLayout": true},
+      "targets": [{"datasource": {"type": "frser-sqlite-datasource", "uid": "candidate-e-shadow"}, "queryText": "SELECT (SELECT value FROM dashboard_metadata WHERE key = 'input_run_id') || ' · #' || (SELECT value FROM dashboard_metadata WHERE key = 'input_snapshot_sequence') AS value", "rawQueryText": "SELECT (SELECT value FROM dashboard_metadata WHERE key = 'input_run_id') || ' · #' || (SELECT value FROM dashboard_metadata WHERE key = 'input_snapshot_sequence') AS value", "refId": "A", "timeColumns": ["time", "ts"], "queryType": "table"}],
+      "title": "Latest Causal Snapshot — Run · #",
+      "type": "stat"
+    },
+    {
+      "datasource": {"type": "frser-sqlite-datasource", "uid": "candidate-e-shadow"},
+      "description": "Every row uses the same observed shadow path. Click a Scenario ID to drill into that policy. P&L is simulated observed-depth P&L, not venue-realized P&L.",
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": [
+          {"matcher": {"id": "byName", "options": "Scenario"}, "properties": [{"id": "links", "value": [{"title": "Open Scenario Detail", "url": "/d/candidate-e-scenario/candidate-e-scenario-detail?var-scenario_id=${__value.raw}"}]}]},
+          {"matcher": {"id": "byName", "options": "Simulated Net P&L"}, "properties": [{"id": "unit", "value": "currencyUSD"}, {"id": "decimals", "value": 2}]},
+          {"matcher": {"id": "byName", "options": "Edge Threshold"}, "properties": [{"id": "unit", "value": "currencyUSD"}, {"id": "decimals", "value": 2}]}
+        ]
+      },
+      "gridPos": {"h": 10, "w": 24, "x": 0, "y": 5},
+      "id": 5,
+      "options": {"cellHeight": "sm", "footer": {"countRows": false, "fields": "", "reducer": ["sum"], "show": false}, "showHeader": true},
+      "targets": [{"datasource": {"type": "frser-sqlite-datasource", "uid": "candidate-e-shadow"}, "queryText": "SELECT c.scenario_id AS 'Scenario', c.edge_threshold AS 'Edge Threshold', CASE WHEN c.is_primary = 1 THEN 'PRIMARY' ELSE '' END AS 'Role', COALESCE(SUM(CASE WHEN t.simulated_flat = 1 THEN t.simulated_net_pnl ELSE 0 END), 0) AS 'Simulated Net P&L', COUNT(CASE WHEN t.simulated_flat = 1 THEN 1 END) AS 'Closed Trades', COUNT(CASE WHEN t.simulated_flat = 0 THEN 1 END) AS 'Open Positions', c.execution_timing_basis AS 'Timing Basis' FROM scenario_catalog c LEFT JOIN trades t ON t.scenario_id = c.scenario_id AND (t.run_id = ${run_id:sqlstring} OR ${run_id:sqlstring} = '__all__' OR (${run_id:sqlstring} = '__current__' AND t.run_id = (SELECT value FROM dashboard_metadata WHERE key='input_run_id'))) GROUP BY c.scenario_id ORDER BY c.edge_threshold", "rawQueryText": "SELECT c.scenario_id AS 'Scenario', c.edge_threshold AS 'Edge Threshold', CASE WHEN c.is_primary = 1 THEN 'PRIMARY' ELSE '' END AS 'Role', COALESCE(SUM(CASE WHEN t.simulated_flat = 1 THEN t.simulated_net_pnl ELSE 0 END), 0) AS 'Simulated Net P&L', COUNT(CASE WHEN t.simulated_flat = 1 THEN 1 END) AS 'Closed Trades', COUNT(CASE WHEN t.simulated_flat = 0 THEN 1 END) AS 'Open Positions', c.execution_timing_basis AS 'Timing Basis' FROM scenario_catalog c LEFT JOIN trades t ON t.scenario_id = c.scenario_id AND (t.run_id = ${run_id:sqlstring} OR ${run_id:sqlstring} = '__all__' OR (${run_id:sqlstring} = '__current__' AND t.run_id = (SELECT value FROM dashboard_metadata WHERE key='input_run_id'))) GROUP BY c.scenario_id ORDER BY c.edge_threshold", "refId": "A", "timeColumns": ["time", "ts"], "queryType": "table"}],
+      "title": "Scenario Lab — Same-Data Edge Policy Leaderboard",
+      "type": "table"
+    },
+    {
+      "datasource": {"type": "frser-sqlite-datasource", "uid": "candidate-e-shadow"},
+      "fieldConfig": {"defaults": {}, "overrides": [{"matcher": {"id": "byName", "options": "Simulated Entry Outlay"}, "properties": [{"id": "unit", "value": "currencyUSD"}, {"id": "decimals", "value": 2}]}, {"matcher": {"id": "byName", "options": "Simulated P&L"}, "properties": [{"id": "unit", "value": "currencyUSD"}, {"id": "decimals", "value": 2}]}]},
+      "gridPos": {"h": 10, "w": 14, "x": 0, "y": 15},
+      "id": 6,
+      "options": {"cellHeight": "sm", "footer": {"countRows": false, "fields": "", "reducer": ["sum"], "show": false}, "showHeader": true},
+      "targets": [{"datasource": {"type": "frser-sqlite-datasource", "uid": "candidate-e-shadow"}, "queryText": "SELECT t.run_id AS 'Run', t.scenario_id AS 'Scenario', t.market_ticker AS 'Market', t.position_id AS 'Position', t.entry_utc AS 'Entry UTC', t.exit_utc AS 'Exit UTC', t.entry_simulated_quantity AS 'Entry Qty', t.net_simulated_position_quantity AS 'Open Qty', COALESCE((SELECT SUM(e.simulated_quantity * e.simulated_price + e.simulated_fee) FROM shadow_events e WHERE e.run_id = t.run_id AND e.scenario_id = t.scenario_id AND e.position_id = t.position_id AND e.event_type = 'shadow_simulated_fill' AND e.side = 'buy'), 0) AS 'Simulated Entry Outlay', t.simulated_net_pnl AS 'Simulated P&L', t.simulated_flat AS 'Flat' FROM trades t WHERE t.run_id = ${run_id:sqlstring} OR ${run_id:sqlstring} = '__all__' OR (${run_id:sqlstring} = '__current__' AND t.run_id = (SELECT value FROM dashboard_metadata WHERE key='input_run_id')) ORDER BY COALESCE(t.exit_utc, t.entry_utc) DESC LIMIT 100", "rawQueryText": "SELECT t.run_id AS 'Run', t.scenario_id AS 'Scenario', t.market_ticker AS 'Market', t.position_id AS 'Position', t.entry_utc AS 'Entry UTC', t.exit_utc AS 'Exit UTC', t.entry_simulated_quantity AS 'Entry Qty', t.net_simulated_position_quantity AS 'Open Qty', COALESCE((SELECT SUM(e.simulated_quantity * e.simulated_price + e.simulated_fee) FROM shadow_events e WHERE e.run_id = t.run_id AND e.scenario_id = t.scenario_id AND e.position_id = t.position_id AND e.event_type = 'shadow_simulated_fill' AND e.side = 'buy'), 0) AS 'Simulated Entry Outlay', t.simulated_net_pnl AS 'Simulated P&L', t.simulated_flat AS 'Flat' FROM trades t WHERE t.run_id = ${run_id:sqlstring} OR ${run_id:sqlstring} = '__all__' OR (${run_id:sqlstring} = '__current__' AND t.run_id = (SELECT value FROM dashboard_metadata WHERE key='input_run_id')) ORDER BY COALESCE(t.exit_utc, t.entry_utc) DESC LIMIT 100", "refId": "A", "timeColumns": ["time", "ts"], "queryType": "table"}],
+      "title": "Recent Simulated Trades — All Scenarios",
+      "type": "table"
+    },
+    {
+      "datasource": {"type": "frser-sqlite-datasource", "uid": "candidate-e-shadow"},
+      "fieldConfig": {"defaults": {}, "overrides": []},
+      "gridPos": {"h": 10, "w": 10, "x": 14, "y": 15},
+      "id": 7,
+      "options": {"cellHeight": "sm", "footer": {"countRows": false, "fields": "", "reducer": ["sum"], "show": false}, "showHeader": true},
+      "targets": [{"datasource": {"type": "frser-sqlite-datasource", "uid": "candidate-e-shadow"}, "queryText": "SELECT scenario_id AS 'Scenario', COALESCE(reason, 'UNSPECIFIED') AS 'No-Fill Reason', COUNT(*) AS 'Count' FROM shadow_events WHERE event_type = 'shadow_no_fill' AND (run_id = ${run_id:sqlstring} OR ${run_id:sqlstring} = '__all__' OR (${run_id:sqlstring} = '__current__' AND run_id = (SELECT value FROM dashboard_metadata WHERE key='input_run_id'))) GROUP BY scenario_id, reason ORDER BY Count DESC", "rawQueryText": "SELECT scenario_id AS 'Scenario', COALESCE(reason, 'UNSPECIFIED') AS 'No-Fill Reason', COUNT(*) AS 'Count' FROM shadow_events WHERE event_type = 'shadow_no_fill' AND (run_id = ${run_id:sqlstring} OR ${run_id:sqlstring} = '__all__' OR (${run_id:sqlstring} = '__current__' AND run_id = (SELECT value FROM dashboard_metadata WHERE key='input_run_id'))) GROUP BY scenario_id, reason ORDER BY Count DESC", "refId": "A", "timeColumns": ["time", "ts"], "queryType": "table"}],
+      "title": "No-Fill Diagnostics",
+      "type": "table"
+    },
+    {
+      "datasource": {"type": "frser-sqlite-datasource", "uid": "candidate-e-shadow"},
+      "fieldConfig": {"defaults": {"decimals": 2, "unit": "currencyUSD"}, "overrides": []},
+      "gridPos": {"h": 10, "w": 24, "x": 0, "y": 25},
+      "id": 8,
+      "options": {"legend": {"calcs": ["lastNotNull"], "displayMode": "table", "placement": "bottom", "showLegend": true}, "tooltip": {"mode": "multi", "sort": "desc"}},
+      "targets": [{"datasource": {"type": "frser-sqlite-datasource", "uid": "candidate-e-shadow"}, "queryText": "SELECT CAST(strftime('%s', exit_utc) AS INTEGER) AS time, scenario_id AS metric, SUM(simulated_net_pnl) OVER (PARTITION BY scenario_id ORDER BY exit_utc, position_id) AS value FROM trades WHERE simulated_flat = 1 AND exit_utc IS NOT NULL AND (run_id = ${run_id:sqlstring} OR ${run_id:sqlstring} = '__all__' OR (${run_id:sqlstring} = '__current__' AND run_id = (SELECT value FROM dashboard_metadata WHERE key='input_run_id'))) ORDER BY exit_utc, scenario_id, position_id", "rawQueryText": "SELECT CAST(strftime('%s', exit_utc) AS INTEGER) AS time, scenario_id AS metric, SUM(simulated_net_pnl) OVER (PARTITION BY scenario_id ORDER BY exit_utc, position_id) AS value FROM trades WHERE simulated_flat = 1 AND exit_utc IS NOT NULL AND (run_id = ${run_id:sqlstring} OR ${run_id:sqlstring} = '__all__' OR (${run_id:sqlstring} = '__current__' AND run_id = (SELECT value FROM dashboard_metadata WHERE key='input_run_id'))) ORDER BY exit_utc, scenario_id, position_id", "refId": "A", "timeColumns": ["time", "ts"], "queryType": "timeSeries"}],
+      "title": "All Five Scenarios — Cumulative Simulated P&L",
+      "type": "timeseries"
+    }
+  ],
+  "refresh": "5s",
+  "schemaVersion": 41,
+  "tags": ["candidate-e", "shadow", "scenario-lab"],
+  "templating": {"list": [{"current": {"selected": true, "text": "Current run", "value": "__current__"}, "datasource": {"type": "frser-sqlite-datasource", "uid": "candidate-e-shadow"}, "definition": "SELECT '__current__' AS __value, 'Current run' AS __text UNION ALL SELECT DISTINCT run_id AS __value, run_id AS __text FROM shadow_events ORDER BY __text", "hide": 0, "includeAll": true, "allValue": "__all__", "label": "Run", "multi": false, "name": "run_id", "options": [], "query": "SELECT '__current__' AS __value, 'Current run' AS __text UNION ALL SELECT DISTINCT run_id AS __value, run_id AS __text FROM shadow_events ORDER BY __text", "refresh": 1, "regex": "", "skipUrlSync": false, "sort": 0, "type": "query"}]},
+  "time": {"from": "now-24h", "to": "now"},
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Candidate-E Shadow — Overview & Scenario Lab",
+  "uid": "candidate-e-shadow",
+  "version": 1
+}

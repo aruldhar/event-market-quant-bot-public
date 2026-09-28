@@ -1,0 +1,170 @@
+{
+  "candidate_id": "kxbtcd_btc_distance_offset_logistic.v1",
+  "champion_final_fingerprint": "b45478594c088c09086d55d14e70aa7a22a62dc546cf0f2d9a1e3bb2f296b8dc",
+  "checkpoint_id": "21N-B",
+  "development_economics_predeclaration_fingerprint": "692b7239067b3024db908fc0e0809f33f900f685faec97c45743195e19d364e5",
+  "development_gate": {
+    "conditions": [
+      "base pooled mean P&L per event > 0",
+      "+1c stressed pooled mean P&L per event > 0",
+      "base mean P&L per event > 0 in at least 4 of 5 chronological 514-event blocks",
+      "base mean P&L per event > 0 in newest chronological block B4",
+      "base H3 mean P&L per event > 0"
+    ],
+    "no_passing_threshold": "FAIL_NO_THRESHOLD",
+    "no_post_outcome_threshold_repair": true,
+    "positive_means_strictly_greater_than_zero": true,
+    "winner_rule": "Among selection-eligible thresholds passing every condition, choose highest +1c stressed pooled mean P&L per event; exact tie chooses the higher threshold."
+  },
+  "development_scope": {
+    "block_order_rule": "sort unique events by event_close_time_utc ascending, then event_ticker ascending",
+    "chronological_block_count": 5,
+    "events": 2570,
+    "events_per_block": 514,
+    "stages": [
+      "H1_OOF",
+      "H2",
+      "H3"
+    ]
+  },
+  "future_c1_c2_confirmation": {
+    "authorization_condition": "Only after one development threshold is selected and its result is frozen/closed.",
+    "authorized_now": false,
+    "chronological_blocks": 5,
+    "conditions": [
+      "base pooled mean P&L per event > 0",
+      "+1c stressed pooled mean P&L per event > 0",
+      "base mean P&L per event > 0 in at least 4 of 5 chronological 200-event blocks",
+      "base mean P&L per event > 0 in newest chronological block"
+    ],
+    "events": 1000,
+    "events_per_block": 200,
+    "failure_consequence": "Reject quoted-entry hold Strategy-v1 family; no repair/retune on C1+C2.",
+    "no_threshold_search": true,
+    "selected_threshold_frozen": true
+  },
+  "historical_probability_provenance": {
+    "development": {
+      "H1_OOF": "Candidate-E H1 out-of-fold probabilities",
+      "H2": "frozen H2 out-of-sample Candidate-E probabilities",
+      "H3": "frozen H3 out-of-sample Candidate-E probabilities"
+    },
+    "future_c1_c2_confirmation": {
+      "C1": "Champion-R0 probabilities frozen before C1 outcomes",
+      "C2": "Champion-R1 probabilities frozen before C2 outcomes"
+    },
+    "rule": "Use only the original frozen out-of-sample/OOF Candidate-E lifecycle predictions for each historical stage; never recompute Champion-Final probabilities on fit events."
+  },
+  "metrics": {
+    "maximum_drawdown_rule": "Chronological cumulative event P&L including abstentions as zero; initial peak is 0.",
+    "primary": "mean_net_pnl_per_event_including_abstentions_as_zero",
+    "secondary": [
+      "mean_net_pnl_per_trade",
+      "total_net_pnl",
+      "total_capital_deployed",
+      "return_on_deployed_capital",
+      "win_rate_among_entries",
+      "maximum_drawdown_on_chronological_event_pnl",
+      "worst_individual_trade",
+      "entry_count",
+      "abstention_count",
+      "stage_pnl_per_event",
+      "chronological_block_pnl_per_event",
+      "side_ttc_structural_role_diagnostics",
+      "stress_scenario_metrics"
+    ]
+  },
+  "opportunity_audit_binding": {
+    "audit_fingerprint": "7175175f11bb2714d4bbfc9dc59d9d23d7be721fa0295d7ed664d598a1036ae0",
+    "candidate_probability_row_count": 76419,
+    "candidate_side_state_count": 152838,
+    "candidate_side_states_sha256": "da923ac9af0a4c6779af9f66f10bb4d6ceac5e9373d15e9905253d4d120a569f",
+    "event_count": 2570,
+    "prediction_sha256s": {
+      "H1_OOF": "867a77cbbf034a574983cb6fb301a77614674d3254297f8e15db377d5c34df16",
+      "H2": "4aa6efe3c3bdc231fc8289f11fe01e1ad5a65910ae0ea92d2586447fd6b7d3d6",
+      "H3": "091affc5ac088aa61db43a5df18f15178bceeea2ee26bd266b61fd059fd08380"
+    },
+    "preoutcome_sha256": "32ce45e30d2b8c9d57fe68940e4bc791fec76e061ae01b5f07f042f4a9169028",
+    "realized_pnl_calculated": false,
+    "settlement_outcomes_used": false,
+    "strategy_config_sha256": "3e7516745b6780815099149bda408771884e59c6fc638488ee68c04ba1a739fb",
+    "threshold_enter_counts": {
+      "0": 820,
+      "0.01": 542,
+      "0.02": 306,
+      "0.03": 159,
+      "0.05": 33
+    },
+    "threshold_event_selections_sha256": "3c43d7c489dac9d761f442f594af24e1a52d478fe2e3bfdfc9e92eb84e636121",
+    "threshold_winner_selected": false
+  },
+  "parent_checkpoint_commit": "95b5bfa0e386c1391e6b176c990bcd049e083850",
+  "parent_closeout_receipt_commit": "730fd3a79574951d7501ad7f12f67f673fdba523",
+  "parent_strategy_predeclaration_fingerprint": "5abea8adcaa782a57c9f69ef96b638fe1779370774e9f1c99a81b4340d42a8a6",
+  "realized_economics": {
+    "abstain_capital_deployed": 0.0,
+    "abstain_pnl": 0.0,
+    "capital_deployed_formula": "purchase_price + standard_entry_fee",
+    "historical_fill_claim": false,
+    "pnl_formula": "side_payout - purchase_price - standard_entry_fee",
+    "side_payout": {
+      "NO": "1-outcome",
+      "YES": "outcome"
+    },
+    "standard_entry_fee_formula": "ceil_cent(0.07 * 1 * P * (1-P))"
+  },
+  "safety": {
+    "c1_c2_strategy_pnl_authorized": false,
+    "c3_accessed": false,
+    "demo_execution_authorized": false,
+    "development_outcomes_may_be_read_only_after_implementation_closeout": true,
+    "development_strategy_pnl_calculated_before_implementation_freeze": false,
+    "network_access_authorized": false,
+    "orders_authorized": false,
+    "paper_broker_authorized": false,
+    "protected_reserve_accessed": false,
+    "real_money_execution_authorized": false
+  },
+  "schema_version": "kxbtcd_candidate_e_quoted_entry_hold_development_economics_predeclaration.v1",
+  "strategy_id": "kxbtcd_candidate_e_quoted_entry_hold_v1",
+  "strategy_policies": {
+    "all_thresholds_dollars": [
+      0.0,
+      0.01,
+      0.02,
+      0.03,
+      0.05
+    ],
+    "diagnostic_only_thresholds_dollars": [
+      0.05
+    ],
+    "entry_selection": "exact 21N-A first-qualifying-anchor selection; do not reselect trades after outcomes are opened",
+    "five_cent_reason": "Outcome-independent audit produced only 33 development entries; it may be scored diagnostically but may not become the selected Strategy-v1 threshold.",
+    "position_policy": "hold selected side to settlement; no early exit, re-entry, adding, averaging, side switching, stops, targets, or sizing optimization",
+    "quantity_contracts": 1,
+    "selection_eligible_thresholds_dollars": [
+      0.0,
+      0.01,
+      0.02,
+      0.03
+    ]
+  },
+  "stress_policy": {
+    "additional_stresses_are_diagnostic": [
+      0.02,
+      0.03
+    ],
+    "adverse_purchase_price_stress_dollars": [
+      0.0,
+      0.01,
+      0.02,
+      0.03
+    ],
+    "gate_stress": 0.01,
+    "interpretation": "Sensitivity analysis only; not an empirical slippage, depth, queue, or latency estimate.",
+    "invalid_price_rule": "If stressed price is outside [0,1], mark that threshold stress scenario invalid as a whole; do not cap, omit, interpolate, or impute the trade.",
+    "recalculate_fee_at_stressed_price": true,
+    "stressed_price_formula": "quoted_purchase_price + stress"
+  }
+}

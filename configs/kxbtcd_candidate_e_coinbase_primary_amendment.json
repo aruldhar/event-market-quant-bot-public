@@ -1,0 +1,84 @@
+{
+  "amendment_fingerprint": "b08da00a8f66817d9e3b600ccf091c8a4fc1ee92a0bed1c821d23bc321d9faba",
+  "amendment_id": "candidate_e_coinbase_primary_source_amendment.v1",
+  "candidate_e": {
+    "feature_primary_price": "Coinbase",
+    "formula_changed": false,
+    "kraken_is_model_feature": false,
+    "metrics_changed": false,
+    "rolling_origin_selection_changed": false,
+    "variant_menu_changed": false
+  },
+  "checkpoint_id": "19H-B",
+  "event_eligibility": {
+    "anchor_requires_at_least_one_valid_kalshi_structural_quote": true,
+    "anchor_requires_exact_coinbase_5m_lookback": true,
+    "anchor_requires_exact_coinbase_current": true,
+    "kalshi_quote_staleness_limit_seconds": 60,
+    "kraken_required": false,
+    "minimum_eligible_anchor_count": 4,
+    "scheduled_anchor_count": 6
+  },
+  "evidence": {
+    "anchor_exclusion_counts": {
+      "current_cross_source_disagreement_above_5bp": 570,
+      "lookback_cross_source_disagreement_above_5bp": 570,
+      "missing_kraken_current": 3,
+      "missing_kraken_lookback": 3
+    },
+    "both_sources_without_5bp_veto_eligible_events": 459,
+    "candidate_e_fits": 0,
+    "coinbase_only_eligible_events": 459,
+    "counterfactual_eligibility_fraction": 0.765,
+    "current_rule_eligibility_fraction": 0.505,
+    "current_rule_eligible_events": 303,
+    "current_rule_total_events": 600,
+    "events_rescued_by_removing_5bp_veto": 156,
+    "interpretation": "Kraken availability was not the material coverage bottleneck; the 5 bp cross-venue disagreement veto was.",
+    "network_requests_in_counterfactual_audit": 0,
+    "outcomes_accessed": 0,
+    "scope": "first 600 canonical untouched queue identities under 19G materialization"
+  },
+  "parent_contract_fingerprint": "cc3e3326455fce2abbf7e39bdb8858d0d4cea67415ea90ece091259780de9145",
+  "partitions": {
+    "H1_train_events": 1500,
+    "H2_validation_events": 750,
+    "H3_locked_test_events": 750,
+    "minimum_unallocated_tail_events": 5000,
+    "raw_queue_consumption_limit": 4431,
+    "reason": "The 600-event outcome-blind counterfactual eligibility rate was 76.5%, above the 67.7% rate required to fill 3,000 eligible events within the 4,431-event cap.",
+    "sample_sizes_changed": false
+  },
+  "safety": {
+    "candidate_e_fitting_authorized": false,
+    "demo_execution": false,
+    "new_candidate_e_outcome_access_authorized": false,
+    "orders_placed": 0,
+    "paper_execution": false,
+    "read_only": true,
+    "real_money_execution": false
+  },
+  "schema_version": "kxbtcd_candidate_e_coinbase_primary_amendment.v1",
+  "source_policy": {
+    "carry_forward_allowed": false,
+    "cross_source_disagreement_veto_enabled": false,
+    "future_interpolation_allowed": false,
+    "historical_required_current_state": "exact last fully completed UTC 1m Coinbase candle close at scheduled TTC target T",
+    "historical_required_lookback_state": "exact Coinbase completed-minute close 300 seconds before current bucket",
+    "historical_required_primary_source": "coinbase.exchange.public_rest.product_candles.btc_usd.1m.v1",
+    "kraken_role": "optional diagnostic only; not required for Candidate-E row or anchor eligibility",
+    "live_decision_path": "Coinbase primary state only; Kraken may run asynchronously as a nonblocking diagnostic monitor",
+    "missing_kraken_may_reject_anchor": false,
+    "nearest_sampling_allowed": false,
+    "source_substitution_allowed": false
+  },
+  "status": "pre_outcome_frozen_amendment",
+  "supersession": {
+    "coinbase_primary_materialization_restarts_queue_index": 0,
+    "duplicate_reserve_consumption_for_same_event_identity": false,
+    "final_reserve_accounting_basis": "unique frozen queue indices in the effective Coinbase-primary canonical prefix",
+    "first_600_same_event_identities_may_be_rematerialized": true,
+    "old_19g_chunks_may_enter_coinbase_primary_freeze": false,
+    "old_19g_chunks_status": "preserved as superseded source-feasibility evidence only"
+  }
+}

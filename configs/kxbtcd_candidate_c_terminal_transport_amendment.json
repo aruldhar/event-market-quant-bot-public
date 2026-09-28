@@ -1,0 +1,46 @@
+{
+  "candidate_id": "kxbtcd_market_spread_interaction_logistic.v1",
+  "dataset_fingerprint": "d78a9956b7ba48ec2fda2998396defcd0b5a62d5f13ea01dab1b68a67c66379a",
+  "execution_enabled": false,
+  "failed_manifest": "data\\manifests\\2026\\08\\15\\collect_kxbtcd_candidate_c_locked_test_20260815T224506878886Z_31832daa.json",
+  "failed_manifest_sha256": "9cbf18cc44933330c8d27ed000aa2c04015f1fb660aca13979ae6ec4253c5627",
+  "failed_run_id": "collect_kxbtcd_candidate_c_locked_test_20260815T224506878886Z_31832daa",
+  "final_model_fingerprint": "13013c606586f68689be20fda143314d968d918ef8e26fca2fee75987768724f",
+  "frozen_invariants": {
+    "feature_change_allowed": false,
+    "gate_change_allowed": false,
+    "lambda_change_allowed": false,
+    "locked_test_membership_change_allowed": false,
+    "metric_change_allowed": false,
+    "model_change_allowed": false,
+    "optimizer_change_allowed": false,
+    "preprocessing_change_allowed": false,
+    "recalibration_allowed": false,
+    "tie_rule_change_allowed": false
+  },
+  "full_development_freeze_fingerprint": "d0c996311554b86f3ae234dcdce803b2bfb2c3460403a1518199c4a4c1bd8fa3",
+  "implementation_sha256s": {
+    "resume_kxbtcd_candidate_c_locked_test_transport_repair.py": "5863ba16f19c0ca7a2355a0225b58fceb90d4d38d03d49fe7974d52de1dc4a71",
+    "src/kxbtcd_candidate_c_terminal_transport_repair.py": "5d841c44fa8133f8cd08570442c7005740f4e8cc2fb2d4b2662c798846a0e4ad"
+  },
+  "label_values_used_to_design_repair": false,
+  "locked_test_event_count": 64,
+  "locked_test_market_request_count": 304,
+  "locked_test_permanently_exposed": true,
+  "locked_test_row_count": 1014,
+  "orders_placed": 0,
+  "persisted_label_count_before_repair": 9,
+  "repair_scope": "transport_routing_only",
+  "schema_version": "kxbtcd_candidate_c_terminal_transport_amendment.v1",
+  "split_fingerprint": "28801122054bbc82b06b7c038a265377685ef017f9861fb435aa40fdaa07f503",
+  "terminal_evaluation_fingerprint": "bb37e9d5f9e5eb856e971fc9cb3464d567d3d088e8eead71ff171b0a171e8daa",
+  "transport_amendment_fingerprint": "79069ec5a1b2d3622bca026d8987d390f0abda6d8433a970ed4530eee7630c33",
+  "transport_strategy": {
+    "existing_recovered_labels_are_not_re_requested": true,
+    "for_each_not_yet_recovered_ticker": "query /markets/{ticker}; on HTTP 404 only, retry /historical/markets/{ticker}",
+    "identity_validation_unchanged": true,
+    "manifest_chain_recovery_required": true,
+    "raw_first_persistence_required": true,
+    "request_membership_change_allowed": false
+  }
+}

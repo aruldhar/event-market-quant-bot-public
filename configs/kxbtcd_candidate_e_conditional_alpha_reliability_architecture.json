@@ -1,0 +1,89 @@
+{
+  "architecture_fingerprint": "bb7ebb7b12a9b817465e9e522d65b2f5a129f9e5aaa12a1c8ac6e5fd666a6742",
+  "candidate_family_id": "kxbtcd_candidate_e_conditional_alpha_reliability.v1",
+  "checkpoint_id": "21N-H",
+  "core_architecture": {
+    "alpha_definition": "alpha_i = sigmoid(gamma_0 + gamma^T X_i), constrained strictly between 0 and 1",
+    "candidate_e_refit": false,
+    "cannot_extrapolate_beyond_market_and_candidate_e": true,
+    "interpretation": "alpha_i is state-conditional trust in Candidate E's disagreement with the contemporaneous market",
+    "kalshi_midpoint_refit": false,
+    "market_reference": "contemporaneous Kalshi YES midpoint q=(yes_bid+yes_ask)/2",
+    "no_adjustment": "apply same reliability weight symmetrically in side probability space",
+    "yes_adjustment": "p_adj_yes_i = q_yes_i + alpha_i * (pE_yes_i - q_yes_i)"
+  },
+  "evidence_firewall": {
+    "C1_C2_conditional_alpha_use_authorized_now": false,
+    "C1_C2_status": "OUTCOMES_EXPOSED_FOR_PRIOR_MODEL2_RESEARCH_NOT_FRESH_GLOBALLY",
+    "C3_conditional_alpha_use_authorized_now": false,
+    "C3_status": "KEEP_LOCKED_AGAINST_CONDITIONAL_ALPHA_DEVELOPMENT",
+    "H1_OOF_H2_H3_status": "FULLY_EXPOSED_DEVELOPMENT_AND_STRATEGY_ECONOMICS",
+    "no_claim_of_global_freshness": true,
+    "protected_reserve_status": "SEALED",
+    "protected_reserve_use_authorized_now": false
+  },
+  "explicit_posthoc_exclusions": [
+    "block_id_or_calendar_identity_proxy",
+    "hardcoded_B1_B2_or_B3_B4_rules",
+    "hardcoded_NO_only_or_YES_only_rule_from_exposed_economics",
+    "hardcoded_avoid_T55_rule_from_exposed_economics",
+    "alpha_0_25_rescue",
+    "intermediate_global_alpha_search",
+    "direct_use_of_realized_trade_pnl_as_feature",
+    "future_quotes_or_future_BTC_state",
+    "outcomes_as_features",
+    "execution_fill_information_not_available_at_decision_time"
+  ],
+  "frozen_candidate_e": {
+    "candidate_id": "kxbtcd_btc_distance_offset_logistic.v1",
+    "champion_final_fingerprint": "b45478594c088c09086d55d14e70aa7a22a62dc546cf0f2d9a1e3bb2f296b8dc",
+    "unchanged": true
+  },
+  "next_checkpoint": {
+    "fit_authorized_in_21N_H": false,
+    "id": "21N-I",
+    "outcome_scoring_authorized_in_21N_H": false,
+    "purpose": "predeclare exact conditional-alpha model, features, training objective, regularization, evidence roles, and advancement gates before any fit"
+  },
+  "parent_strategy_v2_result_closeout_fingerprint": "02b8aab23161419abd1cdf02c79072f070067ed28f16ef186959e6fc5b3f5ee4",
+  "permitted_feature_directions_for_next_predeclaration": [
+    "absolute_or_signed_CandidateE_minus_market_disagreement",
+    "contemporaneous_spread",
+    "causal_BTC_return_or_movement_state",
+    "causal_recent_Kalshi_quote_movement_and_range",
+    "causal_recent_public_market_activity",
+    "time_to_close",
+    "structural_role"
+  ],
+  "research_target": {
+    "direct_realized_pnl_training_target": false,
+    "position_management_target": false,
+    "primary_question": "When is Candidate E's market disagreement reliable enough that its adjusted probability supports robust quoted-entry economics?",
+    "quote_and_fee_economics_applied_after_probability_adjustment": true,
+    "settlement_outcome_may_supervise_reliability": true
+  },
+  "safety": {
+    "c1_c2_strategy_pnl_accessed": false,
+    "c3_accessed_for_conditional_alpha": false,
+    "demo_execution_used": false,
+    "model_fit_performed": false,
+    "network_accessed": false,
+    "new_outcomes_opened": false,
+    "orders_submitted": false,
+    "paper_broker_used": false,
+    "protected_reserve_accessed": false,
+    "real_execution_used": false
+  },
+  "schema_version": "kxbtcd_candidate_e_conditional_alpha_reliability_architecture.v1",
+  "status": "ARCHITECTURE_ONLY_NOT_FIT_AUTHORIZED",
+  "unresolved_before_fit": [
+    "exact_feature_list_and_transformations",
+    "exact_alpha_model_parameterization_and_regularization",
+    "training_loss_and_event_weighting",
+    "rolling_origin_tuning_contract",
+    "development_benchmarks",
+    "economic_entry_policy_using_p_adj",
+    "advancement_gates",
+    "later_evidence_role_for_C1_C2_and_C3"
+  ]
+}

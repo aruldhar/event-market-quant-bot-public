@@ -1,0 +1,126 @@
+{
+  "acceptance_gate": {
+    "adjacent_B1_B2_B3_B4_B5_R2_regression_required": true,
+    "focused_tests_required": true,
+    "full_repository_regression_required_before_any_process_level_live_probe": true,
+    "live_probe_in_design_checkpoint": false,
+    "offline_validator_required": true
+  },
+  "analysis_role": "design_only_offline_process_restart_and_read_only_strategy_reconciliation_freeze",
+  "checkpoint_id": "21N-Z-E-B5-R3-A",
+  "design_decisions": {
+    "durability_gate_role": [
+      "sqlite_integrity_pass",
+      "prior_session_classified_clean_or_unclean",
+      "pending_raw_decisions_reconciled",
+      "no_pending_raw_durability_rows_remain",
+      "raw_evidence_gap_rows_preserved_and_excluded_not_reconstructed"
+    ],
+    "new_persisted_strategy_state_table": false,
+    "raw_gap_semantics": "A reconciled RAW_EVIDENCE_GAP is permanent audit evidence for the affected prior decision and does not permanently poison the new process. It is excluded from canonical decision evidence and fresh recovery may proceed after all current gates pass.",
+    "reason": "Frozen restart contract requires current ATM window, Candidate-E probability and current signal selection to be rebuilt from fresh authoritative state; prior decisions remain audit-only and no fills, positions or actionable prior signal are persisted.",
+    "source_restart_role": [
+      "old_process_coinbase_builder_never_current",
+      "old_process_kalshi_cache_never_current",
+      "new_process_requires_fresh_coinbase_current_completed_minute",
+      "new_process_requires_fresh_kalshi_current_full_ladder"
+    ],
+    "strategy_reconciliation_gate_role": [
+      "fresh_process_strategy_state_explicitly_neutral",
+      "prior_signal_reusable_false",
+      "current_atm_window_not_restored",
+      "current_candidate_probability_not_restored",
+      "current_signal_selection_not_restored",
+      "no_fill_position_order_or_cash_state_loaded",
+      "execution_mode_disabled"
+    ]
+  },
+  "design_fingerprint": "0623977817c055b5557296b6e9a58ea371c0ea680728c6a68a52a1c5abfdffea",
+  "frozen_restart_design_fingerprint": "40496ce5a4274367c8098dd90d0f0c74d2bae24ba91aaab1e95d14356e0ccdda",
+  "frozen_runtime_architecture_fingerprint": "3061000e53226bcb9f87f61469b42790bc3c2db176f064df95d32d62594891e7",
+  "implementation_boundaries": {
+    "new_execution_logic": false,
+    "new_network_client": false,
+    "new_signal_logic": false,
+    "reuse_existing_B4_source_readiness": true,
+    "reuse_existing_B5_R2_generation_controller_for_offline_source_identity_tests": true,
+    "reuse_existing_reconcile_pending_decisions": true,
+    "reuse_existing_restart_gate_state_machine": true,
+    "schema_migration": false
+  },
+  "orchestrator_contract": {
+    "first_post_restart_signal": "not_in_B5_R3; future fresh recomputation only after READY_READ_ONLY",
+    "first_ready_condition": [
+      "identity_pass",
+      "cohort_active",
+      "durability_pass",
+      "clock_pass",
+      "coinbase_current_session_current_generation_pass",
+      "kalshi_current_session_current_generation_pass",
+      "strategy_reconciliation_pass",
+      "execution_mode_disabled"
+    ],
+    "new_runtime_session_every_process_start": true,
+    "old_session_monotonic_values_seed_new_freshness": false,
+    "prior_signal_reusable": false,
+    "readiness_generation_initial_value": 0,
+    "restart_gate_initial_state": "STARTUP_DISABLED"
+  },
+  "parent_receipt_commit": "b7e034a6fdce10d42fca83e5d7e5ce182412e9fe",
+  "required_offline_matrix": [
+    {
+      "case": "clean_restart",
+      "expected": "new_session_starts_blocked_until_all_fresh_current_gates_pass",
+      "prior_session": "CLEAN"
+    },
+    {
+      "case": "unclean_restart_no_pending_decision",
+      "expected": "prior_marked_UNCLEAN_DETECTED_and_process_gap_recorded",
+      "prior_session": "RUNNING"
+    },
+    {
+      "case": "unclean_restart_pending_decision_complete_raw",
+      "expected": "pending_decision_becomes_VERIFIED_then_fresh_recovery_allowed"
+    },
+    {
+      "case": "unclean_restart_pending_decision_missing_or_damaged_raw",
+      "expected": "decision_becomes_RAW_EVIDENCE_GAP_gap_recorded_no_reconstruction_fresh_recovery_allowed"
+    },
+    {
+      "case": "old_process_source_objects",
+      "expected": "coinbase_and_kalshi_rejected_for_current_runtime_session"
+    },
+    {
+      "case": "strategy_state_not_neutral",
+      "expected": "BLOCKED_STRATEGY_RECONCILIATION"
+    },
+    {
+      "case": "all_current_gates_pass",
+      "expected": "READY_READ_ONLY_and_readiness_generation_increments"
+    },
+    {
+      "case": "gate_regresses_after_ready",
+      "expected": "immediate_block_gap_recorded_prior_signal_never_reusable"
+    },
+    {
+      "case": "cohort_ended",
+      "expected": "COHORT_ENDED"
+    },
+    {
+      "case": "execution_mode_not_disabled",
+      "expected": "FATAL"
+    }
+  ],
+  "schema_version": "kxbtcd_candidate_e_b5_r3_process_restart_reconciliation_design.v1",
+  "scope": {
+    "candidate_e_signal_computation_authorized": false,
+    "canonical_prospective_db_authorized": false,
+    "demo_execution_authorized": false,
+    "network_activity": false,
+    "order_submission_code_authorized": false,
+    "paper_execution_authorized": false,
+    "prospective_cohort_arm_authorized": false,
+    "real_money_execution_authorized": false,
+    "strategy_or_model_retuning_authorized": false
+  }
+}

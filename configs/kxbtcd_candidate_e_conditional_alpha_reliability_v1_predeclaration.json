@@ -1,0 +1,418 @@
+{
+  "alpha_model": {
+    "adjusted_no_probability": "p_adj_no = 1 - p_adj_yes",
+    "adjusted_yes_probability": "p_adj_yes = q_yes + alpha_i * (pE_yes - q_yes)",
+    "alpha_clip": null,
+    "between_endpoints_invariant_required": true,
+    "cannot_extrapolate_beyond_market_and_candidate_e": true,
+    "formula": "eta_i = gamma_0 + gamma_disagreement*z_disagreement_i + gamma_spread*z_spread_i + gamma_abs_r5m*z_abs_r5m_i + gamma_ttc*z_ttc_i; alpha_i = sigmoid(eta_i)",
+    "initial_alpha_every_state": 0.5,
+    "initial_parameters": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "learned_parameter_count": 5,
+    "learned_parameter_names": [
+      "gamma_0",
+      "gamma_disagreement",
+      "gamma_spread",
+      "gamma_abs_r5m",
+      "gamma_ttc"
+    ],
+    "non_strict_alpha_due_to_floating_point": "fail_closed",
+    "one_shared_model_for_yes_and_no": true
+  },
+  "candidate_id": "kxbtcd_candidate_e_conditional_alpha_reliability.v1",
+  "checkpoint_id": "21N-I",
+  "development_economic_gate": {
+    "all_conditions_required": true,
+    "chronological_block_rule": "sort H2+H3 unique events by event_close_time_utc ascending then event_ticker ascending; split into five contiguous 300-event blocks B0..B4",
+    "conditions": [
+      "base pooled mean net P&L per event including abstentions as zero > 0",
+      "+1c adverse-purchase-price stressed pooled mean net P&L per event including abstentions as zero > 0",
+      "base mean net P&L per event > 0 in at least 4 of 5 chronological 300-event blocks",
+      "base mean net P&L per event > 0 in newest block B4",
+      "base H3 mean net P&L per event > 0",
+      "minimum entry coverage conditions satisfied"
+    ],
+    "evaluation_predictions": "selected-lambda rolling-origin score predictions only: Fold1 H2 plus Fold2 H3; no in-sample full-development predictions",
+    "global_alpha_0_50_economics": "frozen 21N-H result is contextual only; do not reopen or retune global-alpha strategy economics as a new selection search",
+    "minimum_entries_per_score_stage": 20,
+    "minimum_total_entries": 100,
+    "positive_means_strictly_greater_than_zero": true,
+    "score_events": 1500
+  },
+  "development_probability_gate": {
+    "all_conditions_required": true,
+    "conditions": [
+      "pooled H2+H3 conditional-alpha event-equal log loss < Kalshi q log loss",
+      "pooled H2+H3 conditional-alpha event-equal log loss < Candidate-E log loss",
+      "pooled H2+H3 conditional-alpha event-equal log loss < global-alpha-0.50 log loss",
+      "pooled H2+H3 conditional-alpha event-equal Brier <= each of Kalshi q, Candidate E, and global-alpha-0.50",
+      "conditional-alpha log loss < global-alpha-0.50 log loss separately in H2",
+      "conditional-alpha log loss < global-alpha-0.50 log loss separately in H3",
+      "median event-level (alpha0.50 log loss - conditional-alpha log loss) > 0 across pooled H2+H3",
+      "all fits converge and all scaler/model/prediction/metric values are finite",
+      "every alpha satisfies 0 < alpha < 1 and every p_adj remains between q and pE",
+      "no source, timing, lineage, evidence-firewall, or contamination violation"
+    ],
+    "primary_ties": "fail"
+  },
+  "development_scope": {
+    "fresh_validation_claim": false,
+    "new_outcomes_opened_by_21N_I": false,
+    "outcomes_globally_exposed": true,
+    "stages": {
+      "H1_OOF": {
+        "events": 1070,
+        "role": "fit_only_in_fold1_then_fit_in_fold2",
+        "rows": 31656
+      },
+      "H2": {
+        "events": 750,
+        "role": "score_fold1_then_fit_in_fold2",
+        "rows": 22354
+      },
+      "H3": {
+        "events": 750,
+        "role": "score_fold2_only",
+        "rows": 22409
+      }
+    },
+    "total_events": 2570,
+    "total_rows": 76419
+  },
+  "downstream_entry_policy": {
+    "adding_or_averaging": false,
+    "adjusted_net_edge_formula": "adjusted_side_probability - quoted_purchase_price - standard_entry_fee",
+    "anchor_order_ttc_minutes": [
+      55,
+      50,
+      45,
+      40,
+      35,
+      30
+    ],
+    "early_exit": false,
+    "first_qualifying_anchor": true,
+    "historical_accounting": "hold selected side to settlement for quote-screening research only",
+    "historical_fill_claim": false,
+    "maximum_entries_per_event": 1,
+    "no_purchase_price": "1 - yes_bid",
+    "no_qualifying_state_action": "ABSTAIN",
+    "no_side_probability": "1 - p_adj_yes",
+    "qualification_rule": "adjusted_net_edge >= 0",
+    "reentry": false,
+    "side_switching": false,
+    "sides": [
+      "YES",
+      "NO"
+    ],
+    "sizing_optimization": false,
+    "standard_entry_fee_formula": "ceil_cent(0.07 * P * (1-P))",
+    "structural_roles": [
+      "q10",
+      "q30",
+      "q50",
+      "q70",
+      "q90"
+    ],
+    "whole_contract_quantity": 1,
+    "within_anchor_choice": "largest adjusted_net_edge; exact tie market_ticker ascending then YES before NO",
+    "yes_purchase_price": "yes_ask",
+    "yes_side_probability": "p_adj_yes"
+  },
+  "evidence_roles": {
+    "C1_C2": {
+      "authorized_in_21N_I": false,
+      "future_role": "one-time non-fresh confirmation/falsification of the frozen full-development conditional-alpha model only after complete H-development PASS and separate full-fit freeze",
+      "if_confirmation_fails": "reject conditional-alpha v1; do not repair on C1+C2",
+      "retuning_or_feature_change_allowed": false,
+      "status": "OUTCOMES_EXPOSED_PRIOR_MODEL2_NOT_GLOBALLY_FRESH"
+    },
+    "C3": {
+      "authorized_in_21N_I": false,
+      "future_role": "later one-time conditional-alpha-specific holdout only after C1+C2 confirmation PASS and separate authorization",
+      "if_later_test_fails": "reject conditional-alpha v1; no C3 repair",
+      "may_influence_development_or_C1_C2_design": false,
+      "status": "GLOBALLY_EXPOSED_TO_PRIOR_CANDIDATE_E_LIFECYCLE_BUT_LOCKED_AGAINST_CONDITIONAL_ALPHA"
+    },
+    "H1_OOF_H2_H3": "FULLY_EXPOSED_DEVELOPMENT_ONLY",
+    "protected_reserve": {
+      "authorized_in_21N_I": false,
+      "automatic_open_after_C3": false,
+      "future_use_requires_separate_predeclaration_and_explicit_authorization": true,
+      "status": "SEALED"
+    }
+  },
+  "explicit_v1_feature_exclusions": [
+    "signed_CandidateE_minus_market_disagreement",
+    "side_indicator_or_separate_YES_NO_models",
+    "structural_role_indicators",
+    "recent_Kalshi_mid_move_or_range_features",
+    "recent_public_market_activity_features",
+    "open_interest_or_taker_imbalance_features",
+    "calendar_or_block_identity",
+    "hardcoded_T55_or_other_TTC_bucket_rules",
+    "direct_q_yes_as_learned_predictor",
+    "direct_pE_yes_as_learned_predictor",
+    "future_quotes_or_future_BTC_state",
+    "outcome_as_feature",
+    "realized_trade_PnL_or_fill_information"
+  ],
+  "failure_and_contamination_protections": [
+    "do_not_refit_Candidate_E",
+    "do_not_regenerate_Champion_Final_in_sample_predictions_for_historical_supervision",
+    "do_not_add_features_after_outcome_results",
+    "do_not_add_signed_disagreement_side_TTC_bucket_structural_role_or_activity_repairs",
+    "do_not_search_alpha_0_25_alpha_0_75_or_intermediate_global_alphas",
+    "do_not_use_block_identity_or_calendar_identity_proxy",
+    "do_not_train_on_trade_PnL",
+    "do_not_use_quote_fee_or_fill_economics_as_probability_target",
+    "do_not_use_future_quotes_BTC_state_outcomes_or_execution_information_as_features",
+    "do_not_impute_missing_required_causal_state",
+    "do_not_retune_lambda_features_transforms_optimizer_or_gates_on_C1_C2_or_C3",
+    "any_primary_gate_failure_closes_v1_without_subgroup_rescue"
+  ],
+  "feature_preprocessing": {
+    "all_four_features_z_scored": true,
+    "clipping": false,
+    "event_equal_scaling_weights": "w_i = 1 / (E * n_e)",
+    "feature_selection": false,
+    "fit_partition_only_scaling": true,
+    "imputation": false,
+    "interaction_search": false,
+    "minimum_valid_std": "1e-12",
+    "rank_transform": false,
+    "score_partition_statistics_forbidden": true,
+    "standardized_value": "z_ij = (x_ij - mu_j) / sigma_j",
+    "weighted_mean": "mu_j = sum_i w_i * x_ij",
+    "weighted_population_variance": "var_j = sum_i w_i * (x_ij - mu_j)^2",
+    "winsorization": false
+  },
+  "features": [
+    {
+      "formula": "abs(pE_yes - q_yes)",
+      "interpretation": "magnitude of Candidate-E disagreement with the contemporaneous Kalshi midpoint",
+      "name": "abs_candidate_market_disagreement",
+      "signed_direction_used": false
+    },
+    {
+      "formula": "yes_ask - yes_bid",
+      "interpretation": "contemporaneous quoted spread",
+      "name": "spread_t"
+    },
+    {
+      "formula": "abs(r_5m)",
+      "interpretation": "magnitude of the frozen causal Coinbase-primary five-minute BTC return",
+      "name": "abs_r_5m",
+      "r_5m_source_formula": "10000 * ln(S_t / S_t_minus_300s)",
+      "signed_direction_used": false
+    },
+    {
+      "allowed_values": [
+        55,
+        50,
+        45,
+        40,
+        35,
+        30
+      ],
+      "categorical_buckets_or_indicators_used": false,
+      "formula": "float(ttc_target_minutes)",
+      "interpretation": "continuous time-to-close context",
+      "name": "ttc_minutes"
+    }
+  ],
+  "fit_contract": {
+    "class_weights": null,
+    "direct_realized_pnl_training_target": false,
+    "event_weighting": "equal_total_weight_per_event",
+    "lambda_grid": [
+      0.001,
+      0.01,
+      0.1,
+      1.0,
+      10.0
+    ],
+    "lambda_zero_candidate": false,
+    "loss_formula": "sum_i w_i * [-y_i*ln(p_adj_i) - (1-y_i)*ln(1-p_adj_i)] + (lambda/2)*sum_j gamma_j^2",
+    "objective": "event_equal_binary_log_loss_plus_L2",
+    "optimizer": {
+      "algorithm": "deterministic_full_batch_BFGS",
+      "armijo_constant": "1e-4",
+      "bfgs_update": "H_next = (I-rho*s*y^T) H (I-rho*y*s^T) + rho*s*s^T, rho=1/(y^T s)",
+      "gradient_l2_tolerance": "1e-8",
+      "initial_inverse_hessian": "5x5 identity",
+      "initial_parameters": "all zeros",
+      "initial_step_scale": "1.0",
+      "line_search": "Armijo_backtracking",
+      "line_search_failure": "fail_closed",
+      "max_iterations": 500,
+      "minimum_step_scale": "2^-40",
+      "new_numerical_dependency": false,
+      "non_convergence": "fail_closed",
+      "non_descent_direction": "fail_closed",
+      "non_finite_state": "fail_closed",
+      "positive_curvature_requirement": "y^T s > 1e-12",
+      "rejected_step_multiplier": "0.5",
+      "warm_starts": false
+    },
+    "random_sampling_or_shuffling": false,
+    "regularized_parameters": "all_5_including_intercept",
+    "row_weight_formula": "w_i = 1 / (E * n_e)",
+    "target": "binary KXBTCD settlement outcome",
+    "within_event_weighting": "equal_weight_per_eligible_state"
+  },
+  "historical_probability_lineage": {
+    "champion_final_future_inference_role": "Use Champion-Final for future prospective/live read-only inference after conditional-alpha model development; do not use Champion-Final retroactive in-sample predictions as historical supervisory baselines.",
+    "development_feature_rows_sha256": "0d52f0cffa30f73c05c820f9f1e9f297a195e9ecb9f2d6193f079767e0b4489c",
+    "development_prediction_sha256s": {
+      "H1_OOF": "867a77cbbf034a574983cb6fb301a77614674d3254297f8e15db377d5c34df16",
+      "H2": "4aa6efe3c3bdc231fc8289f11fe01e1ad5a65910ae0ea92d2586447fd6b7d3d6",
+      "H3": "091affc5ac088aa61db43a5df18f15178bceeea2ee26bd266b61fd059fd08380"
+    },
+    "development_preparation_fingerprint": "2e5d71c0af8ea9204003eea44bc8494aeb7a8afd6eef0ea16effb99ca54f7e7d",
+    "development_state_universe_must_match_exactly": true,
+    "later_confirmation_prediction_sha256s": {
+      "C1": "a15dda96dfdf0255eef627867807f25a9576c0a0d019b32a46ef3e4d6a79e82f",
+      "C2": "598894d19d6fb4e141f71cdb05e53738f83b0b19e905701ca9398d07a0d093b7",
+      "C3": "cce62dbd9fa1bec99494721c9bf583a397dcfb8d1c8777028700914473652e50"
+    },
+    "principle": "Historical supervision uses only frozen OOF/OOS predictions from the same Candidate-E specification that were available before each score stage; Champion-Final is not regenerated in-sample on exposed historical outcomes."
+  },
+  "later_confirmation_gates_frozen_now": {
+    "C1_C2_economic_gate": {
+      "chronological_block_rule": "sort 1000 C1+C2 events chronologically and split into five contiguous 200-event blocks",
+      "conditions": [
+        "base pooled mean net P&L per event > 0",
+        "+1c pooled mean net P&L per event > 0",
+        "base mean net P&L per event > 0 in at least 4 of 5 blocks",
+        "base mean net P&L per event > 0 in newest block",
+        "minimum_total_entries >= 20"
+      ],
+      "minimum_total_entries": 20
+    },
+    "C1_C2_probability_gate": {
+      "all_conditions_required": true,
+      "conditions": [
+        "pooled C1+C2 conditional-alpha event-equal log loss < Kalshi q, Candidate E, and global-alpha-0.50 on identical rows",
+        "pooled C1+C2 conditional-alpha event-equal Brier <= Kalshi q, Candidate E, and global-alpha-0.50 on identical rows",
+        "conditional-alpha log loss < global-alpha-0.50 separately in C1 and C2",
+        "median event-level (alpha0.50 log loss - conditional-alpha log loss) > 0",
+        "all values finite and all bounded-alpha/between-endpoints/lineage invariants pass"
+      ]
+    },
+    "C3_economic_gate": {
+      "chronological_block_rule": "sort 500 C3 events chronologically and split into five contiguous 100-event blocks",
+      "conditions": [
+        "base pooled mean net P&L per event > 0",
+        "+1c pooled mean net P&L per event > 0",
+        "base mean net P&L per event > 0 in at least 4 of 5 blocks",
+        "base mean net P&L per event > 0 in newest block",
+        "minimum_total_entries >= 20"
+      ],
+      "minimum_total_entries": 20
+    },
+    "C3_probability_gate": {
+      "conditions": [
+        "C3 conditional-alpha event-equal log loss < Kalshi q, Candidate E, and global-alpha-0.50 on identical rows",
+        "C3 conditional-alpha event-equal Brier <= Kalshi q, Candidate E, and global-alpha-0.50 on identical rows",
+        "median event-level (alpha0.50 log loss - conditional-alpha log loss) > 0",
+        "all values finite and all bounded-alpha/between-endpoints/lineage invariants pass"
+      ]
+    }
+  },
+  "market_anchor": {
+    "kalshi_midpoint_refit": false,
+    "q_no_formula": "1 - q_yes",
+    "q_yes_formula": "(yes_bid + yes_ask) / 2",
+    "requires_valid_uncrossed_two_sided_yes_quote": true,
+    "yes_bid_ask_are_exact_contemporaneous_causal_state": true
+  },
+  "next_checkpoint": {
+    "fit_authorized_by_21N_I": false,
+    "no_outcomes_until_implementation_closeout": true,
+    "purpose": "implement and independently validate the frozen conditional-alpha mechanics and outcome-blind row materialization before any fit or outcome scoring"
+  },
+  "parent_lineage": {
+    "baseline_receipt_commit": "061f2e4e5b3c4126cb99c2a333d8fe8dfee1e597",
+    "candidate_e_id": "kxbtcd_btc_distance_offset_logistic.v1",
+    "candidate_e_refit": false,
+    "champion_final_fingerprint": "b45478594c088c09086d55d14e70aa7a22a62dc546cf0f2d9a1e3bb2f296b8dc",
+    "conditional_alpha_architecture_fingerprint": "bb7ebb7b12a9b817465e9e522d65b2f5a129f9e5aaa12a1c8ac6e5fd666a6742",
+    "strategy_v2_result_closeout_fingerprint": "02b8aab23161419abd1cdf02c79072f070067ed28f16ef186959e6fc5b3f5ee4"
+  },
+  "predeclaration_fingerprint": "742ff487d63e247a4a14d31d9105977b0755ef38d30ad255e85dd77a741ef4d3",
+  "probability_benchmarks": {
+    "additional_global_alpha_search": false,
+    "alpha_0_25_or_0_75_rescore_for_selection": false,
+    "candidate_e": "alpha=1, p=pE",
+    "global_alpha_0_50": "p50 = q + 0.50*(pE-q)",
+    "kalshi_market": "alpha=0, p=q",
+    "primary_complexity_benchmark": "global_alpha_0_50"
+  },
+  "rolling_origin_selection": {
+    "exact_tie_rule": "larger_lambda",
+    "folds": [
+      {
+        "fit_stages": [
+          "H1_OOF"
+        ],
+        "fold": 1,
+        "score_stage": "H2"
+      },
+      {
+        "fit_stages": [
+          "H1_OOF",
+          "H2"
+        ],
+        "fold": 2,
+        "score_stage": "H3"
+      }
+    ],
+    "full_development_fit_allowed_only_after_complete_development_PASS": true,
+    "full_development_fit_stages": [
+      "H1_OOF",
+      "H2",
+      "H3"
+    ],
+    "lambda_selection_metric": "pooled_H2_H3_event_equal_log_loss",
+    "pooled_score_events": 1500,
+    "same_state_rows_for_all_lambdas": true,
+    "secondary_metric_may_override_selection": false
+  },
+  "safety": {
+    "c1_c2_conditional_alpha_accessed": false,
+    "c3_conditional_alpha_accessed": false,
+    "demo_execution": false,
+    "model_fit_performed_in_21N_I": false,
+    "network_accessed": false,
+    "new_outcomes_opened": false,
+    "order_cancellation": false,
+    "orders_submitted": false,
+    "outcome_scoring_performed_in_21N_I": false,
+    "paper_execution": false,
+    "portfolio_transfers": false,
+    "protected_reserve_accessed": false,
+    "read_only": true,
+    "real_money_execution": false
+  },
+  "schema_version": "kxbtcd_candidate_e_conditional_alpha_reliability_v1_predeclaration.v1",
+  "status": "EXACT_PREDECLARATION_NOT_FIT_AUTHORIZED",
+  "stress_policy": {
+    "advancement_stress_dollars": "0.01",
+    "base_stress_dollars": "0.00",
+    "diagnostic_stress_dollars": [
+      "0.02",
+      "0.03"
+    ],
+    "interpretation": "sensitivity analysis only; not an empirical fill, latency, depth, queue, partial-fill, or missed-fill estimate",
+    "invalid_price_outside_0_1": "invalidate entire scenario; do not cap, omit, interpolate, or impute",
+    "recalculate_standard_entry_fee_at_stressed_price": true,
+    "stressed_purchase_price": "quoted_purchase_price + stress"
+  }
+}

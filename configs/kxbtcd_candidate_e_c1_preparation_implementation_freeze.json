@@ -1,0 +1,51 @@
+{
+  "C1_outcomes_opened": false,
+  "C2_C3_materialization_authorized": false,
+  "c1_contract": {
+    "eligible_event_target": 500,
+    "events_per_subblock": 100,
+    "maximum_chunk_events": 100,
+    "maximum_end_index_exclusive_across_C1_C2_C3": 4931,
+    "minimum_strict_untouched_tail_after_all_confirmation": 4500,
+    "selection": "first 500 eligible events encountered sequentially from queue index 3200",
+    "stop_materialization_immediately_at_500th_eligible_event": true,
+    "strict_tail_events_at_21a": 6231,
+    "strict_tail_start_index": 3200,
+    "subblocks": 5
+  },
+  "candidate_id": "kxbtcd_btc_distance_offset_logistic.v1",
+  "checkpoint_id": "21B-A",
+  "execution_enabled": false,
+  "implementation_freeze_fingerprint": "b69b13a6d0db89be98229f34a946cbdfa24a7280ddbc8bff968f641714a93672",
+  "implementation_sha256s": {
+    "collect_kxbtcd_candidate_e_c1_materialization_chunk.py": "6bc062a34bd028f2c644db5ddc8fbec006c6ebe73157ab3f4d7a6a7827251774",
+    "collect_kxbtcd_candidate_e_coinbase_primary_materialization_chunk.py": "b3f0ca3a0549fb46064cf319c5d11b6d99b55314da6e4e44072f4f81855db3b7",
+    "collect_kxbtcd_candidate_e_historical_materialization_chunk.py": "c9e6f8cd1a4c5769cfd8d6fa74f5f2b6b32c6dbbc37ac106e54aafb5108749b5",
+    "freeze_kxbtcd_candidate_e_c1_preoutcome.py": "ca4cbac957f3bf7c6bf24ab6a84d04017ae161ad02d19f65f98bf76e3c2a269f",
+    "prepare_kxbtcd_candidate_e_c1.py": "87886ced627a5209b583f31e58716092fcbcd30c91f9ebdef5dda710e6b40080",
+    "src/kxbtcd_candidate_e_c1_preparation.py": "10743a09a1986eef61d071fb9d97c12698898c5e08604518f952c2964708ad9c",
+    "src/kxbtcd_candidate_e_coinbase_primary_materialization.py": "4704041068a97e02d5d7ca43aa54fc1017ad9e188c14866aba5fa3a4b7a136ae",
+    "src/kxbtcd_candidate_e_h1_evaluation.py": "a59e862fd2b452b120e406d0116a0e486f319e49bd736aac26c7877a24109d1b",
+    "src/kxbtcd_candidate_e_h3_preparation.py": "8adf8d43411db7f6403a8e95248b9da79fea02e3de4736044abfb70189f955de",
+    "src/kxbtcd_candidate_e_h3_result_closeout.py": "72f061625a9bd06cfa57427ba7c617d02fbfb88e67f34b2d27400809ddd16e31",
+    "src/kxbtcd_candidate_e_historical_materialization.py": "a03ff1c6e973d4f4b4306135c175daa5e6b9857e830faac70df314d3c8760a92"
+  },
+  "network_requests_during_implementation_freeze": 0,
+  "orders_placed": 0,
+  "parent_21a_protocol_fingerprint": "88d1880c026fe8cecf67cbbb8839a6d4acfb463b0871f4ef60db329f50a6ef00",
+  "parent_21a_receipt_commit": "99b9a5fe0fe1de0c91a6f8786033262cc8b6be7a",
+  "parent_h3_result_fingerprint": "436ea27539ed1bd2b30f96cc892bc5fc4b87cecd37035da8a45ca2583e59af54",
+  "r0_contract": {
+    "candidate_or_feature_selection": false,
+    "fit_events": 3000,
+    "fit_rows": 81077,
+    "fit_stages": [
+      "H1",
+      "H2",
+      "H3"
+    ],
+    "same_frozen_distance_specification": true
+  },
+  "schema_version": "kxbtcd_candidate_e_c1_preparation_implementation_freeze.v1",
+  "source_baseline_commit": "99b9a5fe0fe1de0c91a6f8786033262cc8b6be7a"
+}

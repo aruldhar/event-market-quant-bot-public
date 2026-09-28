@@ -1,0 +1,91 @@
+{
+  "C3_identity": {
+    "blocks": {
+      "B0": 100,
+      "B1": 100,
+      "B2": 100,
+      "B3": 100,
+      "B4": 100
+    },
+    "candidate_identities_materialized": 533,
+    "event_count": 500,
+    "market_count": 2470,
+    "reserve_floor_buffer": 176,
+    "row_count": 13549,
+    "strict_tail_end_index_exclusive": 4755,
+    "strict_tail_start_index": 4222,
+    "strict_untouched_tail_floor": 4500,
+    "strict_untouched_tail_remaining": 4676
+  },
+  "C3_outcomes_opened_at_freeze": 0,
+  "H1_H2_H3_C1_C2_hard_deny_identity": {
+    "event_count": 4000,
+    "event_identity_fingerprint": "57c38317d98717ab476bf61a3e576a423c7ae0323added179da4f30241ba3b14",
+    "market_count": 19063,
+    "market_identity_fingerprint": "ec7c2360ae83dd239e348c0d847b2b4dc3d537579097c1ffe144ca972ebe2c60"
+  },
+  "c3_cohort_fingerprint": "08add4c28831c0d460dff706b0cc425550a4d5d3f486d3ec7f14622586101f6b",
+  "c3_implementation_fingerprint": "8f84f299f21b132ffd2db93aeb1f23dc586d5d11a189a271ef707be94d15455f",
+  "c3_preoutcome_row_fingerprint": "898400f7401ef9a96a9c1a0a6d2c99479395ff9fb0a13d93ea7c5fbc3dad51db",
+  "c3_validation_fingerprint": "44271afd92e26dcbdcfa0cea099a36f5246a7b135097c56dfd7d2b4bc4738ed0",
+  "candidate_id": "kxbtcd_btc_distance_offset_logistic.v1",
+  "champion_r2_fingerprint": "2e87b3d1f6f6f9b169f04500b95fc8c83d5ddda4b5f9ef43b11c451f5e6d7964",
+  "checkpoint_id": "21H-A",
+  "evaluation_contract": {
+    "benchmark": "raw_kalshi_midpoint",
+    "beta_distance": "0.014501283346050064",
+    "candidate": "kxbtcd_btc_distance_offset_logistic.v1",
+    "candidate_selection_on_C3_allowed": false,
+    "event_weighting": "equal_total_weight_per_event",
+    "feature_change_on_C3_allowed": false,
+    "gate": {
+      "beta_distance": "finite, converged, >0",
+      "chronological_subblock_log_loss_wins": ">=4/5",
+      "median_event_raw_minus_champion_log_loss_delta": ">0",
+      "newest_subblock_log_loss_win": true,
+      "policy_lineage_source_timing_firewall": "PASS",
+      "pooled_raw_minus_champion_event_equal_brier_delta": ">=0",
+      "pooled_raw_minus_champion_event_equal_log_loss_delta": ">0",
+      "primary_tie": "FAIL",
+      "structural_coverage": "all five structural roles and all six TTC targets"
+    },
+    "hyperparameter_search_on_C3_allowed": false,
+    "model_parameters_fitted_on_C3": false,
+    "within_event_weighting": "equal_weight_per_scored_row"
+  },
+  "execution_enabled": false,
+  "exposure_policy": {
+    "H1_H2_H3_C1_C2_event_and_market_identities_hard_denied": true,
+    "additional_historical_reserve_materialization_allowed": false,
+    "fresh_second_C3_attempt_allowed": false,
+    "future_untouched_claim_on_C3_allowed": false,
+    "permanently_expose_full_C3_before_first_request": true,
+    "remaining_reserve_outcome_access_allowed": false,
+    "resume_only_after_interruption": true
+  },
+  "family_id": "kxbtcd_independent_btc_offset_successor.v1",
+  "implementation_sha256s": {
+    "collect_kxbtcd_candidate_e_c3.py": "03e44d1d62f004ea687312d48009f92f58f581e2dcfac1ea9a179aa20f89ef73",
+    "src/kxbtcd_candidate_e_c3_evaluation.py": "5ff356fc428ea28d355751546e9752858d812f2287fa3e252a3761f7edc02c44"
+  },
+  "model_fit_performed_at_freeze": false,
+  "network_requests_at_freeze": 0,
+  "orders_placed": 0,
+  "outcome_source": {
+    "accepted_results": [
+      "yes",
+      "no"
+    ],
+    "authentication_required": false,
+    "endpoint_template": "/historical/markets/{market_ticker}",
+    "raw_first_persistence_required": true,
+    "required_market_status": "finalized"
+  },
+  "parent_21a_protocol_fingerprint": "88d1880c026fe8cecf67cbbb8839a6d4acfb463b0871f4ef60db329f50a6ef00",
+  "parent_c1_result_fingerprint": "5cd56b6c4711e5a6846e6ea90bb6e004358844585f56fbe663a9d0a0ec17cd19",
+  "parent_c2_result_fingerprint": "ee6cd30b32a9445096f25934d67dfa34046504ee83889947be8c8a40377a8f62",
+  "parent_h3_result_fingerprint": "436ea27539ed1bd2b30f96cc892bc5fc4b87cecd37035da8a45ca2583e59af54",
+  "procedure_derivation_used_C3_outcomes": false,
+  "schema_version": "kxbtcd_candidate_e_c3_evaluator_implementation_freeze.v1",
+  "source_baseline_commit": "8e0c94ec66bcb6113afcab465b8a60b11c6acfac"
+}

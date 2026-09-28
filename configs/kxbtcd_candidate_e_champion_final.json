@@ -1,0 +1,79 @@
+{
+  "candidate_id": "kxbtcd_btc_distance_offset_logistic.v1",
+  "candidate_selection_performed": false,
+  "champion_final_fingerprint": "b45478594c088c09086d55d14e70aa7a22a62dc546cf0f2d9a1e3bb2f296b8dc",
+  "checkpoint_id": "21I-B",
+  "execution_enabled": false,
+  "family_id": "kxbtcd_independent_btc_offset_successor.v1",
+  "feature_selection_performed": false,
+  "fit_contract": {
+    "event_weighting": "equal_total_weight_per_event",
+    "feature_standardization": "none",
+    "hyperparameter_grid": [],
+    "hyperparameter_search": false,
+    "initialization": "all_free_coefficients_zero_raw_market_nesting",
+    "objective": "event_equal_binary_log_loss",
+    "optimizer": {
+      "algorithm": "deterministic_damped_Newton",
+      "armijo_constant": "1e-4",
+      "gradient_l2_tolerance": "1e-8",
+      "max_iterations": 100,
+      "minimum_step_scale": "2^-40",
+      "non_convergence": "fail_closed",
+      "singular_hessian": "fail_closed"
+    },
+    "regularization": "none",
+    "within_event_weighting": "equal_weight_per_scored_row"
+  },
+  "fit_result": {
+    "converged": true,
+    "fit_objective": "0.050195791036485929",
+    "iterations": 10
+  },
+  "fit_scope": {
+    "all_outcomes_previously_exposed": true,
+    "event_count": 4500,
+    "fresh_validation_claim": false,
+    "row_count": 123520,
+    "stages": [
+      "H1",
+      "H2",
+      "H3",
+      "C1",
+      "C2",
+      "C3"
+    ],
+    "strict_untouched_tail_outcomes_accessed": false,
+    "strict_untouched_tail_rows_used": 0
+  },
+  "hyperparameter_search_performed": false,
+  "implementation_freeze_fingerprint": "902bdd1888bb998fd67902cbfe7bf4f82b036ab32bdd41813f4012133cebf023",
+  "lineage": {
+    "c3_outcomes_path": "data/derived/kxbtcd_candidate_e_c3_evaluation/2026/08/18/collect_kxbtcd_candidate_e_c3_20260818T051417765823Z_e29fd0d7_candidate_e_c3_outcomes.csv",
+    "c3_outcomes_sha256": "1dbd8fbbc8add4d70e23467d2af75b3b27c3ce4e43bc053de9270877a65c8fe5",
+    "c3_result_closeout_path": "configs/kxbtcd_candidate_e_c3_result_closeout.json",
+    "c3_result_closeout_sha256": "ae183ac9494a59cd66ab4c0171d5203e95983891c18ce64d7bac05f3bebf06a9",
+    "implementation_freeze_path": "configs/kxbtcd_candidate_e_final_fit_implementation_freeze.json",
+    "implementation_freeze_sha256": "3c491e8085d2090663963695e13087eb738af4b8ed787e7bb92dfab185bbe17a"
+  },
+  "model": {
+    "beta_distance": "0.014939489324405949",
+    "beta_momentum": null,
+    "feature": "btc_strike_log_distance_bps.v1",
+    "formula": "logit(p)=market_logit_offset + beta_distance*d_BTC",
+    "free_parameter_count": 1,
+    "market_logit_offset_clip": "0.001"
+  },
+  "network_requests": 0,
+  "orders_placed": 0,
+  "parent_21a_protocol_fingerprint": "88d1880c026fe8cecf67cbbb8839a6d4acfb463b0871f4ef60db329f50a6ef00",
+  "parent_c1_result_fingerprint": "5cd56b6c4711e5a6846e6ea90bb6e004358844585f56fbe663a9d0a0ec17cd19",
+  "parent_c2_result_fingerprint": "ee6cd30b32a9445096f25934d67dfa34046504ee83889947be8c8a40377a8f62",
+  "parent_c3_result_closeout_fingerprint": "2a9ff681973608f2cdd44371eda8bf4208021610e4f3e74f887a173de1447ede",
+  "parent_c3_result_fingerprint": "b37d5f5f299cf338a2bdf730f114a61b1bea25f3af820c21f81bd1fe13072b08",
+  "parent_champion_r2_fingerprint": "2e87b3d1f6f6f9b169f04500b95fc8c83d5ddda4b5f9ef43b11c451f5e6d7964",
+  "parent_h3_result_fingerprint": "436ea27539ed1bd2b30f96cc892bc5fc4b87cecd37035da8a45ca2583e59af54",
+  "remaining_historical_reserve_accessed": false,
+  "schema_version": "kxbtcd_candidate_e_champion_final.v1",
+  "specification_changed_after_C3": false
+}

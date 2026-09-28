@@ -1,0 +1,61 @@
+{
+  "candidate_id": "kxbtcd_btc_distance_offset_logistic.v1",
+  "checkpoint_id": "21I-A",
+  "execution_enabled": false,
+  "family_id": "kxbtcd_independent_btc_offset_successor.v1",
+  "final_fit_contract": {
+    "all_outcomes_previously_exposed": true,
+    "beta_momentum": null,
+    "candidate_id": "kxbtcd_btc_distance_offset_logistic.v1",
+    "candidate_selection": false,
+    "event_count": 4500,
+    "feature": "btc_strike_log_distance_bps.v1",
+    "feature_selection": false,
+    "free_parameter_count": 1,
+    "fresh_validation_claim": false,
+    "hyperparameter_search": false,
+    "optimizer": {
+      "algorithm": "deterministic_damped_Newton",
+      "armijo_constant": "1e-4",
+      "gradient_l2_tolerance": "1e-8",
+      "max_iterations": 100,
+      "minimum_step_scale": "2^-40",
+      "non_convergence": "fail_closed",
+      "singular_hessian": "fail_closed"
+    },
+    "row_count": 123520,
+    "stages": [
+      "H1",
+      "H2",
+      "H3",
+      "C1",
+      "C2",
+      "C3"
+    ]
+  },
+  "final_fit_performed_at_freeze": false,
+  "implementation_freeze_fingerprint": "902bdd1888bb998fd67902cbfe7bf4f82b036ab32bdd41813f4012133cebf023",
+  "implementation_sha256s": {
+    "fit_kxbtcd_candidate_e_final_champion.py": "d4f8467700292a6953168b83149bfc90e6bfd34429dd86368419fb754368834b",
+    "src/kxbtcd_candidate_e_final_fit.py": "ed21b5f214cedab3b3f3192bd041a880040118da1ddb9ae7fb667b193e6eca19"
+  },
+  "network_requests_at_freeze": 0,
+  "orders_placed": 0,
+  "parent_21a_protocol_fingerprint": "88d1880c026fe8cecf67cbbb8839a6d4acfb463b0871f4ef60db329f50a6ef00",
+  "parent_c1_result_fingerprint": "5cd56b6c4711e5a6846e6ea90bb6e004358844585f56fbe663a9d0a0ec17cd19",
+  "parent_c2_result_fingerprint": "ee6cd30b32a9445096f25934d67dfa34046504ee83889947be8c8a40377a8f62",
+  "parent_c3_result_closeout_fingerprint": "2a9ff681973608f2cdd44371eda8bf4208021610e4f3e74f887a173de1447ede",
+  "parent_c3_result_fingerprint": "b37d5f5f299cf338a2bdf730f114a61b1bea25f3af820c21f81bd1fe13072b08",
+  "parent_champion_r2_fingerprint": "2e87b3d1f6f6f9b169f04500b95fc8c83d5ddda4b5f9ef43b11c451f5e6d7964",
+  "parent_h3_result_fingerprint": "436ea27539ed1bd2b30f96cc892bc5fc4b87cecd37035da8a45ca2583e59af54",
+  "reserve_policy": {
+    "additional_historical_materialization_allowed": false,
+    "reserve_outcomes_accessed": false,
+    "reserve_rows_used_in_fit": 0,
+    "strict_untouched_tail_buffer": 176,
+    "strict_untouched_tail_floor": 4500,
+    "strict_untouched_tail_remaining": 4676
+  },
+  "schema_version": "kxbtcd_candidate_e_final_fit_implementation_freeze.v1",
+  "source_baseline_commit": "933c93044b6967b00825f226bbf597316c4b6e03"
+}

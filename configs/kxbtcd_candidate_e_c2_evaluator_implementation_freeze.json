@@ -1,0 +1,87 @@
+{
+  "C2_identity": {
+    "blocks": {
+      "B0": 100,
+      "B1": 100,
+      "B2": 100,
+      "B3": 100,
+      "B4": 100
+    },
+    "candidate_identities_materialized": 516,
+    "event_count": 500,
+    "market_count": 2441,
+    "row_count": 14007,
+    "strict_tail_end_index_exclusive": 4222,
+    "strict_tail_start_index": 3706,
+    "strict_untouched_tail_floor": 4500,
+    "strict_untouched_tail_remaining": 5209
+  },
+  "C2_outcomes_opened_at_freeze": 0,
+  "H1_H2_H3_C1_hard_deny_identity": {
+    "event_count": 3500,
+    "event_identity_fingerprint": "ae0697a90b390e3ef51a38409d2eb3bde54c7cb44d4f2e376df16286b3a307bc",
+    "market_count": 16622,
+    "market_identity_fingerprint": "8cc0701a7d2484d9ee4e0a264cd9d06b05424ac47d5c4c5382bbb26f0df9ec82"
+  },
+  "c2_cohort_fingerprint": "446854d2511a942fff560ffe78bbd96863b06d9046de85ff7a8605c868654258",
+  "c2_implementation_fingerprint": "a958b843a5504507b598f05fba79f57691b21ffe9aee6be8148ca12fd38ab3c2",
+  "c2_preoutcome_row_fingerprint": "525477c08178f1bd97f58fee0e22f6e5352494cb38210c433a0df7a2af57c9b3",
+  "c2_validation_fingerprint": "b984017e17da9de2859d43b78f1218d7333eda45eb1ebb0ed3a6a884eb3746f1",
+  "candidate_id": "kxbtcd_btc_distance_offset_logistic.v1",
+  "champion_r1_fingerprint": "863711cab07ed18784045d657e8ec20e8eb3dfea8d1c74dbcf2076f0399224ee",
+  "checkpoint_id": "21F-A",
+  "evaluation_contract": {
+    "benchmark": "raw_kalshi_midpoint",
+    "beta_distance": "0.014529004270980883",
+    "candidate": "kxbtcd_btc_distance_offset_logistic.v1",
+    "candidate_selection_on_C2_allowed": false,
+    "event_weighting": "equal_total_weight_per_event",
+    "feature_change_on_C2_allowed": false,
+    "gate": {
+      "beta_distance": "finite, converged, >0",
+      "chronological_subblock_log_loss_wins": ">=4/5",
+      "median_event_raw_minus_champion_log_loss_delta": ">0",
+      "newest_subblock_log_loss_win": true,
+      "policy_lineage_source_timing_firewall": "PASS",
+      "pooled_raw_minus_champion_event_equal_brier_delta": ">=0",
+      "pooled_raw_minus_champion_event_equal_log_loss_delta": ">0",
+      "primary_tie": "FAIL",
+      "structural_coverage": "all five structural roles and all six TTC targets"
+    },
+    "hyperparameter_search_on_C2_allowed": false,
+    "model_parameters_fitted_on_C2": false,
+    "within_event_weighting": "equal_weight_per_scored_row"
+  },
+  "execution_enabled": false,
+  "exposure_policy": {
+    "C3_outcome_or_materialization_access_allowed": false,
+    "H1_H2_H3_C1_event_and_market_identities_hard_denied": true,
+    "fresh_second_C2_attempt_allowed": false,
+    "future_untouched_claim_on_C2_allowed": false,
+    "permanently_expose_full_C2_before_first_request": true,
+    "resume_only_after_interruption": true
+  },
+  "family_id": "kxbtcd_independent_btc_offset_successor.v1",
+  "implementation_sha256s": {
+    "collect_kxbtcd_candidate_e_c2.py": "df5a5f553019f4f1868b71afc005a2b453cbecc8fd6037fe0f1fbe90d0fd5a90",
+    "src/kxbtcd_candidate_e_c2_evaluation.py": "94e0a4361b98c4b7d6c1e092adc54f148dfc0f7f79a91edd291150096a9a32ec"
+  },
+  "model_fit_performed_at_freeze": false,
+  "network_requests_at_freeze": 0,
+  "orders_placed": 0,
+  "outcome_source": {
+    "accepted_results": [
+      "yes",
+      "no"
+    ],
+    "authentication_required": false,
+    "endpoint_template": "/historical/markets/{market_ticker}",
+    "raw_first_persistence_required": true,
+    "required_market_status": "finalized"
+  },
+  "parent_21a_protocol_fingerprint": "88d1880c026fe8cecf67cbbb8839a6d4acfb463b0871f4ef60db329f50a6ef00",
+  "parent_h3_result_fingerprint": "436ea27539ed1bd2b30f96cc892bc5fc4b87cecd37035da8a45ca2583e59af54",
+  "procedure_derivation_used_C2_outcomes": false,
+  "schema_version": "kxbtcd_candidate_e_c2_evaluator_implementation_freeze.v1",
+  "source_baseline_commit": "faf013b928bedd94d8e75bf09f3cbf29ad938f97"
+}

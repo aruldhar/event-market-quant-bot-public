@@ -1,0 +1,59 @@
+{
+  "attempt_resume_contract": {
+    "fresh_attempt_prohibited": true,
+    "required_original_validation_implementation_fingerprint": "8bc89ebbd97f19245e802217733a89f369bfdae465a9f90c581c90c4dc9f1ec7",
+    "required_status": "OUTCOMES_OPENED_FOR_MODEL2_VALIDATION",
+    "required_validation_preparation_fingerprint": "25c42d62f3f74814c9665b71628e866aa428fd55fd67d8a1ad65cd337a8caa22",
+    "same_attempt_path_required": true,
+    "same_output_dir_required": true
+  },
+  "c1_c2_outcomes_already_opened_for_model2": true,
+  "c3_opened_for_model2": false,
+  "checkpoint_id": "21M",
+  "dependency_sha256s": {
+    "src/kxbtcd_candidate_e_entry_model_v1.py": "ce54846f85f3d338bc0f3aadd64d8cc8b9828c0c2ac2b5454f97771ec1a89ee1",
+    "src/kxbtcd_candidate_e_entry_model_v1_validation_preparation.py": "b5bfd289cd417649b861e9cda28de98f611a613454b32bbb8c17a7774a8b242b"
+  },
+  "development_freeze_fingerprint": "a3efd1d52255467dd374d32992880344428dccae01de1a97363b43e318595a9e",
+  "execution_enabled": false,
+  "model_id": "kxbtcd_candidate_e_entry_residual_logistic.v1",
+  "original_implementation_sha256s": {
+    "evaluate_kxbtcd_candidate_e_entry_model_v1_validation.py": "71e3a58045b950958e6c407c3f88d1c25120b2772b5163ce44601d7480eaca43",
+    "freeze_kxbtcd_candidate_e_entry_model_v1_validation_implementation.py": "dd6b27ae2f387b14cc8d84584310a8d125fad5e740450f0089d3cc191358cfd2",
+    "src/kxbtcd_candidate_e_entry_model_v1_validation.py": "ee551329504d0cc001c363f6c269ac2c34cf04587b1c28d5b626e28a8a791e80",
+    "validate_kxbtcd_candidate_e_entry_model_v1_validation.py": "a93fe893d99c02b8dac52dbba12e115c7532d893dbf2d5c3b8e06635ea4002b8",
+    "validate_kxbtcd_candidate_e_entry_model_v1_validation_implementation_freeze.py": "7c44087f475178b3132c458081ce185b876f16fba250ef31ccff5ac77bcccb28"
+  },
+  "original_validation_implementation_fingerprint": "8bc89ebbd97f19245e802217733a89f369bfdae465a9f90c581c90c4dc9f1ec7",
+  "outcomes_read_during_repair_freeze": false,
+  "protected_reserve_accessed": false,
+  "repair_id": "D-021M-11_nested_preparation_safety_field_lookup.v1",
+  "repair_parent_commit": "918810f97df8edf15bcb904ab4f8e1adf9785089",
+  "repair_scope": {
+    "bug": "validation preparation stores historical_prediction_csv_rows_read under candidate_e_baseline but evaluator checked top level",
+    "coefficients_changed": false,
+    "features_changed": false,
+    "gate_changed": false,
+    "lambda_changed": false,
+    "metrics_changed": false,
+    "model_formula_changed": false,
+    "repair": "read candidate_e_baseline.historical_prediction_csv_rows_read",
+    "runtime_file": "src/kxbtcd_candidate_e_entry_model_v1_validation.py",
+    "scaler_changed": false,
+    "validation_blocks_changed": false
+  },
+  "repaired_implementation_sha256s": {
+    "evaluate_kxbtcd_candidate_e_entry_model_v1_validation.py": "71e3a58045b950958e6c407c3f88d1c25120b2772b5163ce44601d7480eaca43",
+    "freeze_kxbtcd_candidate_e_entry_model_v1_validation_implementation.py": "dd6b27ae2f387b14cc8d84584310a8d125fad5e740450f0089d3cc191358cfd2",
+    "src/kxbtcd_candidate_e_entry_model_v1_validation.py": "938286c96f4f717e62e0248ec731b860ce49e6ab7dd36fce0b0719ac2b8eefb2",
+    "validate_kxbtcd_candidate_e_entry_model_v1_validation.py": "a93fe893d99c02b8dac52dbba12e115c7532d893dbf2d5c3b8e06635ea4002b8",
+    "validate_kxbtcd_candidate_e_entry_model_v1_validation_implementation_freeze.py": "7c44087f475178b3132c458081ce185b876f16fba250ef31ccff5ac77bcccb28"
+  },
+  "result_directory_existed_before_repair": false,
+  "schema_version": "kxbtcd_candidate_e_entry_model_v1_validation_resume_repair_freeze.v1",
+  "strategy_v1_pnl_calculated": false,
+  "validation_implementation_fingerprint": "8bc89ebbd97f19245e802217733a89f369bfdae465a9f90c581c90c4dc9f1ec7",
+  "validation_preparation_fingerprint": "25c42d62f3f74814c9665b71628e866aa428fd55fd67d8a1ad65cd337a8caa22",
+  "validation_resume_repair_fingerprint": "fee1063a637c99749e47d67bbb553a480d3e72037be1cb9015b26b67f2275aed",
+  "validation_scores_calculated_before_repair": false
+}

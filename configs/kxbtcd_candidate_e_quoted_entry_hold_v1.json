@@ -1,0 +1,167 @@
+{
+  "candidate_id": "kxbtcd_btc_distance_offset_logistic.v1",
+  "champion_final_fingerprint": "b45478594c088c09086d55d14e70aa7a22a62dc546cf0f2d9a1e3bb2f296b8dc",
+  "checkpoint_id": "21N-A",
+  "economic_contract": {
+    "historical_fill_claim": false,
+    "interpretation": "standard-fee quoted-entry economic screening only; not proof of historical execution",
+    "net_edge_formula": "side_fair_probability - quoted_purchase_price - standard_entry_fee",
+    "quoted_purchase_price": {
+      "NO": "1 - yes_bid",
+      "YES": "yes_ask"
+    },
+    "settlement_fee": 0.0,
+    "side_fair_probability": {
+      "NO": "1 - candidate_probability",
+      "YES": "candidate_probability"
+    },
+    "standard_entry_fee_formula": "ceil_cent(0.07 * C * P * (1-P))",
+    "whole_contract_quantity_C": 1
+  },
+  "evidence_roles": {
+    "c3": {
+      "event_count": 500,
+      "row_count": 13549,
+      "status": "sealed",
+      "strategy_economics_access_allowed": false
+    },
+    "development": {
+      "purpose": "Outcome-independent opportunity census first; later development economics only after its evaluator/selection rule is separately frozen.",
+      "stages": {
+        "H1_OOF": {
+          "event_count": 1070,
+          "row_count": 31656
+        },
+        "H2": {
+          "event_count": 750,
+          "row_count": 22354
+        },
+        "H3": {
+          "event_count": 750,
+          "row_count": 22409
+        }
+      },
+      "total_event_count": 2570,
+      "total_row_count": 76419
+    },
+    "historical_confirmation": {
+      "rule": "May be used once only after one complete Strategy-v1 development selection/evaluation procedure is frozen.",
+      "stages": {
+        "C1": {
+          "event_count": 500,
+          "row_count": 14887
+        },
+        "C2": {
+          "event_count": 500,
+          "row_count": 14007
+        }
+      },
+      "status": "not_fresh_globally_and_not_authorized_for_strategy_pnl_yet",
+      "total_event_count": 1000,
+      "total_row_count": 28894
+    },
+    "protected_historical_reserve": {
+      "access_allowed": false,
+      "event_count": 4676,
+      "status": "sealed"
+    }
+  },
+  "future_pnl_stress_contract": {
+    "adverse_purchase_price_stress_dollars": [
+      0.0,
+      0.01,
+      0.02,
+      0.03
+    ],
+    "recalculate_fee_at_stressed_price": true,
+    "status": "reserved_for_later_outcome_authorized_evaluator_not_used_by_opportunity_audit"
+  },
+  "opportunity_audit": {
+    "authorized_stages": [
+      "H1_OOF",
+      "H2",
+      "H3"
+    ],
+    "outcome_fields_used": false,
+    "purpose": "Measure opportunity frequency, abstention, side/TTC/role mix, and predicted net-edge distribution before opening any strategy P&L.",
+    "realized_pnl_calculated": false,
+    "required_outputs": [
+      "candidate_side_states.csv",
+      "threshold_event_selections.csv",
+      "opportunity_audit_summary.json"
+    ],
+    "settlement_outcomes_used": false,
+    "threshold_winner_selected": false
+  },
+  "prior_strategy_design": {
+    "reason": "The earlier 21K-A replay mixed 10-contract sizing, next-minute execution proxies, and an early-cashout policy. The new strategy asks the simpler first-order question whether Candidate E creates quoted settlement-value opportunities at all.",
+    "status": "superseded_before_economic_scoring",
+    "strategy_id": "kxbtcd_candidate_e_strategy_replay_v1",
+    "strategy_pnl_inspected": false,
+    "strategy_predeclaration_fingerprint": "afc1b397c850e8b2a2dfd32d6656e05f4622c59f1596f5b91295e96debb0d046"
+  },
+  "purpose": "Freeze a simple Candidate-E quoted-entry, one-contract, hold-to-settlement strategy family and an outcome-independent development opportunity audit before any Strategy-v1 P&L is calculated.",
+  "research_status": {
+    "c3_strategy_economics_opened": false,
+    "candidate_e_refit_authorized": false,
+    "demo_execution_authorized": false,
+    "model2_repair_authorized": false,
+    "order_execution_authorized": false,
+    "paper_broker_authorized": false,
+    "protected_reserve_accessed": false,
+    "real_money_execution_authorized": false,
+    "strategy_pnl_calculated_before_this_freeze": false
+  },
+  "schema_version": "kxbtcd_candidate_e_quoted_entry_hold_predeclaration.v1",
+  "signal_policy": {
+    "after_entry": {
+      "add": false,
+      "averaging": false,
+      "early_exit": false,
+      "hold_to_settlement": true,
+      "profit_target": false,
+      "reentry": false,
+      "side_switch": false,
+      "stop_loss": false
+    },
+    "anchor_order_ttc_minutes": [
+      55,
+      50,
+      45,
+      40,
+      35,
+      30
+    ],
+    "event_timing_rule": "enter_at_first_anchor_with_any_qualifying_candidate_otherwise_continue_to_next_anchor",
+    "exact_tie_break_order": [
+      "market_ticker_ascending",
+      "YES_before_NO"
+    ],
+    "maximum_entries_per_event": 1,
+    "net_edge_thresholds_dollars_per_contract": [
+      0.0,
+      0.01,
+      0.02,
+      0.03,
+      0.05
+    ],
+    "no_trade_rule": "abstain_if_no_candidate_qualifies_by_T30",
+    "qualification_rule": "net_edge_per_contract >= threshold",
+    "sides": [
+      "YES",
+      "NO"
+    ],
+    "structural_roles": [
+      "q10",
+      "q30",
+      "q50",
+      "q70",
+      "q90"
+    ],
+    "whole_contract_quantity": 1,
+    "within_anchor_selection": "largest_net_edge",
+    "zero_threshold_interpretation": "nonnegative standard-fee quoted edge; diagnostic only"
+  },
+  "strategy_id": "kxbtcd_candidate_e_quoted_entry_hold_v1",
+  "strategy_predeclaration_fingerprint": "5abea8adcaa782a57c9f69ef96b638fe1779370774e9f1c99a81b4340d42a8a6"
+}

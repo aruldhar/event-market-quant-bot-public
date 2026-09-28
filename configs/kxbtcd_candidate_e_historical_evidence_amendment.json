@@ -1,0 +1,226 @@
+{
+  "schema_version": "kxbtcd_candidate_e_historical_evidence_amendment.v1",
+  "checkpoint_id": "19F",
+  "amendment_id": "candidate_e_historical_train_validation_test.v1",
+  "status": "pre_outcome_protocol_amendment",
+  "parent_protocol_fingerprint": "b6c020f76a89703f737cc2e57e0fdbafb3a13966dfc2a57fb1a13c01681291f8",
+  "parent_source_policy_fingerprint": "6b0d98c16a65b2e638b36991d5006031e1bd37048bd04a47a3f67d936df0ee18",
+  "parent_candidate_e_predeclaration_fingerprint": "9775be58f01375ca6f2b04212a63578ce5e8cf7084498e6ce9d3ae68685d59a9",
+  "supersession": {
+    "supersedes_only": [
+      "Checkpoint-19A requirement that successor design/final-fit/test evidence be newly prospective E1/E2/E3",
+      "Checkpoint-19D-B prospective E1/E2/E3 cohort timing/minimums",
+      "Checkpoint-19E requirement that Candidate-E E1 begin after the 19E freeze and use live_first_seen states",
+      "Checkpoint-19E post-E1 E2/E3 prospective sequencing"
+    ],
+    "preserves": [
+      "Candidate-E family and two-candidate menu",
+      "Candidate-E feature formulas and 10000 log-ratio scaling",
+      "raw Kalshi midpoint benchmark and fixed market-logit offset",
+      "no regularization, no standardization, no hyperparameter search",
+      "deterministic damped-Newton optimizer",
+      "55/50/45/40/35/30 minute TTC schedule",
+      "five structural strike roles",
+      "event-equal log loss and Brier reporting",
+      "H1 seven-block rolling-origin candidate selection and nested-complexity logic",
+      "Checkpoint-19D-B source identities and causal no-imputation rules",
+      "Checkpoint-17 terminal outcome prohibition except ticker identity used only for deny-list exclusion",
+      "read-only and no-execution authorization"
+    ],
+    "parent_documents_remain_immutable_historical_records": true
+  },
+  "evidence_firewall": {
+    "amendment_selected_using_new_candidate_e_outcomes": false,
+    "candidate_e_fit_before_amendment": false,
+    "new_candidate_e_outcome_access_before_amendment": false,
+    "only_prior_exposed_event_tickers_used_for_deny_list": true,
+    "checkpoint17_outcome_values_used": false,
+    "execution_authorized": false
+  },
+  "frozen_universe": {
+    "modern_regime_start_utc": "2025-03-22T17:00:00Z",
+    "modern_regime_end_census_utc": "2026-08-14T20:00:00Z",
+    "census_event_count": 9738,
+    "prior_outcome_exposed_event_count": 307,
+    "untouched_event_count": 9431,
+    "census_sha256": "07e48cc2bf996c395329e66a61263854a43fcacb8b98962bfcb906daf4e26481",
+    "exposed_event_set_sha256": "d7e115bf5566630fdff0fb75a740701f1080c0d385a707617fcfc65dde159817",
+    "untouched_chronological_universe_sha256": "d0b61b7688e54ff4cdeb4cc4652a8ecd5a0a5031b14ad7666b1a8b5b0b5fda90",
+    "first_untouched": {
+      "strike_date_utc": "2025-03-22T17:00:00Z",
+      "event_ticker": "KXBTCD-25MAR2213"
+    },
+    "last_untouched": {
+      "strike_date_utc": "2026-08-14T20:00:00Z",
+      "event_ticker": "KXBTCD-26AUG1416"
+    },
+    "source_files": {
+      "census": {
+        "path": "data/derived/kxbtcd_preoutcome_materialization/2026/08/14/collect_kxbtcd_preoutcome_dataset_20260814T202930946581Z_7e58170d_kxbtcd_event_census.csv",
+        "sha256": "07e48cc2bf996c395329e66a61263854a43fcacb8b98962bfcb906daf4e26481"
+      },
+      "exposure_files": [
+        {
+          "path": "data/derived/kxbtcd_candidate_b_train_validation/2026/08/15/collect_kxbtcd_candidate_b_train_validation_20260815T204357940542Z_8af72631_kxbtcd_candidate_b_outcomes.csv",
+          "sha256": "fc46847ef2740cc29202417b93b21023f8f837e91dd184c77b90219fcfe0f889",
+          "event_count": 231
+        },
+        {
+          "path": "data/derived/kxbtcd_candidate_c_terminal_evaluation/2026/08/15/collect_kxbtcd_candidate_c_locked_test_20260815T225546640797Z_54081035_kxbtcd_candidate_c_terminal_outcomes.csv",
+          "sha256": "8be9cab28b19f06c5cda9fe9998c5b9b3e9391cacadd9ff87440818e5ab4b8f0",
+          "event_count": 64
+        },
+        {
+          "path": "data/derived/kxbtcd_development_evaluation_recovery/collect_kxbtcd_development_outcomes_20260809T120413222263Z_9b7324be_offline_recovery_kxbtcd_development_outcomes.csv",
+          "sha256": "2aa61158c56fa93ed5d89ce9752ceac07bd98362138624a949f8400e91e0138c",
+          "event_count": 8
+        },
+        {
+          "path": "data/derived/kxbtcd_holdout_evaluation/2026/08/09/collect_kxbtcd_holdout_outcomes_20260809T121952744398Z_ec29a2ab_kxbtcd_holdout_outcomes.csv",
+          "sha256": "b22234fce688a66cf1c3f9268a7b98cb04465a140d79f273ce4a08c1369cd857",
+          "event_count": 4
+        }
+      ]
+    }
+  },
+  "historical_state_realization": {
+    "kalshi_probability": "latest valid real KXBTCD one-minute two-sided YES quote at or before scheduled TTC target with <=60s staleness; no future quote and no fill-forward beyond 60s",
+    "historical_primary": "coinbase.exchange.public_rest.product_candles.btc_usd.1m.v1",
+    "historical_primary_price": "exact last-fully-completed UTC one-minute Coinbase candle close",
+    "historical_verifier": "kraken.spot.public_rest.posttrade.btc_usd.v1",
+    "historical_verifier_price": "latest Kraken trade in the exact minute bucket with publication_ts <= decision time",
+    "current_bucket_rule": "last_fully_completed_utc_minute_at_or_before_decision_target",
+    "lookback_rule": "exact completed minute 300 seconds before current bucket",
+    "both_historical_sources_required": true,
+    "max_historical_cross_source_disagreement_bps": 5.0,
+    "future_interpolation_allowed": false,
+    "nearest_absolute_sampling_allowed": false,
+    "carry_forward_allowed": false,
+    "source_substitution_allowed": false,
+    "historical_values_claimed_identical_to_live_bbo": false,
+    "transport_note": "H1/H2/H3 use causal historical primitives; later live confirmation returns to 19D-B live Coinbase-BBO primary plus Kraken-PreTrade verifier and live quality gates."
+  },
+  "candidate_e_invariants": {
+    "distance_formula": "10000 * ln(S_t / K)",
+    "momentum_formula": "10000 * ln(S_t / S_t_minus_300s)",
+    "candidate_ids": [
+      "kxbtcd_btc_distance_offset_logistic.v1",
+      "kxbtcd_btc_distance_momentum_offset_logistic.v1"
+    ],
+    "scored_ttc_target_minutes": [
+      55,
+      50,
+      45,
+      40,
+      35,
+      30
+    ],
+    "structural_strike_quantiles": [
+      0.1,
+      0.3,
+      0.5,
+      0.7,
+      0.9
+    ],
+    "same_rows_for_both_candidates_in_H1": true,
+    "raw_benchmark": "raw_kalshi_midpoint"
+  },
+  "historical_pipeline": {
+    "ordering": "sort untouched events by strike_date_utc then event_ticker; apply frozen structural/source eligibility without outcomes",
+    "event_eligibility": {
+      "minimum_source_eligible_scored_anchors_per_event": 4,
+      "scheduled_scored_anchors_per_event": 6,
+      "minimum_source_eligible_anchor_fraction": 0.6666666666666666,
+      "common_candidate_row_universe_requires_current_btc": true,
+      "common_candidate_row_universe_requires_5m_lookback": true,
+      "common_candidate_row_universe_requires_valid_kalshi_quote": true
+    },
+    "H1_train": {
+      "target_eligible_events": 1500,
+      "outcome_access": "authorized only after 19F universe/materialization freeze validates",
+      "role": "fit and rolling-origin-select between the two already-frozen Candidate-E variants",
+      "selection_layout": "same seven contiguous blocks and five rolling-origin score folds frozen in 19E",
+      "selection_gate": "exact 19E raw-advancement and nested-complexity gates",
+      "if_family_fails": "stop; H2 and H3 outcomes remain unopened"
+    },
+    "H2_validation": {
+      "target_eligible_events": 750,
+      "outcome_access": "prohibited until H1 selects exactly one Candidate-E specification",
+      "role": "one-time untouched historical validation of the selected H1 specification",
+      "block_count": 5,
+      "block_rule": "five contiguous chronological event-count blocks differing by at most one; earlier blocks receive remainder",
+      "gate": {
+        "pooled_raw_minus_candidate_event_equal_log_loss_delta_gt_0": true,
+        "pooled_raw_minus_candidate_event_equal_brier_delta_gte_0": true,
+        "minimum_strict_log_loss_block_wins": 4,
+        "latest_block_must_strictly_beat_raw_log_loss": true,
+        "median_event_raw_minus_candidate_log_loss_delta_gt_0": true,
+        "selected_H1_fit_must_be_finite_and_converged": true,
+        "beta_distance_must_be_positive": true,
+        "all_validation_blocks_require_all_five_strike_roles_and_all_six_ttc_targets": true,
+        "no_policy_timing_lineage_or_firewall_violation": true
+      },
+      "if_fail": "Candidate E historical validation FAIL; H3 outcomes remain unopened",
+      "if_pass": "freeze selected specification and refit final parameters once on H1+H2 before H3"
+    },
+    "H3_locked_test": {
+      "target_eligible_events": 750,
+      "outcome_access": "prohibited until H2 passes and final H1+H2 model parameters are frozen",
+      "role": "one-time locked untouched historical terminal test",
+      "block_count": 5,
+      "block_rule": "five contiguous chronological event-count blocks differing by at most one; earlier blocks receive remainder",
+      "gate": "same numerical/coverage conditions as H2 validation gate, applied once to frozen final model",
+      "if_fail": "Candidate E closed as historical test FAIL; H3 becomes exposed and may never be reused as untouched evidence",
+      "if_pass": "Candidate E becomes eligible only for prospective live confirmation; no execution authorization"
+    },
+    "live_confirmation": {
+      "starts_only_after_H3_pass": true,
+      "uses_19db_live_sources_and_quality_gates": true,
+      "historical_test_pass_does_not_imply_profitability": true,
+      "execution_authorized": false
+    }
+  },
+  "reserve_policy": {
+    "nominal_raw_unallocated_events_after_first_3000_untouched": 6431,
+    "nominal_raw_reserve_percentage": 68.19,
+    "minimum_outcome_unopened_reserve_events_after_candidate_e_materialization": 5000,
+    "eligibility_extension_allowed": true,
+    "extension_rule": "extend chronologically without outcome access only to replace events failing frozen eligibility; never relax thresholds",
+    "if_filling_H1_H2_H3_would_reduce_outcome_unopened_reserve_below_floor": "fail_closed_and_do_not_open_new_outcomes",
+    "H2_reusable_if_H1_fails_before_H2_outcomes_open": true,
+    "H3_reusable_if_H2_fails_before_H3_outcomes_open": true
+  },
+  "nominal_raw_queue_boundaries": {
+    "interpretation": "outcome-blind reference boundaries from the raw untouched queue only; final eligible cohort boundaries may extend later because of frozen data-quality exclusions",
+    "TRAIN": {
+      "events": 1500,
+      "first": "2025-03-22T17:00:00Z",
+      "last": "2025-06-28T02:00:00Z"
+    },
+    "VALIDATION": {
+      "events": 750,
+      "first": "2025-06-28T04:00:00Z",
+      "last": "2025-08-15T20:00:00Z"
+    },
+    "LOCKED_TEST": {
+      "events": 750,
+      "first": "2025-08-15T21:00:00Z",
+      "last": "2025-10-03T15:00:00Z"
+    },
+    "RESERVE": {
+      "events": 6431,
+      "first": "2025-10-03T16:00:00Z",
+      "last": "2026-08-14T20:00:00Z"
+    }
+  },
+  "safety": {
+    "read_only": true,
+    "paper_execution": false,
+    "demo_execution": false,
+    "real_money_execution": false,
+    "order_creation": false,
+    "order_cancellation": false,
+    "transfers": false
+  },
+  "amendment_fingerprint": "b5b0ed3eb743a8dc6ced854098140ad27440a46382a511a131e22e94497e94fb"
+}

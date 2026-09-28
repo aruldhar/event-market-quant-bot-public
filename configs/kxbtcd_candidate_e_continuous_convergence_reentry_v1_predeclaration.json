@@ -1,0 +1,383 @@
+{
+  "btc_state": {
+    "btc_state_age_milliseconds_recorded": true,
+    "bucket_for_decision_t": "bucket_start=floor_utc_minute(t)-60_seconds; bucket_end=floor_utc_minute(t)",
+    "decision_rule": "use_close_of_immediately_preceding_fully_completed_utc_minute_bucket",
+    "five_minute_lookback_required_for_candidate_e": false,
+    "future_or_incomplete_candle_allowed": false,
+    "interpolation_allowed": false,
+    "missing_bucket_stale_carry_allowed": false,
+    "missing_required_bucket": "candidate_e_unavailable_fail_closed",
+    "nearest_sampling_allowed": false,
+    "piecewise_constant_use_until_next_expected_bucket_completes": true,
+    "price_semantics": "official_one_minute_bucket_close_last_trade",
+    "primary_source_id": "coinbase.exchange.public_rest.product_candles.btc_usd.1m.v1",
+    "source_substitution_allowed": false
+  },
+  "candidate_e_decision_state": {
+    "decision_price_level_minimum_depth_contracts": "1.00",
+    "edge_threshold_dollars": [
+      "0.00",
+      "0.01",
+      "0.02",
+      "0.03",
+      "0.05"
+    ],
+    "entry_fee_accounting": "inherit_exact_21n_q1_and_21n_r_fixed_point_accounting",
+    "model_formula_changed": false,
+    "no_fair_probability": "1-pE",
+    "no_purchase_price": "1-reconstructed_yes_best_bid",
+    "one_sided_book_may_be_scored": false,
+    "per_market_source_requirement": "decision_timestamp_inside_one_verified_replay_segment",
+    "q_market": "reconstructed_yes_best_bid_ask_midpoint_at_decision_timestamp",
+    "qualification": "signal_net_edge>=threshold",
+    "requires_valid_uncrossed_two_sided_yes_book": true,
+    "selection_at_one_timestamp": "largest_qualifying_signal_net_edge",
+    "signal_net_edge": "side_fair_probability-purchase_price-entry_fee",
+    "thresholds_are_parallel_sensitivity_policies": true,
+    "tie_break": [
+      "market_ticker_ascending",
+      "YES_before_NO"
+    ],
+    "ttc_is_model_input": false,
+    "yes_fair_probability": "pE",
+    "yes_purchase_price": "reconstructed_yes_best_ask"
+  },
+  "candidate_universe": {
+    "arbitrary_non_structural_strikes_allowed": false,
+    "averaging_or_top_up_allowed": false,
+    "maximum_filled_entries_per_event_per_threshold_per_latency": 2,
+    "overlapping_positions_allowed": false,
+    "planned_contracts_per_entry": "1.00",
+    "side_switch_while_position_open_allowed": false,
+    "sides": [
+      "YES",
+      "NO"
+    ],
+    "strike_selection": "numeric_strike_nearest_rank_half_up_from_full_event_ladder",
+    "structural_roles": [
+      "q10",
+      "q30",
+      "q50",
+      "q70",
+      "q90"
+    ],
+    "structural_roles_frozen_for_entire_event": true
+  },
+  "checkpoint_id": "21N-T",
+  "comparison_branches": {
+    "branch_a_matched_hold": {
+      "entry": "identical_first_realized_entry_fill_as_primary_continuous_strategy",
+      "exit": "hold_filled_first_entry_quantity_to_settlement",
+      "id": "matched_first_entry_hold",
+      "purpose": "baseline_for_value_of_early_liquidation_and_recycling",
+      "reentry": false
+    },
+    "branch_b_liquidate_once": {
+      "entry": "identical_first_realized_entry_fill_as_primary_continuous_strategy",
+      "exit": "same_frozen_convergence_liquidation_policy",
+      "id": "continuous_liquidate_once_no_reentry",
+      "purpose": "isolate_cashout_effect_vs_matched_hold",
+      "reentry": false
+    },
+    "branch_c_primary": {
+      "entry": "continuous_first_entry_then_one_rearmed_second_entry_if_available",
+      "exit": "same_frozen_convergence_liquidation_policy_for_each_filled_entry",
+      "id": "continuous_liquidate_and_reenter_max2",
+      "purpose": "measure_incremental_effect_of_one_capital_recycling_opportunity",
+      "reentry": true
+    },
+    "planned_decomposition": [
+      "branch_b_minus_branch_a_is_cashout_effect",
+      "branch_c_minus_branch_b_is_incremental_reentry_effect",
+      "branch_c_minus_branch_a_is_total_continuous_cashout_plus_reentry_effect"
+    ],
+    "settlement_labels_required_for_final_branch_pnl": true
+  },
+  "continuous_decision_clock": {
+    "clock_type": "causal_event_driven_union",
+    "deep_book_change_without_best_level_change_creates_entry_decision": false,
+    "evaluate_all_five_structural_roles_at_each_event_timestamp": true,
+    "event_timestamps": [
+      "scan_start_boundary",
+      "each_timestamp_where_any_structural_ticker_best_yes_bid_price_or_quantity_changes",
+      "each_timestamp_where_any_structural_ticker_best_yes_ask_price_or_quantity_changes",
+      "each_utc_minute_boundary_where_a_new_required_completed_coinbase_1m_bucket_becomes_available",
+      "scan_end_boundary"
+    ],
+    "future_information_allowed": false,
+    "rationale": "Candidate E changes only when q_market or BTC spot changes; TTC is diagnostic and is not a Candidate-E model input",
+    "right_continuous_reconstructed_kalshi_state": true,
+    "same_timestamp_events_collapsed_to_one_evaluation": true
+  },
+  "entry_execution": {
+    "arrival_time": "decision_time+latency",
+    "counterfactual_fill_rewrites_later_historical_book": false,
+    "counterfactual_order_type": "IOC_limit_buy",
+    "decision_clock_timestamps_during_entry_order_flight": "ignored_for_new_entry_decisions",
+    "future_book_assumption": "inherit_21n_r_historical_path_exogenous_small_order_nonimpacting_assumption",
+    "latency_ms": [
+      0,
+      500,
+      1000
+    ],
+    "limit_price": "decision_time_purchase_price",
+    "matching": "consume_arrival_purchase_asks_best_to_worst_at_prices_at_or_better_than_limit",
+    "missed_entry_counts_toward_two_entry_cap": false,
+    "missed_entry_state_transition": "remain_armed_flat_and_resume_at_first_decision_clock_timestamp_strictly_after_entry_arrival_time",
+    "one_entry_order_may_be_pending_at_a_time": true,
+    "partial_entry_counts_as_filled_entry": true,
+    "partial_entry_unfilled_remainder_top_up_allowed": false,
+    "price_improvement_allowed": true,
+    "price_worsening_beyond_limit_allowed": false,
+    "same_latency_for_entry_and_exit_within_scenario": true,
+    "unfilled_remainder_cancelled_immediately": true,
+    "verified_segment_requirement": "entire_decision_to_arrival_interval_inside_same_verified_segment"
+  },
+  "entry_scan_window": {
+    "end": "event_close_minus_2_minutes_inclusive",
+    "exact_original_anchor_flag_required": true,
+    "fixed_scheduled_entry_anchors_used": false,
+    "liquidation_monitoring_after_entry_scan_end_allowed_until_event_close": true,
+    "new_entry_after_end_allowed": false,
+    "new_entry_before_start_allowed": false,
+    "non_anchor_candidate_e_use_label": "continuous_time_extrapolation",
+    "original_anchor_minutes_for_diagnostics_only": [
+      55,
+      50,
+      45,
+      40,
+      35,
+      30
+    ],
+    "start": "event_close_minus_55_minutes_inclusive",
+    "ttc_below_30_minutes_label": "late_window_extrapolation_outside_historical_candidate_e_ttc_support",
+    "ttc_reporting_buckets": [
+      {
+        "id": "55_to_45",
+        "rule": "45<TTC_minutes<=55"
+      },
+      {
+        "id": "45_to_30",
+        "rule": "30<TTC_minutes<=45"
+      },
+      {
+        "id": "30_to_20",
+        "rule": "20<TTC_minutes<=30"
+      },
+      {
+        "id": "20_to_10",
+        "rule": "10<TTC_minutes<=20"
+      },
+      {
+        "id": "10_to_5",
+        "rule": "5<TTC_minutes<=10"
+      },
+      {
+        "id": "5_to_2",
+        "rule": "2<=TTC_minutes<=5"
+      }
+    ]
+  },
+  "evaluation_contract": {
+    "all_latencies_reported": true,
+    "all_thresholds_reported": true,
+    "all_ttc_buckets_reported": true,
+    "four_event_advancement_gate": "NONE",
+    "fresh_prospective_evidence_required_before_generalization_or_production_discussion": true,
+    "late_window_success_does_not_retroactively_validate_candidate_e": true,
+    "no_winner_selected_from_four_events": true,
+    "primary_questions": [
+      "when_do_executable_candidate_e_opportunities_actually_appear_without_fixed_entry_anchors",
+      "does_the_frozen_cashout_rule_change_economics_vs_holding_the_same_first_fill",
+      "does_one_rearmed_reentry_add_incremental_economic_value_vs_liquidating_once",
+      "how_does_candidate_e_behave_at_non_anchor_and_late_window_entry_times"
+    ],
+    "primary_reporting_dimensions": [
+      "threshold",
+      "latency",
+      "event",
+      "side",
+      "structural_role",
+      "ttc_bucket",
+      "exact_anchor_vs_non_anchor",
+      "historical_anchor_span_30_to_55_vs_late_window_2_to_30",
+      "trade_number"
+    ],
+    "statistical_unit": "hourly_event"
+  },
+  "evidence_scope": {
+    "c1_c2_c3_or_protected_reserve_access_allowed": false,
+    "event_tickers": [
+      "KXBTCD-26JUL1013",
+      "KXBTCD-26JUL1014",
+      "KXBTCD-26JUL1015",
+      "KXBTCD-26JUL1016"
+    ],
+    "evidence_role": "exploratory_methodology_and_stress_test_only",
+    "generalization_claim_allowed": false,
+    "historical_sandbox_date_utc": "2026-07-10",
+    "independent_event_count": 4,
+    "late_window_selection_from_four_events_allowed": false,
+    "latency_selection_from_four_events_allowed": false,
+    "policy_selection_from_four_events_allowed": false,
+    "profitability_claim_allowed": false,
+    "strategy_outcomes_accessed_before_predeclaration": false,
+    "strategy_pnl_calculated_before_predeclaration": false,
+    "threshold_selection_from_four_events_allowed": false
+  },
+  "implementation_contract": {
+    "continuous_coinbase_1m_input_materialization_required": true,
+    "continuous_july10_results_must_not_be_opened_before_implementation_is_frozen": true,
+    "do_not_reuse_old_anchor_restricted_build_signal_candidates_wrapper": true,
+    "new_signal_record_must_store_exact_continuous_decision_ttc": true,
+    "next_checkpoint": "21N-U",
+    "outcomes_remain_closed_through_outcome_blind_path_run": true,
+    "reuse_frozen_21n_r_lower_level_components": [
+      "verified_replay_timeline_construction",
+      "candidate_e_probability",
+      "structural_market_selection",
+      "yes_no_book_normalization",
+      "fixed_point_fee_accounting",
+      "ioc_depth_walking"
+    ]
+  },
+  "outcome_blind_diagnostics_authorized_after_implementation_freeze": {
+    "continuous_decision_clock_counts": true,
+    "entry_attempt_and_fill_diagnostics": true,
+    "event_winner_or_settlement_value": false,
+    "fully_closed_round_trip_cash_change_without_settlement_labels": true,
+    "liquidation_and_reentry_path_diagnostics": true,
+    "policy_tuning_from_diagnostics": false,
+    "qualified_signal_counts": true,
+    "settlement_dependent_pnl": false,
+    "valid_two_sided_state_counts": true
+  },
+  "parent_checkpoint": {
+    "checkpoint_commit": "194f514f50cddbe3073667735e5b510e7600fedb",
+    "checkpoint_id": "21N-S-B",
+    "outcome_blind_materialization_sha256": "624dab514bfffbe1969b87bfa8d7a7bf63dfb14177666cc5d08029c056287f9a",
+    "parent_result": "NON_EVALUABLE_NO_VALID_TWO_SIDED_DECISION_STATE",
+    "receipt_commit": "f737b3b7705edee7c745c8c4d13a87150ca607bc",
+    "result_closeout_fingerprint": "318496359414b8d3bcb4a258be99478a17d43724a0883e75ba5ee1a9c2fcd936"
+  },
+  "position_and_liquidation": {
+    "candidate_e_recomputed_for_exit": false,
+    "continuous_verified_path_required": true,
+    "entry_time_fair_value_target_retained_from_21n_q": true,
+    "exit_arrival_time": "trigger_time+same_scenario_latency",
+    "exit_attempt_count": 1,
+    "exit_limit_price": "worst_bid_consumed_by_trigger_time_hypothetical_full_liquidation",
+    "exit_order_type": "IOC_limit_sell",
+    "exit_partial_or_missed_remainder": "settlement_fallback",
+    "frozen_target_per_contract": "entry_time_side_fair_probability",
+    "full_exit_may_transition_to_rearm": true,
+    "monitor_end": "event_close_time",
+    "monitor_resolution": "every_reconstructed_book_state_change_in_order",
+    "monitor_start": "entry_arrival_time",
+    "monitoring_gap_before_trigger": "lock_open_quantity_to_settlement_fallback_and_forbid_reentry",
+    "no_exit_retry": true,
+    "no_force_exit": true,
+    "no_stop_loss": true,
+    "no_trigger_with_continuous_path_to_close": "hold_open_quantity_to_settlement",
+    "partial_or_missed_exit_allows_reentry": false,
+    "trigger_condition": "hypothetical_full_liquidation_net_cash_proceeds>=entry_time_side_fair_probability*open_quantity",
+    "trigger_depth_requirement": "entire_open_quantity_immediately_liquidatable_on_current_side_bid_ladder",
+    "trigger_time": "first_reconstructed_state_satisfying_trigger"
+  },
+  "predeclaration_fingerprint": "4c81dd092009cb7d6f32f4d9a8c66254b5bbcdee652c46379536993390994dda",
+  "reentry_policy": {
+    "after_rearm_second_entry_candidate_universe": "any_qualifying_frozen_structural_market_and_either_side",
+    "arbitrary_time_cooldown_used": false,
+    "maximum_reentries": 1,
+    "rearm_false_condition": "reference_market_side_is_not_qualifying_for_this_threshold_due_to_edge_below_threshold_or_insufficient_decision_level_depth",
+    "rearm_market_state_requirement": "reference_market_has_valid_uncrossed_two_sided_book_and_required_coinbase_state_is_available",
+    "rearm_reference": "the_specific_market_side_signal_used_for_the_completed_prior_trade",
+    "rearm_required": true,
+    "rearm_timestamp_requirement": "strictly_later_than_full_exit_arrival",
+    "reentry_after_settlement_fallback_allowed": false,
+    "requires_prior_filled_entry": true,
+    "requires_prior_position_fully_exited": true,
+    "second_entry_opposite_side_allowed": true,
+    "second_entry_same_market_allowed": true,
+    "second_entry_same_side_as_first_allowed": true,
+    "source_unavailable_or_invalid_reference_state_counts_as_rearm": false,
+    "third_entry_allowed": false,
+    "trade1_history_used_to_select_trade2": false
+  },
+  "research_change": {
+    "continuous_strategy_results_accessed_before_this_predeclaration": false,
+    "fixed_anchor_s_b_result_remains_closed": true,
+    "july10_fixed_anchor_diagnostics_previously_exposed": true,
+    "july10_full_replay_structure_previously_audited": true,
+    "new_strategy_version_required": true,
+    "old_fixed_anchor_strategy_reinterpreted_or_rescued": false,
+    "reason": "replace fixed scheduled anchors with a causal continuous event-driven entry clock and permit one re-entry after a completed cash-out"
+  },
+  "retained_frozen_parents": {
+    "base_strategy_21n_q_fingerprint": "61ede2de623d2ffca6b303895a860fa78de40ea36f0da7fe6b57835ac98d52f6",
+    "candidate_e_beta_distance": "0.014939489324405949",
+    "candidate_e_candidate_id": "kxbtcd_btc_distance_offset_logistic.v1",
+    "candidate_e_champion_final_fingerprint": "b45478594c088c09086d55d14e70aa7a22a62dc546cf0f2d9a1e3bb2f296b8dc",
+    "candidate_e_formula": "logit(pE)=logit(clip(q_market,0.001,0.999))+0.014939489324405949*(10000*ln(S_t/K))",
+    "candidate_e_recalibration_allowed": false,
+    "candidate_e_refit_allowed": false,
+    "fee_accounting_21n_q1_fingerprint": "5f44a9ee001c7854416da46a4db19cb1d53b8b25edd7f7247fd72a032eab64d1",
+    "simulator_21n_r_implementation_fingerprint": "6877bf440c88e72e3dd103b55a64f935bc937eeff84ae4cf7af7a6f60d86b4bf"
+  },
+  "safety": {
+    "c1_c2_c3_or_protected_reserve_access": false,
+    "candidate_e_recalibration_authorized": false,
+    "candidate_e_refit_authorized": false,
+    "demo_execution": false,
+    "historical_counterfactual_only": true,
+    "july10_settlement_outcome_access_authorized": false,
+    "new_predexon_purchase_authorized_by_this_checkpoint": false,
+    "orders_submitted": false,
+    "paper_broker": false,
+    "read_only": true,
+    "real_money_execution": false
+  },
+  "schema_version": "kxbtcd_candidate_e_continuous_convergence_reentry_v1_predeclaration.v1",
+  "strategy_id": "kxbtcd_candidate_e_continuous_convergence_reentry_v1",
+  "trade_history_logging": {
+    "future_hypothesis": "prior_trade_state_may_contain_incremental_information_for_reentry_after_sufficient_fresh_event_evidence",
+    "new_model_or_filter_fit_on_four_july10_events_allowed": false,
+    "record_for_each_filled_entry": [
+      "trade_number",
+      "event_ticker",
+      "market_ticker",
+      "structural_role",
+      "side",
+      "decision_timestamp",
+      "entry_arrival_timestamp",
+      "decision_ttc_milliseconds",
+      "ttc_bucket",
+      "is_exact_original_anchor",
+      "candidate_e_domain_label",
+      "btc_spot",
+      "btc_state_age_milliseconds",
+      "q_market",
+      "candidate_e_probability",
+      "side_fair_probability",
+      "signal_net_edge",
+      "entry_limit_price",
+      "entry_fill_status",
+      "entry_fill_quantity",
+      "entry_vwap",
+      "entry_fee_and_rounding",
+      "liquidation_status",
+      "liquidation_trigger_timestamp",
+      "exit_arrival_timestamp",
+      "exit_fill_quantity",
+      "exit_vwap",
+      "exit_fee_and_rounding",
+      "hold_duration_milliseconds",
+      "btc_spot_at_full_exit_if_available",
+      "settlement_fallback_quantity",
+      "trade2_same_side_as_trade1",
+      "trade2_same_market_as_trade1"
+    ],
+    "trade1_features_may_affect_trade2_in_v1": false
+  }
+}

@@ -1,0 +1,406 @@
+{
+  "analysis_role": "design_only_restart_and_durable_state_reconciliation_freeze",
+  "arm_manifest_contract": {
+    "atomic_create_required": true,
+    "create_once": true,
+    "execution_mode_required": "disabled",
+    "file_fsync_required": true,
+    "manifest_sqlite_identity_mismatch": "FATAL_NO_SIGNAL_NO_AUTO_REPAIR",
+    "overwrite_allowed": false,
+    "parent_directory_fsync_required": true,
+    "required_fields": [
+      "cohort_id",
+      "arm_time_utc",
+      "fixed_end_time_utc",
+      "duration_hours",
+      "arm_git_commit",
+      "restart_design_fingerprint",
+      "architecture_fingerprint",
+      "candidate_fingerprint",
+      "prospective_week_sha256",
+      "strategy_id",
+      "primary_net_edge_threshold_dollars",
+      "execution_mode"
+    ],
+    "schema_version": "candidate_e_prospective_arm_manifest.v1",
+    "sqlite_cohort_row_must_reference_manifest_sha256": true
+  },
+  "armed_code_identity_contract": {
+    "arm_git_commit_pinned": true,
+    "automatic_hotfix_inside_same_canonical_cohort": false,
+    "automatic_sqlite_schema_upgrade_mid_cohort": false,
+    "descendant_commit_accepted_mid_cohort": false,
+    "restart_current_git_commit_must_equal_arm_commit_exactly": true
+  },
+  "checkpoint_id": "21N-Z-E-A",
+  "clean_shutdown_contract": {
+    "commit_final_sqlite_heartbeat": true,
+    "force_raw_journal_fsync": true,
+    "mark_signal_state_disabled": true,
+    "record_ended_utc_and_monotonic": true,
+    "set_session_shutdown_status_clean": true,
+    "stop_new_decisions_first": true
+  },
+  "clock_restart_contract": {
+    "host": "linux_chrony",
+    "max_absolute_clock_offset_ms_for_signal": 250,
+    "old_session_monotonic_values_may_seed_new_freshness": false,
+    "unknown_clock_health": "NO_SIGNAL"
+  },
+  "cohort_contract": {
+    "arm_time_set_exactly_once": true,
+    "backfill_missed_live_decisions_allowed": false,
+    "cohort_end_extension_allowed": false,
+    "cohort_rearm_or_restart_mid_window_allowed": false,
+    "downtime_label": "PROSPECTIVE_OBSERVATION_GAP",
+    "duration_hours": 168,
+    "fixed_end_time_rule": "arm_time_utc_plus_exactly_168_consecutive_hours",
+    "historical_replay_may_be_labeled_as_live_decision": false,
+    "process_restart_under_same_frozen_cohort_allowed": true,
+    "replace_events_lost_to_downtime_allowed": false,
+    "replace_lost_observation_time_allowed": false,
+    "restart_after_fixed_end": "record_cohort_ended_and_emit_no_signal",
+    "restart_must_use_exact_arm_git_commit": true,
+    "restart_must_use_exact_frozen_fingerprints": true
+  },
+  "coinbase_restart_contract": {
+    "continuity_requirement": "accepted_Z_D_trade_id_plus_heartbeat_recovery_contract",
+    "heartbeat_unhealthy_after_seconds": 3,
+    "minute_with_zero_trades": "NO_SIGNAL",
+    "missing_trade_recovery": "accepted_Z_D_bounded_rest_recovery",
+    "restore_old_continuity_as_current": false,
+    "restore_old_heartbeat_freshness": false,
+    "restore_old_minute_builder_memory": false,
+    "startup_required_state": "exact_current_completed_utc_minute"
+  },
+  "design_fingerprint": "40496ce5a4274367c8098dd90d0f0c74d2bae24ba91aaab1e95d14356e0ccdda",
+  "downtime_contract": {
+    "cohort_clock_pauses": false,
+    "cohort_end_moves_due_to_downtime": false,
+    "downtime_counts_inside_168_hours": true,
+    "downtime_economic_outcome_assigned": false,
+    "downtime_label": "PROSPECTIVE_OBSERVATION_GAP",
+    "missed_decisions_backfilled": false,
+    "missed_events_replaced": false
+  },
+  "failure_policy": {
+    "architecture_or_candidate_fingerprint_mismatch": "FATAL_NO_SIGNAL",
+    "arm_manifest_missing": "FATAL_NO_SIGNAL",
+    "arm_manifest_sqlite_mismatch": "FATAL_NO_SIGNAL",
+    "clock_unknown_or_unhealthy": "RECOVERABLE_BLOCK_NO_SIGNAL",
+    "cohort_already_ended": "NO_SIGNAL_RECORD_ENDED",
+    "coinbase_unavailable_or_recovery_required": "RECOVERABLE_BLOCK_NO_SIGNAL",
+    "git_commit_mismatch": "FATAL_NO_SIGNAL",
+    "kalshi_ladder_not_exact": "RECOVERABLE_BLOCK_NO_SIGNAL",
+    "raw_evidence_gap_from_prior_crash": "RECORD_GAP_EXCLUDE_AFFECTED_DECISION_AND_ALLOW_FRESH_RECOVERY",
+    "sqlite_corruption": "FATAL_NO_SIGNAL"
+  },
+  "frozen_parent_architecture": {
+    "architecture_fingerprint": "3061000e53226bcb9f87f61469b42790bc3c2db176f064df95d32d62594891e7"
+  },
+  "frozen_scientific_bindings": {
+    "candidate_fingerprint": "b45478594c088c09086d55d14e70aa7a22a62dc546cf0f2d9a1e3bb2f296b8dc",
+    "candidate_id": "kxbtcd_btc_distance_offset_logistic.v1",
+    "duration_hours": 168,
+    "primary_net_edge_threshold_dollars": "0.02",
+    "prospective_week_sha256": "60f24fd8424aff93a65006a87e31ef150417f3f393bf0a5de19f65ceeb4f2869",
+    "strategy_id": "kxbtcd_candidate_e_spot_relative_liquidity_convergence_reentry_v2",
+    "strategy_reference_quantity_contracts": "1"
+  },
+  "kalshi_restart_contract": {
+    "all_books_same_current_generation_required": true,
+    "fresh_authoritative_snapshot_required_for_every_current_ladder_market": true,
+    "fresh_market_discovery_required": true,
+    "fresh_subscription_required": true,
+    "new_cache_initial_state": "resync_required_true",
+    "old_ladder_may_be_used_as_current": false,
+    "restore_old_book_cache": false,
+    "restore_old_sequence_ready_state": false,
+    "restore_old_subscription_sid": false,
+    "sequence_gap_during_restart_recovery": "INVALIDATE_ALL_AND_REPEAT_FULL_SNAPSHOT_RECOVERY"
+  },
+  "parent_repository": {
+    "branch": "main",
+    "parent_checkpoint_commit": "c37b823b47a52ff5d2c2c4ae694a4d19d5fad005",
+    "parent_receipt_commit": "b0c05ab105d094269e3bf8dd1937d8110675b732"
+  },
+  "raw_journal_restart_contract": {
+    "append_and_python_flush_before_transform": true,
+    "append_to_prior_session_raw_segment_allowed": false,
+    "decision_raw_reference_missing_after_crash": "MARK_RAW_EVIDENCE_GAP_EXCLUDE_FROM_CANONICAL_DECISION_EVIDENCE_DO_NOT_RECONSTRUCT",
+    "decision_references_flushed_raw_records": true,
+    "forced_raw_fsync_before_every_read_only_decision": false,
+    "maximum_raw_fsync_interval_seconds": 1,
+    "new_process_opens_new_raw_segments": true,
+    "partial_trailing_json_record": "PRESERVE_BYTES_MARK_EVIDENCE_GAP_DO_NOT_TRUNCATE",
+    "prior_unclean_segment_is_never_silently_modified": true,
+    "raw_before_transform_required": true,
+    "reason_no_per_decision_fsync": "keep live read-only path lightweight; future execution retains its forced raw-fsync barrier",
+    "runtime_session_id_required_in_every_new_raw_record": true
+  },
+  "read_only_strategy_restart_contract": {
+    "current_atm_window_recomputed": true,
+    "current_candidate_e_probability_recomputed": true,
+    "current_signal_selection_recomputed": true,
+    "persist_fills_or_positions_current_phase": false,
+    "persist_prior_primary_signal_as_actionable": false,
+    "prior_decisions_preserved_for_audit": true
+  },
+  "restart_state_machine": {
+    "first_post_restart_signal": "fresh_recomputation_only_after_READY_READ_ONLY",
+    "gate_failure_behavior": "NO_NEW_SIGNAL",
+    "gate_regression_after_ready": "IMMEDIATELY_DISABLE_SIGNALS_RECORD_GAP_AND_REQUIRE_FULL_CURRENT_GATE_REEVALUATION",
+    "old_signal_may_survive_gate_loss": false,
+    "ready_requires_all": [
+      "identity_and_frozen_commit_match",
+      "cohort_active_and_before_fixed_end",
+      "sqlite_integrity_proven",
+      "prior_session_classified",
+      "raw_reference_reconciliation_complete",
+      "clock_healthy",
+      "exact_current_completed_coinbase_minute_available",
+      "coinbase_continuity_proven",
+      "kalshi_current_event_full_ladder_exact",
+      "durable_read_only_strategy_state_reconciled",
+      "execution_mode_disabled"
+    ],
+    "states": [
+      "STARTUP_DISABLED",
+      "BLOCKED_IDENTITY",
+      "BLOCKED_COHORT",
+      "BLOCKED_DURABILITY",
+      "BLOCKED_CLOCK",
+      "BLOCKED_COINBASE",
+      "BLOCKED_KALSHI",
+      "BLOCKED_STRATEGY_RECONCILIATION",
+      "READY_READ_ONLY",
+      "COHORT_ENDED",
+      "FATAL"
+    ]
+  },
+  "runtime_identity_contract": {
+    "armed_cohort_requires_exact_git_commit_match": true,
+    "boot_id_change_requires_new_runtime_session": true,
+    "boot_id_required_for_production_runtime": true,
+    "linux_boot_id_source": "/proc/sys/kernel/random/boot_id",
+    "production_boot_id_unavailable": "NO_SIGNAL",
+    "runtime_session_id": "new_uuid4_for_every_process_start",
+    "same_boot_process_restart_still_requires_new_session": true,
+    "windows_development_tests": "explicit_injected_synthetic_boot_id_only"
+  },
+  "runtime_liveness_contract": {
+    "durable_heartbeat_interval_seconds": 5,
+    "heartbeat_does_not_prove_market_source_health": true,
+    "heartbeat_must_not_run_on_live_decision_path": true,
+    "heartbeat_role": "last_known_alive_bound_for_unclean_shutdown_gap_accounting",
+    "heartbeat_storage": "sqlite_runtime_sessions",
+    "sqlite_synchronous_mode": "FULL"
+  },
+  "schema_version": "kxbtcd_candidate_e_restart_durable_state_design.v1",
+  "scope": {
+    "current_execution_mode": "disabled",
+    "demo_execution_authorized": false,
+    "network_activity_in_this_checkpoint": false,
+    "order_submission_code_authorized": false,
+    "paper_execution_authorized": false,
+    "prospective_cohort_arm_authorized": false,
+    "real_money_execution_authorized": false,
+    "restart_runtime_implementation_authorized": false,
+    "sqlite_runtime_implementation_authorized": false,
+    "strategy_or_model_retuning_authorized": false
+  },
+  "sqlite_contract": {
+    "armed_db_missing": "FATAL_NO_SIGNAL_NO_AUTO_RECREATE",
+    "automatic_schema_migration_while_cohort_armed": false,
+    "canonical_db_created_only_for_explicit_arm": true,
+    "canonical_db_relative_path_template": "data/prospective/candidate_e/<cohort_id>/runtime_state.sqlite3",
+    "dashboard_connection_mode": "read_only",
+    "future_execution_worker_schema_included_now": false,
+    "integrity_failure": "FATAL_NO_SIGNAL_NO_AUTO_RECREATE",
+    "pragmas": {
+      "busy_timeout_ms": 5000,
+      "foreign_keys": "ON",
+      "journal_mode": "WAL",
+      "locking_mode": "NORMAL",
+      "synchronous": "FULL"
+    },
+    "prearm_validation_uses_noncanonical_temp_db": true,
+    "single_writer_process": "market_strategy_runtime",
+    "startup_integrity_check": "PRAGMA integrity_check",
+    "tables": {
+      "cohort_state": [
+        "singleton_id INTEGER PRIMARY KEY CHECK(singleton_id=1)",
+        "cohort_id TEXT NOT NULL UNIQUE",
+        "status TEXT NOT NULL CHECK(status IN ('ARMED','ENDED'))",
+        "arm_time_utc TEXT NOT NULL",
+        "fixed_end_time_utc TEXT NOT NULL",
+        "duration_hours INTEGER NOT NULL CHECK(duration_hours=168)",
+        "arm_git_commit TEXT NOT NULL",
+        "arm_manifest_sha256 TEXT NOT NULL",
+        "armed_by_session_id TEXT NOT NULL",
+        "ended_utc TEXT"
+      ],
+      "decision_records": [
+        "decision_record_id TEXT PRIMARY KEY",
+        "session_id TEXT NOT NULL",
+        "session_decision_seq INTEGER NOT NULL",
+        "decision_utc TEXT NOT NULL",
+        "decision_monotonic_ns INTEGER NOT NULL",
+        "trigger_type TEXT NOT NULL",
+        "event_ticker TEXT NOT NULL",
+        "coinbase_minute_start_s INTEGER NOT NULL",
+        "coinbase_close_trade_id INTEGER",
+        "kalshi_book_generation INTEGER NOT NULL",
+        "kalshi_last_seq INTEGER",
+        "result_status TEXT NOT NULL",
+        "result_json TEXT NOT NULL",
+        "source_raw_refs_json TEXT NOT NULL",
+        "integrity_status TEXT NOT NULL CHECK(integrity_status IN ('PENDING_RAW_DURABILITY','VERIFIED','RAW_EVIDENCE_GAP'))",
+        "UNIQUE(session_id,session_decision_seq)"
+      ],
+      "observation_gaps": [
+        "gap_id TEXT PRIMARY KEY",
+        "gap_kind TEXT NOT NULL",
+        "reason TEXT NOT NULL",
+        "start_utc TEXT NOT NULL",
+        "end_utc TEXT",
+        "start_basis TEXT NOT NULL",
+        "prior_session_id TEXT",
+        "next_session_id TEXT",
+        "source_id TEXT",
+        "canonical_backfill_allowed INTEGER NOT NULL CHECK(canonical_backfill_allowed=0)"
+      ],
+      "runtime_events": [
+        "event_id INTEGER PRIMARY KEY AUTOINCREMENT",
+        "session_id TEXT NOT NULL",
+        "session_event_seq INTEGER NOT NULL",
+        "event_utc TEXT NOT NULL",
+        "event_monotonic_ns INTEGER",
+        "event_type TEXT NOT NULL",
+        "severity TEXT NOT NULL",
+        "payload_json TEXT NOT NULL",
+        "UNIQUE(session_id,session_event_seq)"
+      ],
+      "runtime_identity": [
+        "singleton_id INTEGER PRIMARY KEY CHECK(singleton_id=1)",
+        "schema_version TEXT NOT NULL",
+        "restart_design_fingerprint TEXT NOT NULL",
+        "architecture_fingerprint TEXT NOT NULL",
+        "candidate_fingerprint TEXT NOT NULL",
+        "prospective_week_sha256 TEXT NOT NULL",
+        "strategy_id TEXT NOT NULL",
+        "primary_threshold_dollars TEXT NOT NULL",
+        "execution_mode TEXT NOT NULL CHECK(execution_mode='disabled')",
+        "created_utc TEXT NOT NULL"
+      ],
+      "runtime_sessions": [
+        "session_id TEXT PRIMARY KEY",
+        "prior_session_id TEXT",
+        "boot_id TEXT NOT NULL",
+        "git_commit TEXT NOT NULL",
+        "started_utc TEXT NOT NULL",
+        "started_monotonic_ns INTEGER NOT NULL",
+        "last_heartbeat_utc TEXT NOT NULL",
+        "last_heartbeat_monotonic_ns INTEGER NOT NULL",
+        "ended_utc TEXT",
+        "ended_monotonic_ns INTEGER",
+        "shutdown_status TEXT NOT NULL CHECK(shutdown_status IN ('RUNNING','CLEAN','UNCLEAN_DETECTED'))",
+        "unclean_detected_by_session_id TEXT"
+      ],
+      "source_watermarks": [
+        "session_id TEXT NOT NULL",
+        "source_id TEXT NOT NULL",
+        "last_raw_segment_id TEXT",
+        "last_raw_record_index INTEGER",
+        "last_source_identity_json TEXT",
+        "last_received_utc TEXT",
+        "last_received_monotonic_ns INTEGER",
+        "source_status TEXT NOT NULL",
+        "PRIMARY KEY(session_id,source_id)"
+      ]
+    }
+  },
+  "state_classification": {
+    "forbidden_actionable_persisted_state_current_phase": [
+      "open_orders",
+      "fills",
+      "positions",
+      "cash_balance",
+      "paper_positions",
+      "demo_positions",
+      "live_execution_state"
+    ],
+    "must_rebuild_from_live_authoritative_sources": [
+      "coinbase_websocket_connection",
+      "coinbase_minute_builder_in_memory_state",
+      "coinbase_heartbeat_freshness",
+      "coinbase_current_completed_minute_availability",
+      "coinbase_current_continuity_state",
+      "kalshi_websocket_connection",
+      "kalshi_subscription_sid",
+      "kalshi_sequence_ready_state",
+      "kalshi_live_books",
+      "kalshi_current_full_ladder_exactness",
+      "current_atm_window",
+      "current_candidate_e_signal",
+      "clock_health_result"
+    ],
+    "never_compare_across_runtime_sessions": [
+      "local_monotonic_timestamps",
+      "monotonic_freshness_ages",
+      "feed_to_model_latency",
+      "model_to_signal_latency"
+    ],
+    "persist_across_restart": [
+      "cohort_identity_and_fixed_arm_end_times",
+      "arm_git_commit_and_frozen_fingerprints",
+      "runtime_session_records",
+      "last_durable_session_heartbeat",
+      "runtime_gate_transition_events",
+      "durable_decision_records",
+      "decision_to_raw_record_references",
+      "source_watermarks_for_audit_only",
+      "observation_gap_records"
+    ]
+  },
+  "unclean_restart_contract": {
+    "claim_exact_crash_time_allowed": false,
+    "gap_end": "new_session_started_utc",
+    "gap_start_for_unclean_shutdown": "prior_last_durable_heartbeat_utc",
+    "gap_start_is_conservative_last_known_alive_bound": true,
+    "prior_session_left_RUNNING": "successor_marks_UNCLEAN_DETECTED",
+    "reconstruct_missed_decisions_allowed": false
+  },
+  "z_e_b_acceptance_invariants": {
+    "backfilled_downtime_live_decisions": 0,
+    "cohort_extensions": 0,
+    "cohort_rearms": 0,
+    "demo_orders": 0,
+    "old_coinbase_freshness_reused": 0,
+    "old_kalshi_book_cache_reused": 0,
+    "old_monotonic_clock_reused": 0,
+    "orders": 0,
+    "paper_orders": 0,
+    "production_writes": 0,
+    "stale_signal_before_full_reconciliation": 0
+  },
+  "z_e_b_required_test_matrix": [
+    "CLEAN_RESTART_SAME_BOOT_SAME_COMMIT",
+    "UNCLEAN_PROCESS_KILL_SAME_BOOT",
+    "HOST_REBOOT_BOOT_ID_CHANGED",
+    "CRASH_AFTER_RAW_FLUSH_BEFORE_DECISION_COMMIT",
+    "CRASH_AFTER_DECISION_COMMIT_BEFORE_RAW_FSYNC",
+    "RESTART_WHILE_COINBASE_RECOVERY_REQUIRED",
+    "RESTART_WHILE_KALSHI_FULL_SNAPSHOT_RECOVERY_PENDING",
+    "STARTUP_CLOCK_UNHEALTHY",
+    "ARMED_GIT_COMMIT_MISMATCH",
+    "SQLITE_INTEGRITY_FAILURE",
+    "ARM_MANIFEST_SQLITE_IDENTITY_MISMATCH",
+    "DOWNTIME_CROSSES_KXBTCD_EVENT_BOUNDARY",
+    "DOWNTIME_CROSSES_T55_TO_T2_ENTRY_WINDOW",
+    "RESTART_AFTER_FIXED_168H_END",
+    "WITHIN_SESSION_SOURCE_DISCONNECT_AND_RECOVERY",
+    "PARTIAL_TRAILING_RAW_RECORD_PRESERVED",
+    "NO_BACKFILLED_LIVE_DECISIONS_AFTER_ANY_RESTART"
+  ]
+}

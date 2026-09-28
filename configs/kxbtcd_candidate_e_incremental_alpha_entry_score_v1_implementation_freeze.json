@@ -1,0 +1,23 @@
+{
+  "C1_C2_accessed": false,
+  "C3_accessed": false,
+  "absolute_threshold_search_performed": false,
+  "cli_sha256": "a0c86581a99975be4a9e10b818de9037823fe1a3cc2bb0af6fb76dd89d6231c5",
+  "coverage_search_performed": false,
+  "diagnostic_id": "kxbtcd_candidate_e_incremental_alpha_entry_score.v1",
+  "execution_authorized": false,
+  "focused_test_sha256": "5c7b960527b04fc93cfca970f4a63fcb4fb93d76349959a7456271717dfb6599",
+  "implementation_fingerprint": "8c88bb386e0ba13b3ab8761e67a73dd7105637d3667d5fc7394d163259b5471b",
+  "incremental_score_pnl_inspected": false,
+  "network_accessed": false,
+  "parent_receipt_fingerprint": "513a27890e5921f7d95b6abd2ddb89bcc5b10e82386124fde050dc44e59a9845",
+  "parent_result_fingerprint": "54d2a3588c1e06d4a6cd79234b91c59e4aafecff95e33a7a218e2fac85811d3b",
+  "post_closeout_run_rule": "Only after a valid Checkpoint 21N-N-C-B closeout receipt may the real CLI consume the canonical parent alpha-entry result/receipt/decisions.",
+  "predeclaration_fingerprint": "bb341361f191621564459fef3f68d893181498cb687e131e39183441a3eb27fa",
+  "protected_reserve_accessed": false,
+  "real_incremental_score_run_performed": false,
+  "result_validator_sha256": "c30c3ef834d257458e7ba9e4147c2de38b90f69f20129b1004216bb842dbc60f",
+  "schema_version": "kxbtcd_candidate_e_incremental_alpha_entry_score_v1_implementation_freeze.v1",
+  "source_sha256": "ec4de0809cc3cecf8fe36255659c498d23b3a888a534d0d6b5dffc150d681b8d",
+  "status": "IMPLEMENTATION_FROZEN_NOT_RUN"
+}

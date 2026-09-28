@@ -1,0 +1,124 @@
+{
+  "checkpoint_id": "21N-Z-E-B5-R5-DASHBOARD-DESIGN",
+  "schema_version": "kxbtcd_candidate_e_private_dashboard_design.v1",
+  "scope": {
+    "current_execution_mode": "disabled",
+    "real_money_execution_authorized": false,
+    "dashboard_can_submit_orders": false,
+    "dashboard_can_cancel_orders": false,
+    "dashboard_can_modify_strategy": false,
+    "dashboard_can_access_venue_credentials": false
+  },
+  "isolation": {
+    "runtime_to_dashboard_flow": "one_way_sanitized_projection",
+    "dashboard_to_runtime_network_path": "none",
+    "dashboard_failure_blocks_runtime": false,
+    "dashboard_credential_mounts": "none",
+    "dashboard_database_role": "read_only",
+    "initial_access": "localhost_only_via_ssh_tunnel"
+  },
+  "future_ledger_contract": {
+    "current_phase_persists_order_fill_position_state": false,
+    "event_storage": "append_only_durable_ledger",
+    "event_identity": [
+      "run_id",
+      "event_sequence",
+      "event_type"
+    ],
+    "required_lineage": [
+      "git_head",
+      "docker_image_digest",
+      "strategy_fingerprint",
+      "decision_record_id"
+    ],
+    "confirmed_trade_facts": [
+      "venue_order_id",
+      "client_order_id",
+      "market_ticker",
+      "side",
+      "filled_quantity",
+      "fill_price",
+      "venue_fee",
+      "venue_timestamp"
+    ],
+    "reconciliation_required_before_closed_position": true
+  },
+  "pnl_contract": {
+    "realized_pnl_basis": "confirmed_fills_and_confirmed_fees_only",
+    "unrealized_pnl_label": "mark_to_market_estimate",
+    "expected_pnl_label": "decision_time_estimate",
+    "never_mix_realized_and_estimated_pnl": true
+  },
+  "shadow_simulation_contract": {
+    "enabled_in_current_read_only_phase": true,
+    "execution_side_effects": false,
+    "input": "one_way_sanitized_causal_market_snapshots",
+    "ledger": "append_only_simulation_only",
+    "pnl_label": "simulated_observed_depth_not_venue_realized",
+    "retained_exit_target": "entry_outlay_plus_selected_v2_net_edge_times_simulated_filled_quantity",
+    "resting_exit_fill_claim": "not_proven_from_book_data",
+    "simulated_entry_budget_dollars": "100.00",
+    "shadow_failure_blocks_soak": false
+  },
+  "scenario_lab_contract": {
+    "live_ranked_dimension": "net_edge_threshold_only",
+    "edge_thresholds": [
+      "0.00",
+      "0.01",
+      "0.02",
+      "0.03",
+      "0.05"
+    ],
+    "scenario_ids": [
+      "edge_000",
+      "edge_001",
+      "edge_002",
+      "edge_003",
+      "edge_005"
+    ],
+    "primary_scenario_id": "edge_002",
+    "execution_timing_basis": "OBSERVED_SHADOW_PATH",
+    "latency_sensitivity_scope": "OFFLINE_ONLY_NOT_LIVE_RANKED",
+    "same_causal_snapshot_fanout": true,
+    "scenario_state_identity": [
+      "run_id",
+      "scenario_id"
+    ]
+  },
+  "views": [
+    "portfolio_summary",
+    "scenario_lab",
+    "scenario_detail",
+    "trade_lifecycle_table",
+    "position_and_pnl_detail",
+    "strategy_decision_lineage",
+    "venue_reconciliation_status",
+    "runtime_reliability"
+  ],
+  "operational_metrics": {
+    "backend": "prometheus_compatible_aggregates",
+    "allowed_label_dimensions": [
+      "source",
+      "event_class",
+      "run_role"
+    ],
+    "forbidden_high_cardinality_labels": [
+      "order_id",
+      "client_order_id",
+      "venue_order_id",
+      "trade_id",
+      "market_ticker"
+    ]
+  },
+  "deployment": {
+    "dashboard_platform": "grafana",
+    "grafana_version": "13.2.1",
+    "grafana_sqlite_plugin_version": "4.0.6",
+    "current_shadow_read_model": "sqlite_query_projection_v2",
+    "current_shadow_read_model_access": "grafana_query_only_read_only_mount",
+    "current_shadow_read_model_volume": "dedicated_projection_only_volume",
+    "trade_read_model": "postgresql_when_enabled",
+    "runtime_health_source": "prometheus_compatible_metrics",
+    "dashboard_provisioning": "version_controlled"
+  }
+}

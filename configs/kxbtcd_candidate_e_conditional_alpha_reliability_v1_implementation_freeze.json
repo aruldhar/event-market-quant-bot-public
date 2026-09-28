@@ -1,0 +1,95 @@
+{
+  "candidate_id": "kxbtcd_candidate_e_conditional_alpha_reliability.v1",
+  "checkpoint_id": "21N-J-A",
+  "implementation_fingerprint": "566f085ef78e8045a75a1dc3781255a2dcae30f23d04ba317ab56e87ac18f5a6",
+  "implementation_scope": {
+    "bounded_alpha_probability_map": true,
+    "deterministic_full_batch_bfgs": true,
+    "event_equal_scaler": true,
+    "four_feature_projection": true,
+    "frozen_entry_policy": true,
+    "independent_rematerialization_validator": true,
+    "outcome_blind_materializer": true,
+    "real_data_fit_cli_present": false,
+    "real_outcome_scoring_cli_present": false,
+    "real_pnl_evaluator_present": false
+  },
+  "implementation_sha256s": {
+    "prepare_kxbtcd_candidate_e_conditional_alpha_reliability_v1.py": "7858ed5bb387f350f749fa7b23f9758e24fd05c053f08974d94ce2ad9a09d855",
+    "src/kxbtcd_candidate_e_conditional_alpha_reliability_v1.py": "69c7cc8d5ff55c365e0a0440259085736e1f4222cc2cfb8861f718f8e91f8924",
+    "src/kxbtcd_candidate_e_conditional_alpha_reliability_v1_materialization.py": "d7262e88631ac653e119b0213fc74208cf8070b53f642819149ce574d1fbb2c2",
+    "validate_kxbtcd_candidate_e_conditional_alpha_reliability_v1_preparation.py": "65ae5ba610aef2645d58facc1d63536d903e565faeba7f143ec0fd8b1e28f3a4"
+  },
+  "materialization_contract": {
+    "candidate_e_prediction_recomputed": false,
+    "input_parent_feature_rows": "exact frozen 21M Model-2 development feature CSV",
+    "input_parent_preparation_freeze": "exact frozen 21M preparation freeze",
+    "input_preoutcome": "exact preoutcome source SHA bound by parent preparation freeze",
+    "market_midpoint_formula": "(yes_bid + yes_ask)/2",
+    "outcome_fields_prohibited": true,
+    "output_events": 2570,
+    "output_rows": 76419,
+    "parent_spread_must_match_preoutcome_quote": true,
+    "r_5m_recomputed": false,
+    "requires_safe_21N_J_A_closeout_receipt": true,
+    "stages": {
+      "H1_OOF": [
+        1070,
+        31656
+      ],
+      "H2": [
+        750,
+        22354
+      ],
+      "H3": [
+        750,
+        22409
+      ]
+    }
+  },
+  "optimizer_contract": {
+    "armijo_c1": 0.0001,
+    "gradient_l2_tolerance": 1e-08,
+    "initial_alpha": 0.5,
+    "initial_gamma": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "initial_inverse_hessian": "5x5 identity",
+    "initial_step": 1.0,
+    "line_search_failure": "fail_closed",
+    "max_iterations": 500,
+    "minimum_step": 9.094947017729282e-13,
+    "non_descent_direction": "fail_closed",
+    "non_finite_state": "fail_closed",
+    "positive_curvature_rule": "if not converged and y^T s <= 1e-12: fail_closed",
+    "rejected_step_multiplier": 0.5,
+    "warm_starts": false
+  },
+  "parent_model2_feature_file_sha256": "0d52f0cffa30f73c05c820f9f1e9f297a195e9ecb9f2d6193f079767e0b4489c",
+  "parent_model2_preparation_fingerprint": "2e5d71c0af8ea9204003eea44bc8494aeb7a8afd6eef0ea16effb99ca54f7e7d",
+  "phase_sequence": {
+    "21N_J_A": "validate and safely close implementation before any real-data materialization",
+    "21N_J_B": "after J-A closeout, run outcome-blind materialization and independent rematerialization validation",
+    "later_outcome_checkpoint": "only after J-B closeout may H-development outcomes be attached and gamma fit be run once"
+  },
+  "predeclaration_fingerprint": "742ff487d63e247a4a14d31d9105977b0755ef38d30ad255e85dd77a741ef4d3",
+  "safety": {
+    "c1_c2_accessed": false,
+    "c3_accessed": false,
+    "demo_execution": false,
+    "network_accessed": false,
+    "orders_submitted": false,
+    "paper_execution": false,
+    "protected_reserve_accessed": false,
+    "real_data_gamma_fit_performed": false,
+    "real_money_execution": false,
+    "real_outcome_scoring_performed": false,
+    "real_strategy_pnl_calculated": false
+  },
+  "schema_version": "kxbtcd_candidate_e_conditional_alpha_reliability_v1_implementation_freeze.v1",
+  "status": "IMPLEMENTATION_FREEZE_READY_FOR_CANONICAL_VALIDATION"
+}

@@ -1,0 +1,240 @@
+{
+  "schema_version": "kxbtcd_candidate_e_executable_convergence_liquidation_v1_predeclaration.v1",
+  "checkpoint_id": "21N-Q",
+  "strategy_id": "kxbtcd_candidate_e_executable_convergence_liquidation_v1",
+  "parent_checkpoint": {
+    "checkpoint_id": "21N-P",
+    "receipt_commit": "21bb2bb6d38295411aa8381dc176e5841072e422",
+    "checkpoint_commit": "cb946f6a9df94f839ba906523b08162ff9e35b29"
+  },
+  "candidate_e": {
+    "candidate_id": "kxbtcd_btc_distance_offset_logistic.v1",
+    "champion_final_fingerprint": "b45478594c088c09086d55d14e70aa7a22a62dc546cf0f2d9a1e3bb2f296b8dc",
+    "beta_distance": "0.014939489324405949",
+    "formula": "logit(pE)=logit(clip(q_market,0.001,0.999))+beta_distance*(10000*ln(S_t/K))",
+    "refit_allowed": false,
+    "recalibration_allowed": false,
+    "post_entry_probability_recomputation_for_exit_allowed": false
+  },
+  "evidence_scope": {
+    "date_utc": "2026-07-10",
+    "event_tickers": [
+      "KXBTCD-26JUL1013",
+      "KXBTCD-26JUL1014",
+      "KXBTCD-26JUL1015",
+      "KXBTCD-26JUL1016"
+    ],
+    "independent_event_count": 4,
+    "role": "exploratory_development_sandbox_only",
+    "strategy_outcomes_accessed_before_predeclaration": false,
+    "strategy_pnl_calculated_before_predeclaration": false,
+    "may_select_winning_policy_from_four_events": false,
+    "c1_c2_c3_or_protected_reserve_access_allowed": false
+  },
+  "source_lineage": {
+    "predexon_paid_shard_path": "data/raw/predexon_ticks/2026/07/10/kalshi_orderbook_deltas_2026-07-10_part00017_raw.zstd.parquet",
+    "predexon_paid_shard_sha256": "43E9C5D99FB4001B866AE3E60021C8C10123DC1FB6248DF96084446FACE68509",
+    "predexon_paid_delta_rows": 5644964,
+    "predexon_contract_count": 623,
+    "full_ladder_replay_summary": "data/analysis/predexon_full_ladder_replay/summary.json",
+    "btc_materialization": "data/analysis/predexon_credit_efficiency/july10_candidate_e_btc_materialization.json",
+    "event_metadata_probe": "data/analysis/predexon_credit_efficiency/july10_event_metadata_probe.json",
+    "replay_rule": "use_only_reconciliation_verified_segments",
+    "anchor_local_fail_closed": true,
+    "no_interpolation_nearest_carry_forward_cross_strike_proxy": true
+  },
+  "candidate_universe": {
+    "structural_roles": [
+      "q10",
+      "q30",
+      "q50",
+      "q70",
+      "q90"
+    ],
+    "strike_selection": "numeric_strike_nearest_rank_half_up",
+    "all_623_contracts_may_be_used_only_to_determine_full_ladder_and_the_five_structural_roles": true,
+    "arbitrary_non_structural_strike_selection_allowed": false,
+    "anchor_order_ttc_minutes": [
+      55,
+      50,
+      45,
+      40,
+      35,
+      30
+    ],
+    "sides": [
+      "YES",
+      "NO"
+    ],
+    "maximum_entries_per_event_per_threshold": 1
+  },
+  "decision_state": {
+    "q_market": "reconstructed_yes_best_bid_ask_midpoint_at_exact_anchor",
+    "requires_valid_uncrossed_two_sided_book": true,
+    "yes_purchase_price": "reconstructed_yes_best_ask",
+    "no_purchase_price": "1-reconstructed_yes_best_bid",
+    "yes_fair_probability": "pE",
+    "no_fair_probability": "1-pE",
+    "planned_contracts": "1.00",
+    "decision_price_level_minimum_depth_contracts": "1.00",
+    "signal_trade_fee": "ceil_to_0.0001(0.07*1.00*P*(1-P))",
+    "signal_net_edge": "side_fair_probability-purchase_price-signal_trade_fee",
+    "edge_threshold_dollars": [
+      "0.00",
+      "0.01",
+      "0.02",
+      "0.03",
+      "0.05"
+    ],
+    "qualification": "signal_net_edge>=edge_threshold",
+    "anchor_rule": "first_qualifying_anchor",
+    "selection_within_anchor": "largest_signal_net_edge",
+    "tie_break": [
+      "market_ticker_ascending",
+      "YES_before_NO"
+    ],
+    "thresholds_are_parallel_predeclared_policies_not_a_search_for_a_winner": true
+  },
+  "entry_execution": {
+    "counterfactual_order_type": "IOC_limit_buy",
+    "latency_ms": [
+      0,
+      500,
+      1000
+    ],
+    "same_latency_value_applies_to_entry_and_exit_within_a_scenario": true,
+    "limit_price": "decision_time_purchase_price",
+    "arrival_time": "decision_time+latency",
+    "verified_segment_requirement": "entire_decision_to_arrival_interval_inside_same_verified_segment",
+    "matching": "consume_arrival_asks_best_to_worst_at_prices<=limit_until_1.00_contract_or_depth_exhausted",
+    "price_improvement_allowed": true,
+    "price_worsening_beyond_limit_allowed": false,
+    "full_fill": "filled_quantity==1.00",
+    "partial_fill": "0<filled_quantity<1.00",
+    "missed_fill": "filled_quantity==0",
+    "unfilled_remainder_cancelled_immediately": true,
+    "no_position_if_missed": true
+  },
+  "liquidation_policy": {
+    "primary_branch": "entry_time_fair_value_convergence_liquidation",
+    "matched_control_branch": "hold_same_filled_quantity_to_settlement",
+    "frozen_target_per_contract": "entry_time_side_fair_probability",
+    "dynamic_candidate_e_recalculation_after_entry": false,
+    "monitor_start": "after_entry_fill_at_entry_arrival_time",
+    "monitor_end": "event_close_time",
+    "monitoring_resolution": "every_reconstructed_book_state_change_in_order",
+    "continuous_path_requirement": "from_entry_arrival_through_trigger_or_event_close_must_remain_continuously_verified_without_any_replay_boundary",
+    "gap_before_trigger": "primary_liquidation_branch_source_unavailable",
+    "side_bid_mapping": {
+      "YES": "reconstructed_yes_bid_ladder",
+      "NO": "1-reconstructed_yes_ask_ladder_with_same_quantities"
+    },
+    "trigger_depth_requirement": "current_bid_ladder_can_immediately_liquidate_the_entire_open_quantity",
+    "trigger_fee_accounting": "simulate_hypothetical_full_IOC_sell_using_fee_and_rounding_policy",
+    "trigger_condition": "hypothetical_full_liquidation_net_cash_proceeds>=entry_time_side_fair_probability*open_quantity",
+    "trigger_time": "first_reconstructed_state_change_satisfying_trigger_condition",
+    "exit_limit_price": "worst_bid_price_consumed_by_trigger_time_hypothetical_full_liquidation",
+    "exit_order_type": "IOC_limit_sell",
+    "exit_arrival_time": "trigger_time+same_scenario_latency",
+    "exit_verified_segment_requirement": "entire_trigger_to_exit_arrival_interval_inside_same_verified_segment",
+    "exit_matching": "consume_arrival_bids_best_to_worst_at_prices>=exit_limit_until_open_quantity_or_depth_exhausted",
+    "price_improvement_allowed": true,
+    "price_worsening_below_limit_allowed": false,
+    "exit_attempt_count": 1,
+    "exit_partial_fill_remainder": "hold_remaining_quantity_to_settlement",
+    "exit_zero_fill": "hold_entire_quantity_to_settlement",
+    "exit_source_invalid": "primary_liquidation_branch_source_unavailable_not_assumed_missed",
+    "no_trigger_with_continuous_verified_path_to_close": "hold_entire_quantity_to_settlement",
+    "no_retry_after_partial_or_missed_exit": true,
+    "no_force_exit": true,
+    "no_stop_loss": true,
+    "no_profit_target_grid": true
+  },
+  "fee_and_cash_rounding": {
+    "historical_schedule_effective_date": "2026-07-07",
+    "series_ticker": "KXBTCD",
+    "kxbtcd_listed_as_non_standard_fee_series_in_2026_07_07_schedule": false,
+    "taker_multiplier": "1",
+    "taker_trade_fee_formula": "0.07*C*P*(1-P)",
+    "trade_fee_rounding": "ceil_each_synthetic_fill_trade_fee_to_0.0001",
+    "cash_rounding": "floor_each_fill_balance_change_to_nearest_0.01_and_track_rounding_fee",
+    "rounding_accumulator": "per_counterfactual_order_across_all_synthetic_fills_with_0.01_rebates",
+    "synthetic_fill_partition": "one_synthetic_fill_per_consumed_price_level",
+    "fill_partition_uncertainty": "historical_orderbook_levels_do_not_identify_individual_resting_order_partitions;report_as_execution_uncertainty",
+    "settlement_fee": "0_for_binary_settlement;fractional_quantity_is_0.01_granular_so_0_or_1_payout_is_cent_aligned",
+    "numeric_type": "Decimal_exact_fixed_point",
+    "official_sources": [
+      "https://kalshi.com/docs/kalshi-fee-schedule.pdf",
+      "https://docs.kalshi.com/getting_started/fixed_point_migration",
+      "https://docs.kalshi.com/getting_started/fee_rounding"
+    ]
+  },
+  "model_uncertainty": {
+    "treatment": "predeclared_edge_margin_sensitivity",
+    "margins_dollars": [
+      "0.00",
+      "0.01",
+      "0.02",
+      "0.03",
+      "0.05"
+    ],
+    "interpretation": "deterministic_margin_of_safety_against_candidate_e_valuation_error_not_a_statistical_confidence_interval",
+    "no_new_uncertainty_model_fit_on_july10": true,
+    "all_margins_reported": true,
+    "no_margin_selected_as_winner_from_four_events": true
+  },
+  "evaluation_contract": {
+    "primary_research_question": "does_executable_convergence_liquidation_change_realized_economics_vs_matched_hold_after_spread_depth_latency_partial_missed_fills_and_fees",
+    "hold_control_uses_identical_entry_selection_and_identical_realized_entry_fill": true,
+    "required_entry_diagnostics": [
+      "selected_signal_count",
+      "source_unavailable_signal_count",
+      "full_entry_fill_count",
+      "partial_entry_fill_count",
+      "missed_entry_fill_count",
+      "entry_fill_vwap",
+      "entry_fee_and_rounding"
+    ],
+    "required_exit_diagnostics": [
+      "trigger_count",
+      "full_exit_fill_count",
+      "partial_exit_fill_count",
+      "missed_exit_fill_count",
+      "source_unavailable_exit_path_count",
+      "time_to_trigger",
+      "exit_fill_vwap",
+      "exit_fee_and_rounding",
+      "settlement_fallback_quantity"
+    ],
+    "required_economic_diagnostics": [
+      "liquidation_branch_net_pnl",
+      "matched_hold_net_pnl",
+      "liquidation_minus_hold_pnl",
+      "pnl_by_threshold",
+      "pnl_by_latency",
+      "pnl_by_event",
+      "pnl_by_side",
+      "pnl_by_role",
+      "pnl_by_anchor"
+    ],
+    "paired_primary_comparison_population": "only_entries_for_which_both_liquidation_branch_and_hold_control_are_evaluable",
+    "hold_control_may_also_be_reported_on_all_valid_entry_fills": true,
+    "statistical_unit": "hourly_event",
+    "independent_event_count": 4,
+    "profitability_or_generalization_claim_allowed": false,
+    "advancement_gate": "none_on_four_event_exploratory_sandbox",
+    "policy_or_latency_selection_after_results": false,
+    "fresh_event_protocol_must_be_frozen_before_additional_paid_predexon_data": true
+  },
+  "safety": {
+    "read_only": true,
+    "historical_counterfactual_only": true,
+    "orders_submitted": false,
+    "paper_broker": false,
+    "demo_execution": false,
+    "real_money_execution": false,
+    "predexon_purchase_authorized_by_this_checkpoint": false,
+    "c1_c2_c3_or_protected_reserve_access": false
+  },
+  "predeclaration_fingerprint": "61ede2de623d2ffca6b303895a860fa78de40ea36f0da7fe6b57835ac98d52f6"
+}

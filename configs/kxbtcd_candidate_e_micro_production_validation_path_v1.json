@@ -1,0 +1,66 @@
+{
+  "analysis_role": "risk_policy_and_execution_roadmap_amendment",
+  "checkpoint_id": "21N-Z-E-B5-R3-P1",
+  "current_authorization": "read_only",
+  "current_phase_prohibitions_unchanged": true,
+  "fail_closed_rules": [
+    "do_not_raise_price_to_force_fill",
+    "do_not_raise_quantity_to_force_fill",
+    "do_not_extend_duration_to_force_fill",
+    "do_not_auto_scale_after_success"
+  ],
+  "intended_first_real_money_step": {
+    "automatic_scale_up": false,
+    "definition": "One contract per order at a $0.01 purchase limit price on the selected side, plus applicable fees, under separately frozen total-run capital/loss/order/fill/duration caps.",
+    "fractional_quantity_interpretation": false,
+    "general_production_launch": false,
+    "name": "candidate_e_micro_production_validation",
+    "profitability_claim": false,
+    "project_term": "$0.01 contract run"
+  },
+  "micro_production_gate_requires": [
+    "stable_demo_execution_of_same_order_risk_path",
+    "one_contract_per_order",
+    "one_cent_purchase_limit_price",
+    "fee_aware_total_run_cap_frozen_before_authorization",
+    "maximum_orders_and_fills_frozen",
+    "maximum_simultaneous_exposure_frozen",
+    "duration_frozen",
+    "allowed_markets_and_market_selection_rule_frozen",
+    "order_type_and_time_in_force_frozen",
+    "duplicate_order_protection",
+    "order_fill_cancel_restart_reconciliation",
+    "stale_feed_sequence_gap_clock_and_incomplete_risk_fail_closed",
+    "emergency_kill_switch",
+    "audit_logging",
+    "direct_user_approval_for_specific_run"
+  ],
+  "one_week_read_only_precursor": {
+    "if_168h_program_retained": "The intended cohort after demo is the micro-production validation cohort, not an additional preceding read-only cohort.",
+    "mandatory": false,
+    "rule": "Do not insert a separate 168-hour read-only shadow cohort as a mandatory prerequisite unless the user explicitly reauthorizes it."
+  },
+  "parent_receipt_commit": "4163a6330a568b0a5b40b50de31fdf3cc3350ff7",
+  "policy_path_fingerprint": "57e7e5c88bd296128927362119c0f3705d4be9ce5f0d8a13c1fd652ddd2e2677",
+  "roadmap": [
+    "finish_read_only_restart_and_runtime_safety",
+    "implement_exact_order_and_risk_state_machine",
+    "complete_and_stabilize_demo_execution_of_same_path",
+    "freeze_exact_micro_production_caps_and_run_contract",
+    "obtain_direct_user_approval_for_that_specific_run",
+    "run_micro_real_money_validation",
+    "evaluate_operational_and_economic_evidence",
+    "consider_any_scale_up_only_under_a_new_gate_and_new_user_approval"
+  ],
+  "schema_version": "kxbtcd_candidate_e_micro_production_validation_path.v1",
+  "unresolved_before_micro_production_authorization": [
+    "exact_total_run_cap_dollars_including_fees",
+    "maximum_order_attempts",
+    "maximum_fills",
+    "maximum_simultaneous_exposure",
+    "exact_run_duration",
+    "exact_market_selection_scope",
+    "exact_order_type_and_time_in_force",
+    "exit_and_cancel_policy_for_the_micro_run"
+  ]
+}

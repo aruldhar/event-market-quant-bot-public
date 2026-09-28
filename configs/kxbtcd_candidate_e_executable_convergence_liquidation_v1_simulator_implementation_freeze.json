@@ -1,0 +1,101 @@
+{
+  "schema_version": "kxbtcd_candidate_e_executable_convergence_liquidation_v1_simulator_implementation_freeze.v1",
+  "checkpoint_id": "21N-R",
+  "strategy_id": "kxbtcd_candidate_e_executable_convergence_liquidation_v1",
+  "parent_21n_q1": {
+    "checkpoint_commit": "7a8a041b85f32952a734324d214804ece3c88c88",
+    "receipt_commit": "78b86fa0cc18c3a7a232fc65be593229fd7bc092",
+    "base_strategy_predeclaration_fingerprint": "61ede2de623d2ffca6b303895a860fa78de40ea36f0da7fe6b57835ac98d52f6",
+    "fee_accounting_amendment_fingerprint": "5f44a9ee001c7854416da46a4db19cb1d53b8b25edd7f7247fd72a032eab64d1"
+  },
+  "champion_final_fingerprint": "b45478594c088c09086d55d14e70aa7a22a62dc546cf0f2d9a1e3bb2f296b8dc",
+  "implementation_file_sha256s": {
+    "src/kxbtcd_candidate_e_executable_convergence_liquidation_v1_simulator.py": "37b9875112fcebb49529187202b1a1c33eeec6ff95e8b19a5152a97d6d3b231b",
+    "src/kxbtcd_candidate_e_executable_convergence_liquidation_v1_simulator_freeze.py": "f03597dfcb8411793ef3d67fe173de533ecccc85d2a15883d8c47db88459df5f"
+  },
+  "frozen_runtime_contract": {
+    "structural_roles": [
+      "q10",
+      "q30",
+      "q50",
+      "q70",
+      "q90"
+    ],
+    "anchor_order_ttc_minutes": [
+      55,
+      50,
+      45,
+      40,
+      35,
+      30
+    ],
+    "thresholds_dollars": [
+      "0.00",
+      "0.01",
+      "0.02",
+      "0.03",
+      "0.05"
+    ],
+    "latency_ms": [
+      0,
+      500,
+      1000
+    ],
+    "planned_quantity_contracts": "1.00",
+    "decision_state_convention": "right_continuous_final_reconstructed_state_per_millisecond",
+    "same_millisecond_transients_exposed": false,
+    "decision_best_price_level_must_display_full_planned_quantity": true,
+    "latency_failure_falls_through_to_later_anchor": false,
+    "entry_order": "IOC_limit_buy_at_decision_time_best_purchase_ask",
+    "entry_price_improvement_allowed": true,
+    "entry_price_worsening_beyond_limit_allowed": false,
+    "entry_partial_and_missed_fills_enabled": true,
+    "future_book_after_counterfactual_ioc": "historical_path_exogenous_small_order_nonimpacting_assumption",
+    "future_book_impact_claimed_observed": false,
+    "liquidation_trigger_scan_first_state": "entry_arrival_state",
+    "liquidation_trigger_requires_full_open_quantity_depth": true,
+    "liquidation_trigger_target": "net_cash_at_least_entry_time_side_fair_probability_times_open_quantity",
+    "liquidation_exit_limit": "worst_bid_consumed_by_trigger_hypothetical_full_liquidation",
+    "liquidation_exit_attempt_count": 1,
+    "exit_partial_or_missed_remainder": "settlement_fallback",
+    "monitoring_end": "event_close_time",
+    "after_close_book_data_allowed": false,
+    "verified_segment_gap_policy": "source_unavailable_never_skipped",
+    "matched_hold_control_quantity": "identical_realized_entry_fill_quantity",
+    "realized_pnl_function_present": false,
+    "settlement_outcome_reader_present": false
+  },
+  "fee_accounting_contract": {
+    "numeric_type": "Decimal",
+    "trade_fee_model": "0.07*C*P*(1-P)",
+    "trade_fee_component_rounding": "ceil_to_0.000001",
+    "direct_member_balance_grid_dollars": "0.0001",
+    "rounding_accumulator_scope": "one_IOC_order",
+    "rounding_rebate_quantum_dollars": "0.0001",
+    "accumulator_resets_between_entry_and_exit_orders": true,
+    "synthetic_fill_partition": "one_fill_per_consumed_price_level"
+  },
+  "evidence_and_safety": {
+    "july10_outcomes_accessed_by_implementation": false,
+    "strategy_pnl_calculated_by_implementation": false,
+    "network_requests": 0,
+    "orders_submitted": 0,
+    "paper_broker": false,
+    "demo_execution": false,
+    "real_money_execution": false,
+    "candidate_e_refit": false,
+    "model2_used": false,
+    "c1_c2_c3_or_protected_reserve_accessed": false,
+    "new_predexon_purchase": false,
+    "four_event_july10_evidence_role": "exploratory_methodology_development_only",
+    "advancement_gate": "none_due_to_four_independent_events"
+  },
+  "next_checkpoint": {
+    "id": "21N-S",
+    "name": "July 10 Outcome-Blind Strategy Input and Execution-Path Materialization",
+    "outcomes_must_remain_closed": true,
+    "pnl_must_remain_unrun": true,
+    "purpose": "bind actual July10 structural roles, BTC anchor states, verified replay states, selected signals, and execution paths before settlement labels"
+  },
+  "implementation_fingerprint": "6877bf440c88e72e3dd103b55a64f935bc937eeff84ae4cf7af7a6f60d86b4bf"
+}

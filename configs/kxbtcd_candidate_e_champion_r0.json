@@ -1,0 +1,72 @@
+{
+  "C1_outcomes_opened": false,
+  "candidate_id": "kxbtcd_btc_distance_offset_logistic.v1",
+  "champion_r0_fingerprint": "ffde1747dbd60a05f6cffb6e970ae47088edeb77c0a67d16a225b2e38b90a0fa",
+  "checkpoint_id": "21B-B",
+  "execution_enabled": false,
+  "family_id": "kxbtcd_independent_btc_offset_successor.v1",
+  "feature_selection_performed": false,
+  "fit_contract": {
+    "event_weighting": "equal_total_weight_per_event",
+    "feature_standardization": "none",
+    "hyperparameter_grid": [],
+    "hyperparameter_search": false,
+    "initialization": "all_free_coefficients_zero_raw_market_nesting",
+    "objective": "event_equal_binary_log_loss",
+    "optimizer": {
+      "algorithm": "deterministic_damped_Newton",
+      "armijo_constant": "1e-4",
+      "gradient_l2_tolerance": "1e-8",
+      "max_iterations": 100,
+      "minimum_step_scale": "2^-40",
+      "non_convergence": "fail_closed",
+      "singular_hessian": "fail_closed"
+    },
+    "regularization": "none",
+    "within_event_weighting": "equal_weight_per_scored_row"
+  },
+  "fit_result": {
+    "converged": true,
+    "fit_objective": "0.054050012863507545",
+    "iterations": 10
+  },
+  "fit_scope": {
+    "C1_outcomes_used": 0,
+    "C1_rows_used": 0,
+    "all_outcomes_previously_exposed": true,
+    "event_count": 3000,
+    "row_count": 81077,
+    "stages": [
+      "H1",
+      "H2",
+      "H3"
+    ]
+  },
+  "hyperparameter_search_performed": false,
+  "implementation_freeze_fingerprint": "b69b13a6d0db89be98229f34a946cbdfa24a7280ddbc8bff968f641714a93672",
+  "lineage": {
+    "h1_outcomes_path": "data/derived/kxbtcd_candidate_e_h1_evaluation/2026/08/17/collect_kxbtcd_candidate_e_h1_20260817T213832954574Z_d3fb6dbf_candidate_e_h1_outcomes.csv",
+    "h1_outcomes_sha256": "236924e92449e259769c01b3a8d63088841282d54384f0ed96b9a4d493c14394",
+    "h2_outcomes_path": "data/derived/kxbtcd_candidate_e_h2_evaluation/2026/08/17/collect_kxbtcd_candidate_e_h2_20260817T234947707700Z_a6600041_candidate_e_h2_outcomes.csv",
+    "h2_outcomes_sha256": "102d860767008b5a6ea1ff681f763b00fd809d296af618f855d7e203d5a4661c",
+    "h3_outcomes_path": "data/derived/kxbtcd_candidate_e_h3_evaluation/2026/08/18/collect_kxbtcd_candidate_e_h3_20260818T010536143670Z_9a67efb1_candidate_e_h3_outcomes.csv",
+    "h3_outcomes_sha256": "aa7b8265fee9ba44fdfebeb95e206c369dbcf9650d69c70d3706bd7000eee831",
+    "implementation_freeze_path": "configs/kxbtcd_candidate_e_c1_preparation_implementation_freeze.json",
+    "implementation_freeze_sha256": "5603e55c9059a7c4bc54b25c81601d456b233723a1a8721ee1392b9675b643fb"
+  },
+  "model": {
+    "beta_distance": "0.014447239079794087",
+    "beta_momentum": null,
+    "feature": "btc_strike_log_distance_bps.v1",
+    "formula": "logit(p)=market_logit_offset + beta_distance*d_BTC",
+    "free_parameter_count": 1,
+    "market_logit_offset_clip": "0.001"
+  },
+  "orders_placed": 0,
+  "parent_21a_protocol_fingerprint": "88d1880c026fe8cecf67cbbb8839a6d4acfb463b0871f4ef60db329f50a6ef00",
+  "parent_h1_result_fingerprint": "3fef1404d55c70893715bbe318fe664658309b7497bf03add57b1783ea01b906",
+  "parent_h2_result_fingerprint": "eca7c30b1f0d0177ff4025d743031697f13cdc95ce92958dff5a32be390afcf7",
+  "parent_h3_result_fingerprint": "436ea27539ed1bd2b30f96cc892bc5fc4b87cecd37035da8a45ca2583e59af54",
+  "schema_version": "kxbtcd_candidate_e_champion_r0.v1",
+  "specification_changed_after_H3": false
+}

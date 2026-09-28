@@ -1,0 +1,81 @@
+{
+  "H2_outcomes_opened": false,
+  "H3_outcomes_opened": false,
+  "candidate_e_predeclaration_fingerprint": "9775be58f01375ca6f2b04212a63578ce5e8cf7084498e6ce9d3ae68685d59a9",
+  "candidate_id": "kxbtcd_btc_distance_offset_logistic.v1",
+  "checkpoint_id": "20C",
+  "cohort_map_fingerprint": "09ebc6553255e76e5cff2d134c1f5bbc239dc753b9080e2c052d418e49c69efa",
+  "coinbase_primary_amendment_fingerprint": "b08da00a8f66817d9e3b600ccf091c8a4fc1ee92a0bed1c821d23bc321d9faba",
+  "execution_enabled": false,
+  "family_id": "kxbtcd_independent_btc_offset_successor.v1",
+  "final_model_fingerprint": "d193275147b8e8a83a52b03928a2f4746b2daee890c472517952488be751a31a",
+  "fit_contract": {
+    "event_weighting": "equal_total_weight_per_event",
+    "feature_standardization": "none",
+    "hyperparameter_grid": [],
+    "hyperparameter_search": false,
+    "initialization": "all_free_coefficients_zero_raw_market_nesting",
+    "objective": "event_equal_binary_log_loss",
+    "optimizer": {
+      "algorithm": "deterministic_damped_Newton",
+      "armijo_constant": "1e-4",
+      "gradient_l2_tolerance": "1e-8",
+      "max_iterations": 100,
+      "minimum_step_scale": "2^-40",
+      "non_convergence": "fail_closed",
+      "singular_hessian": "fail_closed"
+    },
+    "regularization": "none",
+    "within_event_weighting": "equal_weight_per_scored_row"
+  },
+  "fit_result": {
+    "converged": true,
+    "fit_objective": "0.07085334107806153",
+    "iterations": 9
+  },
+  "fit_scope": {
+    "H2_rows_used": 0,
+    "H3_rows_used": 0,
+    "all_H1_events_used": true,
+    "blocks": [
+      "B0",
+      "B1",
+      "B2",
+      "B3",
+      "B4",
+      "B5",
+      "B6"
+    ],
+    "event_count": 1500,
+    "row_count": 36314,
+    "stage": "H1"
+  },
+  "h1_evaluation_fingerprint": "cbbca76de2dd87edd6c6bc4f21ae1005fbd1402a3bb85374e7699c8fb5fb7d14",
+  "h1_result_fingerprint": "3fef1404d55c70893715bbe318fe664658309b7497bf03add57b1783ea01b906",
+  "historical_materialization_contract_fingerprint": "cc3e3326455fce2abbf7e39bdb8858d0d4cea67415ea90ece091259780de9145",
+  "lineage": {
+    "fit_implementation_sha256s": {
+      "src/kxbtcd_candidate_e_h1_evaluation.py": "a59e862fd2b452b120e406d0116a0e486f319e49bd736aac26c7877a24109d1b",
+      "src/kxbtcd_candidate_e_h2_preparation.py": "00211ec6d97437340b3ff34cc487068d197521392e978b87e1f3fb04a8a3d303"
+    },
+    "h1_outcomes_path": "data/derived/kxbtcd_candidate_e_h1_evaluation/2026/08/17/collect_kxbtcd_candidate_e_h1_20260817T213832954574Z_d3fb6dbf_candidate_e_h1_outcomes.csv",
+    "h1_outcomes_sha256": "236924e92449e259769c01b3a8d63088841282d54384f0ed96b9a4d493c14394",
+    "h1_summary_path": "data/derived/kxbtcd_candidate_e_h1_evaluation/2026/08/17/collect_kxbtcd_candidate_e_h1_20260817T213832954574Z_d3fb6dbf_candidate_e_h1_summary.json",
+    "h1_summary_sha256": "27e0d4d7b11eacd93073ff4c9950c808e92d8378387eaa49904985516595895c",
+    "source_baseline_commit": "c4a65dbac17f6b07acf2723d56a281b339bd1d41"
+  },
+  "model": {
+    "beta_distance": "0.012310034918384302",
+    "beta_momentum": null,
+    "feature": "btc_strike_log_distance_bps.v1",
+    "formula": "logit(p)=market_logit_offset + beta_distance*d_BTC",
+    "free_parameter_count": 1,
+    "market_logit_offset_clip": "0.001"
+  },
+  "orders_placed": 0,
+  "posthoc_H1_candidate_change_performed": false,
+  "posthoc_H1_feature_change_performed": false,
+  "row_universe_fingerprint": "e12375eeec4d81554f8008ea10e8c8e49be44ff40d8405c974de4ab8f69b2aa5",
+  "schema_version": "kxbtcd_candidate_e_h1_final_distance_model.v1",
+  "selection_frozen_before_full_fit": true
+}

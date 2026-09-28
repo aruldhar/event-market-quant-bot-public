@@ -1,0 +1,22 @@
+{
+  "C1_C2_accessed": false,
+  "C3_accessed": false,
+  "cli_sha256": "6f26958b3d1ce9d9dae653fbf58e9bac4b50edcb2208f5d86a643b04b3942b00",
+  "diagnostic_id": "kxbtcd_candidate_e_alpha_reliability_entry_diagnostic.v1",
+  "execution_authorized": false,
+  "focused_test_sha256": "abcf673889879f7928ec75fa118ed11be6570ceb59f14af40ac72accf7bc9253",
+  "implementation_fingerprint": "2bc7d625fa7889ee071322a3d3785becc49fd66fcf409e47713de8dc2405bc0d",
+  "network_accessed": false,
+  "parent_evaluation_fingerprint": "fa1f6f34ec830ea6c2520a1513f27c3ca1f0d69bf2ddc73e1c90660abfc3efe0",
+  "parent_receipt_fingerprint": "cafcae196ccaa7f352e3685a9d3132e2d0d5356bb5f041c9035adc27db8d90eb",
+  "pnl_inspected_by_implementation_checkpoint": false,
+  "post_closeout_run_rule": "Only after a valid Checkpoint 21N-N-B closeout receipt may the real CLI consume the already-generated H2/H3 parent prediction artifact.",
+  "predeclaration_fingerprint": "2d8db11742b4f88deb61b810266111b246faf7164ea0c019ad5528cf7326b55e",
+  "protected_reserve_accessed": false,
+  "real_diagnostic_run_performed": false,
+  "result_validator_sha256": "d24fa94cf3cd7606a8731a44147f8740051691a75822097416e55d32512d9e11",
+  "schema_version": "kxbtcd_candidate_e_alpha_reliability_entry_diagnostic_v1_implementation_freeze.v1",
+  "source_sha256": "1c5eb6af1622a38128b3dc97957d920e375150cf2affa274b3048436c8a9f15e",
+  "status": "IMPLEMENTATION_FROZEN_NOT_RUN",
+  "threshold_search_performed": false
+}

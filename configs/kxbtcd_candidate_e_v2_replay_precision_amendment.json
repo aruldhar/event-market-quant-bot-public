@@ -1,0 +1,44 @@
+{
+  "amendment_fingerprint": "82c4d05994cf97c723672b82428a7a139e20f96ae5aeea622e6dfaf1429a1370",
+  "checkpoint_id": "21N-Y-A3",
+  "contract": {
+    "baseline_replay_reproduced": true,
+    "default_mode": "prepare_only",
+    "explicit_scoring_option": "--simulate",
+    "full_dataset_tested_by_assistant": false,
+    "negative_clamping": false,
+    "new_cache_root": "data/analysis/predexon_credit_efficiency/v2_y_a3_replay_precision_cache",
+    "old_artifacts_preserved": true,
+    "paid_rounding": false,
+    "partial_scoring_allowed": false,
+    "policy_scenarios": 60,
+    "post_normalization_reconciliation_tolerance": "0",
+    "scope": "same_dynamic_ticker_union",
+    "snapshot_grid": "0.01",
+    "snapshot_max_residue": "0.000000001",
+    "zero_levels_removed": true
+  },
+  "diagnostic_sha256": "47caf2f93c736538db9a896a469f6a25fcdb247d2e67e89cf538675e4c8eeac5",
+  "frozen_files": {
+    "docs/KXBTCD_CANDIDATE_E_V2_REPLAY_PRECISION_AMENDMENT.md": "607649c96264d8de3ce9b78093d2f414e3abb261c49e93fc52db57dfea4d51f1",
+    "materialize_kxbtcd_candidate_e_v2_paths_replay_precision.py": "13aa5b9a7a6299ee6c95dfdbd092886e9f4257bafa2fb16a14a095be9758cdd5",
+    "scripts/validate_checkpoint21n_y_a3.ps1": "58f56ceec09c93531ba734efea2aed2893270684dd01737f59809a70278fde9f",
+    "src/kxbtcd_candidate_e_v2_replay_precision.py": "5800adf3ce3602762c88b7c68410d713ce5f4f434eeac035feab6823d835eea4",
+    "tests/fixtures/candidate_e_25ms_replay_precision.json": "ee7db12236049d21f9f2069d7d2601299670007cb4cf2a5249428a5e45987f8c",
+    "tests/test_kxbtcd_candidate_e_v2_replay_precision.py": "de0973e3238a9340bcc72be7e9495eeebdd79ad4d2fb46967f79cb2648882e54",
+    "validate_kxbtcd_candidate_e_v2_replay_precision.py": "64cc7f9e90eb99c90f64b6abc75bee8b98f4f0c880edb8c50ff9d003cb1cfc05"
+  },
+  "original_path_relative": "data/analysis/predexon_credit_efficiency/july10_candidate_e_v2_outcome_blind_paths_memory_safe.json",
+  "original_path_sha256": "21dd58066b040f8bc897815f722cad9bb90b0ff6b9a6d18d6e9416279c85bc9f",
+  "parent_checkpoint_commit": "e032985af6d1ce33a9a54e624359be34447ecc87",
+  "parent_memory_amendment": "f7a590cb0f8415e3330fa82077d16b6b93105717f573e69e8580a3f3ac1ffe03",
+  "parent_receipt_commit": "d642ca401695cd03da2bd827998d2bead5b1f31f",
+  "safety": {
+    "candidate_e_refit": false,
+    "orders_placed": 0,
+    "settlement_outcomes_accessed": false,
+    "strategy_pnl_calculated": false
+  },
+  "schema_version": "kxbtcd_candidate_e_v2_replay_precision_amendment.v1",
+  "validator_template_sha256": "63dc72d56aa48e19b1762c3bcbfcee2b5571073bccdd7f5e687ef67034339dc5"
+}

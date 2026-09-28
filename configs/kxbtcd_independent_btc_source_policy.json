@@ -1,0 +1,130 @@
+{
+  "schema_version": "kxbtcd_independent_btc_source_policy.v1",
+  "policy_id": "kxbtcd_independent_btc_source_policy.v1",
+  "checkpoint_id": "19D-B",
+  "parent_protocol_fingerprint": "b6c020f76a89703f737cc2e57e0fdbafb3a13966dfc2a57fb1a13c01681291f8",
+  "parent_19c_audit_fingerprint": "4cdb9b8f2cd5d4396d470df04e4c3f88ff1e3f91cce25cd3e57543ea97c8490d",
+  "parent_19d_a_audit_fingerprint": "023ca51e1e21180b9adecd1d4b78fd4c3372f1aab3a986988c8eb4bc4806721c",
+  "evidence_boundary": {
+    "outcomes_used_to_select_policy": false,
+    "checkpoint17_terminal_used": false,
+    "candidate_e_formula_frozen": false,
+    "candidate_e_fitting_authorized": false,
+    "execution_authorized": false,
+    "subsecond_lead_lag_authorized": false
+  },
+  "source_roles": {
+    "live_primary": "coinbase.exchange.public_rest.product_book.btc_usd.v1",
+    "live_verifier": "kraken.spot.public_rest.pretrade.btc_usd.v1",
+    "historical_primary": "coinbase.exchange.public_rest.product_candles.btc_usd.1m.v1",
+    "historical_verifier": "kraken.spot.public_rest.posttrade.btc_usd.v1"
+  },
+  "live_construction": {
+    "primary_price": "coinbase_best_bid_ask_midpoint",
+    "verifier_price": "kraken_best_bid_ask_midpoint",
+    "feature_price_source": "live_primary",
+    "consensus_price": null,
+    "learned_source_weights": false,
+    "both_sources_required_for_eligible_state": true,
+    "source_substitution_allowed": false,
+    "fallback_to_single_source_allowed": false
+  },
+  "historical_construction": {
+    "current_bucket": "last_fully_completed_utc_minute",
+    "lookback_bucket": "exact_completed_minute_300_seconds_before_current_bucket",
+    "primary_price": "coinbase_exact_bucket_close",
+    "verifier_price": "kraken_latest_trade_in_exact_bucket_published_by_decision_time",
+    "exact_bucket_required": true,
+    "future_interpolation_allowed": false,
+    "nearest_absolute_sampling_allowed": false,
+    "carry_forward_allowed": false,
+    "source_substitution_allowed": false,
+    "historical_fallback_may_rescue_missing_live_tier_state": false,
+    "historical_values_claimed_identical_to_live_bbo": false
+  },
+  "live_quality_gates": {
+    "max_coinbase_local_first_seen_age_seconds": 5.0,
+    "max_kraken_local_first_seen_age_seconds": 5.0,
+    "max_coinbase_source_event_age_seconds": 10.0,
+    "max_kraken_conservative_bbo_publication_age_seconds": 60.0,
+    "max_cross_source_receive_skew_seconds": 1.0,
+    "max_cross_source_disagreement_bps": 5.0,
+    "max_abs_local_clock_offset_seconds": 1.0,
+    "require_positive_two_sided_books": true,
+    "require_parseable_source_timestamps": true,
+    "all_required_gates_must_pass": true
+  },
+  "causal_lookback_policy": {
+    "target_seconds": 300,
+    "live_observation_must_be_received_no_later_than_target": true,
+    "live_max_target_gap_seconds": 5.0,
+    "future_observation_allowed": false,
+    "historical_exact_minute_only": true,
+    "historical_gap_tolerance_seconds": 0.0,
+    "missing_lookback_imputation_allowed": false
+  },
+  "evidence_tiers": {
+    "E1": {
+      "role": "successor_design",
+      "starts_strictly_after_policy_freeze": true,
+      "minimum_eligible_events": 168,
+      "minimum_distinct_utc_dates": 7,
+      "minimum_chronological_span_hours": 168,
+      "required_utc_hour_of_day_bins": 24,
+      "minimum_tier_source_eligible_state_rate": 0.9,
+      "minimum_per_event_source_eligible_state_fraction": 0.6666666666666666,
+      "outcome_dependent_stopping_allowed": false
+    },
+    "E2": {
+      "role": "final_model_fit",
+      "starts_after_successor_specification_freeze": true,
+      "minimum_eligible_events": 168,
+      "minimum_distinct_utc_dates": 7,
+      "minimum_chronological_span_hours": 168,
+      "required_utc_hour_of_day_bins": 24,
+      "minimum_tier_source_eligible_state_rate": 0.9,
+      "minimum_per_event_source_eligible_state_fraction": 0.6666666666666666,
+      "outcome_dependent_stopping_allowed": false
+    },
+    "E3": {
+      "role": "prospective_untouched_test",
+      "starts_after_final_model_freeze": true,
+      "minimum_eligible_events": 336,
+      "minimum_distinct_utc_dates": 14,
+      "minimum_chronological_span_hours": 336,
+      "required_utc_hour_of_day_bins": 24,
+      "minimum_tier_source_eligible_state_rate": 0.9,
+      "minimum_per_event_source_eligible_state_fraction": 0.6666666666666666,
+      "outcome_dependent_stopping_allowed": false
+    }
+  },
+  "cohort_extension_rule": {
+    "if_source_or_calendar_gate_not_met": "extend_prospectively_without_outcome_access",
+    "threshold_relaxation_after_collection_starts_allowed": false,
+    "promote_exposed_evidence_to_stronger_tier_allowed": false
+  },
+  "outcome_blind_evidence_used": {
+    "19c_external_cycles": 5758,
+    "19c_kxbtcd_snapshots": 288,
+    "19c_unique_events": 27,
+    "19c_coinbase_local_first_seen_p95_seconds": 2.203,
+    "19c_coinbase_local_first_seen_max_seconds": 41.422,
+    "19c_kraken_local_first_seen_p95_seconds": 1.985,
+    "19c_kraken_local_first_seen_max_seconds": 40.406,
+    "19c_cross_source_disagreement_p95_bps": 2.7526752145628617,
+    "19c_cross_source_disagreement_max_bps": 5.347777694885947,
+    "19c_cross_source_receive_skew_p95_seconds": 0.234,
+    "19c_cross_source_receive_skew_max_seconds": 9.687,
+    "19d_a_coinbase_source_event_age_p99_seconds": 5.683422299999997,
+    "19d_a_coinbase_source_event_age_max_seconds": 42.92276,
+    "19d_a_kraken_conservative_bbo_publication_age_p95_seconds": 49.17502785,
+    "19d_a_kraken_conservative_bbo_publication_age_p99_seconds": 354.47236763999933,
+    "19d_a_kraken_conservative_bbo_publication_age_max_seconds": 6120.316185,
+    "19d_a_current_cross_source_disagreement_p99_bps": 4.466674329615775,
+    "19d_a_current_cross_source_disagreement_max_bps": 6.036845751275594,
+    "19d_a_coinbase_current_coverage_rate": 1.0,
+    "19d_a_kraken_current_coverage_rate": 0.9965277777777778,
+    "19d_a_both_five_minute_pair_coverage_rate": 0.9930555555555556
+  },
+  "policy_fingerprint": "6b0d98c16a65b2e638b36991d5006031e1bd37048bd04a47a3f67d936df0ee18"
+}

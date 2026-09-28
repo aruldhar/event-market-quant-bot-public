@@ -1,0 +1,91 @@
+{
+  "canonical_prospective_db_created": false,
+  "checkpoint_id": "21N-Z-E-B5-R4-A",
+  "cohort_armed": false,
+  "current_authorization": "read_only",
+  "design_fingerprint": "17f4626e09c7231c0d65002d3e9f7f05d3046ccf054d59407619adea667aa0a9",
+  "fault_boundaries_not_claimed_by_b5_r4": [
+    "host_reboot",
+    "linux_boot_id_and_chrony_production_deployment",
+    "long_duration_soak",
+    "order_submission",
+    "duplicate_order_idempotency",
+    "fill_cancel_position_cash_reconciliation",
+    "kill_switch_under_order_flow",
+    "partial_or_missed_real_fills",
+    "production_api_write_failures"
+  ],
+  "live_requires_explicit_flag": true,
+  "micro_production_target": {
+    "authorized_now": false,
+    "one_contract_per_order": true,
+    "purchase_limit_price_dollars": "0.01"
+  },
+  "network_default": false,
+  "operational_safety_coverage_policy": {
+    "categories": [
+      "credential_and_secret_persistence_boundary",
+      "source_generation_and_reconnect_safety",
+      "process_crash_and_restart_durability",
+      "whole_process_live_restart",
+      "host_reboot_and_clock_boot_identity",
+      "long_duration_runtime_stability",
+      "order_idempotency_and_duplicate_prevention",
+      "order_fill_cancel_position_cash_reconciliation",
+      "exposure_and_loss_limits",
+      "emergency_kill_switch",
+      "stale_feed_sequence_gap_clock_api_error_fail_closed",
+      "partial_and_missed_fill_handling",
+      "demo_fault_injection_of_same_production_shaped_path"
+    ],
+    "statement": "No single checkpoint proves every imaginable operational failure. Before micro-production, every known/predeclared operational category must have explicit evidence or remain a blocking unresolved item."
+  },
+  "orders": 0,
+  "parent_receipt_commit": "dff89795c42e1ac3e7c22f065d84bf6b281bb047",
+  "process_plan": {
+    "crash": [
+      "parent terminates process_1 without clean shutdown",
+      "no graceful session close is written"
+    ],
+    "parent_supervisor": true,
+    "process_1": [
+      "create noncanonical validation durable store/session",
+      "open live Coinbase and authenticated read-only Kalshi market data",
+      "rebuild current source readiness from fresh transports",
+      "reach READY_READ_ONLY",
+      "emit durable ready marker and source/session identities",
+      "remain running until parent terminates it uncleanly"
+    ],
+    "process_2": [
+      "open same noncanonical validation durable store",
+      "create new runtime session",
+      "classify process_1 as UNCLEAN_DETECTED",
+      "prove STARTUP_DISABLED/BLOCKED before fresh current sources",
+      "reconcile pending durability evidence",
+      "prove neutral strategy restart state and prior_signal_reusable=false",
+      "open fresh Coinbase and Kalshi transports under new session",
+      "rebuild current source readiness",
+      "reach READY_READ_ONLY only after fresh gates pass"
+    ]
+  },
+  "production_writes": 0,
+  "purpose": "bounded live read-only whole-process crash/restart validation",
+  "required_live_assertions": [
+    "process_ids_differ",
+    "runtime_session_ids_differ",
+    "process_1_prior_session_marked_unclean_detected",
+    "process_2_starts_not_ready",
+    "process_2_coinbase_state_bound_to_new_session",
+    "process_2_kalshi_state_bound_to_new_session",
+    "fresh_coinbase_completed_minute_required",
+    "fresh_kalshi_full_ladder_and_current_pong_required",
+    "prior_signal_reusable_false",
+    "no_canonical_backfill_for_process_gap",
+    "execution_mode_disabled",
+    "raw_secret_marker_scan_zero",
+    "orders_zero",
+    "production_writes_zero"
+  ],
+  "schema_version": "kxbtcd_candidate_e_b5_r4_live_process_restart_design.v1",
+  "signals_computed": 0
+}

@@ -1,0 +1,181 @@
+{
+  "candidate_id": "kxbtcd_candidate_e_conditional_alpha_reliability.v2",
+  "checkpoint_id": "21N-M-A",
+  "evidence_firewall": {
+    "C1_C2": "not authorized in 21N-M-A",
+    "C3": "locked against conditional-alpha development; not authorized in 21N-M-A",
+    "H1_OOF_H2_H3": "fully exposed development evidence; optimizer diagnostics do not create fresh validation claims",
+    "conditional_alpha_economic_scoring": false,
+    "conditional_alpha_probability_scoring": false,
+    "network_access": false,
+    "new_outcomes_opened": false,
+    "protected_reserve": "sealed"
+  },
+  "next_checkpoint": {
+    "economic_gate_authorized": false,
+    "id": "21N-M-B",
+    "lambda_selection_authorized": false,
+    "probability_gate_authorized": false,
+    "purpose": "implement and independently validate exact-Hessian damped Newton for v2 without running real v2 development selection or gates",
+    "real_v2_fit_authorized_by_21N_M_A": false
+  },
+  "optimizer_design_evidence": {
+    "analytic_gradient_check": {
+      "interpretation": "analytic gradient error was consistent with floating-point finite-difference accuracy",
+      "method": "central finite differences on real Fold2 data at origin and near v1 failure",
+      "status": "PASS"
+    },
+    "analytic_hessian_check": {
+      "cholesky_near_v1_failure": "PASS",
+      "cholesky_origin": "PASS",
+      "epsilon": 1e-05,
+      "near_failure_max_abs_error": 1.85953242211e-12,
+      "near_failure_max_rel_error": 1.07876797243e-07,
+      "origin_max_abs_error": 2.34180973224e-11,
+      "origin_max_rel_error": 4.09321335565e-07,
+      "status": "PASS",
+      "symmetry_error": 0.0
+    },
+    "damped_newton_hard_case": {
+      "backtracks": 1,
+      "final_gradient_norm": 1.2643646005662934e-09,
+      "final_gradient_over_tolerance": 0.12643646,
+      "final_objective": 0.04084725307404403,
+      "fold": 2,
+      "iterations": 8,
+      "lambda": 0.001,
+      "minimum_step": 0.5,
+      "status": "PASS"
+    },
+    "damped_newton_matrix": {
+      "fits_passed": 10,
+      "fits_total": 10,
+      "max_iterations": 9,
+      "no_H2_H3_prediction_metrics_scored": true,
+      "no_economic_pnl_scored": true,
+      "no_lambda_selected": true,
+      "no_probability_gate_scored": true,
+      "status": "PASS",
+      "total_cases_requiring_any_backtrack": 1
+    },
+    "identity_hessian_restart_diagnostic": {
+      "final_gradient_over_tolerance": 31.8411488,
+      "hessian_resets": 470,
+      "iterations": 500,
+      "status": "FAIL_MAX_ITER"
+    },
+    "may_score_economics": false,
+    "may_score_probability_gate": false,
+    "may_select_lambda": false,
+    "nonlinear_cg_diagnostic": {
+      "final_gradient_over_tolerance": 126277.794,
+      "interpretation": "stable but too slow; does not qualify or disqualify general CG variants",
+      "iterations": 500,
+      "observed_beta": "0 throughout reported path; effectively steepest descent",
+      "status": "FAIL_MAX_ITER"
+    },
+    "role": "POST_V1_FAILURE_EXPLORATORY_NUMERICAL_DESIGN_EVIDENCE_ONLY",
+    "tiny_positive_curvature_skip_diagnostic": {
+      "curvature_skips": 470,
+      "final_gradient_over_tolerance": 23.2038,
+      "iterations": 500,
+      "status": "FAIL_MAX_ITER"
+    },
+    "v1_bfgs_hard_case": {
+      "failure_iteration": 31,
+      "fold": 2,
+      "gradient_norm_at_failure": 1.323468881162728e-06,
+      "gradient_over_tolerance": 132.3468881162728,
+      "lambda": 0.001,
+      "objective": 0.04084725336229724,
+      "yTs": 7.506486991135465e-13
+    }
+  },
+  "optimizer_v2": {
+    "algorithm": "deterministic_full_batch_exact_hessian_damped_newton",
+    "armijo_constant": "1e-4",
+    "descent_requirement": "gradient^T * delta > 0",
+    "diagonal_loading": false,
+    "fail_closed_on": [
+      "non-finite objective, gradient, Hessian, direction, or proposal",
+      "non-positive-definite Hessian / Cholesky failure",
+      "non-descent Newton direction",
+      "Armijo line-search failure",
+      "non-convergence within 100 iterations"
+    ],
+    "fallback_optimizer": null,
+    "gradient_l2_tolerance": "1e-8",
+    "hessian": "exact analytic 5x5 Hessian of the frozen conditional-alpha objective including lambda on all five diagonal terms",
+    "hessian_jitter": false,
+    "initial_parameters": "all zeros",
+    "initial_step_scale": "1.0",
+    "line_search": "Armijo_backtracking",
+    "linear_solver": "deterministic dense Cholesky solve H * delta = gradient",
+    "max_iterations": 100,
+    "minimum_step_scale": "2^-40",
+    "new_numerical_dependency": false,
+    "parameter_dimension": 5,
+    "positive_definite_requirement": "Cholesky must succeed without jitter or diagonal loading",
+    "pseudoinverse": false,
+    "rejected_step_multiplier": "0.5",
+    "update": "gamma_new = gamma - step_scale * delta",
+    "warm_starts": false
+  },
+  "parent_v1": {
+    "candidate_id": "kxbtcd_candidate_e_conditional_alpha_reliability.v1",
+    "canonical_failure_evaluation_fingerprint": "0b4eb852ed2c6423188b2c974c618d48a97796d830e7b57f1cbdae50e7b89a37",
+    "canonical_failure_receipt_fingerprint": "fe310f307630ab2633f21d31ed2bc03040b5e43a8ca3b3b4bc14cc7040fc209c",
+    "failure_fold": 2,
+    "failure_lambda": 0.001,
+    "failure_message": "BFGS positive-curvature requirement y^T s > 1e-12 failed",
+    "failure_recording_repair_fingerprint": "276fdf07803d083a67d94e6c5b923fcbf06392c4db4fb33cd1d9c1f3a954a865",
+    "predeclaration_fingerprint": "742ff487d63e247a4a14d31d9105977b0755ef38d30ad255e85dd77a741ef4d3",
+    "rescue_or_reclassification": false,
+    "v1_status": "PERMANENT_FAIL_OPTIMIZER_CONTRACT"
+  },
+  "predeclaration_fingerprint": "6fdc0421ea2f416b48bb41498cd3c48db6e581ff5364eae5cfa3916a4fa149f8",
+  "purpose": "Freeze an optimizer-only successor after conditional-alpha v1 terminated under its predeclared BFGS curvature contract.",
+  "safety": {
+    "demo_execution": false,
+    "order_cancellation": false,
+    "orders_submitted": false,
+    "paper_execution": false,
+    "portfolio_transfers": false,
+    "read_only": true,
+    "real_money_execution": false,
+    "risk_policy_change": false
+  },
+  "schema_version": "kxbtcd_candidate_e_conditional_alpha_reliability_v2_predeclaration.v1",
+  "scientific_contract_inheritance": {
+    "forbidden_changes": [
+      "feature addition, deletion, interaction, or transformation change",
+      "lambda-grid change",
+      "gradient-tolerance relaxation",
+      "objective or weighting change",
+      "gate change",
+      "subgroup rescue",
+      "optimizer selection by lambda or fold",
+      "fallback to BFGS, gradient descent, conjugate gradient, pseudoinverse, or alternate solver after a Newton failure"
+    ],
+    "rule": "Every v1 scientific rule is inherited unchanged except the optimizer contract explicitly replaced below.",
+    "unchanged": [
+      "conditional-alpha formula and endpoint-bounding invariant",
+      "exact four-feature vector and all feature exclusions",
+      "fit-partition event-equal z-scaling and no-imputation/no-clipping rules",
+      "five gamma parameters with all-zero initialization",
+      "binary settlement target and event-equal log-loss plus L2 objective",
+      "all five gamma parameters including intercept regularized",
+      "lambda grid [0.001, 0.01, 0.1, 1.0, 10.0]",
+      "no warm starts between lambdas",
+      "H1_OOF -> H2 and H1_OOF+H2 -> H3 rolling-origin folds",
+      "pooled H2+H3 event-equal log-loss lambda selection with larger-lambda exact tie break",
+      "Kalshi, Candidate-E, and global-alpha-0.50 probability benchmarks",
+      "development probability gate",
+      "rolling-origin-only development economic evaluation",
+      "quoted-entry/hold policy and economic gate",
+      "C1+C2 confirmation role, C3 locked role, and protected-reserve firewall",
+      "read-only authorization and no paper/demo/real execution"
+    ]
+  },
+  "status": "PREDECLARATION_ONLY_NOT_FIT_AUTHORIZED"
+}

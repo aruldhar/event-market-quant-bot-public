@@ -1,0 +1,83 @@
+{
+  "annotations": {"list": []},
+  "editable": false,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 1,
+  "id": null,
+  "links": [
+    {"asDropdown": false, "icon": "dashboard", "includeTimeRange": false, "keepTime": false, "targetBlank": false, "title": "Back to Shadow Overview", "type": "link", "url": "/d/candidate-e-shadow/candidate-e-shadow-overview"}
+  ],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {"type": "frser-sqlite-datasource", "uid": "candidate-e-shadow"},
+      "fieldConfig": {"defaults": {}, "overrides": []},
+      "gridPos": {"h": 5, "w": 6, "x": 0, "y": 0},
+      "id": 1,
+      "options": {"colorMode": "value", "graphMode": "none", "justifyMode": "auto", "orientation": "auto", "reduceOptions": {"calcs": ["lastNotNull"], "fields": "", "values": false}, "textMode": "auto", "wideLayout": true},
+      "targets": [{"datasource": {"type": "frser-sqlite-datasource", "uid": "candidate-e-shadow"}, "queryText": "SELECT value AS value FROM dashboard_metadata WHERE key = 'input_run_id'", "rawQueryText": "SELECT value AS value FROM dashboard_metadata WHERE key = 'input_run_id'", "refId": "A", "timeColumns": ["time", "ts"], "queryType": "table"}],
+      "title": "Current Shadow Run",
+      "type": "stat"
+    },
+    {
+      "datasource": {"type": "frser-sqlite-datasource", "uid": "candidate-e-shadow"},
+      "fieldConfig": {"defaults": {"unit": "s"}, "overrides": []},
+      "gridPos": {"h": 5, "w": 6, "x": 6, "y": 0},
+      "id": 2,
+      "options": {"colorMode": "value", "graphMode": "none", "justifyMode": "auto", "orientation": "auto", "reduceOptions": {"calcs": ["lastNotNull"], "fields": "", "values": false}, "textMode": "auto", "wideLayout": true},
+      "targets": [{"datasource": {"type": "frser-sqlite-datasource", "uid": "candidate-e-shadow"}, "queryText": "SELECT MAX(0, CAST(strftime('%s', 'now') AS INTEGER) - CAST(strftime('%s', value) AS INTEGER)) AS value FROM dashboard_metadata WHERE key = 'generated_utc'", "rawQueryText": "SELECT MAX(0, CAST(strftime('%s', 'now') AS INTEGER) - CAST(strftime('%s', value) AS INTEGER)) AS value FROM dashboard_metadata WHERE key = 'generated_utc'", "refId": "A", "timeColumns": ["time", "ts"], "queryType": "table"}],
+      "title": "Latest Shadow Input Age",
+      "type": "stat"
+    },
+    {
+      "datasource": {"type": "frser-sqlite-datasource", "uid": "candidate-e-shadow"},
+      "fieldConfig": {"defaults": {"mappings": [{"options": {"LIVE": {"color": "green", "index": 0, "text": "LIVE"}, "STALE": {"color": "orange", "index": 1, "text": "STALE"}, "STOPPED OR STALE": {"color": "red", "index": 2, "text": "STOPPED OR STALE"}}, "type": "value"}]}, "overrides": []},
+      "gridPos": {"h": 5, "w": 6, "x": 12, "y": 0},
+      "id": 3,
+      "options": {"colorMode": "background", "graphMode": "none", "justifyMode": "auto", "orientation": "auto", "reduceOptions": {"calcs": ["lastNotNull"], "fields": "", "values": false}, "textMode": "auto", "wideLayout": true},
+      "targets": [{"datasource": {"type": "frser-sqlite-datasource", "uid": "candidate-e-shadow"}, "queryText": "SELECT CASE WHEN value IS NULL THEN 'STOPPED OR STALE' WHEN CAST(strftime('%s', 'now') AS INTEGER) - CAST(strftime('%s', value) AS INTEGER) <= 5 THEN 'LIVE' WHEN CAST(strftime('%s', 'now') AS INTEGER) - CAST(strftime('%s', value) AS INTEGER) <= 30 THEN 'STALE' ELSE 'STOPPED OR STALE' END AS value FROM dashboard_metadata WHERE key = 'generated_utc'", "rawQueryText": "SELECT CASE WHEN value IS NULL THEN 'STOPPED OR STALE' WHEN CAST(strftime('%s', 'now') AS INTEGER) - CAST(strftime('%s', value) AS INTEGER) <= 5 THEN 'LIVE' WHEN CAST(strftime('%s', 'now') AS INTEGER) - CAST(strftime('%s', value) AS INTEGER) <= 30 THEN 'STALE' ELSE 'STOPPED OR STALE' END AS value FROM dashboard_metadata WHERE key = 'generated_utc'", "refId": "A", "timeColumns": ["time", "ts"], "queryType": "table"}],
+      "title": "Shadow Input Status",
+      "type": "stat"
+    },
+    {
+      "datasource": {"type": "frser-sqlite-datasource", "uid": "candidate-e-shadow"},
+      "fieldConfig": {"defaults": {}, "overrides": []},
+      "gridPos": {"h": 5, "w": 6, "x": 18, "y": 0},
+      "id": 4,
+      "options": {"colorMode": "value", "graphMode": "none", "justifyMode": "auto", "orientation": "auto", "reduceOptions": {"calcs": ["lastNotNull"], "fields": "", "values": false}, "textMode": "auto", "wideLayout": true},
+      "targets": [{"datasource": {"type": "frser-sqlite-datasource", "uid": "candidate-e-shadow"}, "queryText": "SELECT value AS value FROM dashboard_metadata WHERE key = 'input_snapshot_sequence'", "rawQueryText": "SELECT value AS value FROM dashboard_metadata WHERE key = 'input_snapshot_sequence'", "refId": "A", "timeColumns": ["time", "ts"], "queryType": "table"}],
+      "title": "Latest Snapshot Sequence",
+      "type": "stat"
+    },
+    {
+      "datasource": {"type": "frser-sqlite-datasource", "uid": "candidate-e-shadow"},
+      "description": "This shows the network-isolated shadow path only. A stale status means the dashboard has stopped receiving coherent causal snapshots; inspect the collector's terminal summary and readiness telemetry for source-specific diagnosis.",
+      "fieldConfig": {"defaults": {}, "overrides": []},
+      "gridPos": {"h": 9, "w": 24, "x": 0, "y": 5},
+      "id": 5,
+      "options": {"cellHeight": "sm", "footer": {"countRows": false, "fields": "", "reducer": ["sum"], "show": false}, "showHeader": true},
+      "targets": [{"datasource": {"type": "frser-sqlite-datasource", "uid": "candidate-e-shadow"}, "queryText": "SELECT key AS 'Field', value AS 'Value' FROM dashboard_metadata WHERE key IN ('input_run_id', 'input_snapshot_sequence', 'generated_utc', 'schema_version', 'pnl_basis') ORDER BY CASE key WHEN 'input_run_id' THEN 1 WHEN 'input_snapshot_sequence' THEN 2 WHEN 'generated_utc' THEN 3 ELSE 4 END", "rawQueryText": "SELECT key AS 'Field', value AS 'Value' FROM dashboard_metadata WHERE key IN ('input_run_id', 'input_snapshot_sequence', 'generated_utc', 'schema_version', 'pnl_basis') ORDER BY CASE key WHEN 'input_run_id' THEN 1 WHEN 'input_snapshot_sequence' THEN 2 WHEN 'generated_utc' THEN 3 ELSE 4 END", "refId": "A", "timeColumns": ["time", "ts"], "queryType": "table"}],
+      "title": "Shadow Pipeline Metadata",
+      "type": "table"
+    },
+    {
+      "datasource": {"type": "frser-sqlite-datasource", "uid": "candidate-e-shadow"},
+      "fieldConfig": {"defaults": {}, "overrides": []},
+      "gridPos": {"h": 12, "w": 24, "x": 0, "y": 14},
+      "options": {"cellHeight": "sm", "footer": {"countRows": false, "fields": "", "reducer": ["sum"], "show": false}, "showHeader": true},
+      "targets": [{"datasource": {"type": "frser-sqlite-datasource", "uid": "candidate-e-shadow"}, "queryText": "SELECT event_utc AS 'UTC', run_id AS 'Run', scenario_id AS 'Scenario', event_type AS 'Event', COALESCE(action, '') AS 'Action', COALESCE(reason, '') AS 'Reason', COALESCE(market_ticker, '') AS 'Market' FROM shadow_events ORDER BY event_utc DESC, event_sequence DESC LIMIT 100", "rawQueryText": "SELECT event_utc AS 'UTC', run_id AS 'Run', scenario_id AS 'Scenario', event_type AS 'Event', COALESCE(action, '') AS 'Action', COALESCE(reason, '') AS 'Reason', COALESCE(market_ticker, '') AS 'Market' FROM shadow_events ORDER BY event_utc DESC, event_sequence DESC LIMIT 100", "refId": "A", "timeColumns": ["time", "ts"], "queryType": "table"}],
+      "title": "Recent Shadow Events",
+      "type": "table"
+    }
+  ],
+  "refresh": "5s",
+  "schemaVersion": 41,
+  "tags": ["candidate-e", "shadow", "health"],
+  "templating": {"list": []},
+  "time": {"from": "now-24h", "to": "now"},
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Candidate-E Shadow — Health",
+  "uid": "candidate-e-shadow-health",
+  "version": 1
+}

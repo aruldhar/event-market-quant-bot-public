@@ -1,0 +1,88 @@
+{
+  "candidate_id": "kxbtcd_btc_distance_offset_logistic.v1",
+  "challengers": {
+    "candidate_feature_families": [
+      "TTC",
+      "momentum",
+      "volatility",
+      "spread",
+      "interactions",
+      "small nonlinear models"
+    ],
+    "fit_or_select_now": false,
+    "research_evidence": "exposed only until challenger procedure frozen",
+    "strict_untouched_reserve_use_before_freeze": "prohibited"
+  },
+  "checkpoint": 21,
+  "confirmation": {
+    "eligible_events_per_block": 500,
+    "eligible_events_per_subblock": 100,
+    "fit_size_after_all_pass": 4500,
+    "fit_sizes_before_scoring": {
+      "C1": 3000,
+      "C2": 3500,
+      "C3": 4000
+    },
+    "gate": {
+      "beta_distance": "finite, converged, >0",
+      "chronological_subblock_log_loss_wins": ">=4/5",
+      "median_event_raw_minus_champion_log_loss_delta": ">0",
+      "newest_subblock_log_loss_win": true,
+      "policy_lineage_source_timing_firewall": "PASS",
+      "pooled_raw_minus_champion_event_equal_brier_delta": ">=0",
+      "pooled_raw_minus_champion_event_equal_log_loss_delta": ">0",
+      "primary_tie": "FAIL",
+      "structural_coverage": "all five structural roles and all six TTC targets"
+    },
+    "materialize_sequentially": true,
+    "minimum_strict_untouched_tail_after_all_confirmation": 4500,
+    "no_later_block_access_after_fail": true,
+    "selection": "deterministic chronological next-eligible from frozen tail under unchanged Candidate-E historical eligibility rules",
+    "sequence": [
+      "C1",
+      "C2",
+      "C3"
+    ],
+    "stop_on_any_fail": true,
+    "subblocks_per_block": 5
+  },
+  "execution_boundary": {
+    "current_mode": "read-only",
+    "demo_orders": false,
+    "paper_or_live_shadow_broker_currently_authorized": false,
+    "real_orders": false
+  },
+  "initial_exposed_events": 3000,
+  "parent_h3_result_fingerprint": "436ea27539ed1bd2b30f96cc892bc5fc4b87cecd37035da8a45ca2583e59af54",
+  "prospective_live_shadow": {
+    "actual_exchange_write_actions": false,
+    "authorized_only_after": "historical strategy selected and frozen plus separate risk-policy authorization for local paper/shadow execution",
+    "economic_gate_thresholds": "deferred until historical strategy research and frozen before prospective shadow",
+    "events_per_forecast_block": 200,
+    "forecast_blocks": 5,
+    "forecast_cohort_events": 1000,
+    "forecast_gate": {
+      "chronological_block_log_loss_wins": ">=4/5",
+      "immutable_prediction_ledger": true,
+      "median_event_raw_minus_champion_log_loss_delta": ">0",
+      "newest_block_log_loss_win": true,
+      "policy_lineage_source_timing": "PASS",
+      "pooled_raw_minus_champion_event_equal_brier_delta": ">=0",
+      "pooled_raw_minus_champion_event_equal_log_loss_delta": ">0"
+    },
+    "immutable_model_during_cohort": true,
+    "two_layers": [
+      "forecasting",
+      "decision_and_execution_shadow"
+    ]
+  },
+  "schema": "kxbtcd_post_h3_champion_lifecycle.v1",
+  "strategy_research": {
+    "authorized_only_after": "C1+C2+C3 PASS and final 4500-event champion fit frozen",
+    "development_evidence": "exposed evidence only",
+    "first_step": "audit execution-relevant historical fields before choosing decision rules",
+    "historical_profitability_claim": "development evidence only; not fresh profitability validation",
+    "strict_untouched_reserve_use": "prohibited"
+  },
+  "strict_untouched_tail_events": 6231
+}

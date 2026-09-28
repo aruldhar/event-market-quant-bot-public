@@ -1,0 +1,61 @@
+{
+  "amendment_fingerprint": "31df5185c3840092eaae09f82fd0139cf46db37dc5bfd9bd067d6dcfa758c92a",
+  "checkpoint_id": "21N-Y-A4",
+  "evidence_sha256": {
+    "coverage": "5b78812350bbcd3cea77f9c109dac2cce636de9577426edbaf523179859da1ab",
+    "forensics": "a9bfe9d389611b192a186024c1301563d71bdcd649a891401a223434c03bd188",
+    "paths": "3b1bfadd61f003343d385fc1f62b6192ce5b53fda87d3f1977d84f604ebb4780",
+    "screen": "7b1265b2ffcc87841f7e193b89e34ddbd9b602ec8b150af13472952e4478ce6c"
+  },
+  "frozen_files": {
+    "docs/KXBTCD_CANDIDATE_E_V2_SNAPSHOT_CONSISTENCY_AMENDMENT.md": "3eaccb4782091670660e4b01e9a65aed4c7db7d2ada4ef7c12ba35beea68040d",
+    "src/kxbtcd_candidate_e_v2_snapshot_consistency.py": "f9bc4a6ca91926f2a3bc86facca497dd5bcfcd4d45d0b87fa5081329a4836a86",
+    "src/kxbtcd_candidate_e_v2_snapshot_consistency_io.py": "072778f17e51ca1a4f21c55d0cf5da1ab1bb6a43fee57da7b974a9fcb308e3b3",
+    "tests/fixtures/kxbtcd_snapshot_consistency_cases.json": "389bbedb5c4f2f3a0e27d560612fc51543dbfae7eb480f0a789ebd4ea1b8ba5d",
+    "tests/test_kxbtcd_candidate_e_v2_snapshot_consistency.py": "2ad6b6138c4ab8321173ce382b3fd1a7017348c1c23c6d5180620e48e0ec178a",
+    "validate_kxbtcd_candidate_e_v2_snapshot_consistency.py": "396505fd74c079500ca971a2681b0ebbe502c173faffcd6862a40e8f4ffb1a22",
+    "validate_kxbtcd_candidate_e_v2_snapshot_consistency_coverage.py": "904704911ed951ac3fa2784500ced0df9ac494de0b6bf405039a0e681b5e2cc1"
+  },
+  "parent_checkpoint_commit": "35b778a4f68d7d221536358599683706019230d8",
+  "parent_receipt_commit": "1116a023cac865a9aeac13db041e710e4632395e",
+  "parent_replay_precision_amendment": "82c4d05994cf97c723672b82428a7a139e20f96ae5aeea622e6dfaf1429a1370",
+  "rules": {
+    "cache_builder_status": "not_implemented_in_this_checkpoint",
+    "comparison_epsilon": "0",
+    "maximum_context_span_ms": 120000,
+    "maximum_pair_cuts": 10000,
+    "maximum_pair_rows": 200000,
+    "maximum_pair_rows_times_cuts": 2000000,
+    "negative_clamping": false,
+    "ordering": {
+      "maximum_group_size": 4,
+      "mixed_sources_required": true,
+      "one_order_and_one_cut_chain": true,
+      "outer_anchors_each_side": 2,
+      "preserve_order_within_source": true,
+      "strict_outer_anchor_times": true
+    },
+    "overlap_policy": "reject_all_proposals_with_intersecting_original_contexts",
+    "paid_rounding": false,
+    "proposal_basis": "original_Y_A3_only_no_iterative_repair",
+    "quarantine": {
+      "both_incident_pairs_originally_failed": true,
+      "five_strictly_increasing_timestamps": true,
+      "one_exact_cut_chain_required": true,
+      "one_snapshot_only": true,
+      "source_labels_are_metadata_not_authority": true,
+      "two_outer_control_pairs_originally_verified": true
+    },
+    "raw_snapshot_deletion": false,
+    "schema": "kxbtcd_snapshot_consistency_rules.v1",
+    "strategy_run": false
+  },
+  "safety": {
+    "new_execution_cache_built": false,
+    "orders_placed": 0,
+    "outcomes_accessed": false,
+    "strategy_run": false
+  },
+  "schema_version": "kxbtcd_snapshot_consistency_amendment.v1",
+  "validator_template_sha256": "05f40b81a2437edefbdfff4f1118991509f77189fd1c8322ea8227acef14050e"
+}

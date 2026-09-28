@@ -1,0 +1,138 @@
+{
+  "alpha_ranking_policy": {
+    "fixed_alpha_threshold_search": false,
+    "group_definition": "deterministic equal-count rank quartiles Q1..Q4; earlier quartile receives remainder only if exact equal split impossible",
+    "groups": 4,
+    "ordering": [
+      "conditional_alpha ascending",
+      "event_ticker ascending",
+      "market_ticker ascending",
+      "YES before NO"
+    ],
+    "outcomes_used_to_form_groups": false,
+    "population": "Candidate-E ENTER events only, pooled H2+H3",
+    "subgroup_threshold_search": false
+  },
+  "canonical_parent_result": {
+    "candidate_id": "kxbtcd_candidate_e_conditional_alpha_reliability.v2",
+    "economic_gate": "NOT_RUN_PROBABILITY_GATE_FAILED",
+    "evaluation_fingerprint": "fa1f6f34ec830ea6c2520a1513f27c3ca1f0d69bf2ddc73e1c90660abfc3efe0",
+    "formal_result_validator": "PASS",
+    "overall_status": "FAIL_PROBABILITY_GATE",
+    "probability_gate": "FAIL",
+    "receipt_fingerprint": "cafcae196ccaa7f352e3685a9d3132e2d0d5356bb5f041c9035adc27db8d90eb",
+    "selected_lambda": 0.001
+  },
+  "diagnostic_id": "kxbtcd_candidate_e_alpha_reliability_entry_diagnostic.v1",
+  "event_selection_policy": {
+    "abstain_rule": "no qualifying Candidate-E opportunity at any anchor",
+    "alpha_value_for_entry": "conditional_alpha on the selected Candidate-E opportunity row",
+    "anchor_order_minutes": [
+      55,
+      50,
+      45,
+      40,
+      35,
+      30
+    ],
+    "anchor_rule": "first anchor containing at least one Candidate-E qualifying opportunity",
+    "maximum_entries_per_event": 1,
+    "tie_breaks": [
+      "market_ticker ascending",
+      "YES before NO"
+    ],
+    "within_anchor_rule": "maximum Candidate-E net edge"
+  },
+  "evidence_scope": {
+    "C1_C2_allowed": false,
+    "C3_allowed": false,
+    "H1_allowed_for_economic_scoring": false,
+    "allowed_stages": [
+      "H2",
+      "H3"
+    ],
+    "evidence_role": "EXPOSED_DEVELOPMENT_EXPLORATORY_ONLY",
+    "execution_allowed": false,
+    "expected_score_events": 1500,
+    "network_allowed": false,
+    "protected_reserve_allowed": false
+  },
+  "exploratory_triage_rule": {
+    "conditions": [
+      "pooled Q4 base P&L per entry > pooled Q1",
+      "pooled Q4 +1c P&L per entry > pooled Q1",
+      "pooled upper-half base P&L per entry > pooled lower-half",
+      "pooled upper-half +1c P&L per entry > pooled lower-half",
+      "H2 Q4 base P&L per entry > H2 Q1",
+      "H3 Q4 base P&L per entry > H3 Q1",
+      "pooled Spearman(alpha, base realized P&L) > 0"
+    ],
+    "label_if_all_true": "PROMISING_EXPLORATORY_SIGNAL",
+    "meaning": "Research triage only. PROMISING does not pass a trading strategy and cannot authorize threshold selection or execution.",
+    "otherwise": "NO_CLEAR_SIGNAL"
+  },
+  "forbidden_after_run": [
+    "choose an alpha threshold from H2/H3 P&L and call it validated",
+    "refit conditional alpha",
+    "change lambda",
+    "add features",
+    "side-specific alpha repair",
+    "TTC-specific threshold rescue",
+    "subgroup rescue",
+    "inspect C1/C2/C3 or protected reserve under this diagnostic",
+    "paper/demo/real execution"
+  ],
+  "interpretation_boundary": {
+    "conditional_alpha_v2_official_status": "FAIL_PROBABILITY_GATE",
+    "conditional_alpha_v2_rescue": false,
+    "fresh_validation_claim_allowed": false,
+    "profitability_claim_allowed": false,
+    "strategy_pass_claim_allowed": false
+  },
+  "next_step_if_no_clear_signal": "Close conditional-alpha-as-entry-filter on H evidence and move to a different simple entry-filter hypothesis.",
+  "next_step_if_promising": "Design and predeclare a separately versioned Candidate-E entry-filter strategy and an evidence plan before any additional validation evidence is opened.",
+  "predeclaration_fingerprint": "2d8db11742b4f88deb61b810266111b246faf7164ea0c019ad5528cf7326b55e",
+  "purpose": "Exploratory H2/H3 economics diagnostic asking whether the already-frozen conditional-alpha v2 score contains useful entry-ranking information when Candidate E remains the valuation probability.",
+  "reported_diagnostics": {
+    "baseline": [
+      "Candidate-E entry count pooled/H2/H3",
+      "base hold-to-settlement P&L per entry pooled/H2/H3",
+      "+1c stress P&L per entry pooled/H2/H3"
+    ],
+    "by_alpha_quartile": [
+      "entry count",
+      "mean alpha",
+      "mean Candidate-E quoted net edge",
+      "base P&L per entry",
+      "+1c stress P&L per entry",
+      "positive realized P&L fraction"
+    ],
+    "continuous": [
+      "Spearman rank correlation: alpha vs base realized P&L"
+    ],
+    "contrasts": [
+      "Q4 minus Q1 base P&L per entry",
+      "Q4 minus Q1 +1c P&L per entry",
+      "upper-half Q3+Q4 minus lower-half Q1+Q2 base P&L per entry",
+      "upper-half Q3+Q4 minus lower-half Q1+Q2 +1c P&L per entry"
+    ],
+    "stratified_reporting": [
+      "pooled",
+      "H2",
+      "H3"
+    ]
+  },
+  "schema_version": "kxbtcd_candidate_e_alpha_reliability_entry_diagnostic_predeclaration.v1",
+  "status": "PREDECLARED_NOT_RUN",
+  "valuation_policy": {
+    "conditional_adjusted_probability_used_for_valuation": false,
+    "conditional_alpha_role": "ranking/filter diagnostic only",
+    "fee_rule": "reuse frozen standard_entry_fee from conditional-alpha v1",
+    "no_net_edge": "(1-candidate_probability) - (1-yes_bid) - standard_entry_fee(1-yes_bid)",
+    "no_purchase_price": "1-yes_bid",
+    "probability_source": "Candidate E candidate_probability only",
+    "qualifying_edge_rule": "net_edge >= 0",
+    "yes_net_edge": "candidate_probability - yes_ask - standard_entry_fee(yes_ask)",
+    "yes_purchase_price": "yes_ask"
+  }
+}

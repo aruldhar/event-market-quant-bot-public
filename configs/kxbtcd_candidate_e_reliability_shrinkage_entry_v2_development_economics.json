@@ -1,0 +1,154 @@
+{
+  "alpha_policy": {
+    "alpha_0_25_reason": "Only 15 entries total and 3/6/6 across H1_OOF/H2/H3; failed frozen opportunity coverage gate.",
+    "alpha_1_reason": "Reference-only exact reproduction of Strategy-v1 zero-cent policy; prior Strategy-v1 economics already exposed and family failed.",
+    "entry_selection": "Consume exact frozen 21N-F alpha_event_selections.csv; never reselect after outcomes are opened.",
+    "no_new_alpha_search": true,
+    "no_post_outcome_alpha_repair": true,
+    "outcome_scoring_prohibited_alphas": [
+      "0.25",
+      "1.00"
+    ],
+    "selection_eligible_alphas": [
+      "0.50",
+      "0.75"
+    ]
+  },
+  "candidate_id": "kxbtcd_btc_distance_offset_logistic.v1",
+  "champion_final_fingerprint": "b45478594c088c09086d55d14e70aa7a22a62dc546cf0f2d9a1e3bb2f296b8dc",
+  "checkpoint_id": "21N-G",
+  "development_economics_predeclaration_fingerprint": "139435ffb43d51d09afa4154aeba2fe9c22cb82b5b7edd435516d4ab71e2c55f",
+  "development_gate": {
+    "conditions": [
+      "base pooled mean P&L per event > 0",
+      "+1c stressed pooled mean P&L per event > 0",
+      "base mean P&L per event > 0 in at least 4 of 5 chronological 514-event blocks",
+      "base mean P&L per event > 0 in newest chronological block B4",
+      "base H3 mean P&L per event > 0"
+    ],
+    "no_passing_alpha": "FAIL_NO_ALPHA",
+    "no_post_outcome_alpha_repair": true,
+    "positive_means_strictly_greater_than_zero": true,
+    "winner_rule": "Among alphas passing every condition, choose highest +1c stressed pooled mean P&L per event; exact numeric tie chooses lower alpha."
+  },
+  "development_scope": {
+    "block_order_rule": "sort unique events by event_close_time_utc ascending, then event_ticker ascending",
+    "chronological_block_count": 5,
+    "events": 2570,
+    "events_per_block": 514,
+    "stages": [
+      "H1_OOF",
+      "H2",
+      "H3"
+    ]
+  },
+  "failure_consequence": {
+    "if_no_development_alpha_passes": "Reject simple reliability-shrinkage Strategy-v2 development family and return to predeclared successor research, with a distinct learned entry/meta-model now a justified candidate.",
+    "no_alpha_0_25_rescue": true,
+    "no_intermediate_alpha_search": true,
+    "no_side_ttc_role_price_filter_mining": true
+  },
+  "future_c1_c2_confirmation": {
+    "authorization_condition": "Only after one development alpha passes, is selected by the frozen rule, and the development result is separately frozen/closed.",
+    "authorized_now": false,
+    "chronological_blocks": 5,
+    "conditions": [
+      "base pooled mean P&L per event > 0",
+      "+1c stressed pooled mean P&L per event > 0",
+      "base mean P&L per event > 0 in at least 4 of 5 chronological 200-event blocks",
+      "base mean P&L per event > 0 in newest chronological block"
+    ],
+    "events": 1000,
+    "events_per_block": 200,
+    "evidence_interpretation": "fresh strategy-economic confirmation only; C1/C2 outcomes were previously exposed for other model research",
+    "failure_consequence": "Reject reliability-shrinkage Strategy-v2 family; do not repair/retune on C1+C2.",
+    "no_alpha_search": true,
+    "selected_alpha_frozen": true
+  },
+  "metrics": {
+    "primary": "mean_net_pnl_per_event_including_abstentions_as_zero",
+    "secondary": [
+      "mean_net_pnl_per_trade",
+      "total_net_pnl",
+      "total_capital_deployed",
+      "return_on_deployed_capital",
+      "win_rate_among_entries",
+      "maximum_drawdown_on_chronological_event_pnl",
+      "worst_individual_trade",
+      "entry_count",
+      "abstention_count",
+      "stage_pnl_per_event",
+      "chronological_block_pnl_per_event",
+      "side_ttc_structural_role_diagnostics",
+      "stress_scenario_metrics"
+    ]
+  },
+  "opportunity_audit_binding": {
+    "alpha_enter_counts": {
+      "0.25": 15,
+      "0.50": 276,
+      "0.75": 591,
+      "1.00": 820
+    },
+    "alpha_event_selections_sha256": "ff4aa15a61f8b98506a35626113bd60e4cc9c1758a3504065ed452074e6e6790",
+    "audit_fingerprint": "b0971d51ac76fc26402dfbab49fde85167cb0bb4153069b80d1db2dbaccdcf20",
+    "audit_result_closeout_fingerprint": "ff2a021063155c6fdfd012818363faccc2906468471d61b49e61572740606dcd",
+    "event_count": 2570,
+    "realized_pnl_calculated_in_audit": false,
+    "settlement_outcomes_used_in_audit": false
+  },
+  "parent_strategy_v2_predeclaration_fingerprint": "b3fd3a3c71c5750604ef4e6eddd23043a75952d2c06a48cbb39ae6ef1066bd50",
+  "realized_economics": {
+    "abstain_capital_deployed": 0.0,
+    "abstain_pnl": 0.0,
+    "capital_deployed_formula": "stressed_purchase_price + recalculated_standard_entry_fee",
+    "historical_fill_claim": false,
+    "interpretation": "quoted-entry screening only; not a historical fill simulation and not Gate-1 paper-strategy eligibility",
+    "pnl_formula": "side_payout - stressed_purchase_price - recalculated_standard_entry_fee",
+    "position_policy": "hold selected side to settlement; no early exit, re-entry, adding, averaging, side switching, stops, targets, or sizing optimization",
+    "quantity_contracts": 1,
+    "side_payout": {
+      "NO": "1-outcome",
+      "YES": "outcome"
+    },
+    "standard_entry_fee_formula": "ceil_cent(0.07 * 1 * P * (1-P))"
+  },
+  "safety": {
+    "c1_c2_strategy_pnl_authorized": false,
+    "c3_accessed": false,
+    "demo_execution_authorized": false,
+    "development_outcomes_may_be_read_only_after_implementation_closeout": true,
+    "development_strategy_pnl_calculated_before_implementation_freeze": false,
+    "network_access_authorized": false,
+    "orders_authorized": false,
+    "paper_broker_authorized": false,
+    "protected_reserve_accessed": false,
+    "real_money_execution_authorized": false
+  },
+  "schema_version": "kxbtcd_candidate_e_reliability_shrinkage_development_economics_predeclaration.v1",
+  "strategy_id": "kxbtcd_candidate_e_reliability_shrinkage_entry_v2",
+  "strategy_v1_reference": {
+    "alpha_1_equivalent_zero_cent_policy_base_mean_pnl_per_event": "-0.004836575875486381322957198444",
+    "alpha_1_equivalent_zero_cent_policy_plus_1c_mean_pnl_per_event": "-0.007972762645914396887159533074",
+    "development_result_closeout_fingerprint": "9837823342eeb7b7c7d44a264b1507cd718310c2dccb83c837f9bb0bc4d1b392",
+    "rescore_alpha_1": false,
+    "status": "FAIL_NO_THRESHOLD"
+  },
+  "stress_policy": {
+    "additional_stresses_are_diagnostic": [
+      "0.02",
+      "0.03"
+    ],
+    "adverse_purchase_price_stress_dollars": [
+      "0.00",
+      "0.01",
+      "0.02",
+      "0.03"
+    ],
+    "gate_stress": "0.01",
+    "interpretation": "sensitivity analysis only; not an empirical slippage, depth, queue, latency, partial-fill, or missed-fill estimate",
+    "invalid_price_rule": "If any selected trade has stressed price outside [0,1], mark that alpha/stress scenario invalid as a whole; do not cap, omit, interpolate, or impute.",
+    "recalculate_fee_at_stressed_price": true,
+    "stressed_price_formula": "quoted_purchase_price + stress"
+  }
+}

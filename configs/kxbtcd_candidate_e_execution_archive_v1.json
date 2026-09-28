@@ -1,0 +1,256 @@
+{
+  "allowlist": {
+    "allowlist_entry_count": 20236,
+    "allowlist_fingerprint": "85c74bc868822603d545805b316d01828852f3bfe0a9d72b5e62fef5e61010d1",
+    "candidate_id": "kxbtcd_btc_distance_offset_logistic.v1",
+    "cross_stage_event_overlap_count": 0,
+    "cross_stage_market_overlap_count": 0,
+    "prediction_row_count": 118862,
+    "stages": {
+      "C1": {
+        "events": 500,
+        "markets": 2491,
+        "rows": 14887
+      },
+      "C2": {
+        "events": 500,
+        "markets": 2441,
+        "rows": 14007
+      },
+      "C3": {
+        "events": 500,
+        "markets": 2470,
+        "rows": 13549
+      },
+      "H1_OOF": {
+        "events": 1070,
+        "markets": 5334,
+        "rows": 31656
+      },
+      "H2": {
+        "events": 750,
+        "markets": 3750,
+        "rows": 22354
+      },
+      "H3": {
+        "events": 750,
+        "markets": 3750,
+        "rows": 22409
+      }
+    },
+    "unique_event_count": 4070,
+    "unique_market_count": 20236
+  },
+  "archive_id": "kxbtcd_candidate_e_reusable_execution_archive.v1",
+  "archive_outputs": {
+    "coverage_before_pnl": true,
+    "derived_tables": [
+      "archive_allowlist.csv",
+      "archive_market_metadata.csv",
+      "archive_candles_1m.csv",
+      "archive_trades.csv",
+      "archive_event_fee_changes.csv",
+      "archive_series_fee_changes.csv",
+      "archive_coverage.csv"
+    ],
+    "raw_archive_is_permanent_reusable_source": true,
+    "required_coverage_diagnostics": [
+      "allowlisted markets attempted",
+      "metadata resolved",
+      "candlestick rows and missing minute intervals",
+      "trade pages complete and cursor exhausted",
+      "events with event-fee history checked",
+      "fee schedule time coverage",
+      "tier routing counts",
+      "HTTP/API failures",
+      "resume/recovery counts"
+    ]
+  },
+  "archive_predeclaration_fingerprint": "4f4ec77deee789b2368bfeeb540270501b3ed0ef10afe637fc245407042739ea",
+  "checkpoint_id": "21K-B1",
+  "collection_scope": {
+    "candidate_redesign_authorized": false,
+    "candlestick_period_minutes": 1,
+    "collect_all_trade_records_in_window": true,
+    "collect_current_series_metadata": true,
+    "collect_event_fee_history_for_allowlisted_events": true,
+    "collect_historical_cutoff_snapshots": true,
+    "collect_market_metadata": true,
+    "collect_one_minute_candlesticks": true,
+    "collect_series_fee_history": true,
+    "collect_trades": true,
+    "market_time_window": "full tradable lifecycle from market open_time through close_time",
+    "model_refit_authorized": false,
+    "outcomes_may_be_preserved_as_source_metadata": true,
+    "preserve_block_trades": true,
+    "require_taker_side_fields": false,
+    "strategy_agnostic": true,
+    "strategy_pnl_scoring_authorized": false
+  },
+  "failure_policy": {
+    "candlestick_schema_drift": "fail_closed_for_market",
+    "invalid_open_close_window": "fail_closed",
+    "market_not_in_allowlist": "hard_deny",
+    "missing_minutes": "record_explicitly_never_impute",
+    "missing_trades": "empty only after successful complete paginated query",
+    "pagination_cursor_loop": "fail_closed",
+    "raw_persistence_failure": "fail_closed",
+    "trade_schema_drift": "fail_closed_for_market",
+    "unknown_or_duplicate_market_identity": "fail_closed",
+    "unresolved_fee_schedule": "fail_closed_for_replay_economics"
+  },
+  "fee_resolution_policy": {
+    "event_override_clear_semantics": "null fee_type_override and fee_multiplier_override clear the event override",
+    "event_override_precedence": true,
+    "event_override_schedule_required": true,
+    "interpretation": "Implementation clarification of Strategy v1 exact-applicable-fee requirement; not a strategy-rule change.",
+    "series_schedule_required": true,
+    "unresolved_effective_fee": "fail_closed_for_affected_replay_transaction"
+  },
+  "future_strategy_reuse": {
+    "archive_may_be_reused_by_later_separately_versioned_strategies": true,
+    "examples_requiring_new_data": [
+      "sub-minute or full-depth historical orderbook states not present in this archive",
+      "markets outside the 20,236-market allowlist",
+      "times outside an allowlisted market's tradable lifecycle"
+    ],
+    "recollection_not_required_if_future_strategy_inputs_are_within_archive_scope": true,
+    "recollection_required_if_future_strategy_requires_uncollected_data": true,
+    "same_4070_events_are_strategy_development_evidence_after_pnl_inspection": true
+  },
+  "official_routes": {
+    "event": {
+      "method": "GET",
+      "path": "/events/{event_ticker}",
+      "purpose": "event identity and current fee override metadata"
+    },
+    "event_fee_changes": {
+      "method": "GET",
+      "path": "/events/fee_changes",
+      "purpose": "historical event-level fee overrides",
+      "required_filters": [
+        "event_ticker",
+        "limit<=1000"
+      ]
+    },
+    "historical_candles": {
+      "method": "GET",
+      "path": "/historical/markets/{ticker}/candlesticks",
+      "required_params": [
+        "start_ts",
+        "end_ts",
+        "period_interval=1"
+      ]
+    },
+    "historical_cutoff": {
+      "method": "GET",
+      "path": "/historical/cutoff",
+      "purpose": "dynamic routing control"
+    },
+    "historical_markets": {
+      "method": "GET",
+      "path": "/historical/markets",
+      "ticker_filter": "tickers comma-separated"
+    },
+    "historical_trades": {
+      "method": "GET",
+      "path": "/historical/trades",
+      "required_filters": [
+        "ticker",
+        "min_ts",
+        "max_ts",
+        "limit<=1000"
+      ]
+    },
+    "live_candles": {
+      "method": "GET",
+      "path": "/series/KXBTCD/markets/{ticker}/candlesticks",
+      "required_params": [
+        "start_ts",
+        "end_ts",
+        "period_interval=1"
+      ]
+    },
+    "live_markets": {
+      "method": "GET",
+      "path": "/markets",
+      "ticker_filter": "tickers comma-separated"
+    },
+    "live_trades": {
+      "method": "GET",
+      "path": "/markets/trades",
+      "required_filters": [
+        "ticker",
+        "min_ts",
+        "max_ts",
+        "limit<=1000"
+      ]
+    },
+    "series": {
+      "method": "GET",
+      "path": "/series/KXBTCD",
+      "purpose": "current parent series fee type/multiplier and metadata"
+    },
+    "series_fee_changes": {
+      "method": "GET",
+      "path": "/series/fee_changes",
+      "purpose": "historical parent series fee schedule",
+      "required_filters": [
+        "series_ticker=KXBTCD",
+        "show_historical=true"
+      ]
+    }
+  },
+  "parent_strategy": {
+    "strategy_id": "kxbtcd_candidate_e_strategy_replay_v1",
+    "strategy_predeclaration_fingerprint": "afc1b397c850e8b2a2dfd32d6656e05f4622c59f1596f5b91295e96debb0d046",
+    "strategy_rules_modified_by_this_contract": false
+  },
+  "purpose": "Freeze a strategy-agnostic, reusable historical KXBTCD execution-data archive for the already-exposed Candidate-E OOS/OOF universe before the first 21K-B network request or any strategy P&L calculation.",
+  "raw_preservation": {
+    "credentials_must_not_be_logged": true,
+    "preserve_before_semantic_use": true,
+    "required_metadata": [
+      "run_id",
+      "source/route identity",
+      "request parameters",
+      "local UTC request timing",
+      "local monotonic request timing",
+      "HTTP status",
+      "response byte count",
+      "response SHA-256"
+    ],
+    "required_on_http_or_parse_error": true
+  },
+  "reserve_policy": {
+    "archive_may_expand_to_reserve": false,
+    "remaining_untouched_historical_reserve_events": 4676,
+    "reserve_access_allowed": false,
+    "reserve_market_discovery_allowed": false
+  },
+  "resume_policy": {
+    "collector_must_be_resumable": true,
+    "completed_raw_requests_may_be_reused": true,
+    "resume_must_not_expand_scope": true,
+    "resume_must_revalidate_allowlist_fingerprint": true
+  },
+  "routing_policy": {
+    "candlesticks": "use the market tier resolved from current metadata/cutoff state; if a tier changes during a long run, raw-preserve the failed attempt, refresh routing state once, and retry on the newly correct tier",
+    "cutoffs_are_dynamic_not_constants": true,
+    "deduplicate_trade_key": "trade_id",
+    "market_metadata": "resolve allowlisted tickers against live and historical market tiers; each ticker must reconcile to exactly one current tier at collection time",
+    "raw_preserve_each_cutoff_snapshot": true,
+    "tier_transition_must_not_drop_records": true,
+    "trades": "route by trades_created_ts; if a market lifecycle straddles the cutoff, collect both historical and live segments and deduplicate by trade_id"
+  },
+  "safety": {
+    "cancellations": false,
+    "demo_execution": false,
+    "orders": false,
+    "paper_broker": false,
+    "read_only": true,
+    "real_money_execution": false,
+    "transfers": false
+  },
+  "schema_version": "kxbtcd_execution_archive_predeclaration.v1"
+}

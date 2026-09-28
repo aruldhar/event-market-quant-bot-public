@@ -1,0 +1,316 @@
+{
+  "schema_version": "kxbtcd_candidate_e_predeclaration.v1",
+  "checkpoint_id": "19E",
+  "family_id": "kxbtcd_independent_btc_offset_successor.v1",
+  "parent_protocol_fingerprint": "b6c020f76a89703f737cc2e57e0fdbafb3a13966dfc2a57fb1a13c01681291f8",
+  "parent_source_policy_fingerprint": "6b0d98c16a65b2e638b36991d5006031e1bd37048bd04a47a3f67d936df0ee18",
+  "parent_btc_state_contract_fingerprint": "2739be9af27200a4a2ca8d189bc93d2f3d3349f6b3524f6b919e632fcf9d3668",
+  "reference_materialization_fingerprint": "f9a2459f81b1bb90e1ff55d099e837cb47c78c6586195759d55b5029d676bdb5",
+  "evidence_boundary": {
+    "e0_outcomes_may_inform_hypothesis_only": true,
+    "e1_outcomes_used_to_freeze_this_specification": false,
+    "checkpoint17_terminal_used": false,
+    "candidate_e_fit_performed": false,
+    "execution_authorized": false,
+    "subsecond_lead_lag_authorized": false
+  },
+  "benchmark": {
+    "id": "raw_kalshi_midpoint",
+    "probability": "original_q_market",
+    "model_offset_transform_clip": 0.001,
+    "raw_metric_probability_is_clipped_for_model_transform": false
+  },
+  "source_contract": {
+    "live_primary": "coinbase.exchange.public_rest.product_book.btc_usd.v1",
+    "live_verifier": "kraken.spot.public_rest.pretrade.btc_usd.v1",
+    "historical_primary": "coinbase.exchange.public_rest.product_candles.btc_usd.1m.v1",
+    "historical_verifier": "kraken.spot.public_rest.posttrade.btc_usd.v1",
+    "prospective_tier_states_require_live_first_seen": true,
+    "historical_reconstruction_may_rescue_missing_live_state": false,
+    "both_live_sources_required_for_current_feature": true,
+    "both_live_sources_required_for_lookback_feature": true,
+    "all_parent_19db_quality_gates_required": true
+  },
+  "state_materialization": {
+    "structural_strike_quantiles": [
+      0.1,
+      0.3,
+      0.5,
+      0.7,
+      0.9
+    ],
+    "strike_selection": "numeric_strike_nearest_rank_half_up",
+    "minimum_distinct_validated_strikes_per_event": 5,
+    "scored_ttc_target_seconds": [
+      3300,
+      3000,
+      2700,
+      2400,
+      2100,
+      1800
+    ],
+    "scored_ttc_target_minutes": [
+      55,
+      50,
+      45,
+      40,
+      35,
+      30
+    ],
+    "lookback_seed_ttc_target_seconds": 3600,
+    "decision_state_time": "scheduled_ttc_target_T",
+    "kalshi_quote_rule": {
+      "must_be_valid_uncrossed_two_sided_yes_quote": true,
+      "quote_observed_at_or_before_T": true,
+      "maximum_quote_age_seconds": 60.0,
+      "future_quote_allowed": false,
+      "fill_forward_beyond_max_age_allowed": false
+    },
+    "current_btc_rule": {
+      "price": "coinbase_best_bid_ask_midpoint",
+      "latest_eligible_pair_received_at_or_before_T": true,
+      "maximum_target_gap_seconds": 5.0,
+      "kraken_verifier_required": true
+    },
+    "lookback_btc_rule": {
+      "target_seconds_before_T": 300,
+      "price": "coinbase_best_bid_ask_midpoint",
+      "latest_eligible_pair_received_at_or_before_lookback_target": true,
+      "maximum_target_gap_seconds": 5.0,
+      "kraken_verifier_required": true,
+      "future_observation_allowed": false,
+      "interpolation_allowed": false,
+      "carry_forward_allowed": false
+    },
+    "common_candidate_row_universe": {
+      "requires_current_btc": true,
+      "requires_5m_lookback": true,
+      "requires_valid_kalshi_quote": true,
+      "reason": "distance-only and distance-plus-momentum candidates must be scored on identical rows"
+    }
+  },
+  "features": {
+    "btc_strike_log_distance_bps.v1": {
+      "symbol": "d_BTC",
+      "formula": "10000 * ln(S_t / K)",
+      "scale_constant": 10000.0,
+      "unit": "log_basis_points",
+      "S_t": "frozen live Coinbase-primary midpoint at decision target T",
+      "K": "validated KXBTCD strike_dollars"
+    },
+    "btc_return_5m_bps.v1": {
+      "symbol": "r_5m",
+      "formula": "10000 * ln(S_t / S_t_minus_300s)",
+      "scale_constant": 10000.0,
+      "unit": "log_basis_points",
+      "S_t_minus_300s": "frozen causal Coinbase-primary midpoint at exact 5m lookback target"
+    }
+  },
+  "candidate_menu": [
+    {
+      "candidate_id": "kxbtcd_btc_distance_offset_logistic.v1",
+      "short_name": "E-distance",
+      "formula": "logit(p)=market_logit_offset + beta_distance*d_BTC",
+      "free_parameters": [
+        "beta_distance"
+      ],
+      "features": [
+        "btc_strike_log_distance_bps.v1"
+      ],
+      "raw_market_nested_at": {
+        "beta_distance": 0.0
+      }
+    },
+    {
+      "candidate_id": "kxbtcd_btc_distance_momentum_offset_logistic.v1",
+      "short_name": "E-distance-momentum",
+      "formula": "logit(p)=market_logit_offset + beta_distance*d_BTC + beta_momentum*r_5m",
+      "free_parameters": [
+        "beta_distance",
+        "beta_momentum"
+      ],
+      "features": [
+        "btc_strike_log_distance_bps.v1",
+        "btc_return_5m_bps.v1"
+      ],
+      "raw_market_nested_at": {
+        "beta_distance": 0.0,
+        "beta_momentum": 0.0
+      }
+    }
+  ],
+  "fit_contract": {
+    "objective": "event_equal_binary_log_loss",
+    "event_weighting": "equal_total_weight_per_event",
+    "within_event_weighting": "equal_weight_per_scored_row",
+    "regularization": "none",
+    "feature_standardization": "none",
+    "hyperparameter_grid": [],
+    "hyperparameter_search": false,
+    "initialization": "all_free_coefficients_zero_raw_market_nesting",
+    "optimizer": {
+      "algorithm": "deterministic_damped_Newton",
+      "max_iterations": 100,
+      "gradient_l2_tolerance": "1e-8",
+      "armijo_constant": "1e-4",
+      "minimum_step_scale": "2^-40",
+      "non_convergence": "fail_closed",
+      "singular_hessian": "fail_closed"
+    }
+  },
+  "e1_cohort": {
+    "starts_after_candidate_e_predeclaration_freeze": true,
+    "event_requirement": "entire_required_feature_window_post_freeze",
+    "earliest_event_rule": "event 60m lookback-seed target must be strictly after predeclaration freeze timestamp",
+    "minimum_eligible_events": 168,
+    "minimum_distinct_utc_dates": 7,
+    "minimum_chronological_span_hours": 168,
+    "required_utc_hour_of_day_bins": 24,
+    "minimum_tier_source_eligible_state_rate": 0.9,
+    "minimum_per_event_source_eligible_anchor_fraction": 0.6666666666666666,
+    "scheduled_scored_anchors_per_event": 6,
+    "minimum_source_eligible_scored_anchors_per_counted_event": 4,
+    "cohort_stop_rule": "first chronological outcome-blind point at which all frozen readiness gates are satisfied",
+    "if_not_ready": "extend prospectively without outcome access",
+    "outcome_dependent_stopping_allowed": false,
+    "threshold_relaxation_after_collection_starts_allowed": false
+  },
+  "e1_outcome_firewall": {
+    "outcomes_before_cohort_readiness": "prohibited",
+    "required_before_outcome_access": [
+      "preoutcome cohort frozen and fingerprinted",
+      "seven-block map frozen and fingerprinted",
+      "source-policy validation PASS",
+      "row-lineage validation PASS",
+      "tier-readiness validation PASS"
+    ],
+    "checkpoint17_access": "prohibited",
+    "e0_outcomes_as_scoring_rows": "prohibited"
+  },
+  "e1_chronological_layout": {
+    "block_count": 7,
+    "block_rule": "sort eligible E1 events chronologically and divide into seven contiguous event-count blocks differing by at most one; earlier blocks receive remainder",
+    "rolling_origin_folds": [
+      {
+        "fold": 1,
+        "fit_blocks": [
+          "B0",
+          "B1"
+        ],
+        "score_block": "B2"
+      },
+      {
+        "fold": 2,
+        "fit_blocks": [
+          "B0",
+          "B1",
+          "B2"
+        ],
+        "score_block": "B3"
+      },
+      {
+        "fold": 3,
+        "fit_blocks": [
+          "B0",
+          "B1",
+          "B2",
+          "B3"
+        ],
+        "score_block": "B4"
+      },
+      {
+        "fold": 4,
+        "fit_blocks": [
+          "B0",
+          "B1",
+          "B2",
+          "B3",
+          "B4"
+        ],
+        "score_block": "B5"
+      },
+      {
+        "fold": 5,
+        "fit_blocks": [
+          "B0",
+          "B1",
+          "B2",
+          "B3",
+          "B4",
+          "B5"
+        ],
+        "score_block": "B6"
+      }
+    ],
+    "same_rows_for_all_candidates": true,
+    "required_score_block_structural_coverage": {
+      "all_five_strike_roles_represented": true,
+      "all_six_ttc_targets_represented": true
+    }
+  },
+  "metrics": {
+    "primary": "pooled_oof_event_equal_log_loss",
+    "secondary": "pooled_oof_event_equal_brier",
+    "also_report": [
+      "raw_and_candidate_metrics_by_score_block",
+      "event_level_raw_minus_candidate_log_loss_delta",
+      "median_event_level_delta",
+      "fold_coefficients",
+      "coefficient_signs",
+      "prediction_and_correction_quantiles",
+      "coverage_by_strike_role_and_ttc"
+    ],
+    "primary_ties": "fail"
+  },
+  "raw_advancement_gate": {
+    "all_conditions_required": true,
+    "conditions": [
+      "pooled raw-minus-candidate event-equal log-loss delta > 0",
+      "pooled raw-minus-candidate event-equal Brier delta >= 0",
+      "candidate strictly beats raw log loss in at least 4 of 5 score blocks",
+      "candidate strictly beats raw log loss in latest B6 score block",
+      "median event-level raw-minus-candidate log-loss delta > 0",
+      "all five fits converge and all parameters/predictions/metrics are finite",
+      "beta_distance > 0 in every fold",
+      "all score blocks contain all five strike roles and all six TTC targets",
+      "no source-policy, timing, lineage, evidence-tier, or outcome-firewall violation"
+    ]
+  },
+  "candidate_selection_rule": {
+    "evaluate_both_candidates_once": true,
+    "if_neither_passes_raw_gate": "family_FAIL",
+    "if_exactly_one_passes_raw_gate": "select_that_candidate",
+    "if_both_pass_raw_gate": "select_distance_momentum_only_if_it_passes_nested_complexity_gate_else_select_distance",
+    "nested_complexity_gate": {
+      "benchmark": "E-distance on identical OOF rows",
+      "all_conditions_required": true,
+      "conditions": [
+        "pooled distance-minus-distance-momentum event-equal log-loss delta > 0",
+        "pooled distance-minus-distance-momentum event-equal Brier delta >= 0",
+        "distance-momentum strictly beats distance log loss in at least 4 of 5 score blocks",
+        "distance-momentum strictly beats distance in latest B6 score block",
+        "median event-level distance-minus-distance-momentum log-loss delta > 0"
+      ]
+    },
+    "no_posthoc_candidate_repair_on_e1": true
+  },
+  "post_e1_boundary": {
+    "selected_specification_if_PASS": "freeze exactly one Candidate-E specification before E2",
+    "e2_role": "new chronological final-parameter fitting evidence only",
+    "e3_role": "new chronological one-time prospective test after final-model freeze",
+    "e1_may_not_be_promoted_to_e2_or_e3": true,
+    "no_e1_refit_or_rescore_after_design_result": true
+  },
+  "safety": {
+    "read_only": true,
+    "outcomes_used_to_freeze_this_predeclaration": false,
+    "candidate_fit_authorized_by_this_checkpoint": false,
+    "paper_execution": false,
+    "demo_execution": false,
+    "real_money_execution": false,
+    "order_creation": false,
+    "order_cancellation": false,
+    "transfers": false
+  },
+  "predeclaration_fingerprint": "9775be58f01375ca6f2b04212a63578ce5e8cf7084498e6ce9d3ae68685d59a9"
+}

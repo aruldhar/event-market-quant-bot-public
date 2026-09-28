@@ -1,0 +1,41 @@
+{
+  "analysis_directory": "data/analysis/kxbtcd_candidate_e_quoted_entry_hold_v1_failure_analysis/20260830T090607Z",
+  "analysis_file_sha256s": {
+    "comparisons": "2a1855ff978e57abd1ccf2b935e1e6028c5fc06ce80dffb24c51a52081552845",
+    "slices": "553e9531740978fee396335d5afae197d4e797be7cdccfd381991304eccebbd2",
+    "summary": "5a9b97b93d63dd926e4e9b07d6d3b21f00b5890450a3cb13caacd86b54175db8",
+    "tails": "ada1e7820b123ccc9843e232fae1d6440f80ec8bc8099c0847995e602a4fcd0c"
+  },
+  "analysis_id": "kxbtcd_candidate_e_quoted_entry_hold_v1_development_failure_analysis.v1",
+  "checkpoint_id": "21N-E",
+  "development_result_closeout_fingerprint": "9837823342eeb7b7c7d44a264b1507cd718310c2dccb83c837f9bb0bc4d1b392",
+  "failure_analysis_fingerprint": "e9b88ded9fe1db1f89e234ad626023c67038bbea84ae35863b817c3858f4a3ef",
+  "failure_analysis_predeclaration_fingerprint": "33fb68841a174d50971d40aefae73ab564f96adcb8aefafcf5e86aa16d21bc8b",
+  "failure_analysis_result_closeout_fingerprint": "bdbdf4db9b83410b3e9689a4ed5ed66ba995be507c5bacea32a6b59c74678dad",
+  "primary_result": {
+    "b3_total_pnl": "2.47",
+    "b4_total_pnl": "-2.5",
+    "entry_count": 159,
+    "h2_total_pnl": "2.68",
+    "h3_total_pnl": "-0.63",
+    "interpretation": "reliability_calibration_deterioration_not_quote_cost_shift"
+  },
+  "safety": {
+    "c1_c2_strategy_pnl_accessed": false,
+    "c3_accessed": false,
+    "demo_execution_used": false,
+    "network_accessed": false,
+    "orders_submitted": false,
+    "paper_broker_used": false,
+    "protected_reserve_accessed": false,
+    "real_execution_used": false
+  },
+  "schema_version": "kxbtcd_candidate_e_quoted_entry_hold_v1_failure_analysis_result_closeout.v1",
+  "successor_direction_preselection": {
+    "candidate_e_probability_engine_unchanged": true,
+    "exact_strategy_v2_rule_selected": false,
+    "learned_entry_model_status": "DEFERRED_CHALLENGER",
+    "recommended_first_family": "deterministic_reliability_adjusted_entry_baseline",
+    "successor_fit_authorized": false
+  }
+}

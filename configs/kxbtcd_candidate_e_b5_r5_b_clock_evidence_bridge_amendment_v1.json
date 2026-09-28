@@ -1,0 +1,177 @@
+{
+  "amendment_fingerprint": "eaf9525f726f4beaad6f7f4bc3e3704534459a1033ec28a1c4656def7121813f",
+  "amendment_scope": {
+    "does_not_change": [
+      "250_ms_absolute_clock_offset_ready_gate",
+      "5_second_clock_evidence_max_age",
+      "real_linux_boot_id_requirement",
+      "real_chrony_requirement",
+      "synthetic_clock_evidence_prohibition",
+      "read_only_execution_authorization",
+      "source_generation_semantics",
+      "kalshi_sequence_gap_semantics",
+      "coinbase_completed_minute_semantics",
+      "soak_durations",
+      "active_monotonic_timer_semantics",
+      "raw_storage_contract",
+      "minimum_free_disk_formula",
+      "post_soak_restart_contract",
+      "candidate_e_signal_computation_disabled"
+    ],
+    "supersedes_only": "parent container_runtime_contract.chrony_access transport mechanism"
+  },
+  "analysis_role": "clock_evidence_transport_amendment_design_only",
+  "aws_empirical_evidence": {
+    "chrony_directory_group": "chrony",
+    "chrony_directory_mode": "0750",
+    "chrony_directory_owner": "chrony",
+    "chronyd_control_socket": "/run/chrony/chronyd.sock",
+    "chronyd_running": true,
+    "coinbase_api_accessed": false,
+    "docker_bridge_single_socket_bind": {
+      "chronyc_result": "506 Cannot talk to daemon",
+      "result": "FAIL"
+    },
+    "docker_host_network_single_socket_bind": {
+      "chronyc_result": "506 Cannot talk to daemon",
+      "result": "FAIL"
+    },
+    "host_atomic_evidence_file_to_read_only_bridge_container": {
+      "container_read": "PASS",
+      "container_write_attempt": "BLOCKED_READ_ONLY_FILESYSTEM",
+      "host_generation": "PASS",
+      "overall": "PASS"
+    },
+    "host_container_time_namespace_check": {
+      "host_and_container_uptime_consistent": true,
+      "observed_sequential_uptime_delta_seconds_approx": 0.57,
+      "same_time_namespace": true
+    },
+    "host_direct_socket_as_chrony_user": "PASS",
+    "host_direct_socket_as_root": "PASS",
+    "host_operating_system": "Amazon Linux 2023 x86_64",
+    "kalshi_api_accessed": false,
+    "market_data_network_accessed": false,
+    "non_market_infrastructure_network_note": "Disposable Docker diagnostics pulled/used container/package infrastructure; no market-data endpoint was accessed.",
+    "orders": 0,
+    "production_writes": 0,
+    "settlement_outcomes_accessed": false,
+    "strategy_pnl_run": false
+  },
+  "checkpoint_id": "21N-Z-E-B5-R5-B-B-A",
+  "implementation_requirements_for_b5_r5_b_b": {
+    "add_clock_evidence_file_consumer": true,
+    "add_detached_runtime_ssm_independence_validation": true,
+    "add_docker_compose_read_only_evidence_mount": true,
+    "add_host_clock_evidence_publisher": true,
+    "add_systemd_publisher_unit": true,
+    "add_unit_tests_for_fresh_stale_invalid_and_mismatched_evidence": true,
+    "default_runner_invocation_zero_network": true,
+    "live_market_access_requires_separate_explicit_flag": true,
+    "reuse_existing_chrony_tracking_parser": true
+  },
+  "parent_contract": {
+    "parent_contract_is_not_modified": true,
+    "parent_receipt_commit": "6b8148823b1eddfd8c894547c14f8500c2dd8553",
+    "parent_soak_design_config": "configs/kxbtcd_candidate_e_b5_r5_b_aws_read_only_soak_design_v1.json",
+    "parent_soak_design_fingerprint": "715b55824746fe59467d7484599d1a92894e0810d5bc9be972d81577005c1ed6"
+  },
+  "reason_for_amendment": {
+    "clock_threshold_or_strategy_change": false,
+    "frozen_parent_requirement_preserved": "REAL_LINUX_BOOT_AND_CHRONY_EVIDENCE_WITH_SYNTHETIC_EVIDENCE_FORBIDDEN",
+    "original_transport_empirically_viable": false,
+    "original_transport_mechanism": "NARROW_HOST_CHRONYD_CONTROL_SOCKET_BIND_MOUNT",
+    "replacement_changes_clock_transport_only": true
+  },
+  "replacement_clock_evidence_bridge": {
+    "architecture": "HOST_SYSTEMD_PUBLISHER_ATOMIC_FILE_READ_ONLY_CONTAINER_CONSUMER",
+    "container_consumer": {
+      "chronyd_socket_mounted": false,
+      "container_boot_id_source": "/proc/sys/kernel/random/boot_id",
+      "container_time_namespace_source": "/proc/self/ns/time",
+      "direct_chronyd_socket_access": false,
+      "docker_socket_required": false,
+      "evidence_age_formula": "container_time_monotonic_ns - evidence.captured_monotonic_ns",
+      "freshness_clock": "local_monotonic",
+      "host_network_required": false,
+      "maximum_evidence_age_seconds": 5,
+      "parse_tracking_with_existing_parser": "src.kxbtcd_candidate_e_restart_source_readiness.parse_chronyc_tracking",
+      "privileged_container_required": false,
+      "readiness_evaluation_interval_max_seconds": 5,
+      "require_evidence_age_nonnegative": true,
+      "require_host_boot_id_equals_container_boot_id": true,
+      "require_host_time_namespace_equals_container_time_namespace": true
+    },
+    "evidence_file": {
+      "canonical_container_path": "/run/event-market-quant-bot-clock/chrony_evidence.json",
+      "container_mount_mode": "read_only",
+      "credential_fields_allowed": false,
+      "market_data_fields_allowed": false,
+      "required_fields": [
+        "schema_version",
+        "publisher_instance_id",
+        "captured_utc",
+        "captured_monotonic_ns",
+        "host_boot_id",
+        "host_time_namespace_id",
+        "chronyc_returncode",
+        "chronyc_tracking_raw",
+        "publisher_status"
+      ],
+      "schema_version": "candidate_e_host_clock_evidence.v1"
+    },
+    "fail_closed_behavior": {
+      "boot_id_mismatch": "BLOCK_READINESS",
+      "chrony_parse_not_pass": "BLOCK_READINESS",
+      "chronyc_returncode_nonzero": "BLOCK_READINESS",
+      "evidence_age_over_5_seconds": "BLOCK_READINESS",
+      "evidence_file_missing": "BLOCK_READINESS",
+      "evidence_json_invalid": "BLOCK_READINESS",
+      "negative_monotonic_age": "BLOCK_READINESS",
+      "publisher_not_running": "BLOCK_READINESS",
+      "publisher_status_not_pass": "BLOCK_READINESS",
+      "synthetic_evidence_detected": "HARD_FAIL",
+      "time_namespace_mismatch": "BLOCK_READINESS"
+    },
+    "host_publisher": {
+      "atomic_replace_required": true,
+      "chrony_command": [
+        "chronyc",
+        "-n",
+        "tracking"
+      ],
+      "chrony_command_timeout_seconds": 2.0,
+      "directory_fsync_after_replace_required": true,
+      "execution_capability": false,
+      "file_fsync_before_replace_required": true,
+      "lifecycle_manager": "systemd",
+      "location": "AWS_HOST_OUTSIDE_RUNTIME_CONTAINER",
+      "market_credentials_available_to_publisher": false,
+      "market_network_access_authorized": false,
+      "must_not_be_child_of_ssm_session": true,
+      "target_successful_publish_interval_seconds": 1.0,
+      "uses_real_host_chronyd": true,
+      "uses_synthetic_clock_evidence": false
+    }
+  },
+  "safety_boundary": {
+    "candidate_e_signal_computation": false,
+    "execution_mode": "disabled",
+    "orders": 0,
+    "production_writes": 0,
+    "risk_policy_changed": false,
+    "settlement_outcome_access": false,
+    "strategy_pnl_scoring": false
+  },
+  "schema_version": "kxbtcd_candidate_e_b5_r5_b_clock_evidence_bridge_amendment.v1",
+  "unattended_runtime_acceptance": {
+    "automatic_runtime_container_restart_during_validation": false,
+    "clock_publisher_must_run_under_systemd": true,
+    "closing_or_expiring_ssm_session_must_not_stop_either_process": true,
+    "container_crash_must_remain_visible_as_failure": true,
+    "host_reboot_during_active_soak_remains_hard_failure": true,
+    "offline_acceptance_must_prove_same_publisher_and_runtime_identity_across_ssm_reconnect": true,
+    "soak_runtime_must_run_detached_under_docker_daemon": true,
+    "ssm_session_is_not_runtime_supervisor": true
+  }
+}

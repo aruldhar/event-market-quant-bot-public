@@ -1,0 +1,57 @@
+{
+  "amendment_fingerprint": "5a52b3f6cf8b2a22983e130969f82ad5b1e0303e237a220ef4322594c3c58e3b",
+  "analysis_role": "read_only_transport_reliability_amendment",
+  "checkpoint_id": "21N-Z-E-B5-R5-B-C",
+  "parent_contract": {
+    "parent_contract_is_not_modified": true,
+    "parent_soak_design_config": "configs/kxbtcd_candidate_e_b5_r5_b_aws_read_only_soak_design_v1.json",
+    "parent_soak_design_fingerprint": "715b55824746fe59467d7484599d1a92894e0810d5bc9be972d81577005c1ed6"
+  },
+  "supersedes_only": "parent source_contract.kalshi client ping implementation",
+  "effective_kalshi_keepalive": {
+    "implementation": "websockets_library_ping_pong",
+    "ping_interval_seconds": 10,
+    "ping_timeout_seconds": 10,
+    "current_pong_age_gate_seconds": 20,
+    "transport_close_timeout_seconds": 5
+  },
+  "reason": {
+    "original_manual_ping_interval_seconds": 15,
+    "original_manual_pong_timeout_seconds": 5,
+    "library_keepalive_15_5_result": "initial current-pong proof was not established",
+    "replacement_preserves_liveness_horizon_seconds": 20,
+    "replacement_uses_protocol_control_frames_without_raw_payload_logging": true
+  },
+  "r16_empirical_evidence": {
+    "run_id": "kxbtcd_shakedown_20260907_r16",
+    "active_seconds": 3600,
+    "availability": 0.9567757167094444,
+    "kalshi_ping_attempts": 339,
+    "kalshi_pong_successes": 339,
+    "kalshi_pong_timeouts": 0,
+    "kalshi_reconnect_attempts": 14,
+    "safe_transport_error_classes": {
+      "ConnectionClosedError": 10
+    },
+    "sequence_gap_count": 0,
+    "safety_invariant_status": "PASS"
+  },
+  "does_not_change": [
+    "read_only_execution_authorization",
+    "no_orders_no_signals_no_production_writes",
+    "kalshi_sequence_gap_behavior",
+    "raw_first_durable_archive_requirement",
+    "active_monotonic_timer_semantics",
+    "soak_durations",
+    "minimum_free_disk_formula",
+    "container_security_contract",
+    "clock_evidence_file_amendment"
+  ],
+  "fail_closed_behavior": {
+    "current_pong_not_proven": "BLOCK_READINESS_AND_RECONNECT",
+    "transport_exception": "RECORD_SAFE_EXCEPTION_CLASS_THEN_DISCONNECT_AND_RECONNECT",
+    "sequence_gap": "BLOCK_READINESS_UNTIL_AUTHORITATIVE_RECOVERY",
+    "credentials_or_payloads_in_transport_error_evidence": "PROHIBITED"
+  },
+  "schema_version": "kxbtcd_candidate_e_b5_r5_b_kalshi_library_keepalive_amendment.v1"
+}

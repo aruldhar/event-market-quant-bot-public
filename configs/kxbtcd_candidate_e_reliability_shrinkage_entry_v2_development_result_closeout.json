@@ -1,0 +1,83 @@
+{
+  "alpha_results": {
+    "0.50": {
+      "base_h3_mean_pnl_per_event": "0.004026666666666666666666666667",
+      "base_h3_total_net_pnl": "3.02",
+      "base_mean_pnl_per_event": "0.00184824902723735408560311284",
+      "base_newest_block_positive": true,
+      "base_positive_block_count": 3,
+      "base_total_net_pnl": "4.75",
+      "development_gate_pass": false,
+      "entry_count": 276,
+      "gate_failure_reasons": [
+        "base_positive_block_count_below_4_of_5"
+      ],
+      "plus_1c_mean_pnl_per_event": "0.0007859922178988326848249027237",
+      "plus_1c_total_net_pnl": "2.02"
+    },
+    "0.75": {
+      "base_h3_mean_pnl_per_event": "-0.00324",
+      "base_h3_total_net_pnl": "-2.43",
+      "base_mean_pnl_per_event": "-0.0001128404669260700389105058366",
+      "base_newest_block_positive": false,
+      "base_positive_block_count": 2,
+      "base_total_net_pnl": "-0.29",
+      "development_gate_pass": false,
+      "entry_count": 591,
+      "gate_failure_reasons": [
+        "base_pooled_nonpositive",
+        "plus_1c_pooled_nonpositive",
+        "base_positive_block_count_below_4_of_5",
+        "newest_block_nonpositive",
+        "h3_nonpositive"
+      ],
+      "plus_1c_mean_pnl_per_event": "-0.002354085603112840466926070039",
+      "plus_1c_total_net_pnl": "-6.05"
+    }
+  },
+  "artifact_sha256s": {
+    "development_alpha_scores.csv": "d970769a5acfd0f337033bde49184e57afa12a833a66d961fa09a859fe763034",
+    "development_economic_evaluation.json": "2f30d56ad109cb77dd9ad2af8974293c101d5ff37a1ed3287a03d0868243829e",
+    "development_economic_receipt.json": "43e193923ad0ec89ace67d4f07645bb973c1853c6190bb1d326f458d4156d2e8",
+    "development_event_pnl_scenarios.csv": "995954431856e021bcb26f22d8d0ffdcacce55a10a660e3ea5af176a38dc6587"
+  },
+  "checkpoint_id": "21N-H",
+  "evaluation": {
+    "alpha_0_25_outcome_scored": false,
+    "alpha_1_outcome_rescored": false,
+    "evaluation_fingerprint": "97ccad587cbfd32c9a390e91800b52da91f5b53e1a273cbecca39b802ab51e21",
+    "event_count": 2570,
+    "result_directory": "data/analysis/kxbtcd_candidate_e_reliability_shrinkage_entry_v2_development_economics/20260831T070057Z",
+    "scored_alphas": [
+      "0.50",
+      "0.75"
+    ],
+    "selected_alpha": null,
+    "status": "FAIL_NO_ALPHA"
+  },
+  "opportunity_audit_fingerprint": "b0971d51ac76fc26402dfbab49fde85167cb0bb4153069b80d1db2dbaccdcf20",
+  "parent_predeclaration_fingerprint": "139435ffb43d51d09afa4154aeba2fe9c22cb82b5b7edd435516d4ab71e2c55f",
+  "result_closeout_fingerprint": "02b8aab23161419abd1cdf02c79072f070067ed28f16ef186959e6fc5b3f5ee4",
+  "safety": {
+    "c1_c2_strategy_pnl_accessed": false,
+    "c3_accessed_for_strategy_v2": false,
+    "demo_execution_used": false,
+    "network_accessed": false,
+    "orders_submitted": false,
+    "paper_broker_used": false,
+    "profitability_claim": false,
+    "protected_reserve_accessed": false,
+    "real_execution_used": false
+  },
+  "schema_version": "kxbtcd_candidate_e_reliability_shrinkage_entry_v2_development_result_closeout.v1",
+  "scientific_consequence": {
+    "alpha_0_25_rescue_prohibited": true,
+    "c1_c2_strategy_v2_economics_authorized": false,
+    "intermediate_alpha_search_prohibited": true,
+    "posthoc_side_ttc_role_filter_repair_prohibited": true,
+    "simple_global_alpha_search_closed": true,
+    "strategy_v2_family_status": "REJECTED_DEVELOPMENT_FAIL",
+    "successor_requires_separate_predeclaration": true
+  },
+  "strategy_id": "kxbtcd_candidate_e_reliability_shrinkage_entry_v2"
+}

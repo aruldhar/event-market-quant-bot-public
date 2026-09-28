@@ -1,0 +1,114 @@
+{
+  "beta_tuning": {
+    "grid": [
+      0.0,
+      0.25,
+      0.5,
+      1.0,
+      2.0
+    ],
+    "negative_beta_allowed": false,
+    "reason": "Prior frozen diagnostic found higher alpha directionally better; negative weights are not a predeclared hypothesis.",
+    "role": "development-only exploratory tuning; not validation",
+    "selection_metric": "pooled_H2_H3_plus_1c_realized_net_pnl_per_entry_among_selected",
+    "tie_break": "smaller beta"
+  },
+  "diagnostic_id": "kxbtcd_candidate_e_incremental_alpha_entry_score.v1",
+  "evidence_role": {
+    "C1_C2_accessed": false,
+    "C3_accessed": false,
+    "H2_H3": "FULLY_EXPOSED_DEVELOPMENT_EXPLORATORY_ONLY",
+    "execution_allowed": false,
+    "network_accessed": false,
+    "protected_reserve_accessed": false
+  },
+  "forbidden": [
+    "change Candidate-E trade selection",
+    "use adjusted_yes_probability for valuation",
+    "search beta outside frozen grid",
+    "search entry coverage",
+    "search absolute score threshold",
+    "subgroup/side/TTC rescue",
+    "access C1/C2/C3 or protected reserve",
+    "paper/demo/real execution"
+  ],
+  "incremental_alpha_gate": {
+    "conditions": [
+      "selected_beta > 0",
+      "selected pooled base P&L per entry > beta=0 pooled base P&L per entry",
+      "selected pooled +1c P&L per entry > beta=0 pooled +1c P&L per entry",
+      "selected H2 base P&L per entry > beta=0 H2 base P&L per entry",
+      "selected H3 base P&L per entry > beta=0 H3 base P&L per entry",
+      "selected pooled base P&L per entry > 0",
+      "selected pooled +1c P&L per entry > 0"
+    ],
+    "meaning": "Exploratory evidence that alpha deserves a place in a later formal entry strategy. It is not a strategy PASS and does not authorize C3 access by itself.",
+    "otherwise": "NO_INCREMENTAL_ALPHA_SIGNAL",
+    "status_if_all_true": "INCREMENTAL_ALPHA_SIGNAL"
+  },
+  "next_if_incremental": "Design a separately versioned formal Candidate-E + alpha entry strategy, freeze the selected beta and a deployable threshold derived without outcome-based threshold search, then predeclare the next evidence stage before C3 is accessed.",
+  "next_if_no_incremental": "Do not use alpha in the entry model; continue with Candidate-E edge-only or another simple independent entry hypothesis.",
+  "parent_alpha_entry_diagnostic": {
+    "candidate_e_entry_count": 512,
+    "implementation_fingerprint": "2bc7d625fa7889ee071322a3d3785becc49fd66fcf409e47713de8dc2405bc0d",
+    "predeclaration_fingerprint": "2d8db11742b4f88deb61b810266111b246faf7164ea0c019ad5528cf7326b55e",
+    "receipt_fingerprint": "513a27890e5921f7d95b6abd2ddb89bcc5b10e82386124fde050dc44e59a9845",
+    "result_fingerprint": "54d2a3588c1e06d4a6cd79234b91c59e4aafecff95e33a7a218e2fac85811d3b",
+    "strategy_pass": false,
+    "triage_label": "PROMISING_EXPLORATORY_SIGNAL"
+  },
+  "population": {
+    "candidate_e_selection_must_not_change": true,
+    "expected_entries": 512,
+    "include": "action == ENTER only",
+    "side_market_anchor_must_not_change": true,
+    "source": "parent alpha-reliability entry diagnostic decisions"
+  },
+  "predeclaration_fingerprint": "bb341361f191621564459fef3f68d893181498cb687e131e39183441a3eb27fa",
+  "purpose": "Determine whether conditional alpha adds economic ranking information beyond Candidate E net quoted edge among the 512 already-selected Candidate-E H2/H3 opportunities.",
+  "reported_metrics": {
+    "comparisons_to_edge_only_beta_0": [
+      "pooled base P&L per entry delta",
+      "pooled +1c P&L per entry delta",
+      "H2 base P&L per entry delta",
+      "H3 base P&L per entry delta"
+    ],
+    "for_each_beta": [
+      "selected entry count",
+      "H2 selected entry count",
+      "H3 selected entry count",
+      "mean score",
+      "mean Candidate-E net quoted edge",
+      "mean conditional alpha",
+      "base realized P&L per selected entry pooled/H2/H3",
+      "+1c realized P&L per selected entry pooled/H2/H3",
+      "positive base realized P&L fraction"
+    ]
+  },
+  "schema_version": "kxbtcd_candidate_e_incremental_alpha_entry_score_v1_predeclaration.v1",
+  "score_definition": {
+    "alpha_transform": "logit_alpha = ln(alpha/(1-alpha))",
+    "candidate_e_edge": "candidate_e_net_edge_per_contract",
+    "interpretation": "beta=0 is the edge-only benchmark; beta>0 asks whether higher alpha adds incremental ranking value after edge is already represented.",
+    "scaling": "pooled H2+H3 ENTER population mean and population standard deviation; outcome-blind; fixed once before score evaluation",
+    "score": "S_beta = z_edge + beta*z_logit_alpha",
+    "z_edge": "(edge - mean_edge)/sd_edge",
+    "z_logit_alpha": "(logit_alpha - mean_logit_alpha)/sd_logit_alpha"
+  },
+  "selection_policy": {
+    "absolute_threshold_search_allowed": false,
+    "coverage_search_allowed": false,
+    "outcomes_used_to_select_entries": false,
+    "ranking": [
+      "S_beta descending",
+      "event_close_time_utc ascending",
+      "event_ticker ascending",
+      "market_ticker ascending",
+      "YES before NO"
+    ],
+    "rationale": "Freeze the previously examined top-quartile coverage as a development design choice; do not search coverage or thresholds in this diagnostic.",
+    "selected_count_expected": 128,
+    "selection_fraction": 0.25
+  },
+  "status": "PREDECLARED_NOT_RUN"
+}

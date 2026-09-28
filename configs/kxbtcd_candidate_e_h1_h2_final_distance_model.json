@@ -1,0 +1,81 @@
+{
+  "H2_pass_required_before_this_fit": true,
+  "H3_outcomes_opened": false,
+  "candidate_e_predeclaration_fingerprint": "9775be58f01375ca6f2b04212a63578ce5e8cf7084498e6ce9d3ae68685d59a9",
+  "candidate_id": "kxbtcd_btc_distance_offset_logistic.v1",
+  "checkpoint_id": "20G",
+  "cohort_map_fingerprint": "09ebc6553255e76e5cff2d134c1f5bbc239dc753b9080e2c052d418e49c69efa",
+  "coinbase_primary_amendment_fingerprint": "b08da00a8f66817d9e3b600ccf091c8a4fc1ee92a0bed1c821d23bc321d9faba",
+  "execution_enabled": false,
+  "family_id": "kxbtcd_independent_btc_offset_successor.v1",
+  "final_model_fingerprint": "1c6346422247f026d75032bb74fe648ce93e40329b18726500da9276f40bf842",
+  "fit_contract": {
+    "event_weighting": "equal_total_weight_per_event",
+    "feature_standardization": "none",
+    "hyperparameter_grid": [],
+    "hyperparameter_search": false,
+    "initialization": "all_free_coefficients_zero_raw_market_nesting",
+    "objective": "event_equal_binary_log_loss",
+    "optimizer": {
+      "algorithm": "deterministic_damped_Newton",
+      "armijo_constant": "1e-4",
+      "gradient_l2_tolerance": "1e-8",
+      "max_iterations": 100,
+      "minimum_step_scale": "2^-40",
+      "non_convergence": "fail_closed",
+      "singular_hessian": "fail_closed"
+    },
+    "regularization": "none",
+    "within_event_weighting": "equal_weight_per_scored_row"
+  },
+  "fit_result": {
+    "converged": true,
+    "fit_objective": "0.059112157529603672",
+    "iterations": 10
+  },
+  "fit_scope": {
+    "H1_event_count": 1500,
+    "H1_row_count": 36314,
+    "H2_event_count": 750,
+    "H2_row_count": 22354,
+    "H3_rows_used": 0,
+    "all_H1_and_H2_events_used": true,
+    "stages": [
+      "H1",
+      "H2"
+    ],
+    "total_event_count": 2250,
+    "total_row_count": 58668
+  },
+  "h1_result_fingerprint": "3fef1404d55c70893715bbe318fe664658309b7497bf03add57b1783ea01b906",
+  "h2_result_fingerprint": "eca7c30b1f0d0177ff4025d743031697f13cdc95ce92958dff5a32be390afcf7",
+  "historical_materialization_contract_fingerprint": "cc3e3326455fce2abbf7e39bdb8858d0d4cea67415ea90ece091259780de9145",
+  "lineage": {
+    "fit_implementation_sha256s": {
+      "src/kxbtcd_candidate_e_h1_evaluation.py": "a59e862fd2b452b120e406d0116a0e486f319e49bd736aac26c7877a24109d1b",
+      "src/kxbtcd_candidate_e_h3_preparation.py": "8adf8d43411db7f6403a8e95248b9da79fea02e3de4736044abfb70189f955de"
+    },
+    "h1_manifest_path": "data/manifests/2026/08/17/collect_kxbtcd_candidate_e_h1_20260817T213832954574Z_d3fb6dbf.json",
+    "h1_manifest_sha256": "813259d99cb1560821e567daa814950aef6dea0c7350787d94dc93630a3cfa95",
+    "h1_outcomes_path": "data/derived/kxbtcd_candidate_e_h1_evaluation/2026/08/17/collect_kxbtcd_candidate_e_h1_20260817T213832954574Z_d3fb6dbf_candidate_e_h1_outcomes.csv",
+    "h1_outcomes_sha256": "236924e92449e259769c01b3a8d63088841282d54384f0ed96b9a4d493c14394",
+    "h2_outcomes_path": "data/derived/kxbtcd_candidate_e_h2_evaluation/2026/08/17/collect_kxbtcd_candidate_e_h2_20260817T234947707700Z_a6600041_candidate_e_h2_outcomes.csv",
+    "h2_outcomes_sha256": "102d860767008b5a6ea1ff681f763b00fd809d296af618f855d7e203d5a4661c",
+    "source_baseline_commit": "6341d86c965f1f7df799163b71ff1dcb8b772d4a"
+  },
+  "model": {
+    "beta_distance": "0.013805016135330063",
+    "beta_momentum": null,
+    "feature": "btc_strike_log_distance_bps.v1",
+    "formula": "logit(p)=market_logit_offset + beta_distance*d_BTC",
+    "free_parameter_count": 1,
+    "market_logit_offset_clip": "0.001"
+  },
+  "orders_placed": 0,
+  "posthoc_H2_candidate_change_performed": false,
+  "posthoc_H2_feature_change_performed": false,
+  "posthoc_H2_hyperparameter_change_performed": false,
+  "row_universe_fingerprint": "e12375eeec4d81554f8008ea10e8c8e49be44ff40d8405c974de4ab8f69b2aa5",
+  "schema_version": "kxbtcd_candidate_e_h1_h2_final_distance_model.v1",
+  "specification_frozen_before_H2": true
+}

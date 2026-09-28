@@ -1,0 +1,153 @@
+{
+  "candidate_id": "kxbtcd_btc_distance_offset_logistic.v1",
+  "champion_final_fingerprint": "b45478594c088c09086d55d14e70aa7a22a62dc546cf0f2d9a1e3bb2f296b8dc",
+  "checkpoint_id": "21N-F",
+  "development_scope": {
+    "realized_pnl_allowed": false,
+    "settlement_outcomes_allowed": false,
+    "stages": {
+      "H1_OOF": {
+        "event_count": 1070,
+        "row_count": 31656
+      },
+      "H2": {
+        "event_count": 750,
+        "row_count": 22354
+      },
+      "H3": {
+        "event_count": 750,
+        "row_count": 22409
+      }
+    },
+    "total_candidate_probability_rows": 76419,
+    "total_event_count": 2570
+  },
+  "entry_policy": {
+    "adjusted_net_edge_formula": "adjusted_side_probability - quoted_purchase_price - standard_entry_fee",
+    "anchor_order_ttc_minutes": [
+      55,
+      50,
+      45,
+      40,
+      35,
+      30
+    ],
+    "averaging": false,
+    "early_exit": false,
+    "first_qualifying_anchor": true,
+    "hold_to_settlement_if_later_economics_authorized": true,
+    "maximum_entries_per_event": 1,
+    "no_qualifying_state_action": "ABSTAIN",
+    "qualification_rule": "adjusted_net_edge >= 0",
+    "quoted_purchase_price": {
+      "NO": "1 - yes_bid",
+      "YES": "yes_ask"
+    },
+    "reentry": false,
+    "side_switching": false,
+    "sides": [
+      "YES",
+      "NO"
+    ],
+    "sizing_optimization": false,
+    "standard_entry_fee_formula": "ceil_cent(0.07 * P * (1-P))",
+    "structural_roles": [
+      "q10",
+      "q30",
+      "q50",
+      "q70",
+      "q90"
+    ],
+    "whole_contract_quantity": 1,
+    "within_anchor_choice": "largest adjusted_net_edge; exact tie market_ticker ascending then YES before NO"
+  },
+  "evidence_firewall": {
+    "H1_H2_H3_strategy_economics_already_exposed": true,
+    "c1_c2_strategy_v1_economics_access_allowed": false,
+    "c1_c2_strategy_v2_economics_access_allowed": false,
+    "c3_access_allowed": false,
+    "demo_execution_allowed": false,
+    "network_access_allowed": false,
+    "orders_allowed": false,
+    "paper_broker_allowed": false,
+    "protected_reserve_access_allowed": false,
+    "real_execution_allowed": false
+  },
+  "frozen_v1_reproduction": {
+    "all_threshold_selection_sha256": "3c43d7c489dac9d761f442f594af24e1a52d478fe2e3bfdfc9e92eb84e636121",
+    "opportunity_audit_fingerprint": "7175175f11bb2714d4bbfc9dc59d9d23d7be721fa0295d7ed664d598a1036ae0",
+    "prediction_sha256s": {
+      "H1_OOF": "867a77cbbf034a574983cb6fb301a77614674d3254297f8e15db377d5c34df16",
+      "H2": "4aa6efe3c3bdc231fc8289f11fe01e1ad5a65910ae0ea92d2586447fd6b7d3d6",
+      "H3": "091affc5ac088aa61db43a5df18f15178bceeea2ee26bd266b61fd059fd08380"
+    },
+    "strategy_config_sha256": "3e7516745b6780815099149bda408771884e59c6fc638488ee68c04ba1a739fb",
+    "zero_cent_enter_count": 820
+  },
+  "interpretation": {
+    "if_opportunity_set_changes_little": "evidence against spending additional outcome-aware research budget on simple shrinkage; consider distinct learned meta-model challenger later",
+    "if_opportunity_set_changes_materially": "freeze audit result before separately predeclaring outcome-aware Strategy-v2 development economics",
+    "profitability_claim_authorized": false,
+    "purpose": "measure whether reliability shrinkage materially changes the opportunity set before any outcome-aware Strategy-v2 economics"
+  },
+  "outcome_independent_opportunity_audit": {
+    "alpha_winner_selected": false,
+    "continuation_materiality_screen": {
+      "action_or_choice_changed_definition": "removed_vs_alpha1_entry_events + changed_choice_among_retained_events",
+      "minimum_action_or_choice_changed_fraction_vs_alpha1": "0.10",
+      "purpose": "stop simple shrinkage before outcome-aware PnL if its decision effect is merely cosmetic",
+      "requires_sample_eligibility_too": true
+    },
+    "economic_selection_eligibility_screen_for_later_checkpoint": {
+      "minimum_entries_per_stage": 20,
+      "minimum_total_entries": 100,
+      "purpose": "minimum opportunity coverage only; not a profitability or advancement gate"
+    },
+    "hard_invariants": [
+      "alpha=1.00 exactly reproduces Strategy-v1 zero-cent event actions and chosen market/side/anchor",
+      "alpha=1.00 enter_count equals 820",
+      "reconstructed full Strategy-v1 threshold_event_selections SHA256 equals frozen 21N-A SHA256",
+      "candidate alpha entry-event sets are subsets of alpha=1.00 entry-event set"
+    ],
+    "reports": [
+      "enter_count",
+      "abstain_count",
+      "enter_rate",
+      "stage_counts",
+      "side_counts",
+      "ttc_counts",
+      "role_counts",
+      "overlap_with_alpha1_enter_events",
+      "retained_fraction_of_alpha1_entries",
+      "removed_vs_alpha1_count",
+      "new_vs_alpha1_count",
+      "same_choice_vs_alpha1_count",
+      "changed_choice_vs_alpha1_count"
+    ],
+    "required_before_any_strategy_v2_pnl": true
+  },
+  "parent_strategy": {
+    "development_result_closeout_fingerprint": "9837823342eeb7b7c7d44a264b1507cd718310c2dccb83c837f9bb0bc4d1b392",
+    "failure_analysis_fingerprint": "e9b88ded9fe1db1f89e234ad626023c67038bbea84ae35863b817c3858f4a3ef",
+    "failure_analysis_result_closeout_fingerprint": "bdbdf4db9b83410b3e9689a4ed5ed66ba995be507c5bacea32a6b59c74678dad",
+    "status": "DEVELOPMENT_FAIL",
+    "strategy_id": "kxbtcd_candidate_e_quoted_entry_hold_v1",
+    "strategy_predeclaration_fingerprint": "5abea8adcaa782a57c9f69ef96b638fe1779370774e9f1c99a81b4340d42a8a6"
+  },
+  "reliability_adjustment": {
+    "adjusted_side_probability": "q_side + alpha * (candidate_side_probability - q_side)",
+    "alpha_interpretation": "fraction of Candidate-E disagreement with contemporaneous Kalshi midpoint retained",
+    "candidate_alphas": [
+      "0.25",
+      "0.50",
+      "0.75"
+    ],
+    "diagnostic_reference_alpha": "1.00",
+    "flat_edge_haircut_used": false,
+    "market_anchor_no_probability": "1 - market_anchor_yes_probability",
+    "market_anchor_yes_probability": "(yes_bid + yes_ask) / 2"
+  },
+  "schema_version": "kxbtcd_candidate_e_reliability_shrinkage_entry_v2_predeclaration.v1",
+  "strategy_id": "kxbtcd_candidate_e_reliability_shrinkage_entry_v2",
+  "strategy_v2_predeclaration_fingerprint": "b3fd3a3c71c5750604ef4e6eddd23043a75952d2c06a48cbb39ae6ef1066bd50"
+}

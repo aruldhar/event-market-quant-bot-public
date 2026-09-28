@@ -1,0 +1,231 @@
+{
+  "schema_version": "kxbtcd_candidate_e_strategy_replay_predeclaration.v1",
+  "checkpoint_id": "21K-A",
+  "strategy_id": "kxbtcd_candidate_e_strategy_replay_v1",
+  "candidate_id": "kxbtcd_btc_distance_offset_logistic.v1",
+  "champion_final_fingerprint": "b45478594c088c09086d55d14e70aa7a22a62dc546cf0f2d9a1e3bb2f296b8dc",
+  "purpose": "Predeclare the first coarse minute-level historical entry/exit replay before collecting strategy-specific historical execution evidence or calculating strategy P&L.",
+  "research_status": {
+    "strategy_pnl_inspected_before_freeze": false,
+    "historical_execution_backfill_started_before_freeze": false,
+    "model_refit_authorized": false,
+    "candidate_selection_authorized": false,
+    "order_execution_authorized": false,
+    "paper_broker_authorized": false,
+    "demo_execution_authorized": false,
+    "real_money_execution_authorized": false
+  },
+  "primary_evidence_scope": {
+    "interpretation": "genuinely out-of-sample or rolling-origin predictions only",
+    "stages": {
+      "H1_OOF": {
+        "event_count": 1070,
+        "row_count": 31656
+      },
+      "H2": {
+        "event_count": 750,
+        "row_count": 22354
+      },
+      "H3": {
+        "event_count": 750,
+        "row_count": 22409
+      },
+      "C1": {
+        "event_count": 500,
+        "row_count": 14887
+      },
+      "C2": {
+        "event_count": 500,
+        "row_count": 14007
+      },
+      "C3": {
+        "event_count": 500,
+        "row_count": 13549
+      }
+    },
+    "total_event_count": 4070,
+    "total_prediction_row_count": 118862,
+    "h1_distance_candidate_only": true,
+    "champion_final_replay_is_primary_oos_evidence": false
+  },
+  "reserve_policy": {
+    "remaining_untouched_historical_reserve_events": 4676,
+    "reserve_access_allowed": false,
+    "reserve_may_be_used_to_repair_or_tune_v1": false
+  },
+  "signal_policy": {
+    "anchor_order_ttc_minutes": [
+      55,
+      50,
+      45,
+      40,
+      35,
+      30
+    ],
+    "structural_roles": [
+      "q10",
+      "q30",
+      "q50",
+      "q70",
+      "q90"
+    ],
+    "sides": [
+      "YES",
+      "NO"
+    ],
+    "maximum_entries_per_event": 1,
+    "position_sizing": {
+      "planned_contracts": 10,
+      "fixed_size": true,
+      "compounding": false,
+      "averaging_down": false,
+      "loss_chasing": false,
+      "side_switching_after_entry": false
+    },
+    "signal_executable_price": {
+      "YES": "yes_ask",
+      "NO": "1 - yes_bid"
+    },
+    "side_fair_probability": {
+      "YES": "candidate_probability",
+      "NO": "1 - candidate_probability"
+    },
+    "signal_fee_per_contract": "exact applicable historical entry fee for planned_contracts at the signal executable price divided by planned_contracts",
+    "net_edge_formula": "side_fair_probability - signal_executable_price - signal_fee_per_contract",
+    "primary_minimum_net_edge_dollars_per_contract": 0.04,
+    "predeclared_sensitivity_net_edge_dollars_per_contract": [
+      0.03,
+      0.05
+    ],
+    "selection_within_anchor": "largest qualifying net edge",
+    "tie_break_order": [
+      "lower_signal_spread",
+      "market_ticker_ascending",
+      "YES_before_NO"
+    ],
+    "advance_to_next_anchor_only_if_no_trade": true
+  },
+  "historical_execution_policy": {
+    "time_resolution_minutes": 1,
+    "same_minute_signal_fill_allowed": false,
+    "earliest_fill": "next one-minute interval after the signal observation",
+    "maximum_adverse_entry_move_dollars": 0.01,
+    "price_cap_reference": "signal executable price",
+    "price_cap_failure": "missed_entry",
+    "base_case": {
+      "entry_price": {
+        "YES": "next-minute yes_ask close",
+        "NO": "1 - next-minute yes_bid close"
+      },
+      "exit_price": {
+        "YES": "next-minute yes_bid close",
+        "NO": "1 - next-minute yes_ask close"
+      },
+      "fill_quantity": "planned_contracts when a required executable quote exists and the entry price cap is satisfied"
+    },
+    "conservative_case": {
+      "entry_price": {
+        "YES": "next-minute yes_ask high",
+        "NO": "1 - next-minute yes_bid low"
+      },
+      "exit_price": {
+        "YES": "next-minute yes_bid low",
+        "NO": "1 - next-minute yes_ask high"
+      },
+      "minute_volume_participation_cap": 0.1,
+      "fill_quantity": "min(planned_contracts, floor(0.10 * reported minute volume))",
+      "zero_or_missing_volume": "zero conservative fill",
+      "interpretation": "conservative proxy only; minute volume is not queue position or full depth"
+    },
+    "missing_required_quote": "no fill; never impute an executable price",
+    "latency_interpretation": "one-minute delay is a coarse historical causality proxy, not measured live routing latency",
+    "partial_and_missed_fill_interpretation": "proxy assumptions only until separately authorized demo execution"
+  },
+  "exit_policy": {
+    "primary_policy": "capture_half_initial_model_surplus_then_force_cashout",
+    "initial_model_surplus_formula": "side_fair_probability - (actual_entry_price + actual_entry_fee_per_filled_contract)",
+    "target_fraction_of_initial_model_surplus": 0.5,
+    "target_net_liquidation_value_formula": "actual_entry_price + actual_entry_fee_per_filled_contract + 0.50 * initial_model_surplus",
+    "target_trigger": "observed after-fee executable side bid reaches or exceeds target net liquidation value",
+    "target_execution": "attempt on the next one-minute interval; fill only if after-fee liquidation still reaches the target, otherwise record missed_target_exit and continue",
+    "force_exit_ttc_minutes": [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    "force_exit_rule": "use the first valid executable side bid in the force-exit window after applying the selected base or conservative execution assumption",
+    "no_force_exit_quote": "retain the position to settlement and tag forced_exit_unavailable_settlement_fallback",
+    "hold_to_settlement_benchmark": true,
+    "hold_benchmark_may_replace_primary_policy_after_results": false
+  },
+  "fee_policy": {
+    "series_ticker": "KXBTCD",
+    "required_sources": [
+      "GET /series/KXBTCD",
+      "GET /series/fee_changes?series_ticker=KXBTCD&show_historical=true"
+    ],
+    "use_fee_type_effective_at_transaction_time": true,
+    "use_fee_multiplier_effective_at_transaction_time": true,
+    "apply_official_rounding_rules": true,
+    "unresolved_fee_metadata": "fail_closed_for_affected_transaction",
+    "simple_binary_settlement_fee_assumption": "zero only when the market is confirmed to be a simple yes/no determination under the official settlement rules"
+  },
+  "model_uncertainty_policy": {
+    "primary_probability": "frozen stage-specific candidate_probability",
+    "stress_shrinkage_factor": 0.75,
+    "stress_probability_formula": "q_market + 0.75 * (candidate_probability - q_market)",
+    "stress_is_diagnostic_only": true,
+    "stress_may_not_select_or_refit_model": true
+  },
+  "evaluation_outputs": {
+    "required": [
+      "after_fee_pnl",
+      "pnl_per_filled_contract",
+      "opportunity_count",
+      "entry_count",
+      "missed_entry_count",
+      "partial_fill_count",
+      "target_exit_count",
+      "missed_target_exit_count",
+      "forced_exit_count",
+      "settlement_fallback_count",
+      "hold_benchmark_pnl",
+      "maximum_drawdown",
+      "tail_loss_diagnostics",
+      "results_by_stage",
+      "results_by_ttc",
+      "results_by_structural_role",
+      "results_by_side",
+      "results_by_net_edge_bucket",
+      "concentration_diagnostics",
+      "model_uncertainty_stress_results"
+    ],
+    "report_all_predeclared_edge_thresholds": true,
+    "do_not_select_best_threshold_posthoc": true
+  },
+  "advancement_gate": {
+    "applies_to": "primary 0.04 net-edge strategy under conservative execution assumptions",
+    "minimum_conservative_filled_entries": 200,
+    "aggregate_conservative_after_fee_pnl_must_be_positive": true,
+    "H2_through_C3_aggregate_conservative_after_fee_pnl_must_be_positive": true,
+    "later_cohorts": [
+      "H2",
+      "H3",
+      "C1",
+      "C2",
+      "C3"
+    ],
+    "minimum_positive_later_cohorts": 3,
+    "gate_pass_does_not_authorize_demo_execution": true
+  },
+  "future_strategy_research": {
+    "additional_strategies_allowed_regardless_of_v1_result": true,
+    "each_future_strategy_must_be_separately_versioned": true,
+    "v1_may_not_be_silently_repaired_after_pnl_is_seen": true,
+    "after_v1_economics_are_inspected_the_4070_event_pool_is_strategy_development_evidence": true,
+    "future_variants_on_the_same_pool_may_not_claim_fresh_strategy_validation": true
+  },
+  "strategy_predeclaration_fingerprint": "afc1b397c850e8b2a2dfd32d6656e05f4622c59f1596f5b91295e96debb0d046"
+}

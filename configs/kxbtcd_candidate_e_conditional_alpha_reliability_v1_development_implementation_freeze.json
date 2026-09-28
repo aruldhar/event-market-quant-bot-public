@@ -1,0 +1,108 @@
+{
+  "candidate_id": "kxbtcd_candidate_e_conditional_alpha_reliability.v1",
+  "checkpoint_id": "21N-K",
+  "development_contract": {
+    "economic_blocks": "five_contiguous_300_event_blocks",
+    "economic_gate_only_if_probability_passes": true,
+    "economic_score_predictions": "selected_lambda_rolling_origin_H2_plus_H3_only",
+    "entry_policy": "frozen_21N_I_one_contract_first_qualifying_anchor",
+    "exact_tie_rule": "larger_lambda",
+    "folds": [
+      {
+        "fit": [
+          "H1_OOF"
+        ],
+        "fold": 1,
+        "score": "H2"
+      },
+      {
+        "fit": [
+          "H1_OOF",
+          "H2"
+        ],
+        "fold": 2,
+        "score": "H3"
+      }
+    ],
+    "full_development_fit_only_if_probability_and_economic_gates_pass": true,
+    "full_development_fit_stages": [
+      "H1_OOF",
+      "H2",
+      "H3"
+    ],
+    "lambda_grid": [
+      0.001,
+      0.01,
+      0.1,
+      1.0,
+      10.0
+    ],
+    "probability_gate_first": true,
+    "selection_metric": "pooled_H2_H3_event_equal_log_loss",
+    "stages": {
+      "H1_OOF": [
+        1070,
+        31656
+      ],
+      "H2": [
+        750,
+        22354
+      ],
+      "H3": [
+        750,
+        22409
+      ]
+    },
+    "stress_dollars": [
+      "0.00",
+      "0.01",
+      "0.02",
+      "0.03"
+    ]
+  },
+  "implementation_fingerprint": "02530cdd8ba58b45cde85c0ba40f681355ce5b14c4a3ad53ee5f1072fff156a8",
+  "implementation_sha256s": {
+    "evaluate_kxbtcd_candidate_e_conditional_alpha_reliability_v1_development.py": "1c5b2469e0110c0bf973129d7c2512835f5518cf9ede2525643fb38c4f7d23d8",
+    "src/kxbtcd_candidate_e_conditional_alpha_reliability_v1_development.py": "05c8d969f9b8e3107fe7a1636337025ae67b6322b090501b11cfc0bff2c37fe3",
+    "validate_kxbtcd_candidate_e_conditional_alpha_reliability_v1_development_result.py": "877d5509b23696ec35f174ed80a6e959c6c77cc4b8ab00da755e798e22fb8d04"
+  },
+  "label_source_sha256s": {
+    "H1_OOF": "867a77cbbf034a574983cb6fb301a77614674d3254297f8e15db377d5c34df16",
+    "H2": "4aa6efe3c3bdc231fc8289f11fe01e1ad5a65910ae0ea92d2586447fd6b7d3d6",
+    "H3": "091affc5ac088aa61db43a5df18f15178bceeea2ee26bd266b61fd059fd08380"
+  },
+  "parent_21N_J_B": {
+    "checkpoint_commit": "0a902032196a96002ff5e45448086e9d465ac148",
+    "feature_rows_fingerprint": "590ab13567821839fb0d404ed4813d328fc4e68ee1a61fd39038d3f8624a42fe",
+    "preparation_closeout_fingerprint": "f1b0caed9d83d8657bd916422b17dde4e239cbc41a5de880ed78a51217cdffb1",
+    "preparation_fingerprint": "a5a1901d9cdd18458bd8de6371c01d0e635d81f4c02b2f9167a5b30c9e42db46",
+    "prepared_feature_sha256": "268c756f82f6be2b53f5fee1f212ad0ecd1d02459547861cc5c3b3623357472f",
+    "receipt_commit": "54909f6e0371bb17a6c4cddf64d606a9baac1c21"
+  },
+  "parent_predeclaration_fingerprint": "742ff487d63e247a4a14d31d9105977b0755ef38d30ad255e85dd77a741ef4d3",
+  "post_closeout_authorization": {
+    "C1_C2_allowed": false,
+    "C3_allowed": false,
+    "execution_allowed": false,
+    "one_H_development_run_allowed": true,
+    "only_after_valid_21N_K_closeout_receipt": true,
+    "protected_reserve_allowed": false
+  },
+  "safety": {
+    "C1_C2_accessed": false,
+    "C3_accessed": false,
+    "demo_execution": false,
+    "network_accessed": false,
+    "orders_submitted": false,
+    "paper_execution": false,
+    "protected_reserve_accessed": false,
+    "real_conditional_alpha_pnl_calculated_in_21N_K": false,
+    "real_gamma_fit_performed_in_21N_K": false,
+    "real_lambda_selected_in_21N_K": false,
+    "real_money_execution": false,
+    "real_probability_gate_scored_in_21N_K": false,
+    "real_project_outcomes_read_in_21N_K": false
+  },
+  "schema_version": "kxbtcd_candidate_e_conditional_alpha_reliability_v1_development_implementation_freeze.v1",
+  "status": "IMPLEMENTATION_FREEZE_READY_FOR_CANONICAL_VALIDATION"
+}

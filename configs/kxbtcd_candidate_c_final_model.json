@@ -1,0 +1,80 @@
+{
+  "candidate_c_predeclaration_fingerprint": "d9d673299b3c764b9791d2c43c5be03b8cff18c420196c04ebba17723db5a322",
+  "candidate_id": "kxbtcd_market_spread_interaction_logistic.v1",
+  "coefficient_order": [
+    "intercept",
+    "market_logit_z",
+    "spread_z",
+    "market_logit_x_spread_z"
+  ],
+  "coefficients": [
+    "0.10194908608881083",
+    "2.0752015786995628",
+    "0.017616475889079299",
+    "1.9669079012140323"
+  ],
+  "cp13_exposed_development_run_id": "collect_kxbtcd_candidate_b_train_validation_20260815T204357940542Z_8af72631",
+  "dataset_fingerprint": "d78a9956b7ba48ec2fda2998396defcd0b5a62d5f13ea01dab1b68a67c66379a",
+  "development_event_count": 231,
+  "development_row_count": 5364,
+  "execution_enabled": false,
+  "feature_order": [
+    "market_logit",
+    "spread",
+    "market_logit_x_spread"
+  ],
+  "final_model_fingerprint": "13013c606586f68689be20fda143314d968d918ef8e26fca2fee75987768724f",
+  "fit": {
+    "converged": true,
+    "fit_objective": "0.1226739682345051",
+    "iterations": 6,
+    "objective": {
+      "event_weighting": "each event contributes equal total weight; rows within an event split that event weight equally",
+      "intercept_penalized": false,
+      "non_intercept_coefficients_penalized": true,
+      "rule": "mean_over_fit_events(mean_binary_log_loss_within_event) + lambda/2 * sum(non_intercept_beta^2)"
+    },
+    "optimizer": {
+      "algorithm": "deterministic_damped_Newton",
+      "armijo_constant": "1e-4",
+      "gradient_l2_tolerance": "1e-8",
+      "max_iterations": 100,
+      "minimum_step_scale": "2^-40",
+      "non_convergence": "fail_closed",
+      "singular_hessian": "fail_closed"
+    }
+  },
+  "frozen_preoutcome_run_id": "collect_kxbtcd_preoutcome_dataset_20260814T202930946581Z_7e58170d",
+  "full_development_freeze_fingerprint": "d0c996311554b86f3ae234dcdce803b2bfb2c3460403a1518199c4a4c1bd8fa3",
+  "inference": {
+    "linear_predictor": "beta0 + beta1*z_market_logit + beta2*z_spread + beta3*z_market_logit_x_spread",
+    "output": "sigmoid(linear_predictor)",
+    "q_market_clip_lower": "0.001",
+    "q_market_clip_upper": "0.999"
+  },
+  "locked_test_evaluation_performed": false,
+  "locked_test_outcomes_opened": 0,
+  "network_requests": 0,
+  "orders_placed": 0,
+  "scaler": {
+    "feature_order": [
+      "market_logit",
+      "spread",
+      "market_logit_x_spread"
+    ],
+    "means": [
+      "0.053181741488340019",
+      "0.17633482475764356",
+      "0.006538779033484236"
+    ],
+    "population_stds": [
+      "3.2168919026338747",
+      "0.21442166056343254",
+      "0.32259958139407791"
+    ]
+  },
+  "schema_version": "kxbtcd_candidate_c_final_model.v1",
+  "selected_lambda": "0.01",
+  "split_fingerprint": "28801122054bbc82b06b7c038a265377685ef017f9861fb435aa40fdaa07f503",
+  "week_map_fingerprint": "6c6527c7551be3e9aa622ad2caaaa711917e976b97160bef217116067c8dede4"
+}

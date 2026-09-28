@@ -1,0 +1,86 @@
+{
+  "checkpoint_id": "21N-C",
+  "development_economics_predeclaration_fingerprint": "692b7239067b3024db908fc0e0809f33f900f685faec97c45743195e19d364e5",
+  "development_evaluation_fingerprint": "8fa076035ed55cd950d744190b4c88cdacfce07bd57bfe5f7b9ff6f9e76a25bc",
+  "development_passed": false,
+  "development_result_closeout_fingerprint": "9837823342eeb7b7c7d44a264b1507cd718310c2dccb83c837f9bb0bc4d1b392",
+  "near_pass_3c": {
+    "base_total_pnl": "2.64",
+    "failed_conditions": [
+      "newest_block_positive",
+      "h3_positive"
+    ],
+    "h3_total_pnl": "-0.63",
+    "newest_b4_total_pnl": "-2.5",
+    "plus_1c_total_pnl": "1.06",
+    "plus_2c_total_pnl": "-0.46"
+  },
+  "opportunity_audit_fingerprint": "7175175f11bb2714d4bbfc9dc59d9d23d7be721fa0295d7ed664d598a1036ae0",
+  "result_directory": "data/analysis/kxbtcd_candidate_e_quoted_entry_hold_v1_development_economics/20260830T083835Z",
+  "result_file_sha256s": {
+    "evaluation": "f4dcd51eaa5a78d5f9ae87a260be4b2e11a24f2550ea0f0fb77183a20f4d8dc9",
+    "event_pnl_scenarios": "9bc8e6e8bf4eaed89b3a60091748595760b075ba465c4ad4560b2b0097fb22b0",
+    "receipt": "7b0143ed726b122486cbd79b0da115d9f0b00002cca1dd33291b1d2d12123ac0",
+    "threshold_scores": "3928f2cb7486ccab9a682eb7a563ee2af0d999dbc9fd5bd1400633fa95972ca1"
+  },
+  "safety": {
+    "c1_c2_strategy_pnl_accessed": false,
+    "c3_accessed": false,
+    "demo_execution_used": false,
+    "development_strategy_pnl_calculated": true,
+    "historical_fill_claim": false,
+    "network_accessed": false,
+    "orders_submitted": false,
+    "paper_broker_used": false,
+    "profitability_guarantee_claim": false,
+    "protected_reserve_accessed": false,
+    "real_execution_used": false
+  },
+  "schema_version": "kxbtcd_candidate_e_quoted_entry_hold_v1_development_result_closeout.v1",
+  "scientific_consequence": {
+    "c1_c2_strategy_pnl_authorized": false,
+    "candidate_e_forecasting_champion_unchanged": true,
+    "next_step": "development_only_failure_analysis_before_successor_predeclaration",
+    "posthoc_repair_on_h1_h2_h3_prohibited": true,
+    "quoted_entry_hold_v1_rejected": true
+  },
+  "selected_threshold": null,
+  "status": "FAIL_NO_THRESHOLD",
+  "strategy_id": "kxbtcd_candidate_e_quoted_entry_hold_v1",
+  "strategy_predeclaration_fingerprint": "5abea8adcaa782a57c9f69ef96b638fe1779370774e9f1c99a81b4340d42a8a6",
+  "threshold_summary": {
+    "0": {
+      "base_mean_pnl_per_event": "-0.004836575875486381322957198444",
+      "entry_count": 820,
+      "plus_1c_mean_pnl_per_event": "-0.007972762645914396887159533074",
+      "positive_blocks": 2
+    },
+    "0.01": {
+      "base_mean_pnl_per_event": "-0.0008132295719844357976653696498",
+      "entry_count": 542,
+      "plus_1c_mean_pnl_per_event": "-0.00286381322957198443579766537",
+      "positive_blocks": 1
+    },
+    "0.02": {
+      "base_mean_pnl_per_event": "-0.000381322957198443579766536965",
+      "entry_count": 306,
+      "plus_1c_mean_pnl_per_event": "-0.001552529182879377431906614786",
+      "positive_blocks": 2
+    },
+    "0.03": {
+      "base_mean_pnl_per_event": "0.001027237354085603112840466926",
+      "entry_count": 159,
+      "h3_positive": false,
+      "newest_block_positive": false,
+      "plus_1c_mean_pnl_per_event": "0.0004124513618677042801556420233",
+      "positive_blocks": 4
+    },
+    "0.05": {
+      "base_mean_pnl_per_event": "-0.0009066147859922178988326848249",
+      "entry_count": 33,
+      "plus_1c_mean_pnl_per_event": "-0.001031128404669260700389105058",
+      "positive_blocks": 2,
+      "selection_eligible": false
+    }
+  }
+}

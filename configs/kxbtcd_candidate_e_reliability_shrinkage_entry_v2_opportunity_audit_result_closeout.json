@@ -1,0 +1,100 @@
+{
+  "alpha_results": {
+    "0.25": {
+      "changed_decisions": 815,
+      "changed_fraction_vs_alpha1": "0.9939024390243902",
+      "economic_scoring_status": "PROHIBITED_SAMPLE_INELIGIBLE",
+      "entry_count": 15,
+      "materiality_pass": false,
+      "sample_eligible": false,
+      "stage_counts": {
+        "H1_OOF": 3,
+        "H2": 6,
+        "H3": 6
+      }
+    },
+    "0.50": {
+      "changed_decisions": 678,
+      "changed_fraction_vs_alpha1": "0.8268292682926829",
+      "economic_scoring_status": "ELIGIBLE_DEVELOPMENT_CANDIDATE",
+      "entry_count": 276,
+      "materiality_pass": true,
+      "sample_eligible": true,
+      "stage_counts": {
+        "H1_OOF": 75,
+        "H2": 102,
+        "H3": 99
+      }
+    },
+    "0.75": {
+      "changed_decisions": 384,
+      "changed_fraction_vs_alpha1": "0.4682926829268293",
+      "economic_scoring_status": "ELIGIBLE_DEVELOPMENT_CANDIDATE",
+      "entry_count": 591,
+      "materiality_pass": true,
+      "sample_eligible": true,
+      "stage_counts": {
+        "H1_OOF": 203,
+        "H2": 191,
+        "H3": 197
+      }
+    },
+    "1.00": {
+      "changed_decisions": 0,
+      "changed_fraction_vs_alpha1": "0.0",
+      "economic_scoring_status": "REFERENCE_ONLY_PRIOR_STRATEGY_V1",
+      "entry_count": 820,
+      "materiality_pass": false,
+      "sample_eligible": false,
+      "stage_counts": {
+        "H1_OOF": 308,
+        "H2": 254,
+        "H3": 258
+      }
+    }
+  },
+  "checkpoint_id": "21N-G",
+  "continuation": {
+    "alpha_0_25_outcome_scoring_allowed": false,
+    "alpha_1_outcome_rescoring_allowed": false,
+    "any_candidate_materiality_pass": true,
+    "development_economics_design_allowed": true,
+    "selection_eligible_alphas": [
+      "0.50",
+      "0.75"
+    ]
+  },
+  "input_sha256s": {
+    "H1_OOF": "867a77cbbf034a574983cb6fb301a77614674d3254297f8e15db377d5c34df16",
+    "H2": "4aa6efe3c3bdc231fc8289f11fe01e1ad5a65910ae0ea92d2586447fd6b7d3d6",
+    "H3": "091affc5ac088aa61db43a5df18f15178bceeea2ee26bd266b61fd059fd08380",
+    "preoutcome": "32ce45e30d2b8c9d57fe68940e4bc791fec76e061ae01b5f07f042f4a9169028",
+    "strategy_v1_config": "3e7516745b6780815099149bda408771884e59c6fc638488ee68c04ba1a739fb",
+    "strategy_v2_config": "8e8e56c5960ecd8e3d2ee3c3b864eeabb513945ed58e79a0f15aa62dcebc512e"
+  },
+  "opportunity_audit": {
+    "alpha_event_selections_sha256": "ff4aa15a61f8b98506a35626113bd60e4cc9c1758a3504065ed452074e6e6790",
+    "alpha_winner_selected": false,
+    "audit_fingerprint": "b0971d51ac76fc26402dfbab49fde85167cb0bb4153069b80d1db2dbaccdcf20",
+    "event_count": 2570,
+    "realized_pnl_calculated": false,
+    "result_directory": "data/analysis/kxbtcd_candidate_e_reliability_shrinkage_entry_v2_opportunity_audit/20260831T061534Z",
+    "settlement_outcomes_used": false,
+    "strategy_v1_reproduction_sha256": "3c43d7c489dac9d761f442f594af24e1a52d478fe2e3bfdfc9e92eb84e636121",
+    "v1_exact_reproduction": true
+  },
+  "opportunity_audit_result_closeout_fingerprint": "ff2a021063155c6fdfd012818363faccc2906468471d61b49e61572740606dcd",
+  "safety": {
+    "c1_c2_strategy_pnl_accessed": false,
+    "c3_accessed": false,
+    "demo_execution_used": false,
+    "network_accessed": false,
+    "orders_submitted": false,
+    "paper_broker_used": false,
+    "protected_reserve_accessed": false,
+    "real_execution_used": false
+  },
+  "schema_version": "kxbtcd_candidate_e_reliability_shrinkage_opportunity_audit_result_closeout.v1",
+  "strategy_id": "kxbtcd_candidate_e_reliability_shrinkage_entry_v2",
+  "strategy_v2_predeclaration_fingerprint": "b3fd3a3c71c5750604ef4e6eddd23043a75952d2c06a48cbb39ae6ef1066bd50"
+}

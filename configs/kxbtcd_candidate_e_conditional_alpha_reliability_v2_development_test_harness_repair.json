@@ -1,0 +1,37 @@
+{
+  "checkpoint_id": "21N-M-C",
+  "defects": [
+    {
+      "cause": "focused synthetic fixture used spread_t=0.02 on every row, violating the frozen nonzero-variance scaler requirement",
+      "id": "synthetic_zero_variance_spread",
+      "repair": "vary synthetic bid/ask spread deterministically while keeping spread_t=yes_ask-yes_bid"
+    },
+    {
+      "cause": "ConditionalAlphaV2FitContractError was a frozen dataclass, preventing Python from attaching traceback state",
+      "id": "frozen_exception_traceback",
+      "repair": "use a normal RuntimeError subclass with deterministic context fields"
+    }
+  ],
+  "formal_v2_H_run_performed": false,
+  "new_implementation_fingerprint": "bca7dfb15c86c6af33eb208ae3bac65e953b19ab2ac09ac30ee2e56e723a641a",
+  "old_implementation_fingerprint": "218e24198e7dc3ad74fffff9c97ca7cd55f0a5cae0b109e39ea7264bcf234828",
+  "real_data_accessed": false,
+  "repair_id": "21N-M-C-R1",
+  "schema_version": "kxbtcd_candidate_e_conditional_alpha_reliability_v2_development_test_harness_repair.v1",
+  "scientific_contract_change": "none",
+  "status": "PRE_CLOSEOUT_TEST_HARNESS_REPAIR",
+  "unchanged": [
+    "v2 Newton math",
+    "optimizer constants",
+    "features",
+    "scaling rules",
+    "objective",
+    "lambda grid",
+    "folds",
+    "selection rule",
+    "probability gate",
+    "economic gate",
+    "evidence roles",
+    "execution authorization"
+  ]
+}

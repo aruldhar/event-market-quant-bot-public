@@ -1,0 +1,77 @@
+{
+  "attempt_sha256": "71155459d21e0013b5db673514afb4d7781a89dcc5f77ef1cb6b5bafc948f02f",
+  "c1_c2_outcomes_opened_for_model2": true,
+  "c3_opened_for_model2": false,
+  "checkpoint_id": "21M",
+  "closeout_parent_commit": "953ac548eb9d881ea23c77fcf37f9d0723ac665d",
+  "development_freeze_fingerprint": "a3efd1d52255467dd374d32992880344428dccae01de1a97363b43e318595a9e",
+  "execution_enabled": false,
+  "gate_conditions": {
+    "at_least_four_of_five_block_log_loss_wins": false,
+    "median_event_candidate_e_minus_model2_log_loss_positive": true,
+    "newest_block_log_loss_win": false,
+    "pooled_model2_brier_not_worse": false,
+    "pooled_model2_log_loss_strictly_better": false
+  },
+  "implementation_freeze_sha256": "dac41bdff641dca90d2ac9e0e5c8cd695529feb5328d1d4195165bc47fbaec55",
+  "metrics": {
+    "block_log_loss_win_count": 1,
+    "candidate_e_event_equal_brier": 0.015171565220600291,
+    "candidate_e_event_equal_log_loss": 0.0518981214127418,
+    "candidate_e_minus_model2_brier": -2.7587700603898604e-05,
+    "candidate_e_minus_model2_log_loss": -8.431281953665687e-05,
+    "median_event_candidate_e_minus_model2_log_loss": 2.3452135462756008e-05,
+    "model2_event_equal_brier": 0.01519915292120419,
+    "model2_event_equal_log_loss": 0.051982434232278454,
+    "newest_block": "V4",
+    "newest_block_log_loss_win": false,
+    "validation_events": 1000,
+    "validation_rows": 28894
+  },
+  "model_id": "kxbtcd_candidate_e_entry_residual_logistic.v1",
+  "original_validation_implementation_fingerprint": "8bc89ebbd97f19245e802217733a89f369bfdae465a9f90c581c90c4dc9f1ec7",
+  "profitability_claim": false,
+  "protected_reserve_accessed": false,
+  "receipt_output_sha256s": {
+    "block_scores": "9669793b23a21b7aeb7dabc9b9f21b7b9de033698f7f1e86ada13b13dc195851",
+    "event_scores": "2f2e11b0aa67beeef212e8603e8f91e9252c42f4a98369abafe8374d60e548eb",
+    "scored_rows": "e8bf24db4db2bbab018e1db1ee8047b061f9d0069379a4fc08a17000b8d476eb",
+    "summary": "93d1ba5282f72e1c61a1efd7fc7e342dc32c15735a0871058bff6b929a3e983f"
+  },
+  "receipt_source_sha256s": {
+    "c1_outcomes": "badefb7087de6b07a5c968b78564858e7e9c060652836aba7f366de0788a259b",
+    "c1_result_closeout": "f354b4c4bba733ff9b9c82177dd377717a329af53e0c878895d76a7e16862bb0",
+    "c2_outcomes": "6a898266ce961b3d812ac1e6c5b430a01e9449bb41d06a42e61e69d2fccf38e6",
+    "c2_result_closeout": "5fe288acb836c069ebc657dca45acb3f68d5ba8605181cf377c446f0c2eee29b",
+    "development_freeze": "68f4b9559bc3657c87972214928789c0682435d7ab354cde4a1e21b3946e592b",
+    "event_map": "ad395f823c9a080f22c20b563c326bc3aa5a243da8dbc75ca187ef4a7185b805",
+    "feature_rows": "ff307835fc965043105aa746adb533eba37fd9a8f06a0705bbd2cfde462af87d",
+    "implementation_freeze": "dac41bdff641dca90d2ac9e0e5c8cd695529feb5328d1d4195165bc47fbaec55",
+    "offset_rows": "ce3d790797e4ed9da21badac55f0fd7bcb2b1d42c4910b8a112337a579b37305",
+    "preparation_freeze": "1830c6679546e8cc3da17b5b34f1e0582f28dcbafb723c7391f75eaf755a2abc"
+  },
+  "result_file_sha256s": {
+    "block_scores": "9669793b23a21b7aeb7dabc9b9f21b7b9de033698f7f1e86ada13b13dc195851",
+    "event_scores": "2f2e11b0aa67beeef212e8603e8f91e9252c42f4a98369abafe8374d60e548eb",
+    "receipt": "308c30f23b21360df28953df6bc55cf839181f95daf9cd1712f4dfdd8a43ee2b",
+    "scored_rows": "e8bf24db4db2bbab018e1db1ee8047b061f9d0069379a4fc08a17000b8d476eb",
+    "summary": "93d1ba5282f72e1c61a1efd7fc7e342dc32c15735a0871058bff6b929a3e983f"
+  },
+  "schema_version": "kxbtcd_candidate_e_entry_model_v1_validation_result_closeout.v1",
+  "scientific_consequence": {
+    "c3_remains_sealed_for_model2_v1": true,
+    "model2_v1_rejected": true,
+    "rescore_on_c1_c2_prohibited": true,
+    "retune_on_c1_c2_prohibited": true,
+    "successor_requires_separate_predeclaration": true
+  },
+  "selected_lambda": 0.01,
+  "status": "REJECTED_VALIDATION_FAIL",
+  "strategy_v1_pnl_calculated": false,
+  "validation_evaluation_fingerprint": "15a6557736204ca58039906434f8b7e83bca719f14cd0a3b4c9b9094e42ce033",
+  "validation_passed": false,
+  "validation_preparation_fingerprint": "25c42d62f3f74814c9665b71628e866aa428fd55fd67d8a1ad65cd337a8caa22",
+  "validation_receipt_fingerprint": "5e37a7abab6065414be00761ac79e09e853e587ab3ccf153e9f5a74081b11e2a",
+  "validation_result_closeout_fingerprint": "f27dba7fc5fcf9726a3699b8e611646d0d93b77a3dfdb8050048767a97c36ff7",
+  "validation_resume_repair_fingerprint": "fee1063a637c99749e47d67bbb553a480d3e72037be1cb9015b26b67f2275aed"
+}

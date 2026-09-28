@@ -1,0 +1,88 @@
+{
+  "schema_version": "kxbtcd_candidate_e_july10_outcome_blind_binding_implementation_freeze.v1",
+  "checkpoint_id": "21N-S-A",
+  "strategy_id": "kxbtcd_candidate_e_executable_convergence_liquidation_v1",
+  "parent_21n_r": {
+    "checkpoint_commit": "9c58d63e9faab98b486fdcbc374605abd1115d82",
+    "receipt_commit": "b6ec6226374f90bae63784aee8cda28b81e7d67b",
+    "simulator_implementation_fingerprint": "6877bf440c88e72e3dd103b55a64f935bc937eeff84ae4cf7af7a6f60d86b4bf"
+  },
+  "implementation_file_sha256s": {
+    "src/kxbtcd_candidate_e_july10_outcome_blind_binding.py": "1b5e00b6300d98dee3ea8ffaeec96664c6894ded1147cb8231aa3fb144ff63dd",
+    "src/kxbtcd_candidate_e_july10_outcome_blind_binding_freeze.py": "2f4a4e8287679029d57a7b58084721dc03ee78014e53b263f38bfafd1690b355",
+    "materialize_kxbtcd_candidate_e_july10_outcome_blind_binding.py": "849d6ca651e8a313945c4cfc2534fe3a60f8db6f592837d46e57a10059fd36dc"
+  },
+  "frozen_local_source_contract": {
+    "btc_materialization_sha256": "022f6c6ce1b697bc67f7137f73e3f18cc0fe0198b347e5154a3063107299fb12",
+    "paid_predexon_tick_shard_sha256": "43e9c5d99fb4001b866ae3e60021c8c10123dc1fb6248df96084446face68509",
+    "full_ladder_replay_summary_sha256": "b37ba7132baf086887e4b33e7c11e9de59decc5f0b387d7e6e5352a2570ebb48",
+    "independent_event_count": 4,
+    "full_ladder_ticker_count": 623,
+    "event_market_counts": {
+      "KXBTCD-26JUL1013": 78,
+      "KXBTCD-26JUL1014": 188,
+      "KXBTCD-26JUL1015": 188,
+      "KXBTCD-26JUL1016": 169
+    },
+    "structural_ticker_count": 20,
+    "btc_decision_anchor_count": 24,
+    "role_anchor_state_count": 120,
+    "paid_delta_count": 5644964,
+    "snapshot_count": 269441,
+    "pair_count": 268818,
+    "replay_ticker_file_count": 623,
+    "backfill_ticker_file_count": 623,
+    "paid_replay_backfill_ticker_sets_must_match_exactly": true
+  },
+  "binding_contract": {
+    "structural_role_selection": "frozen_numeric_strike_nearest_rank_half_up_over_full_event_ladder",
+    "candidate_e_btc_spot_field": "coinbase_current_price",
+    "decision_timestamp_field": "decision_time_utc",
+    "event_close_timestamp_field": "event_close_time_utc",
+    "btc_interpolation_allowed": false,
+    "book_interpolation_allowed": false,
+    "nearest_book_state_substitution_allowed": false,
+    "cross_strike_book_proxy_allowed": false,
+    "decision_state_requires_verified_segment": true,
+    "runtime_replay_segments_must_equal_frozen_ticker_audit_bounds": true,
+    "signal_builder": "21N-R frozen build_signal_candidates",
+    "event_selector": "21N-R frozen select_event_signal",
+    "scenario_simulator": "21N-R frozen simulate_scenario",
+    "thresholds_and_latencies": "inherited_without_change_from_21N-R",
+    "materialization_output_is_deterministic": true,
+    "nonidentical_existing_output_is_never_overwritten": true
+  },
+  "output_firewall": {
+    "settlement_label_reader_present": false,
+    "realized_pnl_function_present": false,
+    "outcome_or_settlement_value_fields_forbidden": true,
+    "settlement_fallback_quantity_allowed": true,
+    "matched_hold_settlement_quantity_allowed": true,
+    "reason_quantities_are_allowed": "position_quantities_only_not_outcome_values"
+  },
+  "evidence_and_safety": {
+    "july10_real_signal_or_path_materialization_run_by_21n_s_a": false,
+    "july10_outcomes_accessed": false,
+    "strategy_pnl_calculated": false,
+    "candidate_e_refit": false,
+    "model2_used": false,
+    "c1_c2_c3_or_protected_reserve_accessed": false,
+    "network_requests": 0,
+    "new_predexon_purchases": 0,
+    "orders_submitted": 0,
+    "paper_broker": false,
+    "demo_execution": false,
+    "real_money_execution": false,
+    "four_event_evidence_role": "exploratory_methodology_debug_only",
+    "advancement_gate": "none_due_to_four_independent_events"
+  },
+  "next_checkpoint": {
+    "id": "21N-S-B",
+    "name": "July 10 Outcome-Blind Strategy Input and Execution-Path Materialization Run",
+    "run_only_after_21n_s_a_closeout": true,
+    "outcomes_must_remain_closed": true,
+    "pnl_must_remain_unrun": true,
+    "no_strategy_tuning_from_path_diagnostics": true
+  },
+  "implementation_fingerprint": "3a20d5ae9deec2e3563362bbafb9d9ac35f1965e126d07840caa0a4de28ef008"
+}
